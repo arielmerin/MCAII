@@ -1,0 +1,300 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Licencia:		Este documento se distribuye bajo licencia (CC BY 4.0) Usted puede encontrar un resumen %%
+%%					de la licencia en http://creativecommons.org/licenses/by/4.0/deed.es					%%
+%%																											%%
+%%	-----------------------------------------------------------------------------------------------------	%%
+%%																											%%
+%%	Plantilla:		exi-examen																				%%
+%%	Descripción:	exi-examen.tex es una plantilla para realizar exámenes escritos en formato LaTeX		%%
+%%	Autor:			Ing. Alfonso Ramos Michel																%%
+%%	Fecha:			9 de diciembre de 2013																	%%
+%%	Revisión:		UNO-A																					%%
+%%	Paquetes:		inputenc																				%%
+%%					babel																					%%
+%%					graphicx																				%%
+%%					amsmath																					%%
+%%					geometry 																				%%
+%%					fancyhdr																				%%
+%%	Comandos:		\ExiEscuela		Para definir la institución educativa donde se realiza el examen.		%%
+%%					\ExiCarrera		Para definir la carrera que se realiza.									%%
+%%					\ExiMateria		Para definir la materia que se cursa.									%%
+%%					\ExiParcial		Para definir el parcial del cual se realiza el examen.					%%
+%%					\informacion	Muesta un recuadro donde poder dar instrucciones al alumno.				%%
+%%					\datos			Muestra una línea para el nombre del alumno y la fecha de realización.	%%
+%%					\pregunta		Permite introducir (dentro del entorno enummerate) una pregunta o el 	%%
+%%									planteamiento de un problema.											%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+%\usepackege{amssymb}
+\usepackage[hmargin=1in, vmargin=1in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{tasks}
+\lhead{\ExiCarrera}
+\chead{\ExiMateria}
+\rhead{\ExiParcial}
+\cfoot{\ExiEscuela}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+%=================================================================================
+%	Definición de comandos
+%=================================================================================
+\newcommand{\informacion}[1]{
+\begin{center}
+\fbox{\fbox{\parbox{\textwidth}{{\footnotesize#1}}}}
+\end{center}
+\vspace{5mm}}
+\newcommand{\datos}{\makebox[0.7\textwidth]{Nombre:~\hrulefill} Fecha:~\hrulefill}
+\newcommand{\pregunta}[2]{\item{#2}~{(#1 puntos)}\\ \vspace{5mm}						       
+			{\bf Solución}}														  
+%	Los siguientes comandos hay que definirlos desde aquí.								    %
+\newcommand{\ExiCarrera}{Matemáticas para las Ciencias II.}											  %%%
+\newcommand{\ExiMateria}{\textbf{Tarea I}}														%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ExiParcial}{Entrega: 7 de marzo de 2020}														  %%%
+\newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}	                		    %
+
+%=================================================================================
+%
+%=================================================================================
+\begin{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%            CARÁTULA            %%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\unitlength}{1cm}
+\thispagestyle{empty}
+\begin{picture}(18,4)
+\put(-0.5,1.2){\includegraphics[scale=.25]{unam1.png}}
+\put(13.5,1){\includegraphics[scale=.35]{fciencias1.png}}
+\end{picture}
+
+\begin{center}
+\vspace{-134pt}
+\textbf{\large Matemáticas para las Ciencias I}\\[0.2cm]
+\textbf{ Semestre 2020-2}\\[0.2cm]
+Prof. Pedro Porras Flores\\[0.2cm]
+Ayud. Irving Hernández Rosa \\ [0.2cm]
+\textbf{Tarea I}
+\end{center}
+\vspace{-10pt}
+\rule{17cm}{0.3mm}
+\begin{flushright}
+\vspace{-3pt}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que la tarea se entrega en equipos de a lo más tres integrantes. 
+
+
+\begin{enumerate}
+ 
+ % -----------------------------------------------------
+% Problema uno
+% -----------------------------------------------------
+
+\item Escribe el vector cero en $M_{3x4}(\mathbb{R})$
+
+% -----------------------------------------------------
+% Problema dos
+% -----------------------------------------------------
+
+ \item Sea $V$ el conjunto de todas las funciones diferenciables definidas en $\mathbb{R}$. Muestre que $V$ es un espacio vectorial con las operaciones usuales de suma y multiplicación por un escalar para funciones. 
+
+% -----------------------------------------------------
+% Problema tres
+% -----------------------------------------------------
+ 
+ \item Prueba que el conjunto de las funciones pares en $\mathbb{R}$ es un espacio vectorial con suma y multiplicación por escalar usuales para funciones. Recuerde que una función es par si $\forall x \in Dom(f)$ entonces $f(-x) = f(x)$ 
+
+% -----------------------------------------------------
+% Problema cuatro 
+% -----------------------------------------------------
+
+\item Sea $V$ el conjunto de pares ordenados de números reales. Si $(a_{1},a_{2})$ y $(b_{1},b_{2})$ son elementos de $V$ y $\alpha \in \mathbb{R}$, definamos la suma y multiplicación escalar de la siguiente manera:
+\begin{enumerate}
+\item[(i)] $(a_{1},a_{2}) + (b_{1},b_{2}) = (a_{1} + b_{1}, a_{2}b_{2})$ 
+\item[(ii)] $\alpha(a_{1},a_{2}) = (\alpha a_{1},a_{2})$.\\
+\end{enumerate}
+¿Es $V$ un espacio vectorial sobre $\mathbb{R}$ con estas operaciones?
+
+% -----------------------------------------------------
+% Problema cinco
+% -----------------------------------------------------
+
+\item Determinar cuales de los siguientes conjuntos son subespacios de $\mathbb{R}^{3}$ bajo las operaciones de suma y multiplicación por un escalar usual.\\
+
+\begin{tasks}(1)
+\task $W_{1} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1}=3a_{2}$ y $a_{3}=-a_{2} \rbrace$
+\task $W_{2} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} = a_{3} + 2 \rbrace$
+\task $W_{3} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  2a_{1} - 7a_{2} + a_{3} = 0 \rbrace$
+\task $W_{4} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} - 4a_{2} - a_{3} = 0 \rbrace$
+\end{tasks}
+%\newpage
+% -----------------------------------------------------
+% Problema seis
+% -----------------------------------------------------
+\item En cada caso diga si los vectores son generados por el conjunto $S$
+
+\begin{tasks}(1)
+\task $(2,-1,1), S =  \lbrace (1,0,2),(-1,1,1) \rbrace$
+\task $(2,-1,1,3), S =  \lbrace (1,0,1,-1),(0,1,1,1) \rbrace$
+\task $2x^3 - x^2 + x + 3, S =  \lbrace x^3 + x^2 + x +1, x^2 + x +1, x +1 \rbrace$
+\task $ \begin{pmatrix} 1 & 2 \\ -3 & 4 \end{pmatrix},  S =  \left \lbrace \begin{pmatrix} 1 & 0 \\ -1 & 0 \end{pmatrix} , \begin{pmatrix} 0 & 1 \\ 0 &1 \end{pmatrix} , \begin{pmatrix} 1 & 1 \\ 0 &0 \end{pmatrix} \right \rbrace$
+\end{tasks}
+
+% -----------------------------------------------------
+% Problema siete
+% -----------------------------------------------------
+
+\item Determina cuando los siguientes conjuntos son linealmente dependientes o linealmente independientes.
+
+\begin{tasks}(1)
+\task $\left \lbrace \begin{pmatrix} 1 & -3 \\ -2 & 4 \end{pmatrix} , \begin{pmatrix} -2 & 6 \\ 4 & -8 \end{pmatrix} \right \rbrace \in M_{2x2}(\mathbb{R})$
+\task $\left \lbrace \begin{pmatrix} 1 & -2 \\ -1 & 4 \end{pmatrix} ,\begin{pmatrix} -1 & 1 \\ 2 & -4 \end{pmatrix}  \right \rbrace \in M_{2x2}(\mathbb{R})$
+\task $\lbrace x^{3} + 2x^{2}, -x^{2} + 3x + 1, x^{3} - x^{2} + 2x -1 \rbrace \in P_{3}(\mathbb{R})$ \task $\lbrace (1,-1,2), (1,-2,1), (1,1,4) \rbrace \in \mathbb{R}^{3}$
+\task $\lbrace (1,-1,2), (2,0,1),(-1,2,-1)\rbrace \in \mathbb{R}^{3}$
+\end{tasks}
+Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \big\vert a_k \in \mathbb{R} \,  \forall k = 0,1,2,\dots n\}$
+
+% -----------------------------------------------------
+% Problema ocho
+% -----------------------------------------------------
+\item ¿Cuáles de los siguientes conjuntos son bases para $\mathbb{R}^{3}$?
+\begin{tasks}(1)
+\task  $\lbrace (1,0,-1),(2,5,1),(0,-4,3) \rbrace$
+\task $\lbrace (2,-4,1),(0,3,-1),(6,0,-1) \rbrace$
+\task $\lbrace (1,2,-1),(1,0,2),(2,1,1) \rbrace$
+\end{tasks}
+
+% -----------------------------------------------------
+% Problema nueve
+% -----------------------------------------------------
+
+\item Diga si los siguientes $x^{3} - 2x^{2} +1$,  $4x^{2} - x + 3$ y $3x - 2$ generan a $P_{3}(\mathbb{R})$
+
+% -----------------------------------------------------
+% Problema diez
+% -----------------------------------------------------
+\item Prueba que las siguientes tranformaciones $T$ son lineales y encuentra el núcleo $Nu(T)$ y la imagen $Im(T)$
+
+\begin{tasks}(1)
+\task $\lbrace T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{2}$ definida por $T(a_{1},a_{2},a_{3}) = (a_{1} - a_{2}, 2a_{3})$
+\task $\lbrace T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3}$ definida por $(a_{1},a_{2}) = (a_{1} + a_{2}, 0, 2a_{1} - a_{2})$
+\task $\lbrace T: M_{2x3}(\mathbb{R}) \longrightarrow M_{2x2}(\mathbb{R})$ definido por\\
+\\
+$T \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \end{pmatrix} = \begin{pmatrix} 2a_{11} - a_{12} & a_{13} + 2a_{12} \\ 0 & 0 \end{pmatrix}$
+\\
+\task $T: P_{2}(\mathbb{R}) \longrightarrow P_{3}(\mathbb{R})$ definida por $T(f(x)) = xf(x) + f'(x)$.
+\end{tasks}
+% -----------------------------------------------------
+% Problema once
+% -----------------------------------------------------
+ 
+\item Sean $\beta$ y $\gamma$ las bases estándar para $\mathbb{R}^{n}$ y $\mathbb{R}^{m}$ respectivamente. Para cada transformación lineal $T: \mathbb{R}^{n} \longrightarrow \mathbb{R}^{m}$ encontrar su representación matricial.
+\begin{tasks}(1)
+\task $T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3}$ definido por $T(a_{1},a_{2}) = (2a_{1} - a_{2}, 3a_{1} + 4a_{2},a_{1})$
+\task $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{2}$ definido por $T(a_{1},a_{2},a_{3}) = (2a_{1} + 3a_{2} - a_{3}, a_{1} + a_{3})$
+\task $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}$ definido por $T(a_{1},a_{2},a_{3}) = 2a_{1} + a_{2} - 3a_{3}$
+\task $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{3}$ definido por $T(a_{1},a_{2},a_{3}) = (2a_{2} + a_{3}, -a_{1} + 4a_{2} + 5a_{3},a_{1} + a_{3})$
+\end{tasks}
+
+\newpage
+% -----------------------------------------------------
+% Problema doce
+% -----------------------------------------------------
+\item Para cada uno de los siguientes pares de bases $\beta$ y $\beta'$ para $\mathbb{R}^{2}$, encuentra la matriz de cambio de coordenadas que cambia las coordenadas de $\beta'$ en las de $\beta$.
+
+\begin{tasks}(1)
+\task $\beta = \lbrace \hat{e}_{1},\hat{e}_{2} \rbrace$ y $\beta' = \lbrace (a_{1},a_{2}),(b_{1},b_{2}) \rbrace$
+\task $\beta = \lbrace (-1,3),(2,-1) \rbrace$ y $\beta' = \lbrace (0,10),(5,0) \rbrace$
+\task $\beta = \lbrace (2,5),(-1,-3) \rbrace$ y $\beta' = \lbrace e_{1},e_{2} \rbrace$
+\task $\beta = \lbrace (-4,3),(2,-1) \rbrace$ y $\beta' = \lbrace (2,1),(-4,1) \rbrace$
+\end{tasks}
+
+% -----------------------------------------------------
+% Problema trece
+% -----------------------------------------------------
+\item Encontrar la matriz inversa por el método de Gauss-Jordan de las siguientes matrices 
+
+\begin{tasks}(5)
+\task $\begin{pmatrix} 1 & 2 \\ 1 & 1 \end{pmatrix}$     
+\task $\begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$ 
+\task $\begin{pmatrix} 1 & 2 & 1 \\ 1 & 3 & 4 \\ 2 & 3 & -1 \end{pmatrix}$
+\task $\begin{pmatrix} 0 & -2 & 4 \\ 1 & 1 & -1 \\ 2 & 4 & -5 \end{pmatrix}$
+\end{tasks}
+
+
+% -----------------------------------------------------
+% Problema catorce
+% -----------------------------------------------------
+
+\item Calcular el determinante de las siguientes matrices 
+\begin{tasks}(4)
+\task $\begin{pmatrix} 6 & -3 \\ 2 & 4 \end{pmatrix}$
+\task $\begin{pmatrix} -5 & 2 \\ 6 & 1 \end{pmatrix}$ 
+\task $\begin{pmatrix} 0 & 1 & 2 \\ -1 & 0 & -3 \\ 2 & 3 & 0 \end{pmatrix}$ 
+\task $\begin{pmatrix} 0 & 2 & 1 & 3 \\ 1 & 0 & -2 & 2 \\ 3 & -1 & 0 & 1 \\ -1 & 1 & 2 & 0 \end{pmatrix}$ 
+\end{tasks}
+% ---------------------------------------------------
+% Problema quince
+% ----------------------------------------------------
+\item Para cada par de vectores $u$ y $v$ en $\mathbb{R}^2$, calcula el área del paralelogramo determinado por $u$ y $v$.
+
+\begin{tasks}(3)
+\task $\vec{u} = (3,-2)$ y $\vec{v} = (2,5)$
+\task $\vec{u}  = (1,3)$ y $\vec{v}  = (-3,1)$ 
+\task $\vec{u}  = (4,-1)$ y $\vec{v}  = (-6,-2)$
+\end{tasks}
+% ---------------------------------------------------
+% Problema diesciseis 
+% ----------------------------------------------------
+\item Para cada una de las siguientes matrices $A \in M_{nxn}(\mathbb{R})$ determine los valores propios de $A$ y para cada valor propio $\lambda$ de $A$, encontrar el conjunto de vectores propios correspondientes a $A$
+
+\begin{tasks}(3)
+\task $A = \begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix}$
+%\task $A = \begin{pmatrix} 2 & 2 \\ 2 & -1 \end{pmatrix}$
+\task $A = \begin{pmatrix} 1 & 0 & 2 \\ -1 & 1 & 1 \\ 2 & 0 & 1 \end{pmatrix}$
+\task $A = \begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 2 & 5 \end{pmatrix}$
+\end{tasks}
+
+% ---------------------------------------------------
+% Problema siete
+% ----------------------------------------------------
+
+\item Encuentre los ejes principales de la siguiente superficie $x^2 + 4y^2 + 5z^2 + 8xz - 36 = 0$ y con ello construya una matriz de rotación de tal manera que los ejes principales de la superficie coincidan con los con los vectores canónicos de $\mathbb{R}^3$. ¿Qué superficie es?   
+
+\item Aplique el proceso de Gram-Schmidt para construir una base ortonormal en cada caso
+
+\begin{tasks}(2)
+\task  $\lbrace (1,1), (1,2) \rbrace$
+\task $\lbrace (3,-3), (3,1) \rbrace$
+\task $\lbrace (1,-1,-1), (0,3,3), (3,2,4) \rbrace$
+\task $\lbrace (1,1,1), (1,1,0), (1,0,0) \rbrace$
+\end{tasks}
+
+\item Encuentre la distancia de punto $(2,1,-1)$ al plano $x -2y + 2z + 5 = 0$
+
+\item Encuentre la ecuación del plano que pasa por los puntos $(3,2,-1)$ $(1,-1,2)$ que es paralelo a la recta $\ell = (1,-1,0) + t(3,2,-2)$
+
+\end{enumerate}
+
+
+
+
+\end{document}
