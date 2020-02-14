@@ -15,6 +15,7 @@ includefoot]{geometry}
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{paralist}
+\usepackage{tasks}
 
 \newcommand{\V}{\mathds{V}}
 
@@ -48,64 +49,9 @@ includefoot]{geometry}
 		\let\newpage\relax% Avoid following page break
 		\hrulefill
 	\end{titlepage}
-	\section{Definición de espacio vectorial}
-	\begin{definition}
-		Definimos $ \R^2 $ como el conjunto de pares ordenados $ (x,y) $ tal que $ x $ es un real y $ y $ es un real.
-		\[ \R^2 = \{(x,y) | x \in \R \land y \in \R \} \]
-	\end{definition}
-	\begin{definition}
-		\textbf{Campo}, conjunto no vacío con operaciones binarias (+,*) 
-		$ \tq $ cumplen las siguientes 11 propiedades
-		\begin{enumerate}[(I)]
-			\item Cerrado bajo la suma
-			\[x,y \in \R \implies x + y \in \R \]
-			\item  Cerrado bajo el producto
-			\[  x,y \in \R \implies x\cdot y \in \R \]
-			\item Conmutatividad para la suma
-			\[  x,y \in \R \implies x + y = y + x\]
-			\item Conmutatividad para el producto
-			\[  x,y \in \R \implies x \cdot y  = y\cdot x \]
-			\item Asociatividad para el producto
-			\[  x,y,z \in \R \implies x\* y = y \* x \]
-			\item Asociatividad para la suma
-			\[  x,y,z  \in \R \implies x +(y+z) = y + (x +z)  \]
-			\item Neutro aditivo
-			\[ \exists 0 \in \R \tq x + 0 = x \]
-			\item Neutro multiplicativo
-			\[ \exists 1 \in \R \tq x \* 1 = x  \]
-			\item Inverso aditivo
-			\[ \exists n  \in \R \tq x + n = 0  \]
-			\item Inverso multiplicativo
-			\[ \exists n \in \R \backslash \{0\} \tq x\* n = 1 \]
-			\item Distributividad
-			\[ x,y,z \in \R \tq x \*(y+z) = x\* y + x \* z  \]
-		\end{enumerate}
-	\end{definition}
-	\begin{definition}
-		\textbf{Espacio vectorial} Sea $ \V $ un conjunto  no vacío, con dos operaciones binarias y $ \F $ un campo, diremos que $ \V $ es espacio vectorial si cumple
-		\begin{enumerate}[(i)]
-			\item Conmutatividad para la suma
-			\[ \vec{x}, \vec{y} \in \V \implies \vec{x} + \vec{y} = \vec{y} + \vec{x} \]
-			\item Asociatividad para la suma
-			\[ \vec{x},\vec{y},\vec{z} \in \V \implies (\vec{x} + \vec{y}) + \vec{z} = ( \vec{z} + \vec{y}) + \vec{x}  \]
-			\item Neutro Aditivo
-			\[ \exists \vec{0}\in \V \tq \vec{x} + \vec{0} = \vec{x} \]
-			\item Inverso aditivo 
-			\[\forall \vec{x} \in \V \quad \exists \vec{y} \in \V \tq \vec{x} + \vec{y} = 0 \]
-			\item Neutro multiplicativo
-			\[\forall \vec{x} \in \V \implies 1\* \vec{x} = \vec{x} \]
-			\item Asociatividad para la multiplicación
-			\[ \forall \ \alpha, \beta \in \F \ \land \ \vec{x} \in \V \implies (\alpha \beta)\vec{x} = \alpha(\beta \vec{x}) \]
-			\item Distributividad entre escalares y vectores
-			\[  \forall \ \alpha, \beta \in \F \ \land \ \vec{x} \in \V \implies (\alpha + \beta)\vec{x} = \alpha \vec{x} + \beta \vec{x} \]
-			\item Distributividad entre vectores y escalares
-			\[  \forall \ \alpha \in \F \ \land \ \vec{x} \in \V \implies \alpha (\vec{x} + \vec{y}) = \alpha \vec{x} + \alpha \vec{y} \]	
-		\end{enumerate}
-	\end{definition}
-	\subsection{Definición de las operaciones binarias en espacios vectoriales}
-\newpage
+
 	
-	1. Escribe el vector cero en $M_{3x4}(\mathbb{R})$
+	\noindent 1. Escribe el vector cero en $M_{3x4}(\mathbb{R})$
 		\begin{definition}[Matriz]
 		Una \textbf{Matriz} es un arreglo rectangular de elementos de un campo $ \F(\R) $ de la forma
 		\begin{equation*}
@@ -136,6 +82,70 @@ includefoot]{geometry}
 		\end{pmatrix}
 		\end{equation*}
 		
- 2. Sea $V$ el conjunto de todas las funciones diferenciables definidas en $\mathbb{R}$. Muestre que $V$ es un espacio vectorial con las operaciones usuales de suma y multiplicación por un escalar para funciones. 
+ \noindent2. Sea $V$ el conjunto de todas las funciones diferenciables definidas en $\mathbb{R}$. Muestre que $V$ es un espacio vectorial con las operaciones usuales de suma y multiplicación por un escalar para funciones. 
+	
+	Veamos que la derivada cumple las siguientes propiedades
+	\begin{align*}
+	(f(x) + g(x))' &= \lim_{h\to 0} \dfrac{f(x +h) + g(x + h) - (f(x) + g(x))}{h}\\
+	& = \lim_{h\to 0} \dfrac{f(x+h) - f(x) + g(x+h) - g(x)}{h}\\
+	&= \lim_{h\to 0} \dfrac{f(x+h)-f(x)}{h} + \lim_{h\to 0} \dfrac{g(x+h)-g(x)}{h}\\
+	&=f'(x) + g'(x)
+	\end{align*}
+	Así hemos probado que la derivada abre sumas
+	\begin{align*}
+	(cf(x))' &= \lim_{h\to 0} \dfrac{cf(x + h) - cf(x)}{h}\\
+	& = c\lim_{h\to 0} \dfrac{f(x+h)-f(x)}{h}\\
+	&= cf'(x)
+	\end{align*}
+	De esta manera queda conolidado que en la funciónd derivada, los escalares son sacados de la función
+	
+	\begin{align*}
+	f'(x) &= \lim_{h\to 0} \dfrac{f(x + h) - f(x)}{h}\\
+	& = \lim_{h\to 0} \dfrac{c-c}{h}\\
+	&= 0
+	\end{align*}
+	Esto se vale para cualquier constante, en particular el 0\\
+	
+ \noindent 3. Prueba que el conjunto de las funciones pares en $\mathbb{R}$ es un espacio vectorial con suma y multiplicación por escalar usuales para funciones. Recuerde que una función es par si $\forall x \in Dom(f)$ entonces $f(-x) = f(x)$ \\
+ 	
+ 	Si tenemos en cuenta que $f(-t) + g(-t) = f(t) + g(t)$ y que si tenemos constantes siempre ocurre que $cf(-t) = cf(t) $ entonces ya hemos probado las dos primeras condiciones y para hallar el neutro basta con usar el 0 del cambo $(\R)$ para notar que también lo manda al 0 vector.\\
+ 	
+\noindent 4. Sea $V$ el conjunto de pares ordenados de números reales. Si $(a_{1},a_{2})$ y $(b_{1},b_{2})$ son elementos de $V$ y $\alpha \in \mathbb{R}$, definamos la suma y multiplicación escalar de la siguiente manera:
+\begin{enumerate}
+\item[(i)] $(a_{1},a_{2}) + (b_{1},b_{2}) = (a_{1} + b_{1}, a_{2}b_{2})$ 
+\item[(ii)] $\alpha(a_{1},a_{2}) = (\alpha a_{1},a_{2})$.\\
+\end{enumerate}
+¿Es $V$ un espacio vectorial sobre $\mathbb{R}$ con estas operaciones?\\
+
+No puede ser un espacio vectorial porque si tenemos que \[ 0(a_1, a_2) = (0, a_2)  \] para complir el cero vector, entonces se compliría para cualquier $a_2$ lo cual no es posible pues contradice la unicidad del cero.\\
+
+\noindent 5. Determinar cuales de los siguientes conjuntos son subespacios de $\mathbb{R}^{3}$ bajo las operaciones de suma y multiplicación por un escalar usual.\\
+Basta con revisar si en cada caso se encuentra cerrado bajo la multiplicación escalar y bajo la adición, además que siempre contenga al o
+
+\begin{tasks}(1)
+\task $W_{1} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1}=3a_{2}$ y $a_{3}=-a_{2} \rbrace$
+
+Sí es linear porque lo satisface $t(3,1,-1)$
+\task $W_{2} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} = a_{3} + 2 \rbrace$
+
+NO es linear porque no contiene al elemento neutro dentro del espacio vectorial.
+\task $W_{3} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  2a_{1} - 7a_{2} + a_{3} = 0 \rbrace$
+
+Sí es linear pues lo satisface $(2,-7,1)$
+\task $W_{4} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} - 4a_{2} - a_{3} = 0 \rbrace$
+
+Sí es linear pues lo satisface $(1,-4,-1)$
+
+\end{tasks}
+
+
+\noindent 6. En cada caso diga si los vectores son generados por el conjunto $S$
+
+\begin{tasks}(1)
+\task $(2,-1,1), S =  \lbrace (1,0,2),(-1,1,1) \rbrace$
+\task $(2,-1,1,3), S =  \lbrace (1,0,1,-1),(0,1,1,1) \rbrace$
+\task $2x^3 - x^2 + x + 3, S =  \lbrace x^3 + x^2 + x +1, x^2 + x +1, x +1 \rbrace$
+\task $ \begin{pmatrix} 1 & 2 \\ -3 & 4 \end{pmatrix},  S =  \left \lbrace \begin{pmatrix} 1 & 0 \\ -1 & 0 \end{pmatrix} , \begin{pmatrix} 0 & 1 \\ 0 &1 \end{pmatrix} , \begin{pmatrix} 1 & 1 \\ 0 &0 \end{pmatrix} \right \rbrace$
+\end{tasks}
 	
 \end{document}
