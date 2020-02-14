@@ -1,0 +1,125 @@
+\documentclass[letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-nodecimaldot]{babel}
+\usepackage{amssymb, amsmath}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{dsfont}
+\usepackage[margin=2cm,
+vmargin={1.5cm,1.3cm},
+includefoot]{geometry}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tocloft}
+\usepackage{upgreek}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{paralist}
+
+\newcommand{\V}{\mathds{V}}
+
+\newcommand{\F}{\mathds{F}}
+
+\newcommand{\tq}{ \quad \cdot  \backepsilon \cdot \quad }
+
+\newcommand{\ld}{\lim\limits_{x \to 0^{+}}}
+
+\newcommand{\li}{\lim\limits_{x \to 0^{-}}}
+
+\newcommand{\la}{\lim\limits_{x \to a}}
+
+\newcommand{\R}{\mathds{R}}
+
+\renewcommand{\*}{\cdot}
+
+\newtheorem{theorem}{Teorema}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]
+
+\begin{document}
+		\begin{titlepage}
+		\begin{center}
+			\Large{\textbf{Espacios vectoriales}} \\[0.1cm]
+			\huge{Matemáticas para las ciencias aplicadas II}\\[0.2cm]
+			\large{Aquino Chapa Armando Abraham y Merino Peña Kevin Ariel }
+			\\
+			\today
+		\end{center}
+		\let\newpage\relax% Avoid following page break
+		\hrulefill
+	\end{titlepage}
+	\section{Definición de espacio vectorial}
+	\begin{definition}
+		Definimos $ \R^2 $ como el conjunto de pares ordenados $ (x,y) $ tal que $ x $ es un real y $ y $ es un real.
+		\[ \R^2 = \{(x,y) | x \in \R \land y \in \R \} \]
+	\end{definition}
+	\begin{definition}
+		\textbf{Campo}, conjunto no vacío con operaciones binarias (+,*) 
+		$ \tq $ cumplen las siguientes 11 propiedades
+		\begin{enumerate}[(I)]
+			\item Cerrado bajo la suma
+			\[x,y \in \R \implies x + y \in \R \]
+			\item  Cerrado bajo el producto
+			\[  x,y \in \R \implies x\cdot y \in \R \]
+			\item Conmutatividad para la suma
+			\[  x,y \in \R \implies x + y = y + x\]
+			\item Conmutatividad para el producto
+			\[  x,y \in \R \implies x \cdot y  = y\cdot x \]
+			\item Asociatividad para el producto
+			\[  x,y,z \in \R \implies x\* y = y \* x \]
+			\item Asociatividad para la suma
+			\[  x,y,z  \in \R \implies x +(y+z) = y + (x +z)  \]
+			\item Neutro aditivo
+			\[ \exists 0 \in \R \tq x + 0 = x \]
+			\item Neutro multiplicativo
+			\[ \exists 1 \in \R \tq x \* 1 = x  \]
+			\item Inverso aditivo
+			\[ \exists n  \in \R \tq x + n = 0  \]
+			\item Inverso multiplicativo
+			\[ \exists n \in \R \backslash \{0\} \tq x\* n = 1 \]
+			\item Distributividad
+			\[ x,y,z \in \R \tq x \*(y+z) = x\* y + x \* z  \]
+		\end{enumerate}
+	\end{definition}
+	\begin{definition}
+		\textbf{Espacio vectorial} Sea $ \V $ un conjunto  no vacío, con dos operaciones binarias y $ \F $ un campo, diremos que $ \V $ es espacio vectorial si cumple
+		\begin{enumerate}[(i)]
+			\item Conmutatividad para la suma
+			\[ \vec{x}, \vec{y} \in \V \implies \vec{x} + \vec{y} = \vec{y} + \vec{x} \]
+			\item Asociatividad para la suma
+			\[ \vec{x},\vec{y},\vec{z} \in \V \implies (\vec{x} + \vec{y}) + \vec{z} = ( \vec{z} + \vec{y}) + \vec{x}  \]
+			\item Neutro Aditivo
+			\[ \exists \vec{0}\in \V \tq \vec{x} + \vec{0} = \vec{x} \]
+			\item Inverso aditivo 
+			\[\forall \vec{x} \in \V \quad \exists \vec{y} \in \V \tq \vec{x} + \vec{y} = 0 \]
+			\item Neutro multiplicativo
+			\[\forall \vec{x} \in \V \implies 1\* \vec{x} = \vec{x} \]
+			\item Asociatividad para la multiplicación
+			\[ \forall \ \alpha, \beta \in \F \ \land \ \vec{x} \in \V \implies (\alpha \beta)\vec{x} = \alpha(\beta \vec{x}) \]
+			\item Distributividad entre escalares y vectores
+			\[  \forall \ \alpha, \beta \in \F \ \land \ \vec{x} \in \V \implies (\alpha + \beta)\vec{x} = \alpha \vec{x} + \beta \vec{x} \]
+			\item Distributividad entre vectores y escalares
+			\[  \forall \ \alpha \in \F \ \land \ \vec{x} \in \V \implies \alpha (\vec{x} + \vec{y}) = \alpha \vec{x} + \alpha \vec{y} \]	
+		\end{enumerate}
+	\end{definition}
+	\subsection{Definición de las operaciones binarias en espacios vectoriales}
+
+	
+		\begin{definition}[Matriz]
+		Una \textbf{Matriz} es un arreglo rectangular de elementos de un campo $ \F(\R) $ de la forma
+		\begin{equation*}
+		A_{m,n} = 
+		\begin{pmatrix}
+		a_{1,1} & a_{1,2} & \cdots & a_{1,n} \\
+		a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
+		\vdots  & \vdots  & \ddots & \vdots  \\
+		a_{m,1} & a_{m,2} & \cdots & a_{m,n} 
+		\end{pmatrix}
+		\end{equation*}
+		A los elementos $ a_{i,j} $ con $ 1 \leq j \leq n $ y $ 1 \leq i \leq m $ se les llama entradas de la matriz, a las matrices las denotamos por $ \mathds{A} $ 				\textit{(letras mayúsculas)} y al conjunto de las matrices de mn se les denota por $ M_{m\times n}(\F) $
+		\end{definition}
+
+		
+	
+	
+\end{document}
