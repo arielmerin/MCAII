@@ -86,6 +86,26 @@ includefoot]{geometry}
 	
 	Veamos que la derivada cumple las siguientes propiedades
 	\begin{align*}
-	(f(x) + g(x))' &= \lim_{h\to 0}
+	(f(x) + g(x))' &= \lim_{h\to 0} \dfrac{f(x +h) + g(x + h) - (f(x) + g(x))}{h}\\
+	& = \lim_{h\to 0} \dfrac{f(x+h) - f(x) + g(x+h) - g(x)}{h}\\
+	&= \lim_{h\to 0} \dfrac{f(x+h)-f(x)}{h} + \lim_{h\to 0} \dfrac{g(x+h)-g(x)}{h}\\
+	&=f'(x) + g'(x)
 	\end{align*}
+	Así hemos probado que la derivada abre sumas
+	\begin{align*}
+	(cf(x))' &= \lim_{h\to 0} \dfrac{cf(x + h) - cf(x)}{h}\\
+	& = c\lim_{h\to 0} \dfrac{f(x+h)-f(x)}{h}\\
+	&= cf'(x)
+	\end{align*}
+	De esta manera queda conolidado que en la funciónd derivada, los escalares son sacados de la función
+	
+	\begin{align*}
+	f'(x) &= \lim_{h\to 0} \dfrac{f(x + h) - f(x)}{h}\\
+	& = \lim_{h\to 0} \dfrac{c-c}{h}\\
+	&= 0
+	\end{align*}
+	Esto se vale para cualquier constante, en particular el 0
+	
+	
+	
 \end{document}
