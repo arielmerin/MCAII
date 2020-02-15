@@ -117,7 +117,7 @@ includefoot]{geometry}
 \end{enumerate}
 ¿Es $V$ un espacio vectorial sobre $\mathbb{R}$ con estas operaciones?\\
 
-No puede ser un espacio vectorial porque si tenemos que \[ 0(a_1, a_2) = (0, a_2)  \] para complir el cero vector, entonces se compliría para cualquier $a_2$ lo cual no es posible pues contradice la unicidad del cero.\\
+No puede ser un espacio vectorial porque si tenemos que \[ 0(a_1, a_2) = (0, a_2)  \] para cumplir el cero vector, entonces se compliría para cualquier $a_2$ lo cual no es posible pues contradice la unicidad del cero.\\
 
 \noindent 5. Determinar cuales de los siguientes conjuntos son subespacios de $\mathbb{R}^{3}$ bajo las operaciones de suma y multiplicación por un escalar usual.\\
 Basta con revisar si en cada caso se encuentra cerrado bajo la multiplicación escalar y bajo la adición, además que siempre contenga al o
@@ -143,6 +143,31 @@ Sí es linear pues lo satisface $(1,-4,-1)$
 
 \begin{tasks}(1)
 \task $(2,-1,1), S =  \lbrace (1,0,2),(-1,1,1) \rbrace$
+
+Sea $\alpha _1$, $\alpha _2 \in \mathbb{R}$.
+
+Entonces $(2,-1,1) = \alpha _{1}(1,0,2) + \alpha _{2}(-1,1,1) = (\alpha _{1}, 0, 2\alpha _{1})+ (-\alpha _{2},\alpha _{2},\alpha _{2}) = \alpha _{1}-\alpha _{2},\alpha _{2},2\alpha _{1}+\alpha _{2}$.
+
+Tenemos el siguiente sistema de ecuaciones:
+\begin{eqnarray*}
+\alpha_{1}-\alpha_{2}= 2 \\
+\alpha_{2} = -1\\
+2\alpha_{1}+\alpha_{2}=1\\
+\end{eqnarray*}
+Ahora:
+\begin{eqnarray*}
+\alpha_{1} -(-1)=2 \\
+\alpha_{2}=-1\\
+2\alpha_{1} + \alpha_{2} = 1\\
+\end{eqnarray*}
+Al resolver el sistema, obtenemos:
+\begin{eqnarray}
+\alpha_{1}=1 \\
+\alpha_{2} = -1 \\
+1 = 1
+\end{eqnarray}
+Entonces:\\ $1(1,0,2) + (-1)(-1,1,1) = (1,0,2) + (1,-1,-1) = (2,-1,1)$\\
+Cómo el sistema de ecuaciones si se satisface, el conjunto $S$ SI genera al vector $(2,-1,-1)$
 \task $(2,-1,1,3), S =  \lbrace (1,0,1,-1),(0,1,1,1) \rbrace$
 \task $2x^3 - x^2 + x + 3, S =  \lbrace x^3 + x^2 + x +1, x^2 + x +1, x +1 \rbrace$
 \task $ \begin{pmatrix} 1 & 2 \\ -3 & 4 \end{pmatrix},  S =  \left \lbrace \begin{pmatrix} 1 & 0 \\ -1 & 0 \end{pmatrix} , \begin{pmatrix} 0 & 1 \\ 0 &1 \end{pmatrix} , \begin{pmatrix} 1 & 1 \\ 0 &0 \end{pmatrix} \right \rbrace$
