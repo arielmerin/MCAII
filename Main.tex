@@ -226,7 +226,15 @@ Por lo que ocurre lo siguiente
 
 Ahora llegamos a una contradicción, puesto que el sistema de ecuaciones anterior implica que $\alpha_1 + \alpha_2 + \alpha_3 = 3 = 1$ por lo que el conjunto S no genera $ 2x^3 - x^2 + x + 3$
 
-d) $ \begin{pmatrix} 1 & 2 \\ -3 & 4 \end{pmatrix},  S =  \left \lbrace \begin{pmatrix} 1 & 0 \\ -1 & 0 \end{pmatrix} , \begin{pmatrix} 0 & 1 \\ 0 &1 \end{pmatrix} , \begin{pmatrix} 1 & 1 \\ 0 &0 \end{pmatrix} \right \rbrace$
+d) $$ \begin{pmatrix} 1 & 2 \\ -3 & 4 \end{pmatrix},  S =  \lbrace \begin{pmatrix} 1 & 0 \\ -1 & 0 \end{pmatrix} , \begin{pmatrix} 0 & 1 \\ 0 &1 \end{pmatrix} , \begin{pmatrix} 1 & 1 \\ 0 &0 \end{pmatrix} \rbrace$$
+Recordemos que la suma de matrices se hace entrada por entrada eso es, si se van a sumar 2 matrices $A + B$ se hace de la forma $a_{ij} + b_{ij}  \forall i,j \in A,B$ de tal manera que existen  $a_{ij} + b_{ij}  \forall i,i \in A,B$ de tal manera que existen $\alpha, \beta, \gamma \tq $
 
-	
+\begin{align*}
+ \begin{pmatrix} 1 & 2 \\ -3 & 4 \end{pmatrix} &= \alpha \begin{pmatrix} 1 & 0 \\ -1 & 0 \end{pmatrix}  + \beta \begin{pmatrix} 0 & 1 \\ 0 &1 \end{pmatrix}  + \gamma  \begin{pmatrix} 1 & 1 \\ 0 &0 \end{pmatrix} \\
+  & = \begin{pmatrix} \alpha_{1,1}  + \gamma_{1,1} & \beta_{1,2} + \gamma_{1,2} \\ -\alpha_{2,1} & \beta_{2,2} \end{pmatrix}  
+\end{align*}
+
+Notemos que $$ -\alpha_{2,1} = -3  \implies  \alpha = 3$$ y luego 
+$$\beta_{2,2} = 4 \implies \beta = 4 $$ y finalmente $$\gamma = 2 - \beta_{1,2} \implies \gamma = 4 $$
+
 \end{document}
