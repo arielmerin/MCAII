@@ -33,6 +33,13 @@ includefoot]{geometry}
 
 \renewcommand{\*}{\cdot}
 
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
 \newtheorem{theorem}{Teorema}[section]
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}
@@ -244,6 +251,10 @@ $ \therefore W_4 $ es subespacio vectorial de $ \R^3 $
 
 
 \noindent \textbf{6}. En cada caso diga si los vectores son generados por el conjunto $S$ \\
+
+\begin{definition}
+	Sea $ \mathcal{S} $ un subconjunto de un espacio vectorial $ \mathcal{V} $ decimos que $ \mathcal{S} $ genera a $ \mathcal{V} $ si $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ al generado de s se le denota como $ span(\mathcal{S}), <\mathcal{S}>, gen(\mathcal{S})$ 
+\end{definition}
 
 \textbf{a)} $(2,-1,1), S =  \lbrace (1,0,2),(-1,1,1) \rbrace$
 
@@ -594,11 +605,110 @@ Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \
 \\
 
 \noindent \textbf{8.} ¿Cuáles de los siguientes conjuntos son bases para $\mathbb{R}^{3}$?
-\begin{tasks}(1)
-	\task  $\lbrace (1,0,-1),(2,5,1),(0,-4,3) \rbrace$
-	\task $\lbrace (2,-4,1),(0,3,-1),(6,0,-1) \rbrace$
-	\task $\lbrace (1,2,-1),(1,0,2),(2,1,1) \rbrace$
-\end{tasks}
+	\begin{definition}
+		Una \textbf{base} $ \beta $ de $ \mathcal{V} $ espacio vectorial es un subconjunto de $ \mathcal{V} \tq \beta$  genera a $ \mathcal{V} $ y $ \beta $ es linealmente independiente
+	\end{definition}
+
+	a)  $S = \lbrace (1,0,-1),(2,5,1),(0,-4,3) \rbrace$
+	En primer lugar veamos quién es el generado del conjunto $ S $, recordemos que un conjunto genera a otro $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ 
+	
+	Sean $ \alpha_1, \beta, \gamma \in \R $ entonces
+	\[ \alpha(1,0,-,) + \beta(2,5,1) + \gamma(0,-4,3)  \]
+	\begin{align*}
+		\alpha(1,0,-1)+ \beta(2,5,1)+ \gamma(0,-4,3) & = (\alpha,0,-\alpha) + (2\beta,5\beta,\beta) + (0,-4\gamma,3\gamma)\\
+		& = (\alpha + 2\beta ,5\beta -4\gamma,-\alpha + \beta +3\gamma)
+	\end{align*}
+	Necesitamos que cada uno de esos vectores pueda ser el valor de una posición de $ \R^3 $ por lo que debería verse como \[ 	\alpha(1,0,-1)+ \beta(2,5,1)+ \gamma(0,-4,3) = \delta(1,0,0) + \epsilon(0,1,0) + \eta(0,0,1) \] De esta manera podemos obtener el siguiente sistema de ecuaciones
+	\begin{align*}
+		\alpha + 2\beta + 0\gamma = \delta + 0\epsilon + 0\eta\\
+		0\alpha + 5\beta -4\gamma = 0\delta + \epsilon + 0\eta\\
+		-\alpha + \beta +3\gamma = 0\delta +0\epsilon + \eta
+	\end{align*}
+	
+	\begin{align*}
+		\begin{pmatrix}
+			\alpha & 2\beta & 0\gamma\\
+			0\alpha & 5\beta & -4\gamma\\
+			-\alpha & \beta & 3\gamma
+		\end{pmatrix}
+		&= 		\begin{pmatrix}
+		\delta & 0\epsilon & 0\eta\\
+		0\delta & \epsilon & 0\eta\\
+		0\delta & 0\epsilon & \eta
+		\end{pmatrix}  = 		 \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		0\alpha & 5\beta & -4\gamma& 0\delta & \epsilon & 0\eta\\
+		-\alpha & \beta & 3\gamma & 0\delta & 0\epsilon & \eta
+		\end{pmatrix} 
+	\end{align*}
+	\begin{align*}
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 5\beta & -4\gamma& 0\delta & \epsilon & 0\eta\\
+		 -\alpha & \beta & 3\gamma & 0\delta & 0\epsilon & \eta
+		 \end{pmatrix} &= 		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 5\beta & -4\gamma& 0\delta & \epsilon & 0\eta\\
+		 0\alpha & 3\beta & 3\gamma & \delta & 0\epsilon & \eta
+		 \end{pmatrix} && \text{1ra fila + 2da fila en \textbf{3ra fila}} \\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 5\beta & -4\gamma& 0\delta & \epsilon & 0\eta\\
+		 0\alpha & 3\beta & 3\gamma & \delta & 0\epsilon & \eta
+		 \end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 3\beta & 3\gamma & \delta & 0\epsilon & \eta
+		 \end{pmatrix} && \text{2da fila $ \* \frac{1}{5} $ en \textbf{2da fila}}\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 3\beta & 3\gamma & \delta & 0\epsilon & \eta
+		 \end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 0\beta & \frac{27}{5}\gamma & \delta & -\frac{3}{5}\epsilon & \eta
+		 \end{pmatrix} && \text{2da fila $ \* -3  +  3^{ra}$ fila en \textbf{3ra fila}}\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 0\beta & \frac{27}{5}\gamma & \delta & -\frac{3}{5}\epsilon & \eta
+		 \end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} && \text{ 3ra fila $ \* \frac{5}{27}$ \textbf{en 3ra fila} }\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & 0\gamma& \frac{4}{27}\delta & \frac{1}{9}\epsilon & \frac{4}{27}\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} && \text{(3ra fila $ \* \dfrac{4}{5}) + 2^{da} $  fila \textbf{en 2da fila} }\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & 0\gamma& \frac{4}{27}\delta & \frac{1}{9}\epsilon & \frac{4}{27}\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		 \alpha & 0\beta & 0\gamma & \frac{19}{27}\delta & -\frac{2}{9}\epsilon & -\frac{8}{27}\eta\\
+		 0\alpha & 1\beta & 0\gamma& \frac{4}{27}\delta & \frac{1}{9}\epsilon & \frac{4}{27}\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} && \text{(2da fila $ \* -2) + 1^{a} $ fila \textbf{en 1ra fila}}\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 0\beta & 0\gamma & \frac{19}{27}\delta & -\frac{2}{9}\epsilon & -\frac{8}{27}\eta\\
+		 0\alpha & 1\beta & 0\gamma& \frac{4}{27}\delta & \frac{1}{9}\epsilon & \frac{4}{27}\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		 1 & 0 & 0 & \frac{19}{27} & -\frac{2}{9} & -\frac{8}{27}\\
+		 0 & 1 & 0& \frac{4}{27} & \frac{1}{9} & \frac{4}{27}\\
+		 0 & 0 & 1 & \frac{5}{27} & -\frac{1}{9} & \frac{5}{27}
+		 \end{pmatrix} && \text{Conservando sólo \textbf{coeficientes}}
+	\end{align*}
+	
+	b) $\lbrace (2,-4,1),(0,3,-1),(6,0,-1) \rbrace$
+	c) $\lbrace (1,2,-1),(1,0,2),(2,1,1) \rbrace$
 
 
 \end{document}
