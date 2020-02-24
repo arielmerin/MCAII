@@ -706,9 +706,100 @@ Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \
 		 0 & 0 & 1 & \frac{5}{27} & -\frac{1}{9} & \frac{5}{27}
 		 \end{pmatrix} && \text{Conservando sólo \textbf{coeficientes}}
 	\end{align*}
+	\begin{align*}
+		\alpha &= \frac{19}{27}\delta -\frac{2}{9}\epsilon -\frac{8}{27}\eta\\
+		\beta &= \frac{4}{27}\delta+ \frac{1}{9}\epsilon + \frac{4}{27}\eta\\
+		\delta &= \frac{5}{27}\delta -\frac{1}{9}\epsilon+ \frac{5}{27}\eta
+	\end{align*}
+	\[ \therefore  \mathcal{S} \text{ genera a } \R^3  \]
 	
+	Ahora veamos si es linealmente independiente, lo cual ocurre si la única solución para \[ \alpha(1,0,-1) + \beta(2,5,1) + \gamma(0,-4,3) = 0  \] es que \[ \alpha = \beta = \gamma = 0 \]
+	
+		\begin{align*}
+		\alpha + 2\beta + 0\gamma =0\\
+		0\alpha + 5\beta -4\gamma = 0\\
+		-\alpha + \beta +3\gamma = 0
+		\end{align*}
+	Resolviendo dicho sistema obtenemos que 
+	
+		\begin{align*}
+		\begin{pmatrix}[ccc|c]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 5\beta & -4\gamma& 0\\
+		-\alpha & \beta & 3\gamma & 0
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 5\beta & -4\gamma& 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} && \text{1ra fila + 2da fila en \textbf{3ra fila}} \\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 5\beta & -4\gamma& 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} && \text{2da fila $ \* \frac{1}{5} $ en \textbf{2da fila}}\\
+		\end{align*}
+		\begin{align*}
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 0\beta & \frac{27}{5}\gamma & 0
+		\end{pmatrix} && \text{2da fila $ \* -3  +  3^{ra}$ fila en \textbf{3ra fila}}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 0\beta & \frac{27}{5}\gamma & 0
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 0\beta & \gamma & 0
+		\end{pmatrix} && \text{ 3ra fila $ \* \frac{5}{27}$ \textbf{en 3ra fila} }\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 0\beta & \gamma &0
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & 0\gamma& 0\\
+		0\alpha & 0\beta & \gamma & 0
+		\end{pmatrix} && \text{(3ra fila $ \* \dfrac{4}{5}) + 2^{da} $  fila \textbf{en 2da fila} }\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & 0\gamma& 0\\
+		0\alpha & 0\beta & \gamma & 0
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & 0\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & 0\gamma& 0\\
+		0\alpha & 0\beta & \gamma & 0
+		\end{pmatrix} && \text{(2da fila $ \* -2) + 1^{a} $ fila \textbf{en 1ra fila}}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 0\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & 0\gamma& 0\\
+		0\alpha & 0\beta & \gamma &0
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 0 & 0 &0\\
+		0 & 1 & 0& 0\\
+		0 & 0 & 1 & 0
+		\end{pmatrix} && \text{Conservando sólo \textbf{coeficientes}}
+		\end{align*}
+		
+		De esta manera podemos concluir que $ \mathcal{S} $ es \textbf{linealmente independiente} 
+		\begin{center}
+			$ \therefore \mathcal{S} $ es Base para $ \R^3 $ 
+		\end{center}
 	b) $\lbrace (2,-4,1),(0,3,-1),(6,0,-1) \rbrace$
+	
+	
 	c) $\lbrace (1,2,-1),(1,0,2),(2,1,1) \rbrace$
 
 
 \end{document}
+
+
