@@ -35,7 +35,7 @@ includefoot]{geometry}
 
 \newtheorem{theorem}{Teorema}[section]
 \theoremstyle{definition}
-\newtheorem{definition}{Definición}[section]
+\newtheorem{definition}{Definición}
 
 \begin{document}
 		\begin{titlepage}
@@ -122,6 +122,7 @@ No puede ser un espacio vectorial porque si tenemos que \[ 0(a_1, a_2) = (0, a_2
 \noindent 5. Determinar cuales de los siguientes conjuntos son subespacios de $\mathbb{R}^{3}$ bajo las operaciones de suma y multiplicación por un escalar usual.\\
 \begin{definition}
 	Sea $ \mathcal{U} $ un subconjunto de $ \mathcal{V}$ espacio vectorial sobre $ \F $ decimos que $ \mathcal{U} $ es un subespacio vectorial de $ \mathcal{V} $ si cumple lo siguiente
+	
 	\begin{enumerate}[i)]
 		\item $ \vec{0}  \in \mathcal{U} $
 		\item $ \forall \vec{u}, \vec{v} \in \mathcal{U} \implies \vec{u} + \vec{v} \in \mathcal{U} $
@@ -140,18 +141,53 @@ Veamos que $ W_{1} $ contiene a $ \vec{0} $ esto es que algún elemento en $ W_{
 		&= (0,0,0)
 	\end{align*}
 	
-Por otra parte comprovemos que la suma está dentro de $ W_1 $ 
-Sean $(a_{1},a_{2},a_{3})  $
-\begin{align*}
-	1
-\end{align*}
+Por otra parte comprobemos que la suma está dentro de $ W_1 $ 
 
+Sean $ \hat{u} = (a_{1},a_{2},a_{3})  $ y $\hat{v} (b_{1},b_{2},b_{3})  \in W_1$ la suma de vectores se realiza entrada a entrada por lo que
+\begin{align*}
+	(a_{1},a_{2},a_{3}) + (b_{1},b_{2},b_{3}) &= (3a_{2},a_{2},-a_{2}) + (3b_{2},b_{2},-b_{2})\\
+	&= (3 a_2 + 3b_2, a_2 + b_2, -a_2 - b_2)\\
+	&= (3( a_2 + b_2), (a_2 + b_2), -(a_2 +b_2))
+\end{align*}
+ Y como $ a_1 + b_2 \in \R^3$ entonces $ \hat{u} + \hat{v} \in W_1 $ por lo que cumple $ II) $\\
+ 
+ Finalmente veamos que si $ k \in R, \hat{u} \in W_1 \implies k\hat{u} \in W_1$
+ 
+	\begin{align*}
+		k(3a_2, a_2, -a_2) \in W_1\\
+		(3ka_2, ka_2, -ka_2) \in W_1
+	\end{align*}
+	
+	Por lo tanto cumple $ III) $ 
+	
+	$ \therefore W_1  $ es subespacio vectorial de $ \R^3 $
 \task $W_{2} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} = a_{3} + 2 \rbrace$
 
-NO es linear porque no contiene al elemento neutro dentro del espacio vectorial.
+Veamos si $ \hat{0} \in W_2 $ si esto ocurriera entonces $ (0,0,0)  \in W_2$ l que significaría lo siguiente
+\begin{align*}
+	(0,0,0) &= (a_3 + 2, a_2, a_3) && \text{Por que deben ser iguales entrada a entrada}\\
+	0 &= a_3 + 2\\
+	0 &= a_2 \\
+	0 &= a_3 
+\end{align*}
+Podemos obsevar que en esta situación, $ a_3 = -2 \land a_3 = 0 $ lo cual no es posible, dicha contradicción vino de suponer que $ \hat{0} \in W_2 $
+
+\[ \therefore \hat{0} \notin W_2  \] por lo que $ W_2 $ \textbf{no} es subespacio vectorial de $ \R^3 $
+
+
 \task $W_{3} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  2a_{1} - 7a_{2} + a_{3} = 0 \rbrace$
 
-Sí es linear pues lo satisface $(2,-7,1)$
+Notemos que en la declaración de los elementos de $ W_3 $ podemos deducir que \[ a_3 = 7a_2 - 2 a_1 \] entonces $ \hat{u} \in W_3 \implies \hat{u} = (a_1, a_2, 7a_2 - 2a_1)  $
+
+Veamos que para complir $ I) $ el vector cero debería estar en $ W_1 $ \textit{i.e.} 
+
+\begin{align*}
+	(0,0,0) &= (a_1, a_2, 7a_2 - 2 a_1) \\
+	0 &=  a_1\\
+	0 &=  a_2\\
+	0 &=  a_1
+\end{align*}
+
 \task $W_{4} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} - 4a_{2} - a_{3} = 0 \rbrace$
 
 Sí es linear pues lo satisface $(1,-4,-1)$
@@ -223,11 +259,11 @@ c) $2x^3 - x^2 + x + 3, S =  \lbrace x^3 + x^2 + x +1, x^2 + x +1, x +1 \rbrace$
 Sean $\alpha_1 $, $\alpha_2$ y $\alpha_3$ elementos del campo, si suponemos que $2x^3 - x^2 + x + 3$ es generado por $S$ implicará que existen dichos 3 elementos $\tq$ 
 \[ 2x^3 - x^2 + x + 3 = \alpha_1 (x^3 + x^2 + x +1) + \alpha_2 (x^2 + x +1) + \alpha_3 (x +1) \]
 
-\begin{eqnarray}
+\begin{eqnarray*}
 	\alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 	\\
 	\alpha_2 x^2 + \alpha_2 x + \alpha_2 \\
 	\alpha_3 x + \alpha_3 
-\end{eqnarray}
+\end{eqnarray*}
 Por lo que ocurre lo siguiente
 \[ 2x^3 - x^2 + x + 3 = \alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 + \alpha_2 x^2 + \alpha_2 x + \alpha_2 +\alpha_3 x + \alpha_3  \]
 
