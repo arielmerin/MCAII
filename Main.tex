@@ -171,7 +171,7 @@ Veamos si $ \hat{0} \in W_2 $ si esto ocurriera entonces $ (0,0,0)  \in W_2$ l q
 	0 &= a_2 \\
 	0 &= a_3 
 \end{align*}
-Podemos obsevar que en esta situación, $ a_3 = -2 \land a_3 = 0 $ lo cual no es posible, dicha contradicción vino de suponer que $ \hat{0} \in W_2 $
+Podemos observar que en esta situación, $ a_3 = -2 \land a_3 = 0 $ lo cual no es posible, dicha contradicción vino de suponer que $ \hat{0} \in W_2 $
 
 \[ \therefore \hat{0} \notin W_2  \] por lo que $ W_2 $ \textbf{no} es subespacio vectorial de $ \R^3 $
 
@@ -180,19 +180,66 @@ Podemos obsevar que en esta situación, $ a_3 = -2 \land a_3 = 0 $ lo cual no es
 
 Notemos que en la declaración de los elementos de $ W_3 $ podemos deducir que \[ a_3 = 7a_2 - 2 a_1 \] entonces $ \hat{u} \in W_3 \implies \hat{u} = (a_1, a_2, 7a_2 - 2a_1)  $
 
-Veamos que para complir $ I) $ el vector cero debería estar en $ W_1 $ \textit{i.e.} 
+Veamos que para cumplir $ I) $ el vector cero debería estar en $ W_1 $ \textit{i.e.} 
 
 \begin{align*}
 	(0,0,0) &= (a_1, a_2, 7a_2 - 2 a_1) \\
 	0 &=  a_1\\
 	0 &=  a_2\\
-	0 &=  a_1
+	0 &=  7a_2 -2 a_1
 \end{align*}
+ lo anterior se cumple si $ a_2 = 0 = a_1 $
+ 
+ $ \therefore \hat{0} \in W_3 $
+ 
+ Ahora, sean $ \hat{u}, \hat{v} \in W_3 \implies \hat{u} = (a_1, a_2, 7a_2 - 2a_1) \land \hat{v} = (b_1, b_2, 7b_1 - 2 b_1) $ y probemos que $ \hat{u} + \hat{v} \in W_3 $
+ 
+ \begin{align*}
+ 	(a_1, a_2, 7a_2 - 2a_1) + (b_1, b_2, 7b_1 - 2 b_1) &= (a_1 + b_1, a_2 + b _2, 7a_2 + 7b_2 -2a_1 - 2b_1)\\
+ 	&= (a_1 + b_1, a_2 + b _2, 7(a_2 + b_2) -2(a_1 +b_1))
+ \end{align*}
+ y como $ a_1 + b_1 \in R $ también se encontrarán dentro de $ W_3 $ por lo que la suma es cerrada en el conjunto $ W_3 $
+ 
+ Por último veamos que si $ k \in \R, \hat{u} \in W_3 \implies k\* \hat{u} \in W_3 $
+	\begin{align*}
+		k\hat{u} &= k(a_1, a_2, 7a_2 - 2a_1)\\
+		k\hat{u} &= (ka_1, ka_2, 7ka_2 - 2ka_1)
+	\end{align*}
+	De lo anterior podemos concluir que cada uno de esos $ ka_1, ka_2 $  elementos estarán en $ \R  $ por lo que $ k\hat{u} $ resultarán también estar en $ W_3 $
+	
+	$ \therefore W_3$ es un subespacio vectorial de $ \R^3 $
 
 \task $W_{4} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} - 4a_{2} - a_{3} = 0 \rbrace$
+De la definición de los elementos de $ W_4 $ se sigue que si $ \hat{u} $ es un elemento de este conjunto, tendrá la forma $ \hat{u}= (4a_2 + a_3, a_2, a_3) $
+Comencemos averiguando si $ W_4 $ tiene elemento neutro, \textit{i. e.}
 
-Sí es linear pues lo satisface $(1,-4,-1)$
+\begin{align*}
+	(0,0,0) &= (4a_2 + a_3, a_2, a_3) \\
+	0 &= 4a_2 + a_3 && \text{para ser iguales entrada a entrada}\\
+	0 &= a_2 && \\
+	0 &= a_3 && 
+\end{align*}
+Lo anterior ocurre cuando $ a_2 = a_3 = 0 $ por lo que $ \hat{0} \in W_4 $ y así cumple la condición \textit{I)}
 
+Siguiendo con la comprobación de sus propiedades como subespacio vectorial, tenemos que: Sean $ \hat{u}, \hat{v} \in W_4 \implies \hat{u} + \hat{v} \in W_4 $ \textit{i. e.}
+
+\begin{align*}
+		\hat{u} + \hat{v} &= (4a_2 + a_3, a_2, a_3) + (4b_2 + b_3, b_2, b_3)\\
+		&= (4a_2 + 4b_2 + b_3 + a_3, a_2 + b_2, a_3 + b_3) && \text{sumando entrada por entrada}\\
+		&= (4(a_2 + b_2) + (b_3 + a_3), (a_2 + b_2), (a_3 + b_3)) && \text{asociatividad y distributividad en $ \R $}\\
+\end{align*}
+y como $ (a_2 + b_2) \in \R $ la suma de $ \hat{u}, \hat{v} \in W_4 $
+
+Finalmente notemos que si $ k \in \R, \hat{u} \in W_4 \implies k\* \hat{u} \in W_4 $ 
+
+\begin{align*}
+	k\hat{u} & = k(4a_2 + a_3, a_2, a_3)\\
+	 & = (4ka_2 + ka_3, ka_2, ka_3) && \text{por distributividad}
+\end{align*}
+
+y $ ka_2, k_3 \in \R $ entonces $ k\*\hat{u} \in W_4 $
+
+$ \therefore W_4 $ es subespacio vectorial de $ \R^3 $
 \end{tasks}
 
 
