@@ -1,6 +1,6 @@
 \documentclass[letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish, es-nodecimaldot]{babel}
+\usepackage[spanish]{babel}
 \usepackage{amssymb, amsmath}
 \usepackage{graphicx}
 \usepackage{lipsum}
@@ -33,9 +33,16 @@ includefoot]{geometry}
 
 \renewcommand{\*}{\cdot}
 
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
 \newtheorem{theorem}{Teorema}[section]
 \theoremstyle{definition}
-\newtheorem{definition}{Definición}[section]
+\newtheorem{definition}{Definición}
 
 \begin{document}
 		\begin{titlepage}
@@ -119,14 +126,10 @@ includefoot]{geometry}
 
 No puede ser un espacio vectorial porque si tenemos que \[ 0(a_1, a_2) = (0, a_2)  \] para cumplir el cero vector, entonces se compliría para cualquier $a_2$ lo cual no es posible pues contradice la unicidad del cero.\\
 
-<<<<<<< HEAD
-\noindent \textbf{5}. Determinar cuales de los siguientes conjuntos son subespacios de $\mathbb{R}^{3}$ bajo las operaciones de suma y multiplicación por un escalar usual.\\
-Basta con revisar si en cada caso se encuentra cerrado bajo la multiplicación escalar y bajo la adición, además que siempre contenga al o
-
-=======
 \noindent 5. Determinar cuales de los siguientes conjuntos son subespacios de $\mathbb{R}^{3}$ bajo las operaciones de suma y multiplicación por un escalar usual.\\
 \begin{definition}
 	Sea $ \mathcal{U} $ un subconjunto de $ \mathcal{V}$ espacio vectorial sobre $ \F $ decimos que $ \mathcal{U} $ es un subespacio vectorial de $ \mathcal{V} $ si cumple lo siguiente
+	
 	\begin{enumerate}[i)]
 		\item $ \vec{0}  \in \mathcal{U} $
 		\item $ \forall \vec{u}, \vec{v} \in \mathcal{U} \implies \vec{u} + \vec{v} \in \mathcal{U} $
@@ -134,7 +137,7 @@ Basta con revisar si en cada caso se encuentra cerrado bajo la multiplicación e
 	\end{enumerate}
 	   
 \end{definition}
->>>>>>> d95c7500ca98027786aa371f7f54eeff10a5b0c4
+
 \begin{tasks}(1)
 \task $W_{1} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1}=3a_{2}$ y $a_{3}=-a_{2} \rbrace$
 
@@ -146,26 +149,112 @@ Veamos que $ W_{1} $ contiene a $ \vec{0} $ esto es que algún elemento en $ W_{
 		&= (0,0,0)
 	\end{align*}
 	
-Por otra parte comprovemos que la suma está dentro de $ W_1 $ 
-Sean $(a_{1},a_{2},a_{3})  $
-\begin{align*}
-	1
-\end{align*}
+Por otra parte comprobemos que la suma está dentro de $ W_1 $ 
 
+Sean $ \hat{u} = (a_{1},a_{2},a_{3})  $ y $\hat{v} (b_{1},b_{2},b_{3})  \in W_1$ la suma de vectores se realiza entrada a entrada por lo que
+\begin{align*}
+	(a_{1},a_{2},a_{3}) + (b_{1},b_{2},b_{3}) &= (3a_{2},a_{2},-a_{2}) + (3b_{2},b_{2},-b_{2})\\
+	&= (3 a_2 + 3b_2, a_2 + b_2, -a_2 - b_2)\\
+	&= (3( a_2 + b_2), (a_2 + b_2), -(a_2 +b_2))
+\end{align*}
+ Y como $ a_1 + b_2 \in \R^3$ entonces $ \hat{u} + \hat{v} \in W_1 $ por lo que cumple $ II) $\\
+ 
+ Finalmente veamos que si $ k \in R, \hat{u} \in W_1 \implies k\hat{u} \in W_1$
+ 
+	\begin{align*}
+		k(3a_2, a_2, -a_2) \in W_1\\
+		(3ka_2, ka_2, -ka_2) \in W_1
+	\end{align*}
+	
+	Por lo tanto cumple $ III) $ 
+	
+	$ \therefore W_1  $ es subespacio vectorial de $ \R^3 $
 \task $W_{2} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} = a_{3} + 2 \rbrace$
 
-NO es linear porque no contiene al elemento neutro dentro del espacio vectorial.
+Veamos si $ \hat{0} \in W_2 $ si esto ocurriera entonces $ (0,0,0)  \in W_2$ l que significaría lo siguiente
+\begin{align*}
+	(0,0,0) &= (a_3 + 2, a_2, a_3) && \text{Por que deben ser iguales entrada a entrada}\\
+	0 &= a_3 + 2\\
+	0 &= a_2 \\
+	0 &= a_3 
+\end{align*}
+Podemos observar que en esta situación, $ a_3 = -2 \land a_3 = 0 $ lo cual no es posible, dicha contradicción vino de suponer que $ \hat{0} \in W_2 $
+
+\[ \therefore \hat{0} \notin W_2  \] por lo que $ W_2 $ \textbf{no} es subespacio vectorial de $ \R^3 $
+
+
 \task $W_{3} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  2a_{1} - 7a_{2} + a_{3} = 0 \rbrace$
 
-Sí es linear pues lo satisface $(2,-7,1)$
+Notemos que en la declaración de los elementos de $ W_3 $ podemos deducir que \[ a_3 = 7a_2 - 2 a_1 \] entonces $ \hat{u} \in W_3 \implies \hat{u} = (a_1, a_2, 7a_2 - 2a_1)  $
+
+Veamos que para cumplir $ I) $ el vector cero debería estar en $ W_1 $ \textit{i.e.} 
+
+\begin{align*}
+	(0,0,0) &= (a_1, a_2, 7a_2 - 2 a_1) \\
+	0 &=  a_1\\
+	0 &=  a_2\\
+	0 &=  7a_2 -2 a_1
+\end{align*}
+ lo anterior se cumple si $ a_2 = 0 = a_1 $
+ 
+ $ \therefore \hat{0} \in W_3 $
+ 
+ Ahora, sean $ \hat{u}, \hat{v} \in W_3 \implies \hat{u} = (a_1, a_2, 7a_2 - 2a_1) \land \hat{v} = (b_1, b_2, 7b_1 - 2 b_1) $ y probemos que $ \hat{u} + \hat{v} \in W_3 $
+ 
+ \begin{align*}
+ 	(a_1, a_2, 7a_2 - 2a_1) + (b_1, b_2, 7b_1 - 2 b_1) &= (a_1 + b_1, a_2 + b _2, 7a_2 + 7b_2 -2a_1 - 2b_1)\\
+ 	&= (a_1 + b_1, a_2 + b _2, 7(a_2 + b_2) -2(a_1 +b_1))
+ \end{align*}
+ y como $ a_1 + b_1 \in R $ también se encontrarán dentro de $ W_3 $ por lo que la suma es cerrada en el conjunto $ W_3 $
+ 
+ Por último veamos que si $ k \in \R, \hat{u} \in W_3 \implies k\* \hat{u} \in W_3 $
+	\begin{align*}
+		k\hat{u} &= k(a_1, a_2, 7a_2 - 2a_1)\\
+		k\hat{u} &= (ka_1, ka_2, 7ka_2 - 2ka_1)
+	\end{align*}
+	De lo anterior podemos concluir que cada uno de esos $ ka_1, ka_2 $  elementos estarán en $ \R  $ por lo que $ k\hat{u} $ resultarán también estar en $ W_3 $
+	
+	$ \therefore W_3$ es un subespacio vectorial de $ \R^3 $
+
 \task $W_{4} = \lbrace (a_{1},a_{2},a_{3}) \in \mathbb{R}^{3} \big\vert  a_{1} - 4a_{2} - a_{3} = 0 \rbrace$
+De la definición de los elementos de $ W_4 $ se sigue que si $ \hat{u} $ es un elemento de este conjunto, tendrá la forma $ \hat{u}= (4a_2 + a_3, a_2, a_3) $
+Comencemos averiguando si $ W_4 $ tiene elemento neutro, \textit{i. e.}
 
-Sí es linear pues lo satisface $(1,-4,-1)$
+\begin{align*}
+	(0,0,0) &= (4a_2 + a_3, a_2, a_3) \\
+	0 &= 4a_2 + a_3 && \text{para ser iguales entrada a entrada}\\
+	0 &= a_2 && \\
+	0 &= a_3 && 
+\end{align*}
+Lo anterior ocurre cuando $ a_2 = a_3 = 0 $ por lo que $ \hat{0} \in W_4 $ y así cumple la condición \textit{I)}
 
+Siguiendo con la comprobación de sus propiedades como subespacio vectorial, tenemos que: Sean $ \hat{u}, \hat{v} \in W_4 \implies \hat{u} + \hat{v} \in W_4 $ \textit{i. e.}
+
+\begin{align*}
+		\hat{u} + \hat{v} &= (4a_2 + a_3, a_2, a_3) + (4b_2 + b_3, b_2, b_3)\\
+		&= (4a_2 + 4b_2 + b_3 + a_3, a_2 + b_2, a_3 + b_3) && \text{sumando entrada por entrada}\\
+		&= (4(a_2 + b_2) + (b_3 + a_3), (a_2 + b_2), (a_3 + b_3)) && \text{asociatividad y distributividad en $ \R $}\\
+\end{align*}
+y como $ (a_2 + b_2) \in \R $ la suma de $ \hat{u}, \hat{v} \in W_4 $
+
+Finalmente notemos que si $ k \in \R, \hat{u} \in W_4 \implies k\* \hat{u} \in W_4 $ 
+
+\begin{align*}
+	k\hat{u} & = k(4a_2 + a_3, a_2, a_3)\\
+	 & = (4ka_2 + ka_3, ka_2, ka_3) && \text{por distributividad}
+\end{align*}
+
+y $ ka_2, k_3 \in \R $ entonces $ k\*\hat{u} \in W_4 $
+
+$ \therefore W_4 $ es subespacio vectorial de $ \R^3 $
 \end{tasks}
 
 
 \noindent \textbf{6}. En cada caso diga si los vectores son generados por el conjunto $S$ \\
+
+\begin{definition}
+	Sea $ \mathcal{S} $ un subconjunto de un espacio vectorial $ \mathcal{V} $ decimos que $ \mathcal{S} $ genera a $ \mathcal{V} $ si $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ al generado de s se le denota como $ span(\mathcal{S}), <\mathcal{S}>, gen(\mathcal{S})$ 
+\end{definition}
 
 \textbf{a)} $(2,-1,1), S =  \lbrace (1,0,2),(-1,1,1) \rbrace$
 
@@ -221,18 +310,18 @@ Por último:
 \end{eqnarray*}
 Al resolver el sistema de ecuaciones verificamos si el conjunto $S$ genera al vector. Entonces:
 \[2(1,0,1,-1)+(-1)(0,1,1,1)=(2,0,2,-2)+(0,-1,-1,-1)=(2,-1,-1,-3)\]
-Como el producto de los escalares por los elementos del conjunto $S$ no forman al vector, podemos concluir que $S$ NO genera a $(2,-1,1,3)$.\\
+Como el producto de los escalares por los elementos del conjunto $S$ no forman al vector, podemos concluir que $S$ \textbf{NO} genera a $(2,-1,1,3)$.\\
 
 \textbf{c)} $2x^3 - x^2 + x + 3, S =  \lbrace x^3 + x^2 + x +1, x^2 + x +1, x +1 \rbrace$\\
 
 Sean $\alpha_1 $, $\alpha_2$ y $\alpha_3$ elementos del campo, si suponemos que $2x^3 - x^2 + x + 3$ es generado por $S$ implicará que existen dichos 3 elementos $\tq$ 
 \[ 2x^3 - x^2 + x + 3 = \alpha_1 (x^3 + x^2 + x +1) + \alpha_2 (x^2 + x +1) + \alpha_3 (x +1) \]
 
-\begin{eqnarray}
+\begin{eqnarray*}
 	\alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 	\\
 	\alpha_2 x^2 + \alpha_2 x + \alpha_2 \\
 	\alpha_3 x + \alpha_3 
-\end{eqnarray}
+\end{eqnarray*}
 Por lo que ocurre lo siguiente
 \[ 2x^3 - x^2 + x + 3 = \alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 + \alpha_2 x^2 + \alpha_2 x + \alpha_2 +\alpha_3 x + \alpha_3  \]
 \begin{eqnarray*}
@@ -513,6 +602,204 @@ Es fácilmente apreciar que $\alpha_{1}=0$, $\alpha_{2}=0$ y $\alpha_{3}=0$\\
 Por lo tanto, podemos concluir que el conjunto $ (1,-1,2), (2,0,1),(-1,2,-1) \in \mathbb{R}^{3}$ es \textbf{linealmente independiente}\\
 
 Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \big\vert a_k \in \mathbb{R} \,  \forall k = 0,1,2,\dots n\}$
+\\
+
+\noindent \textbf{8.} ¿Cuáles de los siguientes conjuntos son bases para $\mathbb{R}^{3}$?
+	\begin{definition}
+		Una \textbf{base} $ \beta $ de $ \mathcal{V} $ espacio vectorial es un subconjunto de $ \mathcal{V} \tq \beta$  genera a $ \mathcal{V} $ y $ \beta $ es linealmente independiente
+	\end{definition}
+
+	a)  $S = \lbrace (1,0,-1),(2,5,1),(0,-4,3) \rbrace$
+	En primer lugar veamos quién es el generado del conjunto $ S $, recordemos que un conjunto genera a otro $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ 
+	
+	Sean $ \alpha_1, \beta, \gamma \in \R $ entonces
+	\[ \alpha(1,0,-,) + \beta(2,5,1) + \gamma(0,-4,3)  \]
+	\begin{align*}
+		\alpha(1,0,-1)+ \beta(2,5,1)+ \gamma(0,-4,3) & = (\alpha,0,-\alpha) + (2\beta,5\beta,\beta) + (0,-4\gamma,3\gamma)\\
+		& = (\alpha + 2\beta ,5\beta -4\gamma,-\alpha + \beta +3\gamma)
+	\end{align*}
+	Necesitamos que cada uno de esos vectores pueda ser el valor de una posición de $ \R^3 $ por lo que debería verse como \[ 	\alpha(1,0,-1)+ \beta(2,5,1)+ \gamma(0,-4,3) = \delta(1,0,0) + \epsilon(0,1,0) + \eta(0,0,1) \] De esta manera podemos obtener el siguiente sistema de ecuaciones
+	\begin{align*}
+		\alpha + 2\beta + 0\gamma = \delta + 0\epsilon + 0\eta\\
+		0\alpha + 5\beta -4\gamma = 0\delta + \epsilon + 0\eta\\
+		-\alpha + \beta +3\gamma = 0\delta +0\epsilon + \eta
+	\end{align*}
+	
+	\begin{align*}
+		\begin{pmatrix}
+			\alpha & 2\beta & 0\gamma\\
+			0\alpha & 5\beta & -4\gamma\\
+			-\alpha & \beta & 3\gamma
+		\end{pmatrix}
+		&= 		\begin{pmatrix}
+		\delta & 0\epsilon & 0\eta\\
+		0\delta & \epsilon & 0\eta\\
+		0\delta & 0\epsilon & \eta
+		\end{pmatrix}  = 		 \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		0\alpha & 5\beta & -4\gamma& 0\delta & \epsilon & 0\eta\\
+		-\alpha & \beta & 3\gamma & 0\delta & 0\epsilon & \eta
+		\end{pmatrix} 
+	\end{align*}
+	\begin{align*}
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 5\beta & -4\gamma& 0\delta & \epsilon & 0\eta\\
+		 -\alpha & \beta & 3\gamma & 0\delta & 0\epsilon & \eta
+		 \end{pmatrix} &= 		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 5\beta & -4\gamma& 0\delta & \epsilon & 0\eta\\
+		 0\alpha & 3\beta & 3\gamma & \delta & 0\epsilon & \eta
+		 \end{pmatrix} && \text{1ra fila + 2da fila en \textbf{3ra fila}} \\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 5\beta & -4\gamma& 0\delta & \epsilon & 0\eta\\
+		 0\alpha & 3\beta & 3\gamma & \delta & 0\epsilon & \eta
+		 \end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 3\beta & 3\gamma & \delta & 0\epsilon & \eta
+		 \end{pmatrix} && \text{2da fila $ \* \frac{1}{5} $ en \textbf{2da fila}}\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 3\beta & 3\gamma & \delta & 0\epsilon & \eta
+		 \end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 0\beta & \frac{27}{5}\gamma & \delta & -\frac{3}{5}\epsilon & \eta
+		 \end{pmatrix} && \text{2da fila $ \* -3  +  3^{ra}$ fila en \textbf{3ra fila}}\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 0\beta & \frac{27}{5}\gamma & \delta & -\frac{3}{5}\epsilon & \eta
+		 \end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} && \text{ 3ra fila $ \* \frac{5}{27}$ \textbf{en 3ra fila} }\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\delta & \frac{1}{5}\epsilon & 0\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & 0\gamma& \frac{4}{27}\delta & \frac{1}{9}\epsilon & \frac{4}{27}\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} && \text{(3ra fila $ \* \dfrac{4}{5}) + 2^{da} $  fila \textbf{en 2da fila} }\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 2\beta & 0\gamma & \delta & 0\epsilon & 0\eta\\
+		 0\alpha & 1\beta & 0\gamma& \frac{4}{27}\delta & \frac{1}{9}\epsilon & \frac{4}{27}\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		 \alpha & 0\beta & 0\gamma & \frac{19}{27}\delta & -\frac{2}{9}\epsilon & -\frac{8}{27}\eta\\
+		 0\alpha & 1\beta & 0\gamma& \frac{4}{27}\delta & \frac{1}{9}\epsilon & \frac{4}{27}\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} && \text{(2da fila $ \* -2) + 1^{a} $ fila \textbf{en 1ra fila}}\\
+		 \begin{pmatrix}[ccc|ccc]
+		 \alpha & 0\beta & 0\gamma & \frac{19}{27}\delta & -\frac{2}{9}\epsilon & -\frac{8}{27}\eta\\
+		 0\alpha & 1\beta & 0\gamma& \frac{4}{27}\delta & \frac{1}{9}\epsilon & \frac{4}{27}\eta\\
+		 0\alpha & 0\beta & \gamma & \frac{5}{27}\delta & -\frac{1}{9}\epsilon & \frac{5}{27}\eta
+		 \end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		 1 & 0 & 0 & \frac{19}{27} & -\frac{2}{9} & -\frac{8}{27}\\
+		 0 & 1 & 0& \frac{4}{27} & \frac{1}{9} & \frac{4}{27}\\
+		 0 & 0 & 1 & \frac{5}{27} & -\frac{1}{9} & \frac{5}{27}
+		 \end{pmatrix} && \text{Conservando sólo \textbf{coeficientes}}
+	\end{align*}
+	\begin{align*}
+		\alpha &= \frac{19}{27}\delta -\frac{2}{9}\epsilon -\frac{8}{27}\eta\\
+		\beta &= \frac{4}{27}\delta+ \frac{1}{9}\epsilon + \frac{4}{27}\eta\\
+		\delta &= \frac{5}{27}\delta -\frac{1}{9}\epsilon+ \frac{5}{27}\eta
+	\end{align*}
+	\[ \therefore  \mathcal{S} \text{ genera a } \R^3  \]
+	
+	Ahora veamos si es linealmente independiente, lo cual ocurre si la única solución para \[ \alpha(1,0,-1) + \beta(2,5,1) + \gamma(0,-4,3) = 0  \] es que \[ \alpha = \beta = \gamma = 0 \]
+	
+		\begin{align*}
+		\alpha + 2\beta + 0\gamma =0\\
+		0\alpha + 5\beta -4\gamma = 0\\
+		-\alpha + \beta +3\gamma = 0
+		\end{align*}
+	Resolviendo dicho sistema obtenemos que 
+	
+		\begin{align*}
+		\begin{pmatrix}[ccc|c]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 5\beta & -4\gamma& 0\\
+		-\alpha & \beta & 3\gamma & 0
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 5\beta & -4\gamma& 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} && \text{1ra fila + 2da fila en \textbf{3ra fila}} \\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 5\beta & -4\gamma& 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} && \text{2da fila $ \* \frac{1}{5} $ en \textbf{2da fila}}\\
+		\end{align*}
+		\begin{align*}
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 0\beta & \frac{27}{5}\gamma & 0
+		\end{pmatrix} && \text{2da fila $ \* -3  +  3^{ra}$ fila en \textbf{3ra fila}}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 0\beta & \frac{27}{5}\gamma & 0
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 0\beta & \gamma & 0
+		\end{pmatrix} && \text{ 3ra fila $ \* \frac{5}{27}$ \textbf{en 3ra fila} }\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & -\frac{4}{5}\gamma& 0\\
+		0\alpha & 0\beta & \gamma &0
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & 0\gamma& 0\\
+		0\alpha & 0\beta & \gamma & 0
+		\end{pmatrix} && \text{(3ra fila $ \* \dfrac{4}{5}) + 2^{da} $  fila \textbf{en 2da fila} }\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 2\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & 0\gamma& 0\\
+		0\alpha & 0\beta & \gamma & 0
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & 0\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & 0\gamma& 0\\
+		0\alpha & 0\beta & \gamma & 0
+		\end{pmatrix} && \text{(2da fila $ \* -2) + 1^{a} $ fila \textbf{en 1ra fila}}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 0\beta & 0\gamma & 0\\
+		0\alpha & 1\beta & 0\gamma& 0\\
+		0\alpha & 0\beta & \gamma &0
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 0 & 0 &0\\
+		0 & 1 & 0& 0\\
+		0 & 0 & 1 & 0
+		\end{pmatrix} && \text{Conservando sólo \textbf{coeficientes}}
+		\end{align*}
+		
+		De esta manera podemos concluir que $ \mathcal{S} $ es \textbf{linealmente independiente} 
+		\begin{center}
+			$ \therefore \mathcal{S} $ es Base para $ \R^3 $ 
+		\end{center}
+	b) $\lbrace (2,-4,1),(0,3,-1),(6,0,-1) \rbrace$
+	
+	
+	c) $\lbrace (1,2,-1),(1,0,2),(2,1,1) \rbrace$
 
 
 \end{document}
+
+
