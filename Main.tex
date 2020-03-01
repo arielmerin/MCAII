@@ -1282,7 +1282,53 @@ Utilizando los resultados del sistema de ecuaciones tenemos que:
 		\alpha_{3}&=\frac{20}{12}
 		\end{align*}
 		
-Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es debido a que originalmente teníamos un sistema de 4 ecuaciones con 3 incógnitas, entonces el sistema tiene diversas soluciones y al encontrar que los resultados de las ecuaciones de $\alpha_{3}$ no son el mismo, podemos concluir que el conjunto $x^3-2x^2+1,4x^2-x+3 y 3x-2$  \textbf{NO} generan a $P_{3}(\R)$
+Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es debido a que originalmente teníamos un sistema de 4 ecuaciones con 3 incógnitas, entonces el sistema tiene diversas soluciones y al encontrar que los resultados de las ecuaciones de $\alpha_{3}$ no son el mismo, podemos concluir que el conjunto $x^3-2x^2+1,4x^2-x+3 y 3x-2$  \textbf{NO} generan a $P_{3}(\R)$\\
+
+\noindent 10.Prueba que las siguientes transformaciones $T$ son lineales y encuentra el núcleo $Nu(T)$ y la imagen $Im(T)$
+
+
+	a) $\lbrace T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{2} \rbrace $ definida por $T(a_{1},a_{2},a_{3}) = (a_{1} - a_{2}, 2a_{3})$
+	Para ver que una transformación es lineal, debe cumplir que \textbf{abra sumas y saque escalares}\\
+	Sean $ \hat{a_1}, \hat{a_2} \in \R^3 $ y $ \xi \in \R $ entonces
+	\begin{align*}
+		\xi a_1 + a_2 &= \xi(x_1,y_1,z_1) + (x_1, y_2,z_2) && \text{Por definición de $ a_1 $ y $ a_2 $}\\
+		\xi a_1 + a_2 &= (\xi x_1,\xi y_1,\xi z_1) + (x_2, y_2,z_2)&& \text{Por distributividad de los $ \R $}\\
+		\xi a_1 + a_2 &= (\xi x_1 +x_2,\xi y_1 + y_2,\xi z_1 + z_2)&& \text{Sumando entrada por entrada}\\
+		T(\xi a_1 + a_2) &= T(\xi x_1 +x_2,\xi y_1 + y_2,\xi z_1 + z_2)&&\text{Aplicando T} \\
+		T(\xi a_1 + a_2) &= ((\xi x_1 +x_2) -(\xi y_1 + y_2),2(\xi z_1 + z_2))&& \text{Siguiendo la regla de T} \\
+		T(\xi a_1 + a_2) &= (\xi x_1 +x_2 -\xi y_1 - y_2,2\xi z_1  2z_2)&& \text{Por asociatividad}\\
+		T(\xi a_1 + a_2) &= (\xi x_1 -\xi y_1 +x_2 - y_2,2\xi z_1  2z_2)&& \text{Por conmutatividad} \\
+		T(\xi a_1 + a_2) &= ((\xi x_1 -\xi y_1) + (x_2 - y_2),2\xi z_1  2z_2)&& \text{Asociatividad nuevamente}\\
+		T(\xi a_1 + a_2) &= (\xi x_1 -\xi y_1, 2\xi z_1) + (x_2 - y_2, 2z_2)&& \text{Asociatividad entre elementos en $ \R^2 $}\\
+		T(\xi a_1 + a_2) &= \xi( x_1 - y_1, 2z_1) + (x_2 - y_2, 2z_2)&& \text{Por distributividad de $ \xi $} \\
+		T(\xi a_1 + a_2) &= \xi T(a_1) + T(a_2) && \text{Por definición de T}
+	\end{align*}
+	
+	
+
+	b) $\lbrace T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3} \rbrace$ definida por $(a_{1},a_{2}) = (a_{1} + a_{2}, 0, 2a_{1} - a_{2})$
+	Para ver que una transformación es lineal, debe cumplir que \textbf{abra sumas y saque escalares}\\
+	Sean $ \hat{x}, \hat{y} \in \R^3 $ y $ \theta \in \R $ entonces
+	
+	\begin{align*}
+		\theta \hat{x} + \hat{y} &= \theta(a,b) + (c,d) &&\text{Por definición de $ \hat{x}, \hat{y} $}\\
+		\theta \hat{x} + \hat{y} &= (\theta a,\theta b) + (c,d) &&\text{Distributividad en $ \R $ }\\
+		\theta \hat{x} + \hat{y} &= (\theta a + c,\theta b + d) &&\text{Sumando entrada a entrada }\\
+		T(\theta \hat{x} + \hat{y}) &= T(\theta a + c,\theta b + d) &&\text{Aplicando T en ambos lados }\\
+		T(\theta \hat{x} + \hat{y}) &= ((\theta a + c) + (\theta b + d), 0, 2(\theta a + c) - (\theta b + d) &&\text{Aplicando la regla de correspondencia }\\
+		T(\theta \hat{x} + \hat{y}) &= (\theta a +\theta b + c + d, 0, 2\theta a + 2c - \theta b - d) &&\text{Asociatividad en $ \R $ }\\
+		T(\theta \hat{x} + \hat{y}) &= ((\theta a +\theta b) + (c + d), 0, (2\theta a - \theta b) + (2c - d) &&\text{Asociativiad y distributividad en $ \R $ }\\
+		T(\theta \hat{x} + \hat{y}) &=  (\theta a +\theta b, 0, 2\theta a - \theta b) + (c + d, 0, 2c - d) &&\text{Asociativiad}\\
+		T(\theta \hat{x} + \hat{y}) &=  \theta(a +b, 0, 2a - b) + (c + d, 0, 2c - d) &&\text{Distributividad \textit{inversa}}\\
+		T(\theta \hat{x} + \hat{y}) &=  \theta T(\hat{x}) + T(\hat{y}) &&\text{Definición de T}
+	\end{align*}
+
+	c) $\lbrace T: M_{2x3}(\mathbb{R}) \longrightarrow M_{2x2}(\mathbb{R}) \rbrace $ definido por
+	\[ T \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \end{pmatrix} = \begin{pmatrix} 2a_{11} - a_{12} & a_{13} + 2a_{12} \\ 0 & 0 \end{pmatrix} \]
+
+	
+	
+	d) $T: P_{2}(\mathbb{R}) \longrightarrow P_{3}(\mathbb{R}) \rbrace$ definida por $T(f(x)) = xf(x) + f'(x)$.
 
 
 \end{document}
