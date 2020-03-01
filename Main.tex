@@ -612,8 +612,8 @@ Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \
 	a)  $S = \lbrace (1,0,-1),(2,5,1),(0,-4,3) \rbrace$
 	En primer lugar veamos quién es el generado del conjunto $ S $, recordemos que un conjunto genera a otro $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ 
 	
-	Sean $ \alpha_1, \beta, \gamma \in \R $ entonces
-	\[ \alpha(1,0,-,) + \beta(2,5,1) + \gamma(0,-4,3)  \]
+	Sean $ \alpha, \beta, \gamma \in \R $ entonces
+	\[ \alpha(1,0,-1) + \beta(2,5,1) + \gamma(0,-4,3)  \]
 	\begin{align*}
 		\alpha(1,0,-1)+ \beta(2,5,1)+ \gamma(0,-4,3) & = (\alpha,0,-\alpha) + (2\beta,5\beta,\beta) + (0,-4\gamma,3\gamma)\\
 		& = (\alpha + 2\beta ,5\beta -4\gamma,-\alpha + \beta +3\gamma)
@@ -794,7 +794,7 @@ Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \
 		\begin{center}
 			$ \therefore \mathcal{S} $ es Base para $ \R^3 $ 
 		\end{center}
-	b) $S = \lbrace (2,-4,1),(0,3,-1),(6,0,-1) \rbrace$
+	b) $S = \lbrace (2,-4,1),(0,3,-1),(6,0,-1) \rbrace$\\
 	Veamos quién es el generado de $ S $, un conjunto genera a otro si todo elemento del segundo conjunto puede ser expresado como una combinación lineal del primero,en este caso elementos de $ S $
 	
 	Sean $ \alpha, \beta, \gamma  \in \R$ entonces 
@@ -921,10 +921,35 @@ Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \
 			 0 & 0 & 0 & 1 & 2 & 6
 			 \end{pmatrix} && \text{Conservando sólo coeficientes }
 		\end{align*}
-	c) $\lbrace (1,2,-1),(1,0,2),(2,1,1) \rbrace$\\
-\noindent \textbf{9.} Diga si los siguientes $x^3-2x^2+1,4x^2-x+3 y 3x-2$ generan a $P_{3}(\R)$
+		Notemos que para $ \gamma $ tenemos que tiene ceros en la parte izquierda y puede tener valores distintos de cero en la parte derecha, por lo tanto el sistema de ecuaciones es inconsistente y consecuentemente 
+		\begin{center}
+			$ S $ \textbf{no} genera a $ \R^3 $\\
+			$\therefore S $ \textbf{no} es base de $ \R^3 $\\
+		\end{center}
+	c) $S \lbrace (1,2,-1),(1,0,2),(2,1,1) \rbrace$\\
+	
+	Comencemos por ver quien en es generado de  $ S $, recordemos que un conjunto genera a otro si $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos para $ \mathcal{S} $ 
+	
+	Sean $ \alpha, \beta, \gamma \in \R $ entonces
+	\[ \alpha(1,2,-1) + \beta(1,0,2) + \gamma(2,1,1)  \]
+	
+	\begin{align*}
+		\alpha(1,2,-1) + \beta(1,0,2) + \gamma(2,1,1) & = (\alpha,2\alpha,-\alpha) + (\beta,0\beta,2\beta) + (2\gamma,\gamma,\gamma)\\
+		&= (\alpha + \beta + 2\gamma, 2\alpha + 0\beta + \gamma, -\alpha + 2 \beta + \gamma)
+	\end{align*}
+	Es menester que cada una de esas entradas represente una en $ \R^3 $ pues nos gustaría ver que $ S $  genera a $ \R^3 $ por lo que obtenemos la siguiente ecuación
+	\[ (\alpha + \beta + 2\gamma, 2\alpha + 0\beta + \gamma, -\alpha + 2 \beta + \gamma) = \delta(1,0,0) + \xi(0,1,0) + \eta(0,0,1) \]
+	y así tenemos que 
+	\begin{align*}
+		\alpha + \beta + 2\gamma &= \delta + 0\xi + 0\eta\\
+		2\alpha + 0\beta + \gamma &= 0\delta + \xi + 0\eta\\
+		-\alpha + 2\beta + \gamma &= 0\delta + 0\xi + \eta
+	\end{align*}
+\noindent \textbf{9.} Diga si los siguientes $x^3-2x^2+1,4x^2-x+3 y 3x-2$ generan a $P_{3}(\R)$\\
 
-Sea $ax^3+bx^2+cx+d\in(\R)$. Tomamos $\alpha_{1},\alpha_{2},\alpha_{3}\in (\R)$. Entonces:
+Sea $ax^3+bx^2+cx+d\in(\R)$.\\
+
+Tomamos $\alpha_{1},\alpha_{2},\alpha_{3}\in (\R)$. Entonces:
 
 $ax^3+bx^2+cx+d = (\alpha_{1})x^3 + (-2\alpha_{1}+4\alpha_{2})x^2 + (\alpha_{2}+3\alpha_{3})x + (\alpha_{1}+3\alpha_{2}-2\alpha_{3})$
 
