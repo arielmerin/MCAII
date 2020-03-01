@@ -960,6 +960,200 @@ Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \
 			-\alpha & 2\beta & \gamma & 0\delta & 0\xi & \eta
 		\end{pmatrix}
 	\end{align*}
+	
+	\begin{align*}
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		2\alpha & 0\beta & \gamma & 0\delta & \xi & 0\eta\\
+		-\alpha & 2\beta & \gamma & 0\delta & 0\xi & \eta
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & -2\beta & -3\gamma & -2\delta & \xi & 0\eta\\
+		-\alpha & 2\beta & \gamma & 0\delta & 0\xi & \eta
+		\end{pmatrix} && \text{2a fila - 2(1a fila) en 2a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & -2\beta & -3\gamma & -2\delta & \xi & 0\eta\\
+		-\alpha & 2\beta & \gamma & 0\delta & 0\xi & \eta
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & -2\beta & -3\gamma & -2\delta & \xi & 0\eta\\
+		0\alpha & 3\beta & 3\gamma & 1\delta & 0\xi & \eta
+		\end{pmatrix} && \text{1a fila + 3a fila en 3a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & -2\beta & -3\gamma & -2\delta & \xi & 0\eta\\
+		0\alpha & 3\beta & 3\gamma & 1\delta & 0\xi & \eta
+		\end{pmatrix}  & = \begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & 1\beta & \frac{3}{2}\gamma & 1\delta & -\frac{1}{2}\xi & 0\eta\\
+		0\alpha & 3\beta & 3\gamma & 1\delta & 0\xi & \eta
+		\end{pmatrix}  && \text{2a fila $ \* -\frac{1}{2} $ en 2a fila} \\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & 1\beta & \frac{3}{2}\gamma & 1\delta & -\frac{1}{2}\xi & 0\eta\\
+		0\alpha & 3\beta & 3\gamma & 1\delta & 0\xi & \eta
+		\end{pmatrix} & =\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & 1\beta & \frac{3}{2}\gamma & 1\delta & -\frac{1}{2}\xi & 0\eta\\
+		0\alpha & 0\beta & -\frac{3}{2}\gamma & -2\delta & \frac{3}{2}\xi & \eta
+		\end{pmatrix} && \text{2a fila $ \* -3 $ + 3a fila en 3 fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & 1\beta & \frac{3}{2}\gamma & 1\delta & -\frac{1}{2}\xi & 0\eta\\
+		0\alpha & 0\beta & -\frac{3}{2}\gamma & -2\delta & \frac{3}{2}\xi & \eta
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & 1\beta & \frac{3}{2}\gamma & 1\delta & -\frac{1}{2}\xi & 0\eta\\
+		0\alpha & 0\beta & 1\gamma & \frac{4}{3}\delta & -1\xi & -\frac{2}{3}\eta
+		\end{pmatrix} && \text{ 3a fila $ \* -\dfrac{2}{3} $ en 3a Fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & 1\beta & \frac{3}{2}\gamma & 1\delta & -\frac{1}{2}\xi & 0\eta\\
+		0\alpha & 0\beta & 1\gamma & \frac{4}{3}\delta & -1\xi & -\frac{2}{3}\eta
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & 1\beta & 0\gamma & -1\delta & 1\xi & 1\eta\\
+		0\alpha & 0\beta & 1\gamma & \frac{4}{3}\delta & -1\xi & -\frac{2}{3}\eta
+		\end{pmatrix} && \text{3a fila $ \* -\dfrac{3}{2} $ + 2a fila en 2a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 2\gamma & \delta & 0\xi & 0\eta\\
+		0\alpha & 1\beta & 0\gamma & -1\delta & 1\xi & 1\eta\\
+		0\alpha & 0\beta & 1\gamma & \frac{4}{3}\delta & -1\xi & -\frac{2}{3}\eta
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 0\gamma & -\frac{5}{3}\delta & 2\xi & \frac{4}{3}\eta\\
+		0\alpha & 1\beta & 0\gamma & -1\delta & 1\xi & 1\eta\\
+		0\alpha & 0\beta & 1\gamma & \frac{4}{3}\delta & -1\xi & -\frac{2}{3}\eta
+		\end{pmatrix} && \text{(3a fila $ \* -2 $}) + 1a fila en 1a Fila  \\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & \beta & 0\gamma & -\frac{5}{3}\delta & 2\xi & \frac{4}{3}\eta\\
+		0\alpha & 1\beta & 0\gamma & -1\delta & 1\xi & 1\eta\\
+		0\alpha & 0\beta & 1\gamma & \frac{4}{3}\delta & -1\xi & -\frac{2}{3}\eta
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		\alpha & 0\beta & 0\gamma & -\frac{2}{3}\delta & 1\xi & \frac{1}{3}\eta\\
+		0\alpha & 1\beta & 0\gamma & -1\delta & 1\xi & 1\eta\\
+		0\alpha & 0\beta & 1\gamma & \frac{4}{3}\delta & -1\xi & -\frac{2}{3}\eta
+		\end{pmatrix} && \text{ 1a fila - 2a fila en 1a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		\alpha & 0\beta & 0\gamma & -\frac{2}{3}\delta & 1\xi & \frac{1}{3}\eta\\
+		0\alpha & 1\beta & 0\gamma & -1\delta & 1\xi & 1\eta\\
+		0\alpha & 0\beta & 1\gamma & \frac{4}{3}\delta & -1\xi & -\frac{2}{3}\eta
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 0 & 0 & -\frac{2}{3} & 1 & \frac{1}{3}\\
+		0 & 1 & 0 & -1 & 1 & 1\\
+		0 & 0 & 1 & \frac{4}{3} & -1 & -\frac{2}{3}
+		\end{pmatrix} &&  \text{Manteniendo sólo coeficientes}
+	\end{align*}
+	
+	\begin{align*}
+		\alpha &= -\dfrac{2}{3}\delta + 1\xi + \dfrac{1}{3}\eta\\
+		\beta &= -\delta + \xi + \eta\\
+		\gamma &= \dfrac{4}{3}\delta - \xi - \dfrac{-2}{3}\eta\\
+	\end{align*}
+	\begin{center}
+		$ \therefore S $ genera a $ \R^3 $
+	\end{center}
+	Ahora veamos si el linealmente independiente, lo cual ocurre si la única solución a la siguiente ecuación es que todos los coeficientes sean 0
+	\begin{align*}
+		\alpha(1,2,-1) + \beta(1,0,2) + \gamma(2,1,1) &= 0\\
+		(\alpha + \beta + 2\gamma, 2\alpha + 0\beta + \gamma, -\alpha + 2 \beta + \gamma) &= 0
+	\end{align*}
+Lo cual permite formar el siguiente sistema de ecuaciones
+	\begin{align*}
+	\alpha + \beta + 2\gamma &=0\\
+	2\alpha + 0\beta + \gamma &= 0\\
+	-\alpha + 2\beta + \gamma &= 0
+	\end{align*}
+	
+		\begin{align*}
+		\begin{pmatrix}[ccc|c]
+		\alpha & \beta & 2\gamma & 0\\
+		2\alpha & 0\beta & \gamma & 0 \\
+		-\alpha & 2\beta & \gamma & 0 
+		\end{pmatrix} & = \begin{pmatrix}[ccc|c]
+		\alpha & \beta & 2\gamma & 0\\
+		0\alpha & -2\beta & -3\gamma & 0\\
+		-\alpha & 2\beta & \gamma & 0
+		\end{pmatrix} && \text{2a fila - 2(1a fila) en 2a fila}\\
+		\begin{pmatrix}[ccc|c]
+		\alpha & \beta & 2\gamma & 0\\
+		0\alpha & -2\beta & -3\gamma & 0\\
+		-\alpha & 2\beta & \gamma & 0 
+		\end{pmatrix} & = \begin{pmatrix}[ccc|c]
+		\alpha & \beta & 2\gamma & 0\\
+		0\alpha & -2\beta & -3\gamma & 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix} && \text{1a fila + 3a fila en 3a fila}\\
+		\begin{pmatrix}[ccc|c]
+		\alpha & \beta & 2\gamma & 0\\
+		0\alpha & -2\beta & -3\gamma & 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix}  & = \begin{pmatrix}[ccc|c]
+		\alpha & \beta & 2\gamma & 0\\
+		0\alpha & 1\beta & \frac{3}{2}\gamma & 0\\
+		0\alpha & 3\beta & 3\gamma & 0
+		\end{pmatrix}  && \text{2a fila $ \* -\frac{1}{2} $ en 2a fila}\\
+			 \begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 2\gamma & 0\\
+			 0\alpha & 1\beta & \frac{3}{2}\gamma & 0\\
+			 0\alpha & 3\beta & 3\gamma & 0
+			 \end{pmatrix} & =\begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 2\gamma & 0\\
+			 0\alpha & 1\beta & \frac{3}{2}\gamma & 0\\
+			 0\alpha & 0\beta & -\frac{3}{2}\gamma & 0
+			 \end{pmatrix} && \text{2a fila $ \* -3 $ + 3a fila en 3 fila}\\
+			 \begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 2\gamma & 0\\
+			 0\alpha & 1\beta & \frac{3}{2}\gamma & 0\\
+			 0\alpha & 0\beta & -\frac{3}{2}\gamma & 0
+			 \end{pmatrix} & = \begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 2\gamma & 0\\
+			 0\alpha & 1\beta & \frac{3}{2}\gamma & 0\\
+			 0\alpha & 0\beta & 1\gamma & 0
+			 \end{pmatrix} && \text{ 3a fila $ \* -\dfrac{2}{3} $ en 3a Fila}\\		 
+			 \begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 2\gamma &0\\
+			 0\alpha & 1\beta & \frac{3}{2}\gamma & 0\\
+			 0\alpha & 0\beta & 1\gamma & 0
+			 \end{pmatrix} & = \begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 2\gamma &0\\
+			 0\alpha & 1\beta & 0\gamma & 0\\
+			 0\alpha & 0\beta & 1\gamma & 0
+			 \end{pmatrix} && \text{3a fila $ \* -\dfrac{3}{2} $ + 2a fila en 2a fila}\\
+			 \begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 2\gamma & 0\\
+			 0\alpha & 1\beta & 0\gamma & 0\\
+			 0\alpha & 0\beta & 1\gamma & 0
+			 \end{pmatrix} & = \begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 0\gamma & 0\\
+			 0\alpha & 1\beta & 0\gamma & 0\\
+			 0\alpha & 0\beta & 1\gamma & 0
+			 \end{pmatrix} && \text{(3a fila $ \* -2 $) + 1a fila en 1a Fila}   \\
+			 \begin{pmatrix}[ccc|c]
+			 \alpha & \beta & 0\gamma & 0\\
+			 0\alpha & 1\beta & 0\gamma & 0\\
+			 0\alpha & 0\beta & 1\gamma & 0
+			 \end{pmatrix} & = \begin{pmatrix}[ccc|c]
+			 \alpha & 0\beta & 0\gamma & 0\\
+			 0\alpha & 1\beta & 0\gamma & 0\\
+			 0\alpha & 0\beta & 1\gamma & 0
+			 \end{pmatrix} && \text{ 1a fila - 2a fila en 1a fila}\\
+			 \begin{pmatrix}[ccc|c]
+			 \alpha & 0\beta & 0\gamma & 0\\
+			 0\alpha & 1\beta & 0\gamma & 0\\
+			 0\alpha & 0\beta & 1\gamma &0
+			 \end{pmatrix} & = \begin{pmatrix}[ccc|c]
+			 1 & 0 & 0 & 0\\
+			 0 & 1 & 0 & 0\\
+			 0 & 0 & 1 & 0
+			 \end{pmatrix} &&  \text{Manteniendo sólo coeficientes}
+		\end{align*}
+		
+		Así podemos concluir que $ S $ es linealmente independiente 
+		\begin{center}
+			$ \therefore S $ es base para $ \R^3 $
+		\end{center}
+
 \noindent \textbf{9.} Diga si los siguientes $x^3-2x^2+1,4x^2-x+3 y 3x-2$ generan a $P_{3}(\R)$\\
 
 Sea $ax^3+bx^2+cx+d\in(\R)$.\\
