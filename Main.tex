@@ -1341,9 +1341,81 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 		b_{21} & b_{22} & b_{23}
 	\end{pmatrix} \]
 	
+	\begin{align*}
+		\lambda A + B &= \lambda \begin{pmatrix}
+		a_{11} & a_{12} & a_{13}\\
+		a_{21} & a_{22} & a_{23}
+		\end{pmatrix} + \begin{pmatrix}
+		b_{11} & b_{12} & b_{13}\\
+		b_{21} & b_{22} & b_{23}
+		\end{pmatrix} && \text{Por definición de A y B} \\
+		\lambda A + B &= \begin{pmatrix}
+		\lambda a_{11} & \lambda a_{12} & \lambda a_{13}\\
+		\lambda a_{21} & \lambda a_{22} & \lambda a_{23}
+		\end{pmatrix} + \begin{pmatrix}
+		b_{11} & b_{12} & b_{13}\\
+		b_{21} & b_{22} & b_{23}
+		\end{pmatrix} && \text{Distributividad de $ \lambda $} \\
+		\lambda A + B &= \begin{pmatrix}
+		\lambda a_{11} + b_{11} & \lambda a_{12} + b_{12} & \lambda a_{13} +  b_{13}\\
+		\lambda a_{21}  + b_{21}& \lambda a_{22} + b_{22} & \lambda a_{23} + b_{23}
+		\end{pmatrix} && \text{Definición de + en $  M_{2x3}(\mathbb{R}) $} \\
+		T(\lambda A + B) &= T\left( \begin{pmatrix}
+		\lambda a_{11} + b_{11} & \lambda a_{12} + b_{12} & \lambda a_{13} +  b_{13}\\
+		\lambda a_{21}  + b_{21}& \lambda a_{22} + b_{22} & \lambda a_{23} + b_{23}
+		\end{pmatrix}\right) && \text{Aplicando T en ambos miembros} \\
+		T(\lambda A + B) &= \begin{pmatrix}
+		2(\lambda a_{11} + b_{11}) -(\lambda a_{12} + b_{12})  &\lambda a_{13} +  b_{13} + 2(\lambda a_{12} + b_{12})\\
+		0& 0
+		\end{pmatrix} && \text{Siguiendo la regla de transformación de T} \\
+		T(\lambda A + B) &= \begin{pmatrix}
+		2\lambda a_{11} + 2b_{11} -\lambda a_{12} - b_{12}  &\lambda a_{13} +  b_{13} + 2\lambda a_{12} + 2b_{12}\\
+		0& 0
+		\end{pmatrix} && \text{Distributividad } \\
+		T(\lambda A + B) &= \begin{pmatrix}
+		(2\lambda a_{11} -\lambda a_{12}) + (2b_{11} - b_{12})  &(\lambda a_{13}+ 2\lambda a_{12} )+  (b_{13} + 2b_{12})\\
+		0& 0
+		\end{pmatrix} && \text{Asociatividad en $ \R $ } \\
+		T(\lambda A + B) &= \begin{pmatrix}
+		2\lambda a_{11} -\lambda a_{12} & \lambda a_{13}+ 2\lambda a_{12}\\
+		0 & 0 
+		\end{pmatrix} + \begin{pmatrix}
+		2b_{11} - b_{12}  &  b_{13} + 2b_{12}\\
+		0& 0
+		\end{pmatrix} && \text{Asociatividad en $  M_{2x3}(\mathbb{R}) $ } \\
+		T(\lambda A + B) &= \lambda \begin{pmatrix}
+		2a_{11} - a_{12} &  a_{13}+ 2 a_{12}\\
+		0 & 0 
+		\end{pmatrix} + \begin{pmatrix}
+		2b_{11} - b_{12}  &  b_{13} + 2b_{12}\\
+		0& 0
+		\end{pmatrix} && \text{Distributividad \textit{inversa} en $ \lambda $ } \\
+		T(\lambda A + B) &= \lambda T(A) + T(B) && \text{Definición de $ T(A), T(B) $ } \\
+	\end{align*}
+	\begin{center}
+		$ \therefore T $ es transformación lineal
+	\end{center}	
+		
 	
 	d) $T: P_{2}(\mathbb{R}) \longrightarrow P_{3}(\mathbb{R}) \rbrace$ definida por $T(f(x)) = xf(x) + f'(x)$.
-
+	Para ver que una transformación es lineal, debe cumplir que \textbf{abra sumas y saque escalares}\\
+	Sean $ p(x), q(x) \in \R^3 $ y $ \psi \in \R $ donde
+	\[ p(x) = a + bx + cx^2 \qquad q(x) = d + ex + fx^2 \]
+	entonces 
+	\begin{align*}
+		\psi p(x) + q(x) &= \psi (a + bx + cx^2) + (d + ex + fx^2) && \text{Definición de $ p(x), q(x) $}\\
+		\psi p(x) + q(x) &= (\psi a + \psi bx + \psi cx^2) + (d + ex + fx^2) && \text{Distributividad de $\psi$}\\
+		\psi p(x) + q(x) &= (\psi a+d + \psi bx + ex + \psi cx^2 + fx^2)&& \text{Asociatividad}\\
+		T(\psi p(x) + q(x)) &= T(\psi a +d + \psi bx + ex + \psi cx^2 + fx^2)&& \text{Aplicando T en ambos miembros}\\
+		T(\psi p(x) + q(x)) &= \psi ax + dx + \psi bx^2 + ex^2 + \psi cx^3 + fx^3 + \psi b + e + \psi 2cx + 2fx&& \text{Usando la regla de correspondencia}\\
+		T(\psi p(x) + q(x)) &= \psi ax + \psi b + \psi b x^2+ \psi cx^2 + \psi 2cx + e +dx + ex^2  + fx^3 + 2fx&& \text{Conmutatividad en $ \R $}\\
+		T(\psi p(x) + q(x)) &= (\psi ax + \psi b + \psi b x^2+ \psi cx^3 + \psi 2cx) + (e +dx + ex^2  + fx^3 + 2fx)&& \text{Asociativiad en $ \R $}\\
+		T(\psi p(x) + q(x)) &= \psi(ax + b + bx^2+ cx^3 + 2cx) + (e + dx + ex^2 + 2fx + fx^2 )&& \text{Distributividad \textit{inversa} en $ \R $}\\
+		T(\psi p(x) + q(x)) &= \psi T(p(x)) + T(q(x))&& \text{Definición de $ T(p(x)), T(q(x)) $}\\
+	\end{align*}
+	\begin{center}
+		$ \therefore T $ es transformación lineal
+	\end{center}
 
 \end{document}
 
