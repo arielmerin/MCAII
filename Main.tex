@@ -1286,6 +1286,13 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 
 \noindent 10.Prueba que las siguientes transformaciones $T$ son lineales y encuentra el núcleo $Nu(T)$ y la imagen $Im(T)$
 
+\begin{definition}
+	Sea $ T: V \rightarrow W $ La imagen de una trasformación $ T $ es $Im(T) = \left\lbrace T(x) | \hat{x} \in V  \right\rbrace$
+\end{definition}
+\begin{definition}
+	Sea $ T: V \rightarrow W $ El núcleo de una trasformación $ T $ es $Nu(T) = \left\lbrace \hat{x} \in V | T(\hat{x}) = \hat{0}_{W}  \right\rbrace$
+\end{definition}
+
 
 	a) $\lbrace T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{2} \rbrace $ definida por $T(a_{1},a_{2},a_{3}) = (a_{1} - a_{2}, 2a_{3})$
 	Para ver que una transformación es lineal, debe cumplir que \textbf{abra sumas y saque escalares}\\
@@ -1307,8 +1314,40 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 		$ \therefore T $ es transformación lineal
 	\end{center}	
 	
+	Ahora veamos quién es el núcleo de la transformación igualando a $ \hat{0}_{\R^2} $  sea $ \hat{x} \in \R^3 $
 	
-
+	\begin{align*}
+		T(\hat{x}) &= \hat{0}_{\R^2} && \text{Planteando la iguladad}\\  
+		T(\hat{x}) &= (0,0) && \text{Por definición del neutro aditivo en $ \R^2 $} \\  
+		T(x_1, x_2, x_3) &= (0,0) && \text{Porque $ \hat{x} \in \R^3 $ } \\  
+		(x_1 - x_2, 2x_3) &= (0,0) && \text{Por definición de T } \\  
+		x_1 - x_2 &= 0 && \text{Obtenemos el siguiente sistema } \\  
+		2x_3 &= 0 && \text{ } \\  
+		\\
+		x_3 &= 0 && \text{Por lo que tenemos } \\  
+		x_1 &= x_2 && \text{y por otra parte } \\  
+	\end{align*}
+	\begin{center}
+		$ \therefore $ el núcleo de la transformación son todos los elementos cuya primera y segunda coordenada son la misma y la tercera 0. \textit{i.e.}
+		$ Nu(T) = \lbrace (x_1, x_2, x_3) \in \R^3 | (x_1,x_1, 0)\rbrace $
+	\end{center}
+	
+	Finalmente notemos que la imagen de la transformación está dada por lo siguiente.\\
+	Sea $ \hat{y} \in \R^3  $ y $ \hat{x} \in \R^2 $ de la forma 
+	 \[\hat{y} = (y_1, y_2, y_3) \qquad \hat{x} = (x_1, x_2) \]
+	 entonces
+	 \begin{align*}
+	 	T(\hat{x}) &= \hat{y} && \text{Para ver de que forma son los elementos}\\
+	 	T(x_1, x_2) &= (y_1, y_2, y_3) && \text{Usando su representación}\\
+	 	(x_1 + x_2, 0, 2x_1 - x_2 ) &= (y_1, y_2, y_3) && \text{Por la regla de correspondencia de T}\\
+	 	\\
+	 	x_1 + x_2 &= y_1 && \text{Igualamos entrada a entrada}\\
+	 	0 &= y_2 && \text{Obteniendo lo siguiente}\\
+	 	2x_1 - x_2  &= y_3 && \text{Se deduce de lo anterior}\\
+	 \end{align*}
+	 
+	Es importante mencionar que la suma de elementos en $ \R $ es algún elemento en $ \R $ pues la suma es cerrada en dicho conjunto. Por lo que podemos deducir que la imagen de $ T $ es $$ Im(T) = \lbrace (x_1, 0 , x_2)| x_1, x_2 \in \R \rbrace $$\\
+	
 	b) $\lbrace T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3} \rbrace$ definida por $(a_{1},a_{2}) = (a_{1} + a_{2}, 0, 2a_{1} - a_{2})$
 	Para ver que una transformación es lineal, debe cumplir que \textbf{abra sumas y saque escalares}\\
 	Sean $ \hat{x}, \hat{y} \in \R^3 $ y $ \theta \in \R $ entonces
