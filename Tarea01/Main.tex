@@ -1609,7 +1609,18 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	
 	\noindent11. Sean $\beta$ y $\gamma$ las bases estándar para $\mathbb{R}^{n}$ y $\mathbb{R}^{m}$ respectivamente. Para cada transformación lineal $T: \mathbb{R}^{n} \longrightarrow \mathbb{R}^{m}$ encontrar su representación matricial.
 	\begin{definition}
-		Sean $ \V $ y $ \W $ espacios vectoriales de dimensión finita y $ \beta, \gamma $ sus respectivas bases. Además consideremos $ T: \V \rightarrow \W $ transformación lineal, entonces definimos a la matriz asociada a la función T de la base $ \beta $
+		Sea $ \V $ un espacio vectorial de dimensión finita y $ \beta $ una base ordenada de $ \V $ si $ \vec{x} \in \V$ entonces existen $$ \alpha_1, \alpha_2, \cdots, \alpha_n \in \R \tq \vec{x} = \alpha_1 \vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots $$ donde $ \vec{v}_i \in \beta $ entonces definimos al vector de coordenadas de $ \vec{x} $ con respecto a la base $ \beta $ como \[ [\vec{x}]_\beta = \begin{pmatrix}
+		\alpha_1\\
+		\alpha_2\\
+		\alpha_3\\
+		\vdots\\
+		\alpha_n\\
+		\end{pmatrix} \]
+	\end{definition}
+	
+	\begin{definition}
+		Sean $ \V $ y $ \W $ espacios vectoriales de dimensión finita y $ \beta, \gamma $ sus respectivas bases. Además consideremos $ T: \V \rightarrow \W $ transformación lineal, entonces definimos a la matriz asociada a la función T de la base $ \beta $ en la base $ \gamma $ como
+		\[ [T]_{\beta}^{\gamma} \]
 	\end{definition}
 		a) $T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3}$ definido por $T(a_{1},a_{2}) = (2a_{1} - a_{2}, 3a_{1} + 4a_{2},a_{1})$
 		
