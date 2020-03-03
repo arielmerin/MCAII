@@ -47,7 +47,7 @@ includefoot]{geometry}
 \begin{document}
 		\begin{titlepage}
 		\begin{center}
-			\Large{\textbf{Espacios vectoriales}} \\[0.1cm]
+			\Large{\textbf{Espacios vectoriales y Álgebra lineal}} \\[0.1cm]
 			\huge{Matemáticas para las ciencias aplicadas II}\\[0.2cm]
 			\large{Aquino Chapa Armando Abraham y Merino Peña Kevin Ariel }
 			\\
@@ -1287,10 +1287,10 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 \noindent 10.Prueba que las siguientes transformaciones $T$ son lineales y encuentra el núcleo $Nu(T)$ y la imagen $Im(T)$
 
 \begin{definition}
-	Sea $ T: V \rightarrow W $ La imagen de una trasformación $ T $ es $Im(T) = \left\lbrace T(x) | \hat{x} \in V  \right\rbrace$
+	Sea $ T: V \rightarrow W $ una transformación lineal, la \textbf{imagen} de una trasformación $ T $ es $Im(T) = \left\lbrace T(\hat{x}) | \hat{x} \in V  \right\rbrace$
 \end{definition}
 \begin{definition}
-	Sea $ T: V \rightarrow W $ El núcleo de una trasformación $ T $ es $Nu(T) = \left\lbrace \hat{x} \in V | T(\hat{x}) = \hat{0}_{W}  \right\rbrace$
+	Sea $ T: V \rightarrow W $ una transformación lineal, el \textbf{núcleo} de una trasformación $ T $ es $Nu(T) = \left\lbrace \hat{x} \in V | T(\hat{x}) = \hat{0}_{W}  \right\rbrace$
 \end{definition}
 
 
@@ -1332,21 +1332,22 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 		$ Nu(T) = \lbrace (x_1, x_2, x_3) \in \R^3 | (x_1,x_1, 0)\rbrace $
 	\end{center}
 	
-	Finalmente notemos que la imagen de la transformación está dada por lo siguiente.\\
-	Sea $ \hat{y} \in \R^3  $ y $ \hat{x} \in \R^2 $ de la forma 
-	 \[\hat{y} = (y_1, y_2, y_3) \qquad \hat{x} = (x_1, x_2) \]
-	 entonces
-	 \begin{align*}
-	 	T(\hat{x}) &= \hat{y} && \text{Para ver de que forma son los elementos}\\
-	 	T(x_1, x_2) &= (y_1, y_2, y_3) && \text{Usando su representación}\\
-	 	(x_1 + x_2, 0, 2x_1 - x_2 ) &= (y_1, y_2, y_3) && \text{Por la regla de correspondencia de T}\\
-	 	\\
-	 	x_1 + x_2 &= y_1 && \text{Igualamos entrada a entrada}\\
-	 	0 &= y_2 && \text{Obteniendo lo siguiente}\\
-	 	2x_1 - x_2  &= y_3 && \text{Se deduce de lo anterior}\\
-	 \end{align*}
-	 
-	Es importante mencionar que la suma de elementos en $ \R $ es algún elemento en $ \R $ pues la suma es cerrada en dicho conjunto. Por lo que podemos deducir que la imagen de $ T $ es $$ Im(T) = \lbrace (x_1, 0 , x_2)| x_1, x_2 \in \R \rbrace $$\\
+	Finalmente observemos que la imagen de la transformacion es:
+	
+	Sean $ \hat{y} \in \R^2 $ y $ \hat{x} \in \R^3 $ veamos que 
+	\begin{align*}
+		T(\hat{x}) &= \hat{y} && \text{Para ver la forma de los elementos en la imgaen}\\
+		T(x_1, x_2, x_3) &= (y_1, y_2) && \text{Por definición de $ \hat{y}, \hat{x} $}\\
+		(x_1 - x_2, 2 x_3) &= (y_1, y_2) && \text{Usando la regla de correspondencia de T }\\
+		\\
+		x_1 - x_2  &= y_1 && \text{Obtenemos que $ y_1 $ es de esa forma }\\
+		2x_3  &= y_2 && \text{y que $ y_2 $ se obtiene de esta manera}\\
+	\end{align*}
+	
+	\begin{center}
+		Es menester mencionar que la suma (diferencia) entre elementos de $ \R $ es algún otro elemento en $ \R $ por lo que la imagen de T es todo $ \R^2 $
+	\end{center}
+
 	
 	b) $\lbrace T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3} \rbrace$ definida por $(a_{1},a_{2}) = (a_{1} + a_{2}, 0, 2a_{1} - a_{2})$
 	Para ver que una transformación es lineal, debe cumplir que \textbf{abra sumas y saque escalares}\\
@@ -1367,8 +1368,45 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\begin{center}
 		$ \therefore T $ es transformación lineal
 	\end{center}	
+	
+	Revisemos cuál es el núcleo de la transformación lineal, tomando un elemento en el dominio y viendo qué forma tienen los elementos que irán al neutro aditivo de su codominio.\\
+	Sea $ \hat{x} \in \R^2$ entonces 
+	\begin{align*}
+		T(\hat{x}) & = \hat{0}_{\R^3} && \text{Planteando la igualdad} \\
+		T(x_1, x_2) & = \hat{0}_{\R^3} && \text{Por la forma de $ \hat{x} $} \\
+		T(x_1, x_2) & = (0,0,0) && \text{Por la forma de $ \hat{0}_{\R^3} $} \\
+		(x_1 + x_2 ,0, 2x_1 - x_2) & = (0,0,0) && \text{Aplicando la regla de correspondencia de T} \\
+		\\
+		x_1 + x_2 & = 0 && \text{Obtenemos el siguiente sistema} \\
+		0 & = 0 && \text{  } \\
+		2x_1 - x_2 & = 0 && \text{ } \\
+		\\
+		x_1  & =  - x_2 && \text{Deducimos lo siguiente} \\
+		2x_1 & =  x_2 && \text{ } \\
+	\end{align*}
+	
+	Y la única manera de que eso ocurra es que 
+	\[ x_1 = x_2 = 0 \]
+	\begin{center}	 
+		$ \therefore $ el núcleo de la transformación es $ (0,0) $
+	\end{center}
+	
+		Finalmente notemos que la imagen de la transformación está dada por lo siguiente.\\
+		Sea $ \hat{y} \in \R^3  $ y $ \hat{x} \in \R^2 $ de la forma 
+		\[\hat{y} = (y_1, y_2, y_3) \qquad \hat{x} = (x_1, x_2) \]
+		entonces
+		\begin{align*}
+		T(\hat{x}) &= \hat{y} && \text{Para ver de que forma son los elementos}\\
+		T(x_1, x_2) &= (y_1, y_2, y_3) && \text{Usando su representación}\\
+		(x_1 + x_2, 0, 2x_1 - x_2 ) &= (y_1, y_2, y_3) && \text{Por la regla de correspondencia de T}\\
+		\\
+		x_1 + x_2 &= y_1 && \text{Igualamos entrada a entrada}\\
+		0 &= y_2 && \text{Obteniendo lo siguiente}\\
+		2x_1 - x_2  &= y_3 && \text{Se deduce de lo anterior}\\
+		\end{align*}
 		
-
+		Es importante mencionar que la suma de elementos en $ \R $ es algún elemento en $ \R $ pues la suma es cerrada en dicho conjunto. Por lo que podemos deducir que la imagen de $ T $ es $$ Im(T) = \lbrace (x_1, 0 , x_2)| x_1, x_2 \in \R \rbrace $$\\
+		
 	c) $\lbrace T: M_{2x3}(\mathbb{R}) \longrightarrow M_{2x2}(\mathbb{R}) \rbrace $ definido por
 	\[ T \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \end{pmatrix} = \begin{pmatrix} 2a_{11} - a_{12} & a_{13} + 2a_{12} \\ 0 & 0 \end{pmatrix} \]
 	Sean $ A,B \in  M_{2x3}(\mathbb{R}), \lambda \in \R $ y que 
@@ -1434,7 +1472,65 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\begin{center}
 		$ \therefore T $ es transformación lineal
 	\end{center}	
-		
+	
+	Veamos cuál es el núcleo de la transformación.\\
+	Sea $ A \in M_{2x3}(\mathbb{R}) $
+	\begin{align*}
+		T(A) & = \hat{0}_{ M_{2x2}} && \text{Planteando la igualdad}\\
+		T\begin{pmatrix}
+		a_{11} & a_{12} & a_{13}\\
+		a_{21} & a_{22} & a_{23}
+		\end{pmatrix} & = \begin{pmatrix}
+		0 & 0\\
+		0 & 0
+		\end{pmatrix} && \text{Planteando la igualdad}\\
+		\begin{pmatrix} 
+		2a_{11} - a_{12} & a_{13} + 2a_{12} \\ 
+		0 & 0 \end{pmatrix} &= \begin{pmatrix}
+		0 & 0\\
+		0 & 0
+		\end{pmatrix} && \text{Por la regla de correspondencia de T}\\
+		\\
+		2a_{11} - a_{12} & = 0 && \text{Obtenemos esto }\\
+		a_{13} + 2a_{12} & = 0 && \text{ }\\
+		\\
+		a_{11} & = \dfrac{ a_{12}}{2} && \text{Finalmente conseguimos }\\
+		a_{13} & = -2a_{12} && \text{ }\\
+	\end{align*}
+	\begin{center}
+		$ \therefore $ El \textbf{núcleo} de T son todas las matrices en $ M_{2x3}(\R) $ tal que $ a_{11} = \dfrac{ a_{12}}{2} $ y que $ a_{13}  = -2a_{12} $\\ sin importar las entradas $ a_{21},a_{22},a_{23}  $
+	\end{center}
+	Para ver quién es la imagen de T tomemos un elemento en el dominio e igualémoslo con un elemento del codominio \textit{i.e.}\\
+	Sea $ \hat{B} \in M_{2x2}(\R) $ y $ \hat{A} \in M_{2x3}(\R) $
+
+	\begin{align*}
+			T(\hat{A}) & = \hat{B} && \text{Planteando la igualdad }\\
+			T\begin{pmatrix}
+			a_{11} & a_{12} & a_{13}\\
+			a_{21} & a_{22} & a_{23}
+			\end{pmatrix} & = \begin{pmatrix}
+			b_{11} & b_{12}\\
+			b_{21} & b_{22}
+			\end{pmatrix} && \text{Planteando la igualdad}\\
+			\begin{pmatrix} 
+			2a_{11} - a_{12} & a_{13} + 2a_{12} \\ 
+			0 & 0 \end{pmatrix} &= \begin{pmatrix}
+			b_{11} & b_{12}\\
+			b_{21} & b_{22}
+			\end{pmatrix} && \text{Por la regla de correspondencia de T}\\
+			\\
+			2a_{11} - a_{12} & = b_{11} && \text{Obtenemos esto }\\
+			a_{13} + 2a_{12} & = b_{12} && \text{ }\\
+			0 &= b_{21} = b_{22} && \\
+			\\
+			a_{11} & = \dfrac{ a_{12}}{2} && \text{Finalmente conseguimos }\\
+			a_{13} & = -2a_{12} && \text{ }\\
+	\end{align*}
+	\begin{center}
+		veamos que $ 2a_{11} - a_{12}  \in \R , \ a_{13} + 2a_{12} \in \R $\\
+		Por lo que podemos concluir que la \textbf{imagen} de T son todas las matrices en $ M_{22}(\R) \tq b_{21} = b_{22} = 0 $
+	\end{center}
+
 	
 	d) $T: P_{2}(\mathbb{R}) \longrightarrow P_{3}(\mathbb{R}) \rbrace$ definida por $T(f(x)) = xf(x) + f'(x)$.
 	Para ver que una transformación es lineal, debe cumplir que \textbf{abra sumas y saque escalares}\\
