@@ -1551,7 +1551,35 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\begin{center}
 		$ \therefore T $ es transformación lineal
 	\end{center}
-
+	Veamos quien es el núcleo de la transformación para lo que necesitaremos tomar un $ f(x) \in P_2 (\R) $
+	\begin{align*}
+		f(x) & = a_0 + a_1 x + a_2 x^2 && \text{Por la forma de $ f(x) $}\\
+		T(f(x)) & = x(a_0 + a_1 x + a_2 x^2) + a_1 + 2a_2 x && \text{Aplicando la regla de correspondencia}\\
+		T(f(x)) & = a_1 + a_0x + 2a_2 x + a_1 x^2 + a_2 x^3  && \text{Distributividad}\\
+		T(f(x)) & = a_1 + (a_0 + 2a_2)x  + a_1 x^2 + a_2 x^3  && \text{Distributividad \textit{inversa} y asociatividad}\\
+	\end{align*}
+	y ahora igualemos este resultado con $ \hat{0}_{P_3 (\R)} $
+	\begin{align*}
+		 a_1 + (a_0 + 2a_2)x  + a_1 x^2 + a_2 x^3 &= 0 + 0x + 0x^2 + 0x^3 && \text{ igualemos entrada a entrada}\\
+		 \\
+		 a_1 &= 0 && \text{Primera entrada}\\
+		 a_0 + 2a_2 &= 0 && \text{Segunda entrada}\\
+		 a_1 &= 0 && \text{Tercera entrada}\\
+		 a_2 &= 0 && \text{Cuarta entrada}\\
+	\end{align*}
+	\begin{center}
+		Por lo tanto el \textbf{núcleo} de la transformación es el polinomio en $ P_2 (\R) \tq a_2 = a_1 = a_0 = 0$
+	\end{center}
+	Por último veamos quién es la imagen de la transformación lineal. \\
+	Sea $ q(x) = b_0 + b_1 x + b_2 x^2 + b_3 x^3 \in P_3 (\R)  $
+	\begin{align*}
+		T(f(x)) & = q(x) && \text{Planteamos la igualdad} \\
+		T(a_0 + a_1 x + a_2 x^2) & = b_0 + b_1 x + b_2 x^2 + b_3 x^3 && \text{Por definición de $ f(x) $ y $ q(x) $} \\
+		a_1 + (a_0 + 2a_2)x  + a_1 x^2 + a_2 x^3 &= b_0 + b_1 x + b_2 x^2+ b_3 x^3 && \text{Por la regla de correspondencia de T}\\
+	\end{align*}
+	
+	Notemos que el término constante y el cuadrático son el mismo por lo que la imagen de la transformación son todos los polinomios en 
+	$$ p(x) \in P_3 (\R) \tq p(x) = a + (c + 2b)x + ax^2 + bx^3  $$
 \end{document}
 
 
