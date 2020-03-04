@@ -18,6 +18,7 @@ includefoot]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lmodern}
 \usepackage{tcolorbox}
+\usepackage{color}
 \usepackage{tikz}
 \tcbuselibrary{skins,breakable}
 \pagestyle{fancy}
@@ -1648,8 +1649,7 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 		Sean $ \V $ y $ \W $ espacios vectoriales de dimensión finita y $ \beta, \gamma $ sus respectivas bases. Además consideremos $ T: \V \rightarrow \W $ transformación lineal, entonces definimos a la matriz asociada a la función T de la base $ \beta $ en la base $ \gamma $ como
 		\[ [T]_{\beta}^{\gamma} \]
 	\end{definition}
-		a) $T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3}$ definido por $T(a_{1},a_{2}) = (2a_{1} - a_{2}, 3a_{1} + 4a_{2},a_{1})$
-		
+		a) $T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3}$ definido por $T(a_{1},a_{2}) = (2a_{1} - a_{2}, 3a_{1} + 4a_{2},a_{1})$\\
 		Tomemos en cuenta que las bases estándar de $ \R^2, \R^3 $ son respectivamente, las siguientes
 		 \[ \beta = \lbrace (1,0),(0,1) \rbrace \quad \gamma = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace \]
 		Ahora, con el primer elemento de la base $ \beta $ apliquemos la transformación lineal
@@ -1666,26 +1666,385 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 			1 & = \alpha_3 && \text{Valores resultantes}\\
 		\end{align*}
 		Con lo que ahora tenemos podemos construir 
-		$$ [T]_{\beta}^{\gamma} = \begin{pmatrix}
-		2 & \\
-		3 & \\
-		1 & \\
-		\end{pmatrix} $$
-		
-		Empleemos el segundo elemento de la base $ \beta $
+		$$ [T(1,0)]_{\gamma} = \begin{pmatrix}
+		2\\
+		3 \\
+		1 \\
+		\end{pmatrix} $$		
+		Empleemos el segundo elemento de la base $ \beta $ para aplicarle la transformación lineal 
+		\begin{align*}
+			T(0,1) &= (2(0) - 1, 3(0) + 4(1), 0) && \text{Por la regla de correspondencia de T}\\
+			T(0,1) &= (- 1, 4, 0) && \text{Distributividad,neutro aditivo y multiplicativo}
+		\end{align*}
+		Ahora escribamos a $ (- 1, 4, 0) $ como combinación lineal de elementos de la base $ \gamma $
+		\begin{align*}
+			(- 1, 4, 0) &= \alpha_1(1,0,0)+ \alpha_2(0,1,0)+ \alpha_3(0,0,1) && \text{Coeficientes en el campo}\\
+			(- 1, 4, 0) &= (\alpha_1,\alpha_2,\alpha_3) && \text{Disstribuyendo y sumando entrada a entrada}\\
+			\\
+			- 1 &= \alpha_1 && \text{Valor del coeficiente}\\
+			4 &= \alpha_2 && \text{Valor del coeficiente}\\
+			0 &= \alpha_2 && \text{Valor del coeficiente}\\
+		\end{align*}
+		Entonces el vector de coordenadas asociado a $ (0,1) $ es
+				$$ [T(0,1)]_{\gamma} = \begin{pmatrix}
+				-1\\
+				4\\
+				0\\
+				\end{pmatrix} $$
+		Por lo que la matriz asociada a la transformación T es 
+		\[ [T]_{\beta}^{\gamma} = \begin{pmatrix}
+					2 & -1 \\
+					3 & 4 \\
+					1 & 0 \\
+		\end{pmatrix} \]
 		
 		
 		b) $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{2}$ definido por 
 		$T(a_{1},a_{2},a_{3}) = (2a_{1} + 3a_{2} - a_{3}, a_{1} + a_{3})$
 		
 		 \[  \beta = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace \quad \gamma = \lbrace (1,0),(0,1) \rbrace \]
-		
+		 Tomemos el primer elemento de la base canónica $ \beta $ para aplicar la transformación lineal $ T $ 
+		 \begin{align*}
+		 	T(1,0,0) &= (2(1) + 3(0) - (0), (1)+ (0)) && \text{Usando la regla de correspondencia}\\
+		 	T(1,0,0) &= (2,1) && \text{Por neutro aditivo, neutro multiplicativo}\\
+		 \end{align*}
+		 Ahora veamos a $ (2,1) $ como combinación lineal de elementos de la base $ \gamma $
+		 \begin{align*}
+		 	(2,1) &= \alpha_1(1,0)+ \alpha_2(0,1) && \text{Donde $ \alpha_1,\alpha_2 $ son coeficientes del campo}\\
+		 	(2,1) &= (\alpha_1,\alpha_2) && \text{Distribuyendo y sumando vectores}\\
+		 	2 &= \alpha_1 && \text{Igualando entrada a entrada}\\
+		 	1 &= \alpha_2 && \text{Igualando entrada a entrada}\\
+		 \end{align*}
+		 Por lo que ya podemos ver que 
+		 \[ [T(1,0,0)]_{\gamma} = \begin{pmatrix}
+		 2\\
+		 1\\
+		 \end{pmatrix} \]		
+		Empleemos la transformación lineal con el segundo elemento de la base $ \beta $
+		\begin{align*}
+			T(0,1,0) = (2(0) +3(1) - 0, 0 + 1) && \text{Usando la regla de correspondencia de T}\\
+			T(0,1,0) = (3,1) && \text{Multiplicando y sumando neutros aditivos}\\
+		\end{align*}
+		Ahora veamos como combinación lineal de elementos de la base $ \gamma $ a $ (3,1) $		
+		\begin{align*}
+			(3,1) &= \alpha_1(1,0) + \alpha_2(0,1) && \text{Donde $ \alpha_1, \alpha_2 \in \R$}\\
+			(3,1) &= (\alpha_1,\alpha_2) && \text{Distribuyendo y sumando entrada con entrada}\\
+			\\
+			3 &= \alpha_1 && \text{Igualando las entradas}\\
+			1 &= \alpha_2 && \text{Igualando las entradas}\\
+		\end{align*}
+		Y así podemos construir 
+		\[ [T(0,1,0)]_{\gamma} = \begin{pmatrix}
+		3\\
+		1
+		\end{pmatrix} \]	
+		Por último tomemos el tercer elemento de la base $ \beta $ para aplicar la transformación lineal
+		\begin{align*}
+			T(0,0,1) & = (2(0) + 3(0) -1, 0+1) && \text{Por la regla de correspondencia de T}\\
+			T(0,0,1) & = (-1, 1) && \text{Sumando y multiplicando respectivamente}\\
+		\end{align*}
+		Ahora veamos a $ (-1,1) $ como combinación lineal de elementos de la base $ \gamma $
+		\begin{align*}
+			(-1,1) &= \alpha_1(1,0) + \alpha_2(0,1) && \text{Donde $ \alpha_1, \alpha_2 \in \R$}\\
+			(-1,1) &= (\alpha_1,\alpha_2) && \text{Distribuyendo y sumando}\\
+			\\
+			-1 &= \alpha_1 && \text{Igualamos entrada correspondiente}\\
+			1 &= \alpha_2 && \text{Igualamos entrada correspondiente}\\
+		\end{align*}
+		De tal forma que el vector de coordenadas asociado a $ T(0,0,1) $ es 
+		\[ [T(0,0,1)]_{\gamma} = \begin{pmatrix}
+		-1\\
+		1
+		\end{pmatrix} \]
+		Y ahora que contamos con todos los coeficientes podemos construir la matriz asociada a la transformación lineal T como
+		\[ [T]_{\beta}^{\gamma} = \begin{pmatrix}
+		2 & 3 & -1\\
+		1 & 1 & 1\\
+		\end{pmatrix} \]
 		c) $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}$ definido por $T(a_{1},a_{2},a_{3}) = 2a_{1} + a_{2} - 3a_{3}$
 		
 		\[ \beta = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace \quad \gamma = \lbrace 1 \rbrace \]
-		
+		En este ejercicio tenemos un caso un tanto trivial pues la base estándar de $ \R $ es el neutro multiplicativo, así que sólo bastará con aplicar la transformación lineal a elementos de $ \beta $ para obtener los coeficientes de la matriz asociada a dicha transformación.
+		\begin{align*}
+			T(1,0,0) &= 2(1) + 0 - 3(0) && \text{Por la regla de correspondencia}\\
+			T(1,0,0) &= 2 && \text{Operando}\\
+			\\
+			T(0,1,0) &= 2(0) + 1 - 3(0) && \text{Por la regla de correspondencia}\\
+			T(0,1,0) &= 1 && \text{Simplificando}\\
+			\\
+			T(0,0,1) &= 2(0) + 0 - 3(1) && \text{Por la regla de correspondencia}\\
+			T(0,0,1) &=- 3 && \text{Efectuando los productos}\\
+		\end{align*}
+		Finalmente la matriz asociada a esta transformación es 
+		\[ [T]_{\beta}^{\gamma} = \begin{pmatrix}
+		2 & 1 & -3
+		\end{pmatrix}  \]
 		d) $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{3}$ definido por $T(a_{1},a_{2},a_{3}) = (2a_{2} + a_{3}, -a_{1} + 4a_{2} + 5a_{3},a_{1} + a_{3})$
 		\[ \beta = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace \quad \gamma = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace\]
+		Tomemos el primer elemento de la base $ \beta $ y apliquemos la transformación lineal
+		\begin{align*}
+			T(1,0,0) &= (2(0)+ (0), -(1) + 4(0) + 5(0),(1) +(0)) && \text{Usando la regla de correspondencia}\\
+			T(1,0,0) &= (0,-1,1) &&
+		\end{align*}
+		Ahora veamos a $ (0,-1,1) $ como combinación lineal de elementos de la base $ \gamma $
+		\begin{align*}
+			(0,-1,1) &= \alpha_1(1,0,0) + \alpha_2(0,1,0) + \alpha_3(0,0,1) && \text{Donde $ \alpha_1,\alpha_2,\alpha_3 \in \R$}\\
+			(0,-1,1) &= ( \alpha_1,  \alpha_2,  \alpha_3) && \text{Distribuyendo y sumando}\\
+			\\
+			0 &= \alpha_1 && \text{Igualanado entradas}\\
+			-1 &= \alpha_2 && \text{Igualanado entradas}\\
+			1 &= \alpha_3 && \text{Igualanado entradas}\\
+		\end{align*}
+		De esta manera podemos construir el vector de coordenadas asociado
+		\[ [T(1,0,0)]_{\gamma} = \begin{pmatrix}
+		0\\
+		-1\\
+		1\\
+		\end{pmatrix}  \]
+		Tomemos el segundo elemento de la base $ \beta $ y apliquemos la transformación lineal
+		\begin{align*}
+		T(0,1,0) &= (2(1)+ (0), -(0) + 4(1) + 5(0),(0) +(0)) && \text{Usando la regla de correspondencia}\\
+		T(0,1,0) &= (2,4,0) &&
+		\end{align*}
+		Ahora veamos a $ (2,4,0) $ como combinación lineal de elementos de la base $ \gamma $
+		\begin{align*}
+		(2,4,0) &= \alpha_1(1,0,0) + \alpha_2(0,1,0) + \alpha_3(0,0,1) && \text{Donde $ \alpha_1,\alpha_2,\alpha_3 \in \R$}\\
+		(2,4,0) &= ( \alpha_1,  \alpha_2,  \alpha_3) && \text{Distribuyendo y sumando}\\
+		\\
+		2 &= \alpha_1 && \text{Igualanado entradas}\\
+		4 &= \alpha_2 && \text{Igualanado entradas}\\
+		0 &= \alpha_3 && \text{Igualanado entradas}\\
+		\end{align*}
+		De esta manera podemos construir el vector de coordenadas asociado
+		\[ [T(0,1,0)]_{\gamma} = \begin{pmatrix}
+		2\\
+		4\\
+		0\\
+		\end{pmatrix}  \]
+		Tomemos el tercer elemento de la base $ \beta $ y apliquemos la transformación lineal
+		\begin{align*}
+		T(0,0,1) &= (2(0)+ (1), -(0) + 4(0) + 5(1),(0) +(1)) && \text{Usando la regla de correspondencia}\\
+		T(0,0,1) &= (1,5,1) &&
+		\end{align*}
+		Ahora veamos a $ (1,5,1) $ como combinación lineal de elementos de la base $ \gamma $
+		\begin{align*}
+		(1,5,1) &= \alpha_1(1,0,0) + \alpha_2(0,1,0) + \alpha_3(0,0,1) && \text{Donde $ \alpha_1,\alpha_2,\alpha_3 \in \R$}\\
+		(1,5,1) &= ( \alpha_1,  \alpha_2,  \alpha_3) && \text{Distribuyendo y sumando}\\
+		\\
+		1 &= \alpha_1 && \text{Igualanado entradas}\\
+		5 &= \alpha_2 && \text{Igualanado entradas}\\
+		1 &= \alpha_3 && \text{Igualanado entradas}\\
+		\end{align*}
+		De esta manera podemos construir el vector de coordenadas asociado
+		\[ [T(0,0,1)]_{\gamma} = \begin{pmatrix}
+		1\\
+		5\\
+		1\\
+		\end{pmatrix}  \]
+		Y por último construyamos la matriz asociada a la transformación $ T $
+		\[ [T]_{\beta}^{\gamma} = \begin{pmatrix}
+		0 & 2 & 1\\
+		-1 & 4 & 5\\
+		1 & 0 & 1\\
+		\end{pmatrix} \]	
+	\begin{ejercicio}{12}
+		Para cada uno de los siguientes pares de bases $\beta$ y $\beta'$ para $\mathbb{R}^{2}$, encuentra la matriz de cambio de coordenadas que cambia las coordenadas de $\beta'$ en las de $\beta$.
+	\end{ejercicio}
+	a)$\beta = \lbrace \hat{e}_{1},\hat{e}_{2} \rbrace$ y $\beta' = \lbrace (a_{1},a_{2}),(b_{1},b_{2}) \rbrace$\\
+	b)$\beta = \lbrace (-1,3),(2,-1) \rbrace$ y $\beta' = \lbrace (0,10),(5,0) \rbrace$\\
+	c)$\beta = \lbrace (2,5),(-1,-3) \rbrace$ y $\beta' = \lbrace e_{1},e_{2} \rbrace$\\
+	d)$\beta = \lbrace (-4,3),(2,-1) \rbrace$ y $\beta' = \lbrace (2,1),(-4,1) \rbrace$\\
+	\begin{ejercicio}{13}
+		Encontrar la matriz inversa por el método de \textit{Gauss-Jordan} de las siguientes matrices 
+	\end{ejercicio}
+	\noindent a)$\begin{pmatrix} 1 & 2 \\ 1 & 1 \end{pmatrix}$\\
+	Adjuntemos la matriz $ I_2 $ de tal manera que obtengamos
+	\[\begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		1 & 1 & 0 & 1 \\
+	\end{pmatrix}\]
+	\begin{align*}
+		\begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		1 & 1 & 0 & 1 \\
+		\end{pmatrix} & = \begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		0 & -1 & -1 & 1 \\
+		\end{pmatrix} && \text{1a Fila $ \* -1 $ + 2a Fila en 2a Fila}\\
+		\begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		0 & -1 & -1 & 1 \\
+		\end{pmatrix} &= \begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		0 & 1 & 1 & -1 \\
+		\end{pmatrix} && \text{2a Fila $ \* -1$ }\\
+		\begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		0 & 1 & 1 & -1 \\
+		\end{pmatrix} & = \begin{pmatrix}[cc|cc]
+		1 & 0 & -1 & 2 \\
+		0 & 1 & 1 & -1 \\
+		\end{pmatrix} && \text{2a Fila $ \* -2 $ + 1a Fila en 1a Fila}
+	\end{align*}
+	\[ \therefore \text{ la inversa de la matriz dada es }  \begin{pmatrix}
+	-1 & 2 \\
+	1 & -1 \\
+	\end{pmatrix} \]
+	b)$\begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$ \\
+	Adjuntemos la matriz $ I_2 $ de tal manera que obtengamos
+	\[\begin{pmatrix}[cc|cc]
+	1 & 2 & 1 & 0 \\
+	2 & 4 & 0 & 1 \\
+	\end{pmatrix}\]
+	\begin{align*}
+		\begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		2 & 4 & 0 & 1 \\
+		\end{pmatrix} & = \begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		0 & 0 & -2 & 1 \\
+		\end{pmatrix} && \text{1a Fila $ \* -2  + 2^a$ en 2a Fila}\\
+		\begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		0 & 0 & -2 & 1 \\
+		\end{pmatrix} & = \begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		0 & 0 & 1 & -\frac{1}{2} \\
+		\end{pmatrix} && \text{2a Fila $ \* - \dfrac{1}{2} $}\\
+		\begin{pmatrix}[cc|cc]
+		1 & 2 & 1 & 0 \\
+		0 & 0 & 1 & -\frac{1}{2} \\
+		\end{pmatrix} & = \begin{pmatrix}[cc|cc]
+		1 & 2 & 0 & \frac{1}{2} \\
+		0 & 0 & 1 & -\frac{1}{2} \\
+		\end{pmatrix} && \text{2a Fila $ \* -1 $ + 1a fila en 1a fila}
+	\end{align*}
+	\[ \therefore \begin{pmatrix}
+	1 & 2 \\
+	0 & 0 
+	\end{pmatrix} \neq I_2 \implies \begin{pmatrix}
+	1 & 2 \\
+	2 & 4 
+	\end{pmatrix} \text{ Es singular} \]
+	c)$\begin{pmatrix} 1 & 2 & 1 \\ 1 & 3 & 4 \\ 2 & 3 & -1 \end{pmatrix}$\\
+	Adjuntemos la matriz $ I_3 $ de tal manera que obtengamos
+	\[\begin{pmatrix}[ccc|ccc]
+	1 & 2 & 1 & 1 & 0 & 0\\
+	1 & 3 & 4 & 0 & 1 & 0\\
+	2 & 3 & -1 & 0 & 0 & 1
+	\end{pmatrix}\]
+	\begin{align*}
+		\begin{pmatrix}[ccc|ccc]
+		1 & 2 & 1 & 1 & 0 & 0\\
+		1 & 3 & 4 & 0 & 1 & 0\\
+		2 & 3 & -1 & 0 & 0 & 1
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 2 & 1 & 1 & 0 & 0\\
+		0 & 1 & 3 & -1 & 1 & 0\\
+		2 & 3 & -1 & 0 & 0 & 1
+		\end{pmatrix} && \text{1a fila $ \* -1  + 2^a$ fila en 2a Fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		1 & 2 & 1 & 1 & 0 & 0\\
+		0 & 1 & 3 & -1 & 1 & 0\\
+		2 & 3 & -1 & 0 & 0 & 1
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		1 & 2 & 1 & 1 & 0 & 0\\
+		0 & 1 & 3 & -1 & 1 & 0\\
+		0 & -1 & -3 & -2 & 0 & 1
+		\end{pmatrix} && \text{1a fila $ \* -2 $ + 3a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		1 & 2 & 1 & 1 & 0 & 0\\
+		0 & 1 & 3 & -1 & 1 & 0\\
+		0 & -1 & -3 & -2 & 0 & 1
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 2 & 1 & 1 & 0 & 0\\
+		0 & 1 & 3 & -1 & 1 & 0\\
+		0 & 0 & 0 & -3 & 1 & 1
+		\end{pmatrix} && \text{2a fila + 3a fila en 3a fila}
+	\end{align*}
+	Observemos que 
+	\[ \therefore \begin{pmatrix}
+	1 & 2 & 1 \\
+	0 & 1 & 3 \\
+	0 & 0 & 0 
+	\end{pmatrix} \neq I_3 \implies \begin{pmatrix} 1 & 2 & 1 \\ 1 & 3 & 4 \\ 2 & 3 & -1 \end{pmatrix} \text{ Es singular}  \]
+	d)$\begin{pmatrix} 0 & -2 & 4 \\ 1 & 1 & -1 \\ 2 & 4 & -5 \end{pmatrix}$\\
+	Adjuntemos la matriz $ I_3 $ de tal manera que obtengamos
+	\[\begin{pmatrix}[ccc|ccc]
+	0 & -2 & 4 & 1 & 0 & 0\\
+	1 & 1 & -1 & 0 & 1 & 0\\
+	2 & 4 & -5 & 0 & 0 & 1
+	\end{pmatrix}\]
+	\begin{align*}
+		\begin{pmatrix}[ccc|ccc]
+		0 & -2 & 4 & 1 & 0 & 0\\
+		1 & 1 & -1 & 0 & 1 & 0\\
+		2 & 4 & -5 & 0 & 0 & 1
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & -2 & 4 & 1 & 0 & 0\\
+		2 & 4 & -5 & 0 & 0 & 1
+		\end{pmatrix} && \text{Intercambiar la 1a fila por la 2a}\\
+		\begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & -2 & 4 & 1 & 0 & 0\\
+		2 & 4 & -5 & 0 & 0 & 1
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & -2 & 4 & 1 & 0 & 0\\
+		0 & 2 & -3 & 0 & -2 & 1
+		\end{pmatrix} && \text{1a fila $ \* -2  + 3^a$ Fila en 3a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & -2 & 4 & 1 & 0 & 0\\
+		0 & 2 & -3 & 0 & -2 & 1
+		\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & 1 & -2 & -\frac{1}{2} & 0 & 0\\
+		0 & 2 & -3 & 0 & -2 & 1
+		\end{pmatrix} && \text{Multiplicar 2a fila $ \* -\dfrac{1}{2} $}\\
+		\begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & 1 & -2 & -\frac{1}{2} & 0 & 0\\
+		0 & 2 & -3 & 0 & -2 & 1
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & 1 & -2 & -\frac{1}{2} & 0 & 0\\
+		0 & 0 & 1 & 1 & -2 & 1
+		\end{pmatrix} && \text{2a fila $ \* -2  + 3^a$ fila en 3a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & 1 & -2 & -\frac{1}{2} & 0 & 0\\
+		0 & 0 & 1 & 1 & -2 & 1
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & 1 & 0 & \frac{3}{2} & -4 & 2\\
+		0 & 0 & 1 & 1 & -2 & 1
+		\end{pmatrix} && \text{3a fila $ \* 2 + 2^a$ fila en 2a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		1 & 1 & -1 & 0 & 1 & 0\\
+		0 & 1 & 0 & \frac{3}{2} & -4 & 2\\
+		0 & 0 & 1 & 1 & -2 & 1
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 1 & 0 & 1 & -1 & 1\\
+		0 & 1 & 0 & \frac{3}{2} & -4 & 2\\
+		0 & 0 & 1 & 1 & -2 & 1
+		\end{pmatrix} && \text{3a fila + 1a fila en 1a fila}\\
+		\begin{pmatrix}[ccc|ccc]
+		1 & 1 & 0 & 1 & -1 & 1\\
+		0 & 1 & 0 & \frac{3}{2} & -4 & 2\\
+		0 & 0 & 1 & 1 & -2 & 1
+		\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+		1 & 0 & 0 & -\frac{1}{2} & 3 & -1\\
+		0 & 1 & 0 & \frac{3}{2} & -4 & 2\\
+		0 & 0 & 1 & 1 & -2 & 1
+		\end{pmatrix} && \text{2a fila $ \* -1  + 1^a $ fila en 1a fila}
+	\end{align*}
+	\[ \therefore \begin{pmatrix}
+	-\frac{1}{2} & 3 & -1\\
+	\frac{3}{2} & -4 & 2\\
+	1 & -2 & 1
+	\end{pmatrix} \text{ es la inversa de } \begin{pmatrix} 0 & -2 & 4 \\ 1 & 1 & -1 \\ 2 & 4 & -5 \end{pmatrix}  \]
 \end{document}
 
 
