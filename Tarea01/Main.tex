@@ -16,7 +16,12 @@ includefoot]{geometry}
 \usepackage{graphicx}
 \usepackage{paralist}
 \usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\tcbuselibrary{skins,breakable}
 \pagestyle{fancy}
+
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.4pt}
 \cfoot{\textbf{Facultad de Ciencias, UNAM}\\ \thepage}
@@ -41,6 +46,8 @@ includefoot]{geometry}
 
 \newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}
 
+\newtcolorbox{ejercicio}[1]{beamer,colback=white!90!white, colframe=blue!80!white, title=Ejercicio #1}
+
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
 	\hskip -\arraycolsep
@@ -55,18 +62,37 @@ includefoot]{geometry}
 \begin{document}
 		\begin{titlepage}
 		\begin{center}
-			\Large{\textbf{Espacios vectoriales y Álgebra lineal}} \\[0.1cm]
-			\huge{Matemáticas para las ciencias aplicadas II}\\[0.2cm]
-			\large{Aquino Chapa Armando Abraham y Merino Peña Kevin Ariel }
-			\\
-			\today
+			\begin{figure}[h]
+				\includegraphics*[width=0.15\textwidth]{unam}
+				\centering
+				\hspace{0.6cm}
+				\includegraphics*[width=0.15\textwidth]{ciencias}
+				\centering
+			\end{figure}
+			\Large{\textbf{Universidad Nacional Autónoma de México}} \\[0.5cm]
+			\Large{\textbf{Facultad de Ciencias}} \\[0.5cm]
+			\Large{\textbf{Matemáticas para las ciencias aplicadas II}} \\[0.5cm]
+			\hrulefill \\[2cm]
+			\Huge{Tarea 1}\\
+			\Huge{\textbf{Espacios vectoriales y Álgebra lineal}}\\ [1cm]
+			\includegraphics*[width=0.2\textwidth]{space}\\[1.5cm]
+			\hrulefill \\[1.5cm]
+			\large{Profesor: M. en C. Pedro Porras Flores}\\
+			\large{Armando Abraham Aquino Chapa}\\
+			\large{Kevin Ariel Merino Peña}
+			\\[1cm]
+			\today\\ [0.3cm]
+			\includegraphics[width=0.1\textwidth]{ornamental}
+
 		\end{center}
-		\let\newpage\relax% Avoid following page break
-		\hrulefill
+	%	\let\newpage\relax% Avoid following page break
+		
 	\end{titlepage}
 
 	
-	\noindent \textbf{1}. Escribe el vector cero en $M_{3x4}(\mathbb{R})$
+\begin{ejercicio}{1}
+	Escribe el vector cero en $M_{3x4}(\mathbb{R})$
+\end{ejercicio}
 		\begin{definition}[Matriz]
 		Una \textbf{Matriz} es un arreglo rectangular de elementos de un campo $ \F(\R) $ de la forma
 		\begin{equation*}
@@ -97,8 +123,10 @@ includefoot]{geometry}
 		\end{pmatrix}
 		\end{equation*}
 		
- \noindent \textbf{2}. Sea $V$ el conjunto de todas las funciones diferenciables definidas en $\mathbb{R}$. Muestre que $V$ es un espacio vectorial con las operaciones usuales de suma y multiplicación por un escalar para funciones. 
-	
+\begin{ejercicio}{2}
+ Sea $V$ el conjunto de todas las funciones diferenciables definidas en $\mathbb{R}$. Muestre que $V$ es un espacio vectorial con las operaciones usuales de suma y multiplicación por un escalar para funciones. 
+\end{ejercicio}
+
 	Veamos que la derivada cumple las siguientes propiedades
 	\begin{align*}
 	(f(x) + g(x))' &= \lim_{h\to 0} \dfrac{f(x +h) + g(x + h) - (f(x) + g(x))}{h}\\
@@ -123,20 +151,26 @@ includefoot]{geometry}
 		Esto se vale para cualquier constante, en particular el 0
 	\end{center}
 	
- \noindent \textbf{3}. Prueba que el conjunto de las funciones pares en $\mathbb{R}$ es un espacio vectorial con suma y multiplicación por escalar usuales para funciones. Recuerde que una función es par si $\forall x \in Dom(f)$ entonces $f(-x) = f(x)$ \\
+ \begin{ejercicio}{3}
+ 	Prueba que el conjunto de las funciones pares en $\mathbb{R}$ es un espacio vectorial con suma y multiplicación por escalar usuales para funciones. Recuerde que una función es par si $\forall x \in Dom(f)$ entonces $f(-x) = f(x)$ 
+ \end{ejercicio}
  	
  	Si tenemos en cuenta que $f(-t) + g(-t) = f(t) + g(t)$ y que si tenemos constantes siempre ocurre que $cf(-t) = cf(t) $ entonces ya hemos probado las dos primeras condiciones y para hallar el neutro basta con usar el 0 del cambo $(\R)$ para notar que también lo manda al 0 vector.\\
  	
-\noindent \textbf{4}. Sea $V$ el conjunto de pares ordenados de números reales. Si $(a_{1},a_{2})$ y $(b_{1},b_{2})$ son elementos de $V$ y $\alpha \in \mathbb{R}$, definamos la suma y multiplicación escalar de la siguiente manera:
-\begin{enumerate}
-\item[(i)] $(a_{1},a_{2}) + (b_{1},b_{2}) = (a_{1} + b_{1}, a_{2}b_{2})$ 
-\item[(ii)] $\alpha(a_{1},a_{2}) = (\alpha a_{1},a_{2})$.\\
-\end{enumerate}
-¿Es $V$ un espacio vectorial sobre $\mathbb{R}$ con estas operaciones?\\
+\begin{ejercicio}{4}
+	Sea $V$ el conjunto de pares ordenados de números reales. Si $(a_{1},a_{2})$ y $(b_{1},b_{2})$ son elementos de $V$ y $\alpha \in \mathbb{R}$, definamos la suma y multiplicación escalar de la siguiente manera:
+	\begin{enumerate}
+		\item[(i)] $(a_{1},a_{2}) + (b_{1},b_{2}) = (a_{1} + b_{1}, a_{2}b_{2})$ 
+		\item[(ii)] $\alpha(a_{1},a_{2}) = (\alpha a_{1},a_{2})$.\\
+	\end{enumerate}
+	¿Es $V$ un espacio vectorial sobre $\mathbb{R}$ con estas operaciones?\\
+\end{ejercicio}
 
 No puede ser un espacio vectorial porque si tenemos que \[ 0(a_1, a_2) = (0, a_2)  \] para cumplir el cero vector, entonces se compliría para cualquier $a_2$ lo cual no es posible pues contradice la unicidad del cero.\\
 
-\noindent 5. Determinar cuales de los siguientes conjuntos son subespacios de $\mathbb{R}^{3}$ bajo las operaciones de suma y multiplicación por un escalar usual.
+\begin{ejercicio}{5}
+	Determinar cuales de los siguientes conjuntos son subespacios de $\mathbb{R}^{3}$ bajo las operaciones de suma y multiplicación por un escalar usual.
+\end{ejercicio}
 \begin{definition}
 	Sea $ \mathcal{U} $ un subconjunto de $ \mathcal{V}$ espacio vectorial sobre $ \F $ decimos que $ \mathcal{U} $ es un subespacio vectorial de $ \mathcal{V} $ si cumple lo siguiente
 	
@@ -267,7 +301,9 @@ y $ ka_2, k_3 \in \R $ entonces $ k\*\hat{u} \in W_4 $
 \end{center}
 
 
-\noindent \textbf{6}. En cada caso diga si los vectores son generados por el conjunto $S$ \\
+\begin{ejercicio}{6}
+	En cada caso diga si los vectores son generados por el conjunto $S$
+\end{ejercicio}
 
 \begin{definition}
 	Sea $ \mathcal{S} $ un subconjunto de un espacio vectorial $ \mathcal{V} $ decimos que $ \mathcal{S} $ genera a $ \mathcal{V} $ si $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ al generado de s se le denota como $ span(\mathcal{S}), <\mathcal{S}>, gen(\mathcal{S})$ 
@@ -280,23 +316,23 @@ Sea $\alpha _1$, $\alpha _2 \in \mathbb{R}$.
 Entonces $(2,-1,1) = \alpha _{1}(1,0,2) + \alpha _{2}(-1,1,1) = (\alpha _{1}, 0, 2\alpha _{1})+ (-\alpha _{2},\alpha _{2},\alpha _{2}) = \alpha _{1}-\alpha _{2},\alpha _{2},2\alpha _{1}+\alpha _{2}$.
 
 Tenemos el siguiente sistema de ecuaciones:
-\begin{align*}
-\alpha_{1}-\alpha_{2}&= 2 \\
-\alpha_{2} &= -1\\
-2\alpha_{1}+\alpha_{2}&=1\\
-\end{align*}
-Ahora:
-\begin{align*}
-\alpha_{1} -(-1)&=2 \\
-\alpha_{2}&=-1\\
-2\alpha_{1} + \alpha_{2} &= 1\\
-\end{align*}
+	\begin{align*}
+		\alpha_{1}-\alpha_{2}&= 2 \\
+		\alpha_{2} &= -1\\
+		2\alpha_{1}+\alpha_{2}&=1\\
+	\end{align*}
+	Ahora:
+	\begin{align*}
+		\alpha_{1} -(-1)&=2 \\
+		\alpha_{2}&=-1\\
+		2\alpha_{1} + \alpha_{2} &= 1\\
+	\end{align*}
 Al resolver el sistema, obtenemos:
-\begin{align*}
-\alpha_{1}&=1 \\
-\alpha_{2} &= -1 \\
-1 &= 1
-\end{align*}
+	\begin{align*}
+		\alpha_{1}&=1 \\
+		\alpha_{2} &= -1 \\
+		1 &= 1
+	\end{align*}
 Entonces:\\ $1(1,0,2) + (-1)(-1,1,1) = (1,0,2) + (1,-1,-1) = (2,-1,1)$\\
 Cómo el sistema de ecuaciones si se satisface, el conjunto $S$ SI genera al vector $(2,-1,-1)$\\ \\
 
@@ -305,26 +341,26 @@ Cómo el sistema de ecuaciones si se satisface, el conjunto $S$ SI genera al vec
 Sea $\alpha _1$, $\alpha _2 \in \mathbb{R}$.\\
 Entonces: $(2,-1,1,3)=\alpha_{1}(1,0,1,-1)+\alpha_{2}(0,1,1,1)= (\alpha_{1},0,\alpha_{1},-\alpha_{1})+(0,\alpha_{2},\alpha_{2},\alpha_{2})= \alpha_{1},\alpha_{2},\alpha_{1}+\alpha_{2},-\alpha_{1}+\alpha_{2}$.\\
 Tenemos el siguiente sistema de ecuaciones:\\
-\begin{align*}
-\alpha_{1}=2\\
-\alpha_{2} = -1\\
-\alpha_{1}+\alpha_{2}=1\\
--\alpha_{1}+\alpha_{2}=3\\
-\end{align*}
-Ahora:\\
-\begin{align*}
-\alpha_{1}=2\\
-\alpha_{2}= -1\\
-2-1  =1\\
--(-1)+2 = 3\\
-\end{align*}
-Por último:
-\begin{align*}
-\alpha_{1}=2\\
-\alpha_{2}=-1\\
-1=1\\
-3=3\\
-\end{align*}
+	\begin{align*}
+		\alpha_{1}=2\\
+		\alpha_{2} = -1\\
+		\alpha_{1}+\alpha_{2}=1\\
+		-\alpha_{1}+\alpha_{2}=3
+	\end{align*}
+	Ahora:
+	\begin{align*}
+		\alpha_{1}=2\\
+		\alpha_{2}= -1\\
+		2-1  =1\\
+		-(-1)+2 = 3\\
+	\end{align*}
+	Por último:
+	\begin{align*}
+		\alpha_{1}=2\\
+		\alpha_{2}=-1\\
+		1=1\\
+		3=3
+	\end{align*}
 Al resolver el sistema de ecuaciones verificamos si el conjunto $S$ genera al vector. Entonces:
 \[2(1,0,1,-1)+(-1)(0,1,1,1)=(2,0,2,-2)+(0,-1,-1,-1)=(2,-1,-1,-3)\]
 Como el producto de los escalares por los elementos del conjunto $S$ no forman al vector, podemos concluir que $S$ \textbf{NO} genera a $(2,-1,1,3)$.\\
@@ -334,23 +370,23 @@ Como el producto de los escalares por los elementos del conjunto $S$ no forman a
 Sean $\alpha_1 $, $\alpha_2$ y $\alpha_3$ elementos del campo, si suponemos que $2x^3 - x^2 + x + 3$ es generado por $S$ implicará que existen dichos 3 elementos $\tq$ 
 \[ 2x^3 - x^2 + x + 3 = \alpha_1 (x^3 + x^2 + x +1) + \alpha_2 (x^2 + x +1) + \alpha_3 (x +1) \]
 
-\begin{align*}
-	\alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 	\\
-	\alpha_2 x^2 + \alpha_2 x + \alpha_2 \\
-	\alpha_3 x + \alpha_3 
-\end{align*}
+	\begin{align*}
+		\alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 	\\
+		\alpha_2 x^2 + \alpha_2 x + \alpha_2 \\
+		\alpha_3 x + \alpha_3 
+	\end{align*}
 Por lo que ocurre lo siguiente
 \[ 2x^3 - x^2 + x + 3 = \alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 + \alpha_2 x^2 + \alpha_2 x + \alpha_2 +\alpha_3 x + \alpha_3  \]
-\begin{align*}
-2x^3 - x^2 + x + 3 &= \alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 + \alpha_2 x^2 + \alpha_2 x + \alpha_2 +\alpha_3 x + \alpha_3 \\
- &= x^3 (\alpha_3)  + x^2 (\alpha_2 + \alpha_1) + x(\alpha_3 + \alpha_2 + \alpha_1) + \alpha_1 + \alpha_2 + \alpha_3
- \end{align*}
- \begin{align*}
-	\alpha_3 &=  2\\
-	\alpha_2 &= -1 - \alpha_1 \\
-	\alpha_2 &= -1 - 2\\
-	\alpha_2 &= -3
-\end{align*}
+	\begin{align*}
+		2x^3 - x^2 + x + 3 &= \alpha_1 x^3 + \alpha_1 x^2 + \alpha_1 x + \alpha_1 + \alpha_2 x^2 + \alpha_2 x + \alpha_2 +\alpha_3 x + \alpha_3 \\
+		 &= x^3 (\alpha_3)  + x^2 (\alpha_2 + \alpha_1) + x(\alpha_3 + \alpha_2 + \alpha_1) + \alpha_1 + \alpha_2 + \alpha_3
+	 \end{align*}
+	\begin{align*}
+		\alpha_3 &=  2\\
+		\alpha_2 &= -1 - \alpha_1 \\
+		\alpha_2 &= -1 - 2\\
+		\alpha_2 &= -3
+	\end{align*}
 
 Ahora llegamos a una contradicción, puesto que el sistema de ecuaciones anterior implica que $\alpha_1 + \alpha_2 + \alpha_3 = 3 = 1$ por lo que el conjunto S no genera $ 2x^3 - x^2 + x + 3$
 
@@ -377,39 +413,36 @@ Recordemos que la suma de matrices se hace entrada por entrada eso es, si se van
 Notemos que $$ -\alpha_{2,1} = -3  \implies  \alpha = 3$$ y luego 
 $$\beta_{2,2} = 4 \implies \beta = 4 $$ y finalmente $$\gamma = 2 - \beta_{1,2} \implies \gamma = 4 $$
 
-\noindent \textbf{7}. Determina cuando los siguientes conjuntos son linealmente dependientes o linealmente independientes. \\
-  
+\begin{ejercicio}{7}
+	Determina cuando los siguientes conjuntos son linealmente dependientes o linealmente independientes.
+\end{ejercicio}
+
+
 \textbf{a)} $\left \lbrace \begin{pmatrix} 1 & -3 \\ -2 & 4 \end{pmatrix} , \begin{pmatrix} -2 & 6 \\ 4 & -8 \end{pmatrix} \right \rbrace \in M_{2x2}(\mathbb{R})$\\
 
 Sean $\alpha _1, \alpha _2, \in \mathbb{R}$. Entonces:\\
 
-$\alpha_1 \begin{pmatrix} 1 & -3 \\ -2 & 4 \end{pmatrix}  + \alpha_2 \begin{pmatrix} -2 & 6 \\ 4 & -8 \end{pmatrix} = \begin{pmatrix}
-0 & 0 \\ 0 & 0 \end{pmatrix}$\\
+$$\alpha_1 \begin{pmatrix} 1 & -3 \\ -2 & 4 \end{pmatrix}  + \alpha_2 \begin{pmatrix} -2 & 6 \\ 4 & -8 \end{pmatrix} = \begin{pmatrix}
+0 & 0 \\ 0 & 0 \end{pmatrix}$$
 
-Ahora:\\
-
-$\begin{pmatrix} \alpha_1 & -3\alpha_{1} \\ -2\alpha_{1} & 4\alpha_{1} \end{pmatrix} +
-\begin{pmatrix} -2\alpha_{2} & 6\alpha_2 \\ 4\alpha_{2} & -8\alpha_{2} \end{pmatrix} = \begin{pmatrix} 	0 & 0 \\ 0 & 0 \end{pmatrix}$\\
+Ahora:
+$$\begin{pmatrix} \alpha_1 & -3\alpha_{1} \\ -2\alpha_{1} & 4\alpha_{1} \end{pmatrix} +
+\begin{pmatrix} -2\alpha_{2} & 6\alpha_2 \\ 4\alpha_{2} & -8\alpha_{2} \end{pmatrix} = \begin{pmatrix} 	0 & 0 \\ 0 & 0 \end{pmatrix}$$
 
 Sumamos cada elemento de las matrices al correspondiente reglón y columna:\\
-
-\begin{center}
-$\begin{pmatrix}
-\alpha_{1}-2\alpha_{2} & -3\alpha_{1}+6\alpha_{2} \\ -2\alpha_{1}+4\alpha_{2} & 4\alpha_{1}-8\alpha_{2}
-\end{pmatrix} = \begin{pmatrix}
-0 & 0 \\ 0 & 0
-\end{pmatrix}$
-\end{center}
+		$$\begin{pmatrix}
+		\alpha_{1}-2\alpha_{2} & -3\alpha_{1}+6\alpha_{2} \\ -2\alpha_{1}+4\alpha_{2} & 4\alpha_{1}-8\alpha_{2}
+		\end{pmatrix} = \begin{pmatrix}
+		0 & 0 \\ 0 & 0
+		\end{pmatrix}$$
 
 Tenemos el siguiente sistema de ecuaciones:
-\begin{center}
-\begin{align*}
-	\alpha_{1}-2\alpha_{2} = 0\\
-	-3\alpha_{1} + 6\alpha_{2} = 0\\
-	-2\alpha_{1}+4\alpha_{2}= 0\\
-	4\alpha_{1}-8\alpha_{2}= 0
-\end{align*}
-\end{center}
+	\begin{align*}
+		\alpha_{1}-2\alpha_{2} = 0\\
+		-3\alpha_{1} + 6\alpha_{2} = 0\\
+		-2\alpha_{1}+4\alpha_{2}= 0\\
+		4\alpha_{1}-8\alpha_{2}= 0
+	\end{align*}
 Multiplicamos dos veces el renglón 3 y lo sumamos al renglón 4. También multiplicamos dos veces el renglón 1 y lo sumamos al renglón 3.
 \begin{align*}	
 	\alpha_{1}-2\alpha_{2} &= 0\\
@@ -418,25 +451,23 @@ Multiplicamos dos veces el renglón 3 y lo sumamos al renglón 4. También multi
 	0\alpha_{1}+0\alpha_{2}&= 0
 \end{align*}
 Por último multiplicamos tres veces el renglón 1 y lo sumamos al renglón 2:
-\begin{center}
 \begin{align*}
 	\alpha_{1}-2\alpha_{2}=0\\
 	0\alpha_{1}+0\alpha_{2}=0
 \end{align*}	
-\end{center}
+
 Entonces $\alpha_{1}=2\alpha_{2}$.\\ Esto indica que $\alpha_{1}$ depende de $\alpha_{2}$. Por lo tanto, el conjunto  $\begin{pmatrix} 1 & -3 \\ -2 & 4 \end{pmatrix} , \begin{pmatrix} -2 & 6 \\ 4 & -8 \end{pmatrix}\in M_{2x2}$  es \textbf{linealmente dependiente}.
 
 \textbf{b)} $\left \lbrace \begin{pmatrix} 1 & -2 \\ -1 & 4 \end{pmatrix} ,\begin{pmatrix} -1 & 1 \\ 2 & -4 \end{pmatrix}  \right \rbrace \in M_{2x2}(\mathbb{R})$\\
 
-Sean $\alpha _1, \alpha _2, \in \mathbb{R}$. Entonces:\\
+Sean $\alpha _1, \alpha _2, \in \mathbb{R}$. Entonces:
 
-$\alpha_1 \begin{pmatrix} 1 & -2 \\ -1 & 4 \end{pmatrix}  + \alpha_2 \begin{pmatrix} -1 & 1 \\ 2 & -4 \end{pmatrix} = \begin{pmatrix}
-0 & 0 \\ 0 & 0 \end{pmatrix}$\\
+$$\alpha_1 \begin{pmatrix} 1 & -2 \\ -1 & 4 \end{pmatrix}  + \alpha_2 \begin{pmatrix} -1 & 1 \\ 2 & -4 \end{pmatrix} = \begin{pmatrix}
+0 & 0 \\ 0 & 0 \end{pmatrix}$$
 
-Ahora:\\
-
-$\begin{pmatrix} \alpha_1 & -2\alpha_{1} \\ -\alpha_{1} & 4\alpha_{1} \end{pmatrix} +
-\begin{pmatrix} -\alpha_{2} & \alpha_2 \\ 2\alpha_{2} & -4\alpha_{2} \end{pmatrix} = \begin{pmatrix} 	0 & 0 \\ 0 & 0 \end{pmatrix}$\\
+Ahora:
+$$\begin{pmatrix} \alpha_1 & -2\alpha_{1} \\ -\alpha_{1} & 4\alpha_{1} \end{pmatrix} +
+\begin{pmatrix} -\alpha_{2} & \alpha_2 \\ 2\alpha_{2} & -4\alpha_{2} \end{pmatrix} = \begin{pmatrix} 	0 & 0 \\ 0 & 0 \end{pmatrix}$$
 
 Sumamos cada elemento de las matrices al correspondiente reglón y columna:\\
 
@@ -449,31 +480,25 @@ Sumamos cada elemento de las matrices al correspondiente reglón y columna:\\
 \end{center}
 
 Tenemos el siguiente sistema de ecuaciones:
-\begin{center}
 	\begin{align*}
-	\alpha_{1}-\alpha_{2} = 0\\
-	-2\alpha_{1} + \alpha_{2} = 0\\
-	-\alpha_{1}+2\alpha_{2}= 0\\
-	4\alpha_{1}-4\alpha_{2}= 0
+	\alpha_{1}-\alpha_{2} &= 0\\
+	-2\alpha_{1} + \alpha_{2} &= 0\\
+	-\alpha_{1}+2\alpha_{2}&= 0\\
+	4\alpha_{1}-4\alpha_{2}&= 0
 	\end{align*}
-\end{center}
 
 Multiplicamos cuatro veces el renglón 1 y lo restamos al renglón 4. También sumamos el renglón 1 al renglón 2:
-\begin{center}
 	\begin{align*}
-	\alpha_{1}-\alpha_{2} = 0\\
-	-2\alpha_{1} + \alpha_{2} = 0\\
-	0\alpha_{1}+\alpha_{2}= 0\\
-	0\alpha_{1}+0\alpha_{2}= 0
+	\alpha_{1}-\alpha_{2} &= 0\\
+	-2\alpha_{1} + \alpha_{2} &= 0\\
+	0\alpha_{1}+\alpha_{2}&= 0\\
+	0\alpha_{1}+0\alpha_{2}&= 0
 	\end{align*}
-\end{center}
 Tenemos que $\alpha_{2}= 0$, Entonces lo sustituimos en las demás ecuaciones:
-\begin{center}
 	\begin{align*}
-	\alpha_{1}-0 = 0\\
-	-2\alpha_{1} + 0 = 0\\
+	\alpha_{1}-0 &= 0\\
+	-2\alpha_{1} + 0 &= 0\\
 	\end{align*}
-\end{center}
 Es claro notar que $\alpha_{1}=0$ y $\alpha_{2}=0$.\\ Cómo ambos valen 0, podemos concluir que el conjunto $\begin{pmatrix} 1 & -2 \\ -1 & 4 \end{pmatrix} ,\begin{pmatrix} -1 & 1 \\ 2 & -4 \end{pmatrix}\in M_{2x2}(\mathbb{R})$ es \textbf{linealmente independiente}.
 
 \textbf{c)} $\lbrace x^{3} + 2x^{2}, -x^{2} + 3x + 1, x^{3} - x^{2} + 2x -1 \rbrace \in P_{3}(\mathbb{R})$ \\
@@ -485,43 +510,34 @@ Tenemos que: $0x^{3}+0x^{2}+0x+d = \alpha_{1}(x^{3}+2x^{2})+ \alpha_{2}(-x^{2}+3
  $x^{3}+0x^{2}+0x+0=(\alpha_{1}+\alpha_{3})x^{3}+(2\alpha_{1}-\alpha_{2}-\alpha_{3})x^{2}+(3\alpha_{2}+2\alpha_{3})x+(\alpha_{2}-\alpha_{3})$.
  
  Obtenemos el siguiente sistema de ecuaciones:
- \begin{center}
  	\begin{align*}
- 	\alpha_{1}+0\alpha_{2}+\alpha_{3}=0\\
- 	2\alpha_{1}-\alpha_{2}-\alpha_{3}=0\\
- 	0\alpha_{1}+3\alpha_{2}+2\alpha_{3}=0\\
- 	0\alpha_{1}+\alpha_{2}-\alpha_{3}=0
+ 	\alpha_{1}+0\alpha_{2}+\alpha_{3}&=0\\
+ 	2\alpha_{1}-\alpha_{2}-\alpha_{3}&=0\\
+ 	0\alpha_{1}+3\alpha_{2}+2\alpha_{3}&=0\\
+ 	0\alpha_{1}+\alpha_{2}-\alpha_{3}&=0
  	\end{align*}
- \end{center}
 
 Ahora multiplicamos -3 veces el renglón 4 y le sumamos el renglón 1:
-\begin{center}
 	\begin{align*}
-	\alpha_{1}+0\alpha_{2}+\alpha_{3}=0\\
-	2\alpha_{1}-\alpha_{2}-\alpha_{3}=0\\
-	0\alpha_{1}+3\alpha_{2}+2\alpha_{3}=0\\
-	0\alpha_{1}+0\alpha_{2}+5\alpha_{3}=0
+	\alpha_{1}+0\alpha_{2}+\alpha_{3}&=0\\
+	2\alpha_{1}-\alpha_{2}-\alpha_{3}&=0\\
+	0\alpha_{1}+3\alpha_{2}+2\alpha_{3}&=0\\
+	0\alpha_{1}+0\alpha_{2}+5\alpha_{3}&=0
 	\end{align*}
-\end{center}
-
 Podemos obtener que $\alpha_{3}=0$. Entonces sustituimos este valor en las ecuaciones.
-\begin{center}
 	\begin{align*}
-	\alpha_{1}+0\alpha_{2}+0=0\\
-	2\alpha_{1}-\alpha_{2}-0=0\\
-	0\alpha_{1}+3\alpha_{2}+0=0\\
-	\alpha_{3}=0
+	\alpha_{1}+0\alpha_{2}+0&=0\\
+	2\alpha_{1}-\alpha_{2}-0&=0\\
+	0\alpha_{1}+3\alpha_{2}+0&=0\\
+	\alpha_{3}&=0
 	\end{align*}
-\end{center}
 
 De lo anterior deducimos que $\alpha_{1}= 0$, por tanto:
-\begin{center}
 	\begin{align*}
-	0-\alpha_{2}-0=0\\
-	0+3\alpha_{2}+0=0\\
-	\alpha_{3}=0
+	0-\alpha_{2}-0&=0\\
+	0+3\alpha_{2}+0&=0\\
+	\alpha_{3}&=0
 	\end{align*}
-\end{center}
 
 Entonces $\alpha_{1}=0$, $\alpha_{2}=0$, $\alpha_{3}=0$. Podemos que concluir que el conjunto $\lbrace x^{3} + 2x^{2}, -x^{2} + 3x + 1, x^{3} - x^{2} + 2x -1 \rbrace \in P_{3}(\mathbb{R})$ es \textbf{linealmente independiente}.\\
 
@@ -630,7 +646,9 @@ Por lo tanto, podemos concluir que el conjunto $ (1,-1,2), (2,0,1),(-1,2,-1) \in
 Recuerde que $P_{n}(\mathbb{R}) = \{ a_0 +  a_1x +  a_2x^2 + \cdots +  a_n x^n \big\vert a_k \in \mathbb{R} \,  \forall k = 0,1,2,\dots n\}$
 \\
 
-\noindent \textbf{8.} ¿Cuáles de los siguientes conjuntos son bases para $\mathbb{R}^{3}$?
+\begin{ejercicio}{8}
+	¿Cuáles de los siguientes conjuntos son bases para $\mathbb{R}^{3}$?
+\end{ejercicio}
 	\begin{definition}
 		Una \textbf{base} $ \beta $ de $ \mathcal{V} $ espacio vectorial es un subconjunto de $ \mathcal{V} \tq \beta$  genera a $ \mathcal{V} $ y $ \beta $ es linealmente independiente
 	\end{definition}
@@ -1178,8 +1196,9 @@ Lo cual permite formar el siguiente sistema de ecuaciones
 		\begin{center}
 			$ \therefore S $ es base para $ \R^3 $
 		\end{center}
-
-\noindent \textbf{9.} Diga si los siguientes $x^3-2x^2+1,4x^2-x+3 y 3x-2$ generan a $P_{3}(\R)$\\
+\begin{ejercicio}{9}
+	 Diga si los siguientes $x^3-2x^2+1,4x^2-x+3 y 3x-2$ generan a $P_{3}(\R)$
+\end{ejercicio}
 
 Sea $ax^3+bx^2+cx+d\in(\R)$.\\
 
@@ -1309,8 +1328,9 @@ Utilizando los resultados del sistema de ecuaciones tenemos que:
 		
 Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es debido a que originalmente teníamos un sistema de 4 ecuaciones con 3 incógnitas, entonces el sistema tiene diversas soluciones y al encontrar que los resultados de las ecuaciones de $\alpha_{3}$ no son el mismo, podemos concluir que el conjunto $x^3-2x^2+1,4x^2-x+3 y 3x-2$  \textbf{NO} generan a $P_{3}(\R)$\\
 
-\noindent 10.Prueba que las siguientes transformaciones $T$ son lineales y encuentra el núcleo $Nu(T)$ y la imagen $Im(T)$
-
+\begin{ejercicio}{10}
+	Prueba que las siguientes transformaciones $T$ son lineales y encuentra el núcleo $Nu(T)$ y la imagen $Im(T)$
+\end{ejercicio}
 \begin{definition}
 	Sea $ T: V \rightarrow W $ una transformación lineal, la \textbf{imagen} de una trasformación $ T $ es $Im(T) = \left\lbrace T(\hat{x}) | \hat{x} \in V  \right\rbrace$
 \end{definition}
@@ -1605,9 +1625,15 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	
 	Notemos que el término constante y el cuadrático son el mismo por lo que la imagen de la transformación son todos los polinomios en 
 	$$ p(x) \in P_3 (\R) \tq p(x) = a + (c + 2b)x + ax^2 + bx^3  $$
+%-------------------------------------------------------------------------	
+% Ejercicio 11, Matriz asociada a una transformación lineal	
+%-------------------------------------------------------------------------	
+%-------------------------------------------------------------------------	
+%-------------------------------------------------------------------------	
+	\begin{ejercicio}{11}
+		Sean $\beta$ y $\gamma$ las bases estándar para $\mathbb{R}^{n}$ y $\mathbb{R}^{m}$ respectivamente. Para cada transformación lineal $T: \mathbb{R}^{n} \longrightarrow \mathbb{R}^{m}$ encontrar su representación matricial.
+	\end{ejercicio}
 	
-	
-	\noindent11. Sean $\beta$ y $\gamma$ las bases estándar para $\mathbb{R}^{n}$ y $\mathbb{R}^{m}$ respectivamente. Para cada transformación lineal $T: \mathbb{R}^{n} \longrightarrow \mathbb{R}^{m}$ encontrar su representación matricial.
 	\begin{definition}
 		Sea $ \V $ un espacio vectorial de dimensión finita y $ \beta $ una base ordenada de $ \V $ si $ \vec{x} \in \V$ entonces existen $$ \alpha_1, \alpha_2, \cdots, \alpha_n \in \R \tq \vec{x} = \alpha_1 \vec{v}_1 + \alpha_2 \vec{v}_2 + \cdots $$ donde $ \vec{v}_i \in \beta $ entonces definimos al vector de coordenadas de $ \vec{x} $ con respecto a la base $ \beta $ como \[ [\vec{x}]_\beta = \begin{pmatrix}
 		\alpha_1\\
@@ -1624,16 +1650,42 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\end{definition}
 		a) $T: \mathbb{R}^{2} \longrightarrow \mathbb{R}^{3}$ definido por $T(a_{1},a_{2}) = (2a_{1} - a_{2}, 3a_{1} + 4a_{2},a_{1})$
 		
+		Tomemos en cuenta que las bases estándar de $ \R^2, \R^3 $ son respectivamente, las siguientes
+		 \[ \beta = \lbrace (1,0),(0,1) \rbrace \quad \gamma = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace \]
+		Ahora, con el primer elemento de la base $ \beta $ apliquemos la transformación lineal
+		\begin{align*}
+			T(1,0) &= (2(1) - 0, 3(1) + 4(0), 1 ) && \text{Usando la regla de correspondencia}\\
+			T(1,0) &= (2, 3, 1 ) && \text{Por neutro aditivo y multiplicativo}\\
+		\end{align*}
+		Luego, escribamos a $ (2, 3, 1 ) $ como combinación lineal de $ \gamma $
+		\begin{align*}
+			(2, 3, 1 ) & = \alpha_1(1,0,0)+ \alpha_2(0,1,0)+ \alpha_3(0,0,1) && \text{Coeficientes en el campo}\\
+			(2, 3, 1 ) & = (\alpha_1,\alpha_2,\alpha_3) && \text{Distribuyendo y sumando}\\
+			2 & = \alpha_1 && \text{Valores resultantes}\\
+			3 & = \alpha_3 && \text{Valores resultantes}\\
+			1 & = \alpha_3 && \text{Valores resultantes}\\
+		\end{align*}
+		Con lo que ahora tenemos podemos construir 
+		$$ [T]_{\beta}^{\gamma} = \begin{pmatrix}
+		2 & \\
+		3 & \\
+		1 & \\
+		\end{pmatrix} $$
+		
+		Empleemos el segundo elemento de la base $ \beta $
+		
 		
 		b) $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{2}$ definido por 
 		$T(a_{1},a_{2},a_{3}) = (2a_{1} + 3a_{2} - a_{3}, a_{1} + a_{3})$
 		
+		 \[  \beta = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace \quad \gamma = \lbrace (1,0),(0,1) \rbrace \]
 		
 		c) $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}$ definido por $T(a_{1},a_{2},a_{3}) = 2a_{1} + a_{2} - 3a_{3}$
 		
+		\[ \beta = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace \quad \gamma = \lbrace 1 \rbrace \]
 		
 		d) $T: \mathbb{R}^{3} \longrightarrow \mathbb{R}^{3}$ definido por $T(a_{1},a_{2},a_{3}) = (2a_{2} + a_{3}, -a_{1} + 4a_{2} + 5a_{3},a_{1} + a_{3})$
-
+		\[ \beta = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace \quad \gamma = \lbrace (1,0,0),(0,1,0),(0,0,1) \rbrace\]
 \end{document}
 
 
