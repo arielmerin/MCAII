@@ -2049,9 +2049,106 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 		Calcular el determinante de las siguientes matrices 
 	\end{ejercicio}
 	\noindent a) $\begin{pmatrix} 6 & -3 \\ 2 & 4 \end{pmatrix}$\\
+	\begin{definition}
+		Definimos a $ M_{2x2}(\R) $ como el espacio vectorial de las matrices de $ 2x2 $ con coeficientes en los $ \R $ de la forma $ 		\begin{pmatrix}
+		a& b\\
+		c& d
+		\end{pmatrix} $ donde $ a,b,c,d \in \R $
+	\end{definition}
+	\begin{definition}
+		Sea $ A \in M_{2x2}(\R) \tq a = \begin{pmatrix}
+		a& b\\
+		c& d
+		\end{pmatrix}$ Entonces el determinante de A está definido como $  det(A) = ad -bc $
+	\end{definition}
+	por la definición de determinante tenemos que
+	\begin{align*}
+		det(A) &= (6)(4) - (-3)(2)\\
+		det(A) &= 24 +6\\
+		\therefore \quad det(A) &= 30\\
+	\end{align*}
 	b) $\begin{pmatrix} -5 & 2 \\ 6 & 1 \end{pmatrix}$ \\
+	Por la definición de determinante tenemos que 
+	\begin{align*}
+		det(A) &= (-5)(1)-(-3)(2)\\
+		det(A) &= (-5)-(-6)\\
+		det(A) &= -5+6\\
+		det(A) &= 1\\
+	\end{align*}
 	c)$\begin{pmatrix} 0 & 1 & 2 \\ -1 & 0 & -3 \\ 2 & 3 & 0 \end{pmatrix}$\\
+	\begin{definition}
+		Sea $ A \in M_{nxn}(\F) $  si $ n < 1 $ entonces $ A = (A_{11}) $ entonces $ det(A) = A_{11} $ para $ n\geq 2 $ definimos el determinante de manera recursiva como
+		\[ det(A) = \sum_{j = 1}^{n (dimen.)} (-1)^{1 + j} A_{1j}det(\hat{A}_{1j}) \]
+	\end{definition}
+	Y así, por la definición de $ det(A) $ tenemos que 
+	\begin{align*}
+		det(A) &= \sum_{j = 1}^{3} A_{1j} det(\hat{A}_{1j}) \\
+		det(A) &= (-1)^2 A_{11} det(\hat{A}_{11}) + (-1)^3 A_{12} det(\hat{A}_{12}) + (-1)^4 A_{13} det(\hat{A}_{13}) \\
+		det(A) &= A_{11} det(\hat{A}_{11}) + -A_{12} det(\hat{A}_{12}) + A_{13} det(\hat{A}_{13}) \\
+		det(A) &= (0)det(\hat{A}_{11}) + -(-1) det(\hat{A}_{12}) + (2) det(\hat{A}_{13}) \\
+		det(A) &= det(\hat{A}_{12}) + 2det(\hat{A}_{13}) \\
+	\end{align*}
+	Por la definición de determinantes en $ M_{2x2} $
+	\begin{align*}
+		det(\hat{A}_{12}) &= ad -bc\\
+		det(\hat{A}_{12}) &= (-1)(0)-(-3)(2)\\
+		det(\hat{A}_{12}) &= 6\\
+	\end{align*}
+	por otra parte
+	\begin{align*}
+		det(\hat{A}_{13}) &= ad -bc \\
+		det(\hat{A}_{13}) &= (-1)(3) - (0)(2) \\
+		det(\hat{A}_{13}) &= -3 \\
+	\end{align*}
+	Sustituyendo del $ det(\hat{A}_{12}) $ y $ det(\hat{A}_{13}) $ en $ det(A) $ tenemos que 
+	\begin{align*}
+		det(A) &= 1(6) +2(-3)\\
+		det(A) &= 6 -6\\
+		\therefore \quad det(A) &= 0\\
+	\end{align*}
 	d) $\begin{pmatrix} 0 & 2 & 1 & 3 \\ 1 & 0 & -2 & 2 \\ 3 & -1 & 0 & 1 \\ -1 & 1 & 2 & 0 \end{pmatrix}$\\
+	Por la definición de determinante en $ M_{nxn} $ tenemos que 
+	\begin{align*}
+		det(A) &= \sum_{j = 1}^{4} (-1)^{1+j} A_{1j} det(\hat{A}_{1j})\\
+		det(A) &= (-1)^{2} A_{11} det(\hat{A}_{11}) + (-1)^{3} A_{12} det(\hat{A}_{12}) + (-1)^{4} A_{13} det(\hat{A}_{13}) + (-1)^{5} A_{14} det(\hat{A}_{14})\\
+		det(A) &= A_{11} det(\hat{A}_{11}) -A_{12} det(\hat{A}_{12}) +A_{13} det(\hat{A}_{13}) -A_{14} det(\hat{A}_{14})\\
+		det(A) &= (0)det(\hat{A}_{11}) -2det(\hat{A}_{12}) +det(\hat{A}_{13}) -3det(\hat{A}_{14})\\
+		det(A) &= -2det(\hat{A}_{12}) +det(\hat{A}_{13}) -3det(\hat{A}_{14})\\
+	\end{align*}
+	Sea $ \hat{A}_{12}  = B $ 
+	\begin{align*}
+		det(B) &= \sum_{j = 1}^3 (-1)^{i+j} B_{1j} det (\hat{B}_{1j}) \\
+		det(B) &= (-1)^2 B_{11} det(\hat{B}_11) + (-1)^3 B_{12} det(\hat{B}_{12}) + (-1^)^4 B_{13} det(\hat{B}_{13}) \\
+		det(B) &= (1)(1) det(\hat{B}_{11}) + (-1)(-2) B_{12} det(\hat{B}_{12}) + (1)(2) det(\hat{B}_{13}) \\
+		det(B) &= det(\hat{B}_{11}) + 2 B_{12} det(\hat{B}_{12}) + 2 det(\hat{B}_{13}) \\
+	\end{align*}
+	Como $ \hat{B}_{11}, \hat{B}_{12}, \hat{B}_{13} \in M_{2x2}(\R) $ usaremos la definición para calcular el determinante en este tipo de matrices por lo que
+	\begin{align*}
+		det(\hat{B}_{11}) & = ad-bc = 0(0) - (1)(2) = -2\\
+		det(\hat{B}_{12}) & = ad-bc = 3(0) - (1)(-1) = 1\\
+		det(\hat{B}_{13}) & = ad-bc = 3(2) - (0)(-1) = 6\\
+	\end{align*}
+	Por lo que 
+	\begin{align*}
+		det(B) &= -2 +2(1) + 2(6)\\
+		det(B) &= -2 +2 + 12\\
+		det(B) &= 12\\
+	\end{align*}
+	Por otro lado sea $ \hat{A}_{13} = C $ entonces
+	\begin{align*}
+		det(C) & = \sum_{j = 1}^3 (-1)^{1+j} C_{1j} det(\hat{C}_{1j})\\
+		det(C) & = (-1)^2 C_{11} det(\hat{C}_{11}) + (-1)^3 C_{12}det(\hat{C}_{12}) + (-1)^4 C_{13} det \hat{C}_{13} \\
+		det(C) & = (1)det(\hat{C}_{11}) + (-1)(0)det(\hat{C}_{12}) + (1)(2) det \hat{C}_{13} \\
+		det(C) & = det(\hat{C}_{11}) + 2det \hat{C}_{13} \\
+	\end{align*}
+	y como $ \hat{C}_{11}, \hat{C}_{12} \in M_{2x2} $ entonces
+	\begin{align*}
+		det(\hat{C}_{11}) &= ad -bc = (-1)(0)- (1)(1)\\
+		det(\hat{C}_{11}) &= ad -bc = -1\\
+		\\
+		det(\hat{C}_{12}) &= ad -bc = -(3)() - ()()\\
+		det(\hat{C}_{12}) &= ad -bc = -1\\
+	\end{align*}
 \end{document}
 
 
