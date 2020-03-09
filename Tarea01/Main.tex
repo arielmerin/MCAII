@@ -79,18 +79,16 @@ includefoot]{geometry}
 			\includegraphics*[width=0.2\textwidth]{space}\\[1.5cm]
 			\hrulefill \\[1.5cm]
 			\large{Profesor: M. en C. Pedro Porras Flores}\\
+			\large{Ayudante: Fís. Irving Hernández Rosa }\\
 			\large{Armando Abraham Aquino Chapa}\\
 			\large{Kevin Ariel Merino Peña}
 			\\[1cm]
 			\today\\ [0.3cm]
 			\includegraphics[width=0.1\textwidth]{ornamental}
-
 		\end{center}
-	%	\let\newpage\relax% Avoid following page break
-		
 	\end{titlepage}
 
-	
+	\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que la tarea se entrega en equipos de a lo más tres integrantes. 
 \begin{ejercicio}{1}
 	Escribe el vector cero en $M_{3x4}(\mathbb{R})$
 \end{ejercicio}
@@ -2065,7 +2063,7 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\begin{align*}
 		det(A) &= (6)(4) - (-3)(2)\\
 		det(A) &= 24 +6\\
-		\therefore \quad det(A) &= 30\\
+		\therefore \quad det(A) &= 30
 	\end{align*}
 	b) $\begin{pmatrix} -5 & 2 \\ 6 & 1 \end{pmatrix}$ \\
 	Por la definición de determinante tenemos que 
@@ -2073,7 +2071,7 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 		det(A) &= (-5)(1)-(-3)(2)\\
 		det(A) &= (-5)-(-6)\\
 		det(A) &= -5+6\\
-		det(A) &= 1\\
+		det(A) &= 1
 	\end{align*}
 	c)$\begin{pmatrix} 0 & 1 & 2 \\ -1 & 0 & -3 \\ 2 & 3 & 0 \end{pmatrix}$\\
 	\begin{definition}
@@ -2086,25 +2084,25 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 		det(A) &= (-1)^2 A_{11} det(\hat{A}_{11}) + (-1)^3 A_{12} det(\hat{A}_{12}) + (-1)^4 A_{13} det(\hat{A}_{13}) \\
 		det(A) &= A_{11} det(\hat{A}_{11}) + -A_{12} det(\hat{A}_{12}) + A_{13} det(\hat{A}_{13}) \\
 		det(A) &= (0)det(\hat{A}_{11}) + -(-1) det(\hat{A}_{12}) + (2) det(\hat{A}_{13}) \\
-		det(A) &= det(\hat{A}_{12}) + 2det(\hat{A}_{13}) \\
+		det(A) &= det(\hat{A}_{12}) + 2det(\hat{A}_{13}) 
 	\end{align*}
 	Por la definición de determinantes en $ M_{2x2} $
 	\begin{align*}
 		det(\hat{A}_{12}) &= ad -bc\\
 		det(\hat{A}_{12}) &= (-1)(0)-(-3)(2)\\
-		det(\hat{A}_{12}) &= 6\\
+		det(\hat{A}_{12}) &= 6
 	\end{align*}
 	por otra parte
 	\begin{align*}
 		det(\hat{A}_{13}) &= ad -bc \\
 		det(\hat{A}_{13}) &= (-1)(3) - (0)(2) \\
-		det(\hat{A}_{13}) &= -3 \\
+		det(\hat{A}_{13}) &= -3 
 	\end{align*}
 	Sustituyendo del $ det(\hat{A}_{12}) $ y $ det(\hat{A}_{13}) $ en $ det(A) $ tenemos que 
 	\begin{align*}
 		det(A) &= 1(6) +2(-3)\\
 		det(A) &= 6 -6\\
-		\therefore \quad det(A) &= 0\\
+		\therefore \quad det(A) &= 0
 	\end{align*}
 	d) $\begin{pmatrix} 0 & 2 & 1 & 3 \\ 1 & 0 & -2 & 2 \\ 3 & -1 & 0 & 1 \\ -1 & 1 & 2 & 0 \end{pmatrix}$\\
 	Por la definición de determinante en $ M_{nxn} $ tenemos que 
@@ -2117,38 +2115,134 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\end{align*}
 	Sea $ \hat{A}_{12}  = B $ 
 	\begin{align*}
-		det(B) &= \sum_{j = 1}^3 (-1)^{i+j} B_{1j} det (\hat{B}_{1j}) \\
-		det(B) &= (-1)^2 B_{11} det(\hat{B}_11) + (-1)^3 B_{12} det(\hat{B}_{12}) + (-1^)^4 B_{13} det(\hat{B}_{13}) \\
-		det(B) &= (1)(1) det(\hat{B}_{11}) + (-1)(-2) B_{12} det(\hat{B}_{12}) + (1)(2) det(\hat{B}_{13}) \\
-		det(B) &= det(\hat{B}_{11}) + 2 B_{12} det(\hat{B}_{12}) + 2 det(\hat{B}_{13}) \\
+	det(B) &= \sum_{j = 1}^{3} (-1)^{i+j} B_{1j} det (\hat{B}_{1j}) \\
+	det(B) &= (-1)^{2} B_{11} det(\hat{B}_{11}) + (-1)^{3} B_{12} det(\hat{B}_{12}) + (-1)^4 B_{13} det(\hat{B}_{13}) \\
+	det(B) &= (1)(1) det(\hat{B}_{11}) + (-1)(-2) B_{12} det(\hat{B}_{12}) + (1)(2) det(\hat{B}_{13}) \\
+	det(B) &= det(\hat{B}_{11}) + 2 B_{12} det(\hat{B}_{12}) + 2 det(\hat{B}_{13}) 
 	\end{align*}
 	Como $ \hat{B}_{11}, \hat{B}_{12}, \hat{B}_{13} \in M_{2x2}(\R) $ usaremos la definición para calcular el determinante en este tipo de matrices por lo que
 	\begin{align*}
 		det(\hat{B}_{11}) & = ad-bc = 0(0) - (1)(2) = -2\\
 		det(\hat{B}_{12}) & = ad-bc = 3(0) - (1)(-1) = 1\\
-		det(\hat{B}_{13}) & = ad-bc = 3(2) - (0)(-1) = 6\\
+		det(\hat{B}_{13}) & = ad-bc = 3(2) - (0)(-1) = 6
 	\end{align*}
 	Por lo que 
 	\begin{align*}
 		det(B) &= -2 +2(1) + 2(6)\\
 		det(B) &= -2 +2 + 12\\
-		det(B) &= 12\\
+		det(B) &= 12
 	\end{align*}
 	Por otro lado sea $ \hat{A}_{13} = C $ entonces
 	\begin{align*}
 		det(C) & = \sum_{j = 1}^3 (-1)^{1+j} C_{1j} det(\hat{C}_{1j})\\
 		det(C) & = (-1)^2 C_{11} det(\hat{C}_{11}) + (-1)^3 C_{12}det(\hat{C}_{12}) + (-1)^4 C_{13} det \hat{C}_{13} \\
 		det(C) & = (1)det(\hat{C}_{11}) + (-1)(0)det(\hat{C}_{12}) + (1)(2) det \hat{C}_{13} \\
-		det(C) & = det(\hat{C}_{11}) + 2det \hat{C}_{13} \\
+		det(C) & = det(\hat{C}_{11}) + 2det \hat{C}_{13}
 	\end{align*}
-	y como $ \hat{C}_{11}, \hat{C}_{12} \in M_{2x2} $ entonces
+	y como $ \hat{C}_{11}, \hat{C}_{13} \in M_{2x2} $ entonces
 	\begin{align*}
 		det(\hat{C}_{11}) &= ad -bc = (-1)(0)- (1)(1)\\
 		det(\hat{C}_{11}) &= ad -bc = -1\\
 		\\
-		det(\hat{C}_{12}) &= ad -bc = -(3)() - ()()\\
-		det(\hat{C}_{12}) &= ad -bc = -1\\
+		det(\hat{C}_{13}) &= ad -bc = (3)(1) - (-1)(-1)\\
+		det(\hat{C}_{13}) &= ad -bc = 2\\
+		\\
+		det(B) &= -1+ 2(2) = 3
 	\end{align*}
+	Ahora, sea $ \hat{A}_{14} = D $
+	\begin{align*}
+		det(D) &= \sum_{j = 1}^{3}(-1)^{1+j} D_{1j} det(\hat{D}_{1j})\\
+		det(D) &= (-1)^2 D_{11} det(\hat{D}_{11}) + (-1)^3 D_{12} det(\hat{D}_{12}) + (-1)^4 D_{13} det(\hat{D}_{13})  \\
+		det(D) &= (1)det(\hat{D}_{11}) + (-1)(0)det(\hat{D}_{12}) + (1)(-2) det(\hat{D}_{13})  \\
+		det(D) &= det(\hat{D}_{11}) -2 det(\hat{D}_{13})  
+	\end{align*}
+	Y como $ \hat{D}_{11}, \hat{D}_{13} \in M_{2x2}(\R) $ entonces
+	\begin{align*}
+		det(\hat{D}_{11}) &= ad -bc = (-1)(2)-(-1)(0) = -2\\
+		det(\hat{D}_{13}) &= ad -bc = (3)(1)-(-1)(-2) = 2\\
+		det(D) &= -2-(2)(2) = -6
+	\end{align*}
+	Finalmente tenemos que
+	\begin{align*}
+		det(A) &= -2(12) + 3 -3(-6)\\
+		det(A) &= -24 + 3 + 18 = -3\\
+		\therefore \quad det(A) &= -3
+	\end{align*}
+	\begin{ejercicio}{15}
+		Para cada par de vectores $u$ y $v$ en $\mathbb{R}^2$, calcula el área del paralelogramo determinado por $u$ y $v$.
+	\end{ejercicio}
+	\noindent a)$\vec{u} = (3,-2)$ y $\vec{v} = (2,5)$\\
+	\begin{definition}
+		Sea $ \vec{u} = (a,b), \vec{u} =(c,d) $ entonces $ det\begin{pmatrix}
+		\vec{v}\\
+		\vec{u}\\
+		\end{pmatrix}  = \begin{pmatrix}
+		a & b\\
+		c & d\\
+		\end{pmatrix} = ad-bc$ 	
+	\end{definition}
+	Entonces 
+	\begin{align*}
+		\left|det\begin{pmatrix}
+		\vec{v}\\
+		\vec{u}\\
+		\end{pmatrix} \right|& = \begin{pmatrix}
+		(3,-2)\\
+		(2,5)\\
+		\end{pmatrix} = det\begin{pmatrix}
+		3,-2\\
+		2,5\\
+		\end{pmatrix}\\
+		\left|det\begin{pmatrix}
+		\vec{v}\\
+		\vec{u}\\
+		\end{pmatrix} \right|& = |(3)(5)-(-2)(2)| = 15+4 = 19
+	\end{align*}
+	\begin{center}
+		$ \therefore $ El área del paralelogramo es 19 con orientación positiva
+	\end{center}
+	b)$\vec{u}  = (1,3)$ y $\vec{v}  = (-3,1)$\\
+	Entonces 
+	\begin{align*}
+		 det\begin{pmatrix}
+		 \vec{v}\\
+		 \vec{u}\\
+		 \end{pmatrix}  & = \left|  det\begin{pmatrix}
+		 (1,3)\\
+		 (-3,1)\\
+		 \end{pmatrix} \right| = \left|  det\begin{pmatrix}
+		 1,3\\
+		 -3,1\\
+		 \end{pmatrix} \right|\\
+		 det\begin{pmatrix}
+		 \vec{v}\\
+		 \vec{u}\\
+		 \end{pmatrix} & = |(1)(1)-(3)(-3)| = |1-9| = |-8| = 8
+	\end{align*}
+	\begin{center}
+		$ \therefore $ El área del paralelogramo es 8 con orientación negativa
+	\end{center}
+	c)$\vec{u}  = (4,-1)$ y $\vec{v}  = (-6,-2)$\\
+	Entonces
+	\begin{align*}
+		\left| det\begin{pmatrix}
+		\vec{v}\\
+		\vec{u}\\
+		\end{pmatrix} \right| & = \left| det\begin{pmatrix}
+		(4,-1)\\
+		(-6,-2)\\
+		\end{pmatrix} \right| = \left| det\begin{pmatrix}
+		4,-1\\
+		-6,-2\\
+		\end{pmatrix} \right|\\
+		\left| det\begin{pmatrix}
+		\vec{v}\\
+		\vec{u}\\
+		\end{pmatrix} \right| & = |(4)(2)-(-1)(-6)| = |8-6| = |2|
+	\end{align*}
+	\begin{center}
+		$ \therefore $ El área del paralelogramo es 2 con orientación positiva
+	\end{center}
 \end{document}
 
 
