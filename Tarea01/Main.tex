@@ -1848,10 +1848,107 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\begin{ejercicio}{12}
 		Para cada uno de los siguientes pares de bases $\beta$ y $\beta'$ para $\mathbb{R}^{2}$, encuentra la matriz de cambio de coordenadas que cambia las coordenadas de $\beta'$ en las de $\beta$.
 	\end{ejercicio}
-	a)$\beta = \lbrace \hat{e}_{1},\hat{e}_{2} \rbrace$ y $\beta' = \lbrace (a_{1},a_{2}),(b_{1},b_{2}) \rbrace$\\
+	\noindent a)$\beta = \lbrace \hat{e}_{1},\hat{e}_{2} \rbrace$ y $\beta' = \lbrace (a_{1},a_{2}),(b_{1},b_{2}) \rbrace$\\
+	Veamos a la base $ \beta = \lbrace (1,0),(0,1) \rbrace $ de tal manera que 
+	\begin{align*}
+		(1,0) &= \alpha_1 (a_1, a_2) + \alpha_2 (b_1,b_2)\\
+		(1,0) &= (\alpha_1 a_1 + \alpha_2 b_1, \alpha_1 a_2 + \alpha_2 b_2)\\
+		\\
+		1 &= \alpha_1 a_1 + \alpha_2 b_1\\
+		0 &= \alpha_1 a_2 + \alpha_2 b_2\\
+	\end{align*}
+	\begin{align*}
+		(0,1) &= \alpha_1 (a_1, a_2) + \alpha_2 (b_1,b_2)\\
+		(0,1) &= (\alpha_1 a_1 + \alpha_2 b_1, \alpha_1 a_2 + \alpha_2 b_2)\\
+		\\
+		0 &= \alpha_1 a_1 + \alpha_2 b_1\\
+		1 &= \alpha_1 a_2 + \alpha_2 b_2\\
+	\end{align*}
+	Finalmente la matriz de cambio de base es
+	\[\begin{pmatrix}
+	\end{pmatrix} \]
 	b)$\beta = \lbrace (-1,3),(2,-1) \rbrace$ y $\beta' = \lbrace (0,10),(5,0) \rbrace$\\
-	c)$\beta = \lbrace (2,5),(-1,-3) \rbrace$ y $\beta' = \lbrace e_{1},e_{2} \rbrace$\\
+	Veamos al primer elemento de la base $ \beta$ como combinación lineal de elementos de la base $ \beta' $ 
+	\begin{align*}
+		(-1,3) & = \alpha_1(0,10) + \alpha_2(5,0)\\
+		(-1,3) & = (0,10\alpha_1) + (5\alpha_2,0)\\
+		(-1,3) & = 5\alpha_2,10\alpha_1)\\
+		\\
+		-1 &= 5\alpha_2\\
+		3 &= 10\alpha_1\\
+		\\
+		\dfrac{3}{10} &=\alpha_1\\
+		-\dfrac{1}{5} &=\alpha_2\\
+	\end{align*}
+	Hagamos lo mismo para el segundo elemento en la base $ \beta $
+	\begin{align*}
+	(2,-1) & = \alpha_1(0,10) + \alpha_2(5,0)\\
+	(2,-1) & = (0,10\alpha_1) + (5\alpha_2,0)\\
+	(2,-1) & = 5\alpha_2,10\alpha_1)\\
+	\\
+	2 &= 5\alpha_2\\
+	-1 &= 10\alpha_1\\
+	\\
+	-\dfrac{1}{10} &=\alpha_1\\
+	\dfrac{2}{5} &=\alpha_2\\
+	\end{align*}
+	Finalmente la matriz de cambio de base es 
+	\[ \begin{pmatrix}
+		\frac{3}{10} & -\frac{1}{10}\\
+		-\frac{1}{5} & \frac{2}{5}
+	\end{pmatrix}\]
+	c)$\beta = \lbrace (2,5),(-1,-3) \rbrace$ y $\beta' = \lbrace \hat{e}_{1},\hat{e}_{2} \rbrace$\\
+	Encontremos la combinación lineal de elementos de la base $ \beta' $ para el primer elemento de la base $ \beta $	
+	\begin{align*}
+		(2,5) &= \alpha_1(1,0) + \alpha_2(0,1)\\
+		(2,5) &= (\alpha_1, \alpha_2)\\
+		\\
+		2 &= \alpha_1\\
+		5 &= \alpha_2\\
+	\end{align*}
+	Ahora hagamos lo mismo con el otro elemento de la base $ \beta $
+	\begin{align*}
+	(-1,-3) &= \alpha_1(1,0) + \alpha_2(0,1)\\
+	(-1,-3) &= (\alpha_1, \alpha_2)\\
+	\\
+	-1 &= \alpha_1\\
+	-3 &= \alpha_2\\
+	\end{align*}
+	Por lo tanto, la matriz de cambio de base es
+	\[ \begin{pmatrix}
+	2 & -1\\
+	5 & -3\\
+	\end{pmatrix} \]
 	d)$\beta = \lbrace (-4,3),(2,-1) \rbrace$ y $\beta' = \lbrace (2,1),(-4,1) \rbrace$\\
+	Veamos al primer vector de la base $ \beta $ como combinación lineal de la base $ \beta' $
+	\begin{align*}
+		(-4,3) & = \alpha_1(2,1) + \alpha_2(-4,1)\\
+		(-4,3) & = (2\alpha_1,\alpha_1) + (-4\alpha_2,\alpha_2)\\
+		(-4,3) & = (2\alpha_1-4\alpha_2,\alpha_1+\alpha_2)\\
+		\\
+		-4 & = 2\alpha_1-4\alpha_2\\
+		3& =\alpha_1+\alpha_2\\
+		\\
+		\frac{4}{3}& =\alpha_1\\
+		\frac{5}{3}& =\alpha_2\\
+	\end{align*}
+	Hagamos lo mismo con el segundo vector
+	\begin{align*}
+	(2,-1) & = \alpha_1(2,1) + \alpha_2(-4,1)\\
+	(2,-1) & = (2\alpha_1,\alpha_1) + (-4\alpha_2,\alpha_2)\\
+	(2,-1) & = (2\alpha_1-4\alpha_2,\alpha_1+\alpha_2)\\
+	\\
+	2 & = 2\alpha_1-4\alpha_2\\
+	-1 & =\alpha_1+\alpha_2\\
+	\\
+	-\frac{1}{3}& =\alpha_1\\
+	-\frac{2}{3}& =\alpha_2\\
+	\end{align*}
+	Finalmente la matriz de cambio de base es 
+	\[ \begin{pmatrix}
+	\frac{4}{3} & -\frac{1}{3}\\
+	\frac{5}{3} & -\frac{2}{3}\\
+	\end{pmatrix} \]
 	\begin{ejercicio}{13}
 		Encontrar la matriz inversa por el método de \textit{Gauss-Jordan} de las siguientes matrices 
 	\end{ejercicio}
