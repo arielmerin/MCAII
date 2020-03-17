@@ -2181,7 +2181,7 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 		det(A) &= (-1)^2 A_{11} det(\hat{A}_{11}) + (-1)^3 A_{12} det(\hat{A}_{12}) + (-1)^4 A_{13} det(\hat{A}_{13}) \\
 		det(A) &= A_{11} det(\hat{A}_{11}) + -A_{12} det(\hat{A}_{12}) + A_{13} det(\hat{A}_{13}) \\
 		det(A) &= (0)det(\hat{A}_{11}) + -(-1) det(\hat{A}_{12}) + (2) det(\hat{A}_{13}) \\
-		det(A) &= det(\hat{A}_{12}) + 2det(\hat{A}_{13}) 
+		det(A) &= -det(\hat{A}_{12}) + 2det(\hat{A}_{13}) 
 	\end{align*}
 	Por la definición de determinantes en $ M_{2x2} $
 	\begin{align*}
@@ -2197,9 +2197,9 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\end{align*}
 	Sustituyendo del $ det(\hat{A}_{12}) $ y $ det(\hat{A}_{13}) $ en $ det(A) $ tenemos que 
 	\begin{align*}
-		det(A) &= 1(6) +2(-3)\\
-		det(A) &= 6 -6\\
-		\therefore \quad det(A) &= 0
+		det(A) &= -1(6) +2(-3)\\
+		det(A) &= -6 -6\\
+		\therefore \quad det(A) &= -12
 	\end{align*}
 	d) $\begin{pmatrix} 0 & 2 & 1 & 3 \\ 1 & 0 & -2 & 2 \\ 3 & -1 & 0 & 1 \\ -1 & 1 & 2 & 0 \end{pmatrix}$\\
 	Por la definición de determinante en $ M_{nxn} $ tenemos que 
@@ -2340,6 +2340,18 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\begin{center}
 		$ \therefore $ El área del paralelogramo es 2 con orientación positiva
 	\end{center}
+	\begin{ejercicio}{16}
+		Para cada una de las siguientes matrices $A\in M_{n*n}(R)$ determine los valores propios de A y para cada valor propio $\lambda$ de $A$, encontrar el conjunto de vectores propios correspondientes a $A$.
+	\end{ejercicio}
+	\textbf{Definición 13.}Sea T un operador lineal sobre $V$, dónde $V$ es de dimensión finita y $\vec{x}\in V$ tal que $\vec{x}$ no es 0. Decimos que $\vec{x}$ es vector propio de T si $T(\vec{x})= \lambda\vec{x}$ donde $\lambda\in \mathbb{R}$.\\
+	\textbf{Teorema.} Sean $A\in M_{n*n}(\mathbb{R})$, entonces $\lambda$ es un valor propio de A si y sólo si $det(A-\lambda Id_{n})=0$\\
+	\textbf{Proposición.} Si Q es la matriz formada por los vectores propios asociados a sus respectivos valores propios de $A\in M_{n*n}(\mathbb{R})$, entonces $D=Q^{-1}AQ$.\\
+	
+	a) $A = \begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix}$\\
+	Por el teorema mencionado, para encontrar los valores propios de A, primero calculemos:\\
+	$A- \lambda Id_{n}= \begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix} - \lambda \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix} - \begin{pmatrix} \lambda & 0 \\ 0 & \lambda \end{pmatrix} = \begin{pmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{pmatrix} \\$
+	Entonces:\\
+	
 \end{document}
 
 
