@@ -45,6 +45,12 @@ includefoot]{geometry}
 
 \renewcommand{\*}{\cdot}
 
+\newcommand{\Iden}{\begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 1 
+\end{pmatrix}}
+
 \newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}
 
 \newtcolorbox{ejercicio}[1]{beamer,colback=white!90!white, colframe=black, title=Ejercicio #1}
@@ -2534,6 +2540,40 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\begin{center}
 		$\therefore D = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & -1 \end{pmatrix}$
 	\end{center}
+
+c)$A = \begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 2 & 5 \end{pmatrix}$\\
+Comencemos por hallar los \textbf{valores porpios} de la matriz 
+\begin{align*}
+	A - \lambda Id_3 & = \begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 2 & 5 \end{pmatrix} - \lambda \Iden && \text{Por el teorema enunciado al inicio del ejercicio}\\
+	& = \begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 2 & 5 \end{pmatrix} - \begin{pmatrix}
+		\lambda & 0 & 0\\
+		0 & \lambda & 0\\
+		0 & 0 & \lambda \\
+	\end{pmatrix} && \text{Multiplicacion por un escalar} \\
+	&= \begin{pmatrix} -\lambda & -2 & -3 \\ -1 & 1-\lambda & -1 \\ 2 & 2 & 5-\lambda \end{pmatrix} && \text{Adición entrada a entrada}
+\end{align*}
+Ahora obtengamos el determinante de esa matriz
+\begin{align*}
+	det(A - \lambda Id_3) & = det\begin{pmatrix} -\lambda & -2 & -3 \\ -1 & 1-\lambda & -1 \\ 2 & 2 & 5-\lambda \end{pmatrix} && \text{Sustituyendo lo que ya calculamos}\\
+	det(A - \lambda Id_3) & = \sum_{j = 1}^{3}(-1)^{1+j} A_{1j}det(\hat{A}_{1j}) && \text{Por la definición de determinante} \\
+	det(A - \lambda Id_3) & = (-\lambda) det(\hat{A}_{11}) + 2det(\hat{A}_{12}) - 3det(\hat{A}_{13}) && \text{Usando los valores $ A_{1j} $}
+\end{align*}
+Por otra parte calculemos el determinante de $ \hat{A}_{11} $ 
+\begin{align*}
+	det(\hat{A}_{11}) & = (1-\lambda)(5-\lambda) - (-1)(2) && \text{Por definición determiante de 2x2}\\
+	det(\hat{A}_{11}) & = (1-\lambda)(5-\lambda) +2 && \text{Multiplicando el segundo sumando}\\
+	det(\hat{A}_{11}) & = (5 -\lambda -5\lambda +\lambda^2) +2 && \text{Desarrollando el primer sumando}\\	
+	det(\hat{A}_{11}) & = -6\lambda +\lambda^2 +7 && \text{Sumando terminos semejantes}	
+\end{align*}
+Hagamos lo mismo para encontrar el determinate de $ \hat{A}_{12} $
+\begin{align*}
+	det(\hat{A}_{12}) &= -(5 - \lambda)- (-1)(2) && \text{Por definición del determinante en $ M(\F)_{2x2} $}\\
+	det(\hat{A}_{12}) &= -(5 - \lambda)+2 && \text{Operando signos}\\
+\end{align*}
+Por último esto ocurre al resolver el determinante de $ \hat{A}_{13} $
+\begin{align*}
+	det(\hat{A}_{11}) &= (-1)(2)- (1-\lambda)(2) && \text{Definición de determinante de 2x2}\\
+	det(\hat{A}_{11}) &= -2 - (1-\lambda)(2) && \text{Efectuando operación en signos}\\
+	det(\hat{A}_{11}) &= -2(2-\lambda) && \text{Por factorización de 2}\\
+\end{align*}
 \end{document}
-
-
