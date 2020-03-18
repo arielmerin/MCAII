@@ -2415,7 +2415,124 @@ Como podemos apreciar los valores de $\alpha_{3}$ no son los mismos, y esto es d
 	\begin{center}
 	$\therefore \begin{pmatrix} -1 & 0 \\ 0 & 4 	\end{pmatrix}$ es la matriz diagonal.
 	\end{center}
-	
+	b) $\begin{pmatrix} 1 & 0 & 2 \\ -1 & 1 & 1 \\ 2 & 0 & 1 \end{pmatrix}$\\
+	Usando el teorema enunciado, encontramos los valores propios de $A$:\\
+	$A-\lambda Id_{n} = \begin{pmatrix} 1 & 0 & 2 \\ -1 & 1 & 1 \\ 2 & 0 & 1 \end{pmatrix} - \lambda \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 & 2 \\ -1 & 1 & 1 \\ 2 & 0 & 1 \end{pmatrix} - \begin{pmatrix} \lambda & 0 & 0 \\ 0 & \lambda & 0  \\ 0 & 0 & \lambda \end{pmatrix} =\begin{pmatrix} 1-\lambda & 0 & 2 \\ -1 & 1-\lambda & 1 \\ 2 & 0 & 1-\lambda \end{pmatrix}$\\
+	Ahora calculemos $det(A-\lambda Id_{n})$ usando la definición 11:
+	\begin{center}
+	$det(A-\lambda Id_{n}) = \sum_{j = 1}^{3} (-1)^{1+j} A_{1j} det(\hat{A}_{1j}) = A_{11} det(\hat{A}_{11})- A_{12} det(\hat{A}_{12}) + A_{13} det(\hat{A}_{13})$
+	\end{center}
+	\begin{center}
+		$det(A-\lambda Id_{n}) = (1-\lambda) det(\hat{A}_{11}) + 2 det(\hat{A}_{13})$
+	\end{center}
+	$det(\hat{A}_{11}) = (1-\lambda)(1-\lambda)-(1)(0) = (1-\lambda)^{2}$\\
+	$det(\hat{A}_{13}) = (-1)(0-(1-\lambda)(2) = -2+2\lambda$\\
+	Sustituyendo:
+	\begin{center}
+		$det(A-\lambda Id_{n})= (1-\lambda)(1-\lambda)^{2} + 2 (-2+2\lambda) = (1-\lambda)^{3}-4(1-\lambda) = 0$
+	\end{center}
+	Obtenemos los valores de $\lambda$ mediante factorización:
+	\begin{center}
+	$(1-\lambda)[(1-\lambda)(1-\lambda)-4] = (1-\lambda)[\lambda^{2}-2\lambda -3] = (1-\lambda)[(\lambda -3)(\lambda +1)] = 0$
+	\end{center}
+	Es fácil notar que $\lambda_{1} = 1$,   $\lambda_{2} = 3$, $\lambda_{3} = -1$, los cuales son los \textbf{valores propios.}\\
+	Ahora calcularemos el conjunto de vectores propios. Tenemos que sustituir $(A-\lambda Id_{n})(\vec{v})= \vec{0}$.\\
+	Primero hagamos el cálculo para $\lambda_{1} = 1$.
+	\begin{center}
+		$\begin{pmatrix} 1-1 & 0 & 2 \\ -1 & 1-1 & 1 \\ 2 & 0 & 1-1  \end{pmatrix} \begin{pmatrix} X_{1} \\ X_{2} \\ X_{3} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+	\end{center}
+	\begin{center}
+		$\begin{pmatrix} 0 & 0 & 2 \\ -1 & 0 & 1 \\ 2 & 0 & 0  \end{pmatrix} \begin{pmatrix} X_{1} \\ X_{2} \\ X_{3} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+	\end{center}
+	Obtenemos el siguiente sistema de ecuaciones:
+	\begin{align*}
+	2X_{3} = 0\\
+	-X_{1}+ 0X_{2}+ X_{3} = 0\\
+	2X_{1} = 0
+	\end{align*}
+	Podemos notar que $X_{1} = 0$ y $X_{3} = 0$. Y $X_{2}$ puede tomar cualquier valor en $\mathbb{R}$ ya que $0X_{2}$ siempre es 0. Entonces tomamos $X_{2} = 1$.
+	\begin{center}
+		$\therefore \vec{V_{1}} = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$
+	\end{center}
+	Ahora hagamos el cálculo para $\lambda_{2} = 3$.
+	\begin{center}
+		$\begin{pmatrix} 1-3 & 0 & 2 \\ -1 & 1-3 & 1 \\ 2 & 0 & 1-3  \end{pmatrix} \begin{pmatrix} X_{1} \\ X_{2} \\ X_{3} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+	\end{center}
+	\begin{center}
+		$\begin{pmatrix} -2 & 0 & 2 \\ -1 & -2 & 1 \\ 2 & 0 & -2  \end{pmatrix} \begin{pmatrix} X_{1} \\ X_{2} \\ X_{3} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+	\end{center}
+	Obtenemos el siguiente sistema de ecuaciones:
+	\begin{align*}
+	-2x_{1} + 2x_{3} = 0\\
+	-x_{1} -2x_{2} + x_{3}= 0\\
+	2x_{1}-2x_{3}= 0
+	\end{align*}
+	Sumamos el renglón 3 al renglón 1.
+	\begin{align*}
+	-x_{1} -2x_{2} + x_{3}= 0\\
+	2x_{1}-2x_{3}= 0
+	\end{align*}
+	Sumamos el renglón 2 a dos veces el renglón 1.
+	\begin{align*}
+    -4x_{2}= 0\\
+	2x_{1}-2x_{3}= 0
+	\end{align*}
+	De esto podemos concluir que $x_{1} = x_{3}$ y $x_{2}= 0$. Como $x_{1}$ depende de $x_{3}$. Tomamos $x_{1} = 1$, $x_{2}=0$ y $x_{3}=1$.
+	\begin{center}
+		$\therefore \vec{V_{2}} = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$
+	\end{center}
+	Por último hagamos el cálculo para $\lambda_{3}=-1$.
+	\begin{center}
+		$\begin{pmatrix} 1-(-1) & 0 & 2 \\ -1 & 1-(-1) & 1 \\ 2 & 0 & 1-(-1)  \end{pmatrix} \begin{pmatrix} X_{1} \\ X_{2} \\ X_{3} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+	\end{center}
+	\begin{center}
+		$\begin{pmatrix} 2 & 0 & 2 \\ -1 & 2 & 1 \\ 2 & 0 & 2  \end{pmatrix} \begin{pmatrix} X_{1} \\ X_{2} \\ X_{3} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}$
+	\end{center}
+	Obtenemos el siguiente sistema de ecuaciones:
+	\begin{align*}
+	2x_{1} + 2x_{3} = 0\\
+	-x_{1} +2x_{2} + x_{3}= 0\\
+	2x_{1}+2x_{3}= 0
+	\end{align*}
+	Cómo tenemos repetida una ecuación la podemos eliminar.
+	\begin{align*}
+	-x_{1} +2x_{2} + x_{3}= 0\\
+	2x_{1}+2x_{3}= 0
+	\end{align*}
+	Sumamos el renglón 2 a dos veces el renglón 1.
+	\begin{align*}
+	4x_{2} + 4x_{3}= 0\\
+	2x_{1}+2x_{3}= 0
+	\end{align*}
+	De esto obtenemos que $x_{1} = -x_{3}$ y $x_{2}= -x_{3}$. Entonces $x_{1}=x_{2}=-x_{3}$ Como $x_{1}$ y $x_{2}$ dependen de $x_{3}$. Tomamos $x_{1} = -1$, $x_{2}=-1$ y $x_{3}=1$.
+	\begin{center}
+		$\therefore \vec{V_{3}} = \begin{pmatrix} -1 \\ -1 \\ 1 \end{pmatrix}$
+	\end{center}
+	\begin{center}
+		Entonces: $A = \begin{pmatrix}	0 & 1 & -1 \\ 1 & 0 & -1 \\ 0 & 1 & 1 \end{pmatrix}$
+	\end{center}
+	Por último calcularemos la matriz diagonal de $A$, pero primero tenemos que calcular $Q^{-1}$ con la proposición $Q^{-1}= \dfrac{1}{det(Q)}(cof(Q^{T}))$\\
+	Es fácil apreciar que $det(A)= -2$ y $cof(A^{T})= \begin{pmatrix} 1 & -2 & -1 \\ -1 & 0 & -1 \\ 1 & 0 & -1
+	\end{pmatrix}$
+	Entonces:
+	\begin{center}
+		$A^{-1} = \frac{1}{-2}\begin{pmatrix} 1 & -2 & -1 \\ -1 & 0 & -1 \\ 1 & 0 & -1
+		\end{pmatrix} = \frac{1}{2}\begin{pmatrix} -1 & 2 & 1 \\ 1 & 0 & 1 \\ -1 & 0 & 1
+		\end{pmatrix}$
+	\end{center}
+	Ahora encontremos la matriz diagonal utilizando la proposición que se encuentra al inicio del ejercicio.
+	\begin{center}
+		$D = \frac{1}{2}\begin{pmatrix} -1 & 2 & 1 \\ 1 & 0 & 1 \\ -1 & 0 & 1
+		\end{pmatrix}\begin{pmatrix} 1 & 0 & 2 \\ -1 & 1 & 1 \\ 2 & 0 & 1
+		\end{pmatrix} \begin{pmatrix} 0 & 1 & -1 \\ 1 & 0 & -1 \\ 0 & 0 & 1
+		\end{pmatrix} = \frac{1}{2}\begin{pmatrix} -1 & 2 & 1 \\ 1 & 0 & 1 \\ -1 & 0 & 1
+		\end{pmatrix}\begin{pmatrix} 0 & 3 & 1 \\ 1 & 0 & 1 \\ 0 & 3 & -1
+		\end{pmatrix} = \frac{1}{2}\begin{pmatrix} 2 & 0 & 0 \\ 0 & 6 & 0 \\ 0 & 0 & -2
+		\end{pmatrix}$
+	\end{center}
+	\begin{center}
+		$\therefore D = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & -1 \end{pmatrix}$
+	\end{center}
 \end{document}
 
 
