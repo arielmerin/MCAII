@@ -1,0 +1,141 @@
+\documentclass[letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{dsfont}
+\usepackage[margin=1.3cm,
+vmargin={1.3cm,1.3cm},
+includefoot]{geometry}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tocloft}
+\usepackage{upgreek}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{tikz}
+\tcbuselibrary{skins,breakable}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\cfoot{\textbf{Facultad de Ciencias, UNAM}\\ \thepage}
+
+\newcommand{\V}{\mathds{V}}
+
+\newcommand{\W}{\mathds{W}}
+
+\newcommand{\F}{\mathds{F}}
+
+\newcommand{\tq}{ \quad \cdot  \backepsilon \cdot \quad }
+
+\newcommand{\ld}{\lim\limits_{x \to 0^{+}}}
+
+\newcommand{\li}{\lim\limits_{x \to 0^{-}}}
+
+\newcommand{\la}{\lim\limits_{x \to a}}
+
+\newcommand{\R}{\mathds{R}}
+
+\renewcommand{\*}{\cdot}
+
+\newcommand{\Iden}{\begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 1 
+\end{pmatrix}}
+
+\newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}
+
+\newtcolorbox{ejercicio}[1]{beamer,colback=white!90!white, colframe=black, title=Ejercicio #1}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\newtheorem{theorem}{Teorema}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}
+
+\begin{document}
+\begin{center}
+	\textbf{\large Matemáticas para las Ciencias II}\\
+	\textbf{ Semestre 2020-1}\\
+	Prof. Pedro Porras Flores\\
+	Ayud. Irving Hérnandez Rosas \\
+	Merino Peña Kevin Ariel\\ 317031326\\
+	\textbf{Proyecto I}
+\end{center}
+\rule{17cm}{0.3mm}
+
+\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom. 
+
+\begin{enumerate}
+	
+	% -----------------------------------------------------
+	% Problema uno
+	% -----------------------------------------------------
+	
+	\item  De la definición de parábola deduzca de manera análoga como lo hicimos en la video-clase la ecuación para una parábola cuyo foco se encuentra en el eje $x$, es decir $$y^2 = 4px.$$ 
+	
+	\begin{definition}
+		El conjunto de los puntos del plano $ \tq $ que están a la misma distancia de una recta dada $ D $ y de un punto $ \vec{F} $, que no esté sobre $ D $, recibe el nombre de \textbf{parábola}
+	\end{definition}
+	Para deducir la ecuación de la parábola supongamos que la coordenadas de $ \vec{F} = (p,0) $ y que la recta D está descrita por $ w = (-p,y) \quad \forall y \in \R $, Luego por la definición que hemos tomado de prábola tenemos que 
+	\begin{align*}
+	||\vec{u} - \vec{F} || &= || \vec{u} - \vec{w} || && \text{Por definición de distancia} \\
+	||(x,y) - (p,0) || &= || (x,y) - (-p,y) || && \text{Los valores de dichos vectores  } \\
+	||(x -p,y)|| &= || (x +p,y-y)|| && \text{Restando de manera directa} \\
+	\sqrt{<(x -p,y),(x -p,y)>} &= \sqrt{<(x +p,0),(x +p,0)>} && \text{Definición de la norma en vectores } \\
+	\sqrt{(x -p)^2 +y^2} &= \sqrt{(x +p)^2 +(0)^2} && \text{Calculando el producto interior  } \\
+	(x -p)^2 +y^2 &= (x +p)^2 +(0)^2 && \text{Factorizando } \\
+	x^2 -2xp +p^2 +y^2 &= x^2 +2xp +p^2 && \text{Por distributividad  } \\
+	y^2 &= 4xp && \text{Agrupando y sumando términos semejantes}
+	\end{align*}
+	
+	\begin{figure}[h!]
+		\centering
+		\caption{Parábola con foco sobre el eje $x$.}
+		\label{F1}
+	\end{figure}
+	
+	% -----------------------------------------------------
+	% Problema dos
+	% -----------------------------------------------------
+	\newpage
+	\item De igual manera que se hizo en clase deduzca la ecuación de una elipse cuyos focos se encuentran sobre el eje $y$, esto es: $$\dfrac{x^2}{b^2} + \dfrac{y^2}{a^2}=1$$
+	
+	\begin{figure}[h!]
+		\centering
+		\caption{Elipse con focos sobre el eje $y$.}
+		\label{F1}
+	\end{figure}
+	
+	% -----------------------------------------------------
+	% Problema tres
+	% -----------------------------------------------------
+	
+	
+	\item Deduzca la ecuación de la hipérbola de la definición, sin importar donde estén los focos, es decir ya sea que muestre: $$\dfrac{x^2}{a^2} -  \dfrac{y^2}{b^2} = 1 \text{ o }  \dfrac{x^2}{b^2} - \dfrac{y^2}{a^2}=1$$
+	
+	\begin{figure}[h!]
+		\centering
+		\caption{Hipérbola con focos sobre el eje $x$.}
+		\label{F1}
+	\end{figure}
+	
+	
+	
+	
+\end{enumerate}
+
+\end{document}
