@@ -1,33 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%	Licencia:		Este documento se distribuye bajo licencia (CC BY 4.0) Usted puede encontrar un resumen %%
-%%					de la licencia en http://creativecommons.org/licenses/by/4.0/deed.es					%%
-%%																											%%
-%%	-----------------------------------------------------------------------------------------------------	%%
-%%																											%%
-%%	Plantilla:		exi-examen																				%%
-%%	Descripción:	exi-examen.tex es una plantilla para realizar exámenes escritos en formato LaTeX		%%
-%%	Autor:			Ing. Alfonso Ramos Michel																%%
-%%	Fecha:			9 de diciembre de 2013																	%%
-%%	Revisión:		UNO-A																					%%
-%%	Paquetes:		inputenc																				%%
-%%					babel																					%%
-%%					graphicx																				%%
-%%					amsmath																					%%
-%%					geometry 																				%%
-%%					fancyhdr																				%%
-%%	Comandos:		\ExiEscuela		Para definir la institución educativa donde se realiza el examen.		%%
-%%					\ExiCarrera		Para definir la carrera que se realiza.									%%
-%%					\ExiMateria		Para definir la materia que se cursa.									%%
-%%					\ExiParcial		Para definir el parcial del cual se realiza el examen.					%%
-%%					\informacion	Muesta un recuadro donde poder dar instrucciones al alumno.				%%
-%%					\datos			Muestra una línea para el nombre del alumno y la fecha de realización.	%%
-%%					\pregunta		Permite introducir (dentro del entorno enummerate) una pregunta o el 	%%
-%%									planteamiento de un problema.											%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage[utf8]{inputenc}
@@ -47,6 +17,7 @@
 \cfoot{\ExiEscuela}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+\newtheorem{definition}{Definición}
 
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \providecommand{\norm}[1]{\lVert#1\rVert}
@@ -80,35 +51,20 @@
 \thispagestyle{empty}
 
 \begin{center}
-\vspace{-134pt}
-\textbf{\large Matemáticas para las Ciencias II}\\[0.2cm]
-\textbf{ Semestre 2020-1}\\[0.2cm]
-Prof. Pedro Porras Flores\\[0.2cm]
-Ayud. Irving Hérnandez Rosas \\ [0.2cm]
+\textbf{\large Matemáticas para las Ciencias II}\\
+\textbf{ Semestre 2020-1}\\
+Prof. Pedro Porras Flores\\
+Ayud. Irving Hérnandez Rosas \\
 %Ayud. Carlos Rodolfo Barrera Anzaldot \\ [0.2cm]
 \textbf{Proyecto I}
 \end{center}
-\vspace{-10pt}
 \rule{17cm}{0.3mm}
-\begin{flushright}
-\vspace{-3pt}
-\end{flushright}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%
-%\informacion{\large Profesor: Pedro Porras  Flores \\
-%porras@ciencias.unam.mx  \\
-
-%Ayudante: María Guadalupe Gómez Farfán\\ 
- %lupis\_2309@hotmail.com\\
- 
-% Ayudante: Carlos Rodolfo Barrera Anzaldo\\ 
- %crba@ciencias.unam.mx\\}
-%%%%
 \noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom. 
 
-
+\begin{definition}
+	El conjutno de los puntos del plano tales que están a la misma distancia de una recta dada $ D $ y de un punto $ \vec{F} $, que no esté sobre $ D $, recibe el nombre de \textbf{parábola}
+\end{definition}
 \begin{enumerate}
 
 % -----------------------------------------------------
@@ -116,6 +72,7 @@ Ayud. Irving Hérnandez Rosas \\ [0.2cm]
 % -----------------------------------------------------
 
 \item  De la definición de parábola deduzca de manera análoga como lo hicimos en la video-clase la ecuación para una parábola cuyo foco se encuentra en el eje $x$, es decir $$y^2 = 4px.$$ 
+
 
 \begin{figure}[h!]
 \centering
