@@ -86,7 +86,7 @@ includefoot]{geometry}
 			\includegraphics*[width=0.2\textwidth]{space}\\[1.5cm]
 			\hrulefill \\[1.5cm]
 			\large{Profesor: M. en C. Pedro Porras Flores}\\
-			\large{Ayudante: Fís. Irving Hernández Rosa }\\
+			\large{Ayudante: Fís. Irving Hernández Rosas}\\
 			\large{Armando Abraham Aquino Chapa}\\
 			\large{Kevin Ariel Merino Peña}
 			\\[1cm]
@@ -2572,8 +2572,180 @@ Hagamos lo mismo para encontrar el determinate de $ \hat{A}_{12} $
 \end{align*}
 Por último esto ocurre al resolver el determinante de $ \hat{A}_{13} $
 \begin{align*}
-	det(\hat{A}_{11}) &= (-1)(2)- (1-\lambda)(2) && \text{Definición de determinante de 2x2}\\
+	det(\hat{A}_{11}) &= (-1)(2)- (1-\lambda)(2) && \text{Definición de determinante en 2x2}\\
 	det(\hat{A}_{11}) &= -2 - (1-\lambda)(2) && \text{Efectuando operación en signos}\\
 	det(\hat{A}_{11}) &= -2(2-\lambda) && \text{Por factorización de 2}\\
+\end{align*}
+\begin{center}
+	Recordemos, de los pasos anteriores que: $$det(A - \lambda Id_3) = (-\lambda) det(\hat{A}_{11}) + 2det(\hat{A}_{12}) - 3det(\hat{A}_{13})  $$
+\end{center}
+\begin{align*}
+	det(A - \lambda Id_3) &= (-\lambda) (-6\lambda +\lambda^2 +7) + 2(-(5 - \lambda)+2) - 3(-2(2-\lambda)) && \text{Por lo anterior}\\
+	det(A - \lambda Id_3) &= -\lambda^3 + 6\lambda^2 - 1\lambda + 6&& \text{Agrupando términos semejantes}\\
+	det(A - \lambda Id_3) &= -(\lambda-3)(\lambda -2)(\lambda -1)&& \text{Factorizando adecuadamente}\\
+\end{align*}
+\[ \therefore \qquad \lambda_{1} = 1, \qquad \lambda_{2} = 2, \qquad \lambda_{3} = 3 \]
+Encontremos el conjunto de vectores propios haciendo uso de la proposición enunciada al inicio de este ejercicio
+$$(A-\lambda Id_{3})(\vec{v})= \vec{0}$$
+Tomemos el caso en el que $ \lambda_{1} = 1 $
+\begin{align*}
+	(A-\lambda_1 Id_{3})(\vec{v}_1)&= \vec{0} && \text{Planteemos la equación}\\
+	\begin{pmatrix} -1 & -2 & -3 \\ -1 & 1-1 & -1 \\ 2 & 2 & 5-1 \end{pmatrix} \* \begin{pmatrix}
+		x_1\\
+		x_2\\
+		x_3
+	\end{pmatrix}  & = \begin{pmatrix}
+	0\\
+	0 \\
+	0
+	\end{pmatrix} && \text{Por el resultado anterior}\\
+	\begin{pmatrix} -1 & -2 & -3 \\ -1 & 0 & -1 \\ 2 & 2 & 4 \end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_2\\
+	x_3
+	\end{pmatrix}  & = \begin{pmatrix}
+	0\\
+	0 \\
+	0
+	\end{pmatrix} && \text{Operando los elementos de la matriz}
+\end{align*}
+Así obtenemos el siguiente sistema de equaciones
+\begin{align}
+	-x_1 -2x_2 -3x_3 &= 0 \\
+	-x_1 + 0x_2 -x_3 &= 0 \\
+	2x_1 +2x_2 +4x_3 &= 0
+\end{align}
+Si sumamos $ (1) + (3) $ obtendremos que $ x_1 = -x_3 $ y sustituyendo en $ (2) $ obtenemos que $ x_2 = -x_3 $ tomemos $ x_3 = 1 $ entonces $ x_2 = x_1 = -1 $ Así, el vector que obtenemos es \[ \vec{v}_1 = \begin{pmatrix}
+	-1\\
+	-1\\
+	1\\
+\end{pmatrix}  \]
+Tomemos el caso en el que $ \lambda_{2} = 2 $
+\begin{align*}
+(A-\lambda_1 Id_{3})(\vec{v}_2)&= \vec{0} && \text{Planteemos la equación}\\
+\begin{pmatrix} 0-2 & -2 & -3 \\ -1 & 1-2 & -1 \\ 2 & 2 & 5-2 \end{pmatrix} \* \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix}  & = \begin{pmatrix}
+0\\
+0 \\
+0
+\end{pmatrix} && \text{Por el resultado anterior}\\
+\begin{pmatrix} -2 & -2 & -3 \\ -1 & -1 & -1 \\ 2 & 2 & 3 \end{pmatrix} \* \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix}  & = \begin{pmatrix}
+0\\
+0 \\
+0
+\end{pmatrix} && \text{Operando los elementos de la matriz}
+\end{align*}
+Así obtenemos el siguiente sistema de ecuaciones, no incluimos la $ 1^a $ fila, pues es muy evidente que se trata de la $ 3^{a} $ fila multiplicada por $ -1 $
+\begin{align}
+2x_1 +2x_2 +3x_3 &= 0 \\
+-x_1 -x_2 -x_3 &= 0 
+\end{align}
+Sumando ambas obtenemos que $ x_3 = 0 $ y que $ x_2 = -x_1 $ sea $ x_2 = 1 $ entonces $ x_1 = -1 $
+Así, el vector que obtenemos es \[ \vec{v}_2 = \begin{pmatrix}
+-1\\
+1\\
+0\\
+\end{pmatrix}  \]
+Tomemos el caso en el que $ \lambda_{3} = 3 $
+\begin{align*}
+(A-\lambda_1 Id_{3})(\vec{v}_3)&= \vec{0} && \text{Planteemos la equación}\\
+\begin{pmatrix} 0-3 & -2 & -3 \\ -1 & 1-3 & -1 \\ 2 & 2 & 5-3 \end{pmatrix} \* \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix}  & = \begin{pmatrix}
+0\\
+0 \\
+0
+\end{pmatrix} && \text{Por el resultado anterior}\\
+\begin{pmatrix} -3 & -2 & -3 \\ -1 & -2 & -1 \\ 2 & 2 & 2 \end{pmatrix} \* \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix}  & = \begin{pmatrix}
+0\\
+0 \\
+0
+\end{pmatrix} && \text{Operando los elementos de la matriz}
+\end{align*}
+\begin{align}
+-3x_1 -2x_2 -3x_3 &= 0 \\
+-x_1 -2x_2 -x_3 &= 0\\ 
+x_1 +x_2 +x_3 &= 0 
+\end{align}
+Si sumamos $ (7) + (8) $ sabremos que $ x_2 = 0 $ y sustituyendo en $ (8) $ obtenemos que $ x_3 = -x_1 $ Sea $ x_3 = 1 $ entonces $ x_1 = -1 $
+Así, el vector que obtenemos es \[ \vec{v}_3 = \begin{pmatrix}
+-1\\
+0\\
+1\\
+\end{pmatrix}
+\] Por lo anterior podemos concluir que la matriz de vectores propios es 
+ \[ Q = \begin{pmatrix}
+-1 & -1 & -1\\
+0 & 1 & -1\\
+1 & 0 & 1\\
+\end{pmatrix} \]
+Ahora resta invertir dicha matriz, lo haremos de la siguiente manera 
+$$Q^{-1}= \dfrac{1}{det(Q)}(cof(Q^{T}))$$ Calculemos el determinate de Q de la siguiente manera 
+\begin{align*}
+	det(Q) &= \sum_{j = 1}^{3}(-1)^{1+j} Q_{1j}det(\hat{Q}_{1j}) && \text{Mostrado en clase}\\
+	det(Q) &= (-1)((-1)-0)-(-1)(0-(-1)) + (-1)(0-1) && \text{Aplicando dicha definición}\\
+	det(Q) &= -1+1+1\\
+	det(Q) &= 1\\
+\end{align*}
+Y como la definición de una matriz \textit{Transpuesta} es cambiar renglones por columnas tenemos que \[ Q^T = \begin{pmatrix}
+	-1 & 0 & 1\\
+	-1 & 1 & 0\\
+	-1 & -1 & 1
+\end{pmatrix} \]
+Construyamos la matriz de cofactores para la que necesiaremos 
+\begin{definition}
+	Sea $ Q \in M(\F)_{3x3} $ , tenemos que la matriz de cofactores de Q denotada por  $$ cof(Q) = \begin{pmatrix}
+		C_{11} & C_{12} & \dots & C_{1m}\\
+		C_{21} &   \ddots & & \vdots\\
+		\vdots &    & \ddots & \\
+		C_{n1} &    & & C_{nm}\\
+	\end{pmatrix} $$ donde $ C_{nm} = (-1)^{(n+m)} \* det(\hat{C}_{nm}) $
+\end{definition}
+De esta manera podemos concluir que $$ cof\begin{pmatrix}
+-1 & 0 & 1\\
+-1 & 1 & 0\\
+-1 & -1 & 1
+\end{pmatrix} = \begin{pmatrix}
+1 & 1 & 2\\
+-1 & 0 & -1\\
+-1 & -1 & -1
+\end{pmatrix} = Q^{-1} $$ Finalmente hallemos la matriz diagonal como $ D = Q^{-1}AQ $
+\begin{align*}
+	D &=  \begin{pmatrix}
+	1 & 1 & 2\\
+	-1 & 0 & -1\\
+	-1 & -1 & -1
+	\end{pmatrix} \* \begin{pmatrix} 0 & -2 & -3 \\ -1 & 1 & -1 \\ 2 & 2 & 5 \end{pmatrix} \* \begin{pmatrix}
+	-1 & -1 & -1\\
+	0 & 1 & -1\\
+	1 & 0 & 1\\
+	\end{pmatrix} && \text{Por la definición de diagonal}\\
+	D &=  \begin{pmatrix}
+	1 & 1 & 2\\
+	-1 & 0 & -1\\
+	-1 & -1 & -1
+	\end{pmatrix} \* \begin{pmatrix}
+	-3 & -2 & -1\\
+	0 & 2 & -1\\
+	3 & 0 & 1\\
+	\end{pmatrix} && \text{Realizando el primer producto}\\
+	D &=  \begin{pmatrix}
+	3 & 0 & 0\\
+	0 & 2 & 0\\
+	0 & 0 & 1
+	\end{pmatrix} && \text{Matriz diagonal}
 \end{align*}
 \end{document}
