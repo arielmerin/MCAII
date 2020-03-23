@@ -1,0 +1,147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	Licencia:		Este documento se distribuye bajo licencia (CC BY 4.0) Usted puede encontrar un resumen %%
+%%					de la licencia en http://creativecommons.org/licenses/by/4.0/deed.es					%%
+%%																											%%
+%%	-----------------------------------------------------------------------------------------------------	%%
+%%																											%%
+%%	Plantilla:		exi-examen																				%%
+%%	Descripción:	exi-examen.tex es una plantilla para realizar exámenes escritos en formato LaTeX		%%
+%%	Autor:			Ing. Alfonso Ramos Michel																%%
+%%	Fecha:			9 de diciembre de 2013																	%%
+%%	Revisión:		UNO-A																					%%
+%%	Paquetes:		inputenc																				%%
+%%					babel																					%%
+%%					graphicx																				%%
+%%					amsmath																					%%
+%%					geometry 																				%%
+%%					fancyhdr																				%%
+%%	Comandos:		\ExiEscuela		Para definir la institución educativa donde se realiza el examen.		%%
+%%					\ExiCarrera		Para definir la carrera que se realiza.									%%
+%%					\ExiMateria		Para definir la materia que se cursa.									%%
+%%					\ExiParcial		Para definir el parcial del cual se realiza el examen.					%%
+%%					\informacion	Muesta un recuadro donde poder dar instrucciones al alumno.				%%
+%%					\datos			Muestra una línea para el nombre del alumno y la fecha de realización.	%%
+%%					\pregunta		Permite introducir (dentro del entorno enummerate) una pregunta o el 	%%
+%%									planteamiento de un problema.											%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+%\usepackege{amssymb}
+\usepackage[hmargin=1in, vmargin=1in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{tasks}
+\lhead{\ExiCarrera}
+\chead{\ExiMateria}
+\rhead{\ExiParcial}
+\cfoot{\ExiEscuela}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+%=================================================================================
+%	Definición de comandos
+%=================================================================================
+\newcommand{\informacion}[1]{
+\begin{center}
+\fbox{\fbox{\parbox{\textwidth}{{\footnotesize#1}}}}
+\end{center}
+\vspace{5mm}}
+\newcommand{\datos}{\makebox[0.7\textwidth]{Nombre:~\hrulefill} Fecha:~\hrulefill}
+\newcommand{\pregunta}[2]{\item{#2}~{(#1 puntos)}\\ \vspace{5mm}						       
+			{\bf Solución}}														  
+%	Los siguientes comandos hay que definirlos desde aquí.								    %
+\newcommand{\ExiCarrera}{Matemáticas para las Ciencias II.}											  %%%
+\newcommand{\ExiMateria}{\textbf{Proyecto II}}														%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\ExiParcial}{Entrega: Viernes 20 de Marzo}														  %%%
+\newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}	                		    %
+
+%=================================================================================
+%	Aquí comienza lo bueno, a definir el examen!!!!
+%=================================================================================
+\begin{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%            CARÁTULA            %%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\unitlength}{1cm}
+\thispagestyle{empty}
+\begin{picture}(18,4)
+\put(-0.5,1.2){\includegraphics[scale=.25]{unam1.png}}
+\put(13.5,1){\includegraphics[scale=.35]{fciencias1.png}}
+\end{picture}
+
+\begin{center}
+\vspace{-134pt}
+\textbf{\large Matemáticas para las Ciencias II}\\[0.2cm]
+\textbf{ Semestre 2020-1}\\[0.2cm]
+Prof. Pedro Porras Flores\\[0.2cm]
+Ayud. Irving Hérnandez Rosas \\ [0.2cm]
+%Ayud. Carlos Rodolfo Barrera Anzaldot \\ [0.2cm]
+\textbf{Proyecto II}
+\end{center}
+\vspace{-10pt}
+\rule{17cm}{0.3mm}
+\begin{flushright}
+\vspace{-3pt}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%
+%\informacion{\large Profesor: Pedro Porras  Flores \\
+%porras@ciencias.unam.mx  \\
+
+%Ayudante: María Guadalupe Gómez Farfán\\ 
+ %lupis\_2309@hotmail.com\\
+ 
+% Ayudante: Carlos Rodolfo Barrera Anzaldo\\ 
+ %crba@ciencias.unam.mx\\}
+%%%%
+\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom. 
+
+
+\begin{enumerate}
+
+% -----------------------------------------------------
+% Problema uno
+% -----------------------------------------------------
+
+\item  Sea $f:\mathbb{R}^2 \longrightarrow \mathbb{R}$, tal que $f(x,y) = 9x^2 + y^2$, realice los siguientes bosquejos: 
+
+\begin{tasks}(1)
+\task Las curvas de nivel para $f$ para $c \in \{0, 1, 9\}$.
+\task Secciones de gráfica de $f$ con los planos $x = -1$, $x = 0$ y $x = 1$.
+\task Secciones de gráfica de $f$ con los planos $y = -1$, $y = 0$ y $y = 1$.
+\task La grafica de $f$
+\end{tasks}
+
+\item Describa la siguiente función $f:\mathbb{R}^3 \longrightarrow \mathbb{R}$, tal que $f(x,y,z) = 4x^2-3y^2+2z^2$, usando superficies de nivel y a su vez describa éstas superficies con curvas de nivel y secciones. Incluya algunas gráficas.
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[width=9cm]{silla}
+%\caption{Parábola con foco sobre el eje $x$.}
+%\label{F1}
+%\end{figure}
+
+
+
+
+\end{enumerate}
+
+
+
+
+\end{document}
