@@ -1,0 +1,86 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{subcaption}
+\usepackage{mwe}
+\usepackage[margin=1.5cm, vmargin={1.5cm,1.3cm},includefoot]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{tasks}
+\lhead{\ExiCarrera}
+\chead{\ExiMateria}
+\rhead{\ExiParcial}
+\cfoot{\ExiEscuela}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}														  
+\newcommand{\ExiCarrera}{Matemáticas para las Ciencias II}											 
+\newcommand{\ExiMateria}{\textbf{Tarea-examen I}}													
+\newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}	                		   
+\begin{document}
+
+\setlength{\unitlength}{1cm}
+\thispagestyle{empty}
+\begin{picture}(19,3)
+\put(-0.5,1.2){\includegraphics[scale=.20]{unam1.png}}
+\put(16,1){\includegraphics[scale=.29]{fciencias1.png}}
+\end{picture}
+
+\begin{center}
+\vspace{-114pt}
+\textbf{\large Matemáticas para las Ciencias II}\\
+\textbf{ Semestre 2020-2}\\
+Prof. Pedro Porras Flores\\
+Ayud. Irving Hernández Rosas \\
+\textbf{Tarea-examen I}
+\end{center}
+\vspace{-20pt}
+\rule{19cm}{0.3mm}
+
+\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que la tarea-examen se entrega individual. 
+
+\noindent1. Muestre que $\mathbb{P}_{2}(\mathbb{R}) = \{ c  + bx + ax^2  \,  \vert \, a,b,c \in \mathbb{R} \}$, es un espacio vectorial con la suma usual y la multiplicación por escalar usual, es decir:
+\begin{align*}
+     + \colon & \mathbb{P}_{2}(\mathbb{R}) \times \mathbb{P}_{2}(\mathbb{R}) \longrightarrow \mathbb{P}_{2}(\mathbb{R}) \\
+    & (a_1 x^2 + b_1x + c_1 , a_2 x^2 + b_2x + c_2) \mapsto  (a_1 + a_2)x^2 + (b_1 + b_2)x + (c_1 + c_2). \\
+    \mu \colon & \mathbb{R} \times \mathbb{P}_{2}(\mathbb{R}) \longrightarrow \mathbb{P}_{2}(\mathbb{R}) \\
+    & (\alpha, (a_1 x^2 + b_1x + c_1)) \mapsto  (\alpha a_1)x^2 + (\alpha b_1)x + (\alpha c_1).
+ \end{align*}
+
+
+\noindent2. Muestre que el conjunto  $\beta =  \{ 1, x , x^2 \}$ es base de $ \mathbb{P}_{2}(\mathbb{R})$
+
+\noindent3. Muestre que la siguiente transformación es lineal.
+
+\begin{align*}
+     T \colon & \mathbb{P}_{2}(\mathbb{R})  \longrightarrow \mathbb{P}_{2}(\mathbb{R}) \\
+     & T(f(x)) \mapsto  xf^{'}(x) +x f(2) + f(3). \\
+    %& T(f(x)) \mapsto  xf^{'}(x) +\dfrac{1}{2} f^{''}(x). \\
+ \end{align*}
+
+\noindent4. Determine el núcleo y la imagen de $T$.
+
+\noindent5. Encuentre la matriz asociada a $T$ con respecto a la base $\beta$, esto es $[T]_{\beta}$.
+
+\noindent6. ¿Cuál es el rango de $[T]_{\beta}$?
+
+\noindent7. La matriz $[T]_{\beta}$ es invertible, si sí muéstrelo, si no argumente porque.
+
+\noindent8. ¿Cuales son los valores propios asociados a $[T]_{\beta}$?
+
+\noindent9. Determine los vectores propios asociados a cada valor propio. 
+
+\noindent10. Muestre que el conjunto de los vectores propios es una base ordenada.
+
+\noindent11. Determine $Q \in M_{3\times 3}(\mathbb{R})$, tal que $Q^{-1}[T]_{\beta} Q = D$, donde $D$ es una matriz diagonal cuyos elementos de la diagonal son valores propios.
+
+\noindent12. Muestre que $\beta^{'} =\{ -3+x , -3-13x + 4x^2, 1+x \}$, es una base para $ \mathbb{P}_{2}(\mathbb{R})$ y además determine $[T]_{\beta^{'}}$ .
+
+
+\end{document}
