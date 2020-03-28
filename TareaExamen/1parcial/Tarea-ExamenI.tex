@@ -124,7 +124,17 @@ como los elementos de $ \Po $ son de la forma $ c + ax + bx^2$, entonces digamos
 	(\vec{x} + \vec{y}) + \vec{z} &= ( (a_1 + b_1)  + (a_2 + b_2)x + (a_3 + b_3) x^2 ) + c_1 + c_2x + c_3x^2&& \text{Por definición de los + en $ \Po $}\\ 
 	(\vec{x} + \vec{y}) + \vec{z} &= ((a_1 + b_1) + c_1)  + ((a_2 + b_2) + c_2 )x + ((a_3 + b_3) + c_3) x^2 && \text{Por definición de los + en $ \Po $}\\ 
 	(\vec{x} + \vec{y}) + \vec{z} &= (a_1 + (b_1 + c_1))  + (a_2 + (b_2 + c_2))x + (a_3 + (b_3 + c_3)) x^2 && \text{Porque en $ \R $ la suma es asociativa}\\ 
+	(\vec{x} + \vec{y}) + \vec{z} &= a_1 + (b_1 + c_1)  + a_2x + (b_2 + c_2)x + a_3x^2 + (b_3 + c_3)x^2 && \text{Emplendo la definición de suma}\\ 
+	(\vec{x} + \vec{y}) + \vec{z} &= a_1 + (b_1 + c_1)  + a_2x + (b_2x + c_2x) + a_3x^2 + (b_3x^2 + c_3x^2) && \text{Aplicando distrubutividad}\\ 
+	(\vec{x} + \vec{y}) + \vec{z} &= \vec{x} + (\vec{y} + \vec{z}) && \text{Definiendo la suma en $ \Po $}\\ 
 \end{align*}
+
+Por demostrar: $ \vec{0} + \vec{x} = \vec{x} $. Proponemos $ \vec{0} = 0 + 0x + 0x^2 $. \\
+Sea $ \vec{x} \in \V $, entonces $ \vec{x} $ es de la forma \[ \vec{x} = a_1 + a_2x + a_3x^2  \]
+\begin{align*}
+	\vec{0} + \vec{x} &=  && \text{ Por definición de $ \vec{x}, \vec{0} $}
+\end{align*}
+
 
 \noindent2. Muestre que el conjunto  $\beta =  \{ 1, x , x^2 \}$ es base de $ \mathbb{P}_{2}(\mathbb{R})$
 
