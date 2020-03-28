@@ -1,28 +1,64 @@
-\documentclass[letterpaper,12pt]{article}
+\documentclass[letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish,mexico]{babel}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath}
 \usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
+\usepackage{lipsum}
+\usepackage{dsfont}
+\usepackage[margin=1.5cm,
+vmargin={1.5cm,1.3cm},
+includefoot]{geometry}
+\usepackage{setspace}
 \usepackage{subcaption}
-\usepackage{mwe}
-\usepackage[margin=1.5cm, vmargin={1.5cm,1.3cm},includefoot]{geometry}
+\usepackage{tocloft}
+\usepackage{upgreek}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{paralist}
 \usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{tikz}
+\tcbuselibrary{skins,breakable}
 \pagestyle{fancy}
-\usepackage{tasks}
-\lhead{\ExiCarrera}
-\chead{\ExiMateria}
-\rhead{\ExiParcial}
-\cfoot{\ExiEscuela}
+
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \providecommand{\norm}[1]{\lVert#1\rVert}														  
-\newcommand{\ExiCarrera}{Matemáticas para las Ciencias II}											 
-\newcommand{\ExiMateria}{\textbf{Tarea-examen I}}													
-\newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}	                		   
+\newcommand{\V}{\mathds{V}}
+
+\newcommand{\W}{\mathds{W}}
+
+\newcommand{\F}{\mathds{F}}
+
+\newcommand{\tq}{ \quad \cdot  \backepsilon \cdot \quad }
+
+\newcommand{\ld}{\lim\limits_{x \to 0^{+}}}
+
+\newcommand{\li}{\lim\limits_{x \to 0^{-}}}
+
+\newcommand{\la}{\lim\limits_{x \to a}}
+
+\newcommand{\R}{\mathds{R}}
+
+\newcommand{\Po}{\mathds{P}_2(\mathds{R})}
+
+\renewcommand{\*}{\cdot}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\newtheorem{theorem}{Teorema}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}
+              		   
 \begin{document}
 
 \setlength{\unitlength}{1cm}
@@ -38,11 +74,13 @@
 \textbf{ Semestre 2020-2}\\
 Prof. Pedro Porras Flores\\
 Ayud. Irving Hernández Rosas \\
-\textbf{Tarea-examen I}
+\textbf{Tarea-examen I}\\[0.2cm]
+Kevin Ariel Merino Peña\footnote{317031326}\\ [0.2cm]
 \end{center}
-\vspace{-20pt}
+\vspace{-10pt}
 \rule{19cm}{0.3mm}
 
+\vspace{0.5cm}
 \noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que la tarea-examen se entrega individual. 
 
 \noindent1. Muestre que $\mathbb{P}_{2}(\mathbb{R}) = \{ c  + bx + ax^2  \,  \vert \, a,b,c \in \mathbb{R} \}$, es un espacio vectorial con la suma usual y la multiplicación por escalar usual, es decir:
@@ -52,7 +90,41 @@ Ayud. Irving Hernández Rosas \\
     \mu \colon & \mathbb{R} \times \mathbb{P}_{2}(\mathbb{R}) \longrightarrow \mathbb{P}_{2}(\mathbb{R}) \\
     & (\alpha, (a_1 x^2 + b_1x + c_1)) \mapsto  (\alpha a_1)x^2 + (\alpha b_1)x + (\alpha c_1).
  \end{align*}
+\begin{definition}
+	Sea $ \V $ un conjunto no vacío con 2 operaciones definidas $ (+,\mu) $ y un campo $ \F = \R $ que cumple
+	\begin{enumerate}
+		\item Sean $ \vec{x}, \vec{y} \in \V $, entonces $ \vec{x} + \vec{y} = \vec{y} + \vec{x} $
+		\item Sean $ \vec{x}, \vec{y}, \vec{z} \in \V $, entonces
+		$ (\vec{x} + \vec{y}) + \vec{z} = \vec{x} + (\vec{y} + \vec{z}) $
+		\item Existe $ \vec{0} \in \V \tq \vec{0} + \vec{x} = \vec{x}, \qquad \forall \vec{x} \in \V$
+		\item Para todo $ \vec{x} \in \V $ existe $ \vec{y} \in \V $ tal que $ \vec{x} + \vec{y} = 0 $
+		\item Para todo $ \vec{x} \in \V $ se cumple que $ 1\vec{x} = \vec{x} $ donde $ 1 $ es el neutro multiplicativo de $ \F(\R) $
+		\item Para todo $ \alpha, \beta \in \F $ y $ \vec{x} \in \V $ se cumple $ (\alpha\beta)\vec{x} = \alpha(\beta \vec{x}) $
+		\item Para todo $ \alpha, \beta  \in \F$ y $ \vec{x} \in \V $ entonces $ (\alpha + \beta)\vec{x} = \alpha\vec{x} + \beta\vec{x} $
+		\item Sea $ \alpha \in \F $ y $ \vec{x}, \vec{y} \in \V $, entonces $ \alpha(\vec{x} + \vec{y}) = \alpha\vec{x} + \alpha\vec{y} $
+	\end{enumerate}
+\end{definition}
+Sean $ \vec{x}, \vec{y} \in \Po $, por demostrar $\vec{x} + \vec{y} = \vec{y} + \vec{x}  $, como los elementos de $ \Po $ son de la forma $ c + ax + bx^2$, entonces digamos que \[ \vec{x} = a_1 + a_2x + a_3x^2 \] \[ \vec{y} = b_1 + b_2x + b_3x^2 \]
+\begin{align*}
+	\vec{x} + \vec{y} &=  (a_1 + a_2x + a_3x^2) + (b_1 + b_2x + b_3x^2) && \text{Por definición de los vectores}\\
+	\vec{x} + \vec{y} &=  (a_1 + b_1) + (a_2 + b_2)x + (a_3 + b_3)x^2&& \text{Por definición de la suma}\\
+	\vec{x} + \vec{y} &=  (b_1 + a_1) + (b_2 + a_2)x + (b_3 + a_3)x^2&& \text{Porque los elementos en $ \R $ conmutan}\\
+	\vec{x} + \vec{y} &=  (b_1 + b_2x + b_3x^2) + (a_1 + a_2x + a_3x^2) && \text{Por la definición de +}\\
+	\vec{x} + \vec{y} &=  \vec{y} + \vec{x}&& \text{Por definición de los vectores}\\
+\end{align*}
+\begin{center}
+	$ \therefore $ los elementos de $ \Po $ conmutan, \textit{i.e.} $ \vec{x} + \vec{y} = 	\vec{y} + \vec{x} $
+\end{center}
 
+Sean $ \vec{x}, \vec{y}, \vec{z} \in \V $ por demostrar $  (\vec{x} + \vec{y}) + \vec{z} = \vec{x} + (\vec{y} + \vec{z})$
+como los elementos de $ \Po $ son de la forma $ c + ax + bx^2$, entonces digamos que \[ \vec{x} = a_1 + a_2x + a_3x^2 \] \[ \vec{y} = b_1 + b_2x + b_3x^2 \] \[ \vec{z} = c_1 + c_2x + c_3x^2 \]
+
+\begin{align*}
+	(\vec{x} + \vec{y}) + \vec{z} &= ( a_1 + a_2x + a_3x^2 + b_1 + b_2x + b_3x^2) + c_1 + c_2x + c_3x^2&& \text{Por definición de los vectores}\\
+	(\vec{x} + \vec{y}) + \vec{z} &= ( (a_1 + b_1)  + (a_2 + b_2)x + (a_3 + b_3) x^2 ) + c_1 + c_2x + c_3x^2&& \text{Por definición de los + en $ \Po $}\\ 
+	(\vec{x} + \vec{y}) + \vec{z} &= ((a_1 + b_1) + c_1)  + ((a_2 + b_2) + c_2 )x + ((a_3 + b_3) + c_3) x^2 && \text{Por definición de los + en $ \Po $}\\ 
+	(\vec{x} + \vec{y}) + \vec{z} &= (a_1 + (b_1 + c_1))  + (a_2 + (b_2 + c_2))x + (a_3 + (b_3 + c_3)) x^2 && \text{Porque en $ \R $ la suma es asociativa}\\ 
+\end{align*}
 
 \noindent2. Muestre que el conjunto  $\beta =  \{ 1, x , x^2 \}$ es base de $ \mathbb{P}_{2}(\mathbb{R})$
 
