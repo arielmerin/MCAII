@@ -305,9 +305,60 @@ Como el dominio de $ T $ es $ \Po $, entonces sean $ p(x), q(x) \in \Po $, y $ \
 \end{align*}
 \begin{center}
 	$ \therefore \qquad T $ es transformación lineal, pues hemos visto que abre sumas <<$ p(x) + q(x) $>> y saca escalares <<$ \xi $>>
+\end{center}\newpage
+\noindent4. Determine el núcleo y la imagen de $T$.\\
+\begin{definition}
+	Sea $ T: V \rightarrow W $ una transformación lineal, la \textbf{imagen} de una trasformación $ T $ es $Im(T) = \left\lbrace T(\hat{x}) | \hat{x} \in V  \right\rbrace$
+\end{definition}
+\begin{definition}
+	Sea $ T: V \rightarrow W $ una transformación lineal, el \textbf{núcleo} de una trasformación $ T $ es $Nu(T) = \left\lbrace \hat{x} \in V | T(\hat{x}) = \hat{0}_{W}  \right\rbrace$
+\end{definition}
+Para ello, tomemos un elemento en el dominio de $ T $. Sea $ p(x) \in \Po \tq p(x) = \eta_1 + \eta_2x + \eta_3x^2 $ y $ \vec{0}_{\Po} $
+\begin{align*}
+	T(p(x)) &= \vec{0}_{\Po} && \text{Por definición del núcleo}\\
+	T(\eta_1 + \eta_2x + \eta_3x^2) &= 0 + 0x + 0x^2 && \text{Por definición de los elementos}\\
+	\eta_1 + 3\eta_2 + 9\eta_3 + x(\eta_1 + 3 \eta_2 + 4 \eta_3) + 2 x^2\eta_3 &= 0 + 0x + 0x^2 && \text{Siguiendo la regla de correspondencia}\\
+	\\
+	\eta_1 + 3\eta_2 + 9\eta_3  &= 0 && \text{Igualando entrada a entrada}\\
+	x(\eta_1 + 3 \eta_2 + 4 \eta_3) &= 0x&& \text{Igualando entrada a entrada}\\
+	2 x^2\eta_3 &= 0x^2 && \text{Igualando entrada a entrada}\\
+	\\
+	\eta_3 &= 0 && \text{De lo anterior}\\
+	\eta_1 + 3\eta_2 + 9(0) &= 0 && \text{Sistituyendo}\\
+	\eta_1  &= - 3\eta_2 && \text{Sistituyendo}\\
+\end{align*}
+\begin{center}
+	La solución puede escribirse como $ (-3 + 1x + 0x^2 ) \eta_2 $ por lo que el \textbf{núcleo} de la transformación $ \{(-3 + 1x + 0x^2)\} $. Cabe mencionar que la nulidad de $ T $ es 1, pues esa es la dimensión del núcleo y además, $ T $ no es una transformación uno a uno pues el núcleo $ \neq \vec{0}_{\Po} $
 \end{center}
-\noindent4. Determine el núcleo y la imagen de $T$.
 
+Para ver cuál es la imagen de la transformación lineal tomemos un elemento arbitrario en el dominio y otro en su imagen. Sean $ p(x), q(x) \in \Po $, recordemos que los elementos de $ \Po $ tienen la forma
+\begin{align*}
+p(x) & =\alpha_1 + \alpha_2x + \alpha_3x^2\\
+q(x) & =\delta_1 + \delta_2x + \delta_3x^2
+\end{align*}
+
+\begin{align*}
+	T(p(x)) &= q(x) && \text{Por definición de la imagen}\\
+	T(\alpha_1 + \alpha_2x + \alpha_3x^2) &= \delta_1 + \delta_2x + \delta_3x^2 && \text{Por definición delos vectores}\\
+	 \eta_1 + 3\eta_2 + 9\eta_3 + x(\eta_1 + 3 \eta_2 + 4 \eta_3) + 2 x^2\eta_3 &= \delta_1 + \delta_2x + \delta_3x^2 && \text{Por definición delos vectores}\\
+	 \\
+	 \eta_1 + 3\eta_2 + 9\eta_3 &= \delta_1 && \text{Igualando entrada a entrada}\\
+	x(\eta_1 + 3 \eta_2 + 4 \eta_3) &= \delta_2x  && \text{Igualando segunda enterada}\\
+	2x^2\eta_3 &= \delta_3x^2 && \text{Igualando tercera entrada}\\
+	 \\
+	 \eta_1 + 3\eta_2 + 9\eta_3 &= \delta_1 && \text{Igualando entrada a entrada}\\
+	\eta_1 + 3 \eta_2 + 4 \eta_3 &= \delta_2 && \text{Por el inverso multiplicativo de $ x $}\\
+	2\eta_3 &= \delta_3 && \text{Por el inverso multiplicativo de $ x^2 $}\\
+\end{align*}
+\begin{center}
+	$ \therefore \qquad $ los elementos de la imagen son de la forma $ q(x) = \delta_1 + \delta_2x + \delta_3x^2 $ donde 
+	\begin{align*}
+	\delta_1 &= \eta_1 + 3\eta_2 + 9\eta_3 \\
+	\delta_2 &= \eta_1 + 3 \eta_2 + 4 \eta_3 \\
+	\delta_3  &= 2\eta_3 
+	\end{align*}
+Es decir, todo $ \Po $
+\end{center}
 
 \noindent5. Encuentre la matriz asociada a $T$ con respecto a la base $\beta$, esto es $[T]_{\beta}$.
 
