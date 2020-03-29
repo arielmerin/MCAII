@@ -144,7 +144,7 @@ Sea $ \vec{x} \in \V $, entonces $ \vec{x} $ es de la forma \[ \vec{x} = a_1 + a
 	$ \therefore   \qquad 0 + 0x + 0x^2 $ es el neutro adivito en $ \Po $
 \end{center}
 
-Sea $ \vec{x} \in \V $, por demostrar, existe $ \vec{y} \in V  \tq \vec{x} +  \vec{y} = \vec{0}$, sabemos que  los elementos de $ \V $ tienen la siguiente forma\[  \vec{x} = a_1 + a_2x + a_3x^3 \] proponemos \[ \vec{y} = -a_1 - a_2x - a_3x^2 \]
+Sea $ \vec{x} \in \V $, por demostrar, existe $ \vec{y} \in V  \tq \vec{x} +  \vec{y} = \vec{0}$, sabemos que  los elementos de $ \V $ tienen la siguiente forma\[  \vec{x} = a_1 + a_2x + a_3x^2 \] proponemos \[ \vec{y} = -a_1 - a_2x - a_3x^2 \]
 \begin{align*}
 	\vec{x} +  \vec{y} &= (a_1 + a_2x + a_3x^2) + (-a_1 - a_2x - a_3x^2 )&& \text{Por definición de los vectores}\\
 	\vec{x} +  \vec{y} &= (a_1 - a_1) + (a_2 - a_2)x + (a_3 - a_3)x^2&& \text{Por definición de la suma en $ \Po $}\\
@@ -194,14 +194,24 @@ Sea $ \alpha \in \V $, $ \vec{x}, \vec{y} \in \V $, por demostrar que $ \alpha(\
 	\alpha(\vec{x} + \vec{y}) &= \alpha( (a_1 + a_2x + a_3x^2) + (b_1 + b_2x + b_3x^2) ) && \text{Por definición de los elementos en $ \Po $}\\
 	\alpha(\vec{x} + \vec{y}) &= \alpha((a_1 + b_1) + (a_2 + b_2)x + (a_3 + b_3)x^2)&& \text{Por definición de la suma en $ \Po $}\\
 	\alpha(\vec{x} + \vec{y}) &= \alpha(a_1 + b_1) + \alpha(a_2 + b_2)x + \alpha(a_3 + b_3)x^2&& \text{Por definición del producto en $ \Po $}\\
-	\alpha(\vec{x} + \vec{y}) &= (\alpha a_1 + \alpha b_1) + (\alpha a_2 + \alpha b_2)x + (\alpha a_3 +\alpha b_3)x^2&& \text{Por defin}\\
-	\alpha(\vec{x} + \vec{y}) &= \alpha(a_1 + a_2x + a_3x^2) + \alpha(b_1 + b_2x + b_3x^2)&& \text{Pues los elementos del campo cumplen distributividad}\\
+	\alpha(\vec{x} + \vec{y}) &= (\alpha a_1 + \alpha b_1) + (\alpha a_2 + \alpha b_2)x + (\alpha a_3 +\alpha b_3)x^2&& \text{Porque los elementos del campo tienen distributividad}\\
+	\alpha(\vec{x} + \vec{y}) &= \alpha(a_1 + a_2x + a_3x^2) + \alpha(b_1 + b_2x + b_3x^2)&& \text{Agrupando de manera conveniente}\\
+	\alpha(\vec{x} + \vec{y}) &= \alpha(\vec{x}) + \alpha(\vec{y})&& \text{Por definición de dichos elementos}\\
 \end{align*}
-
+\begin{center}
+	$ \therefore \qquad $ en $ \Po $ se cumple que $ \alpha(\vec{x} + \vec{y}) = \alpha\vec{x} + \alpha\vec{y} $
+\end{center}
 
 
 
 \noindent2. Muestre que el conjunto  $\beta =  \{ 1, x , x^2 \}$ es base de $ \mathbb{P}_{2}(\mathbb{R})$
+\begin{definition}
+	Sea $ \mathcal{S} $ un subconjunto de un espacio vectorial $ \mathcal{V} $ decimos que $ \mathcal{S} $ genera a $ \mathcal{V} $ si $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ al generado de s se le denota como $ span(\mathcal{S}), <\mathcal{S}>, gen(\mathcal{S})$ 
+\end{definition}
+
+	\begin{definition}
+	Una \textbf{base} $ \beta $ de $ \V $ espacio vectorial es un subconjunto de $ \V \tq \beta$  genera a $ \V $ y $ \beta $ es linealmente independiente
+\end{definition}
 
 \noindent3. Muestre que la siguiente transformación es lineal.
 
