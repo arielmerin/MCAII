@@ -279,15 +279,13 @@ Finalmente igualemos entrada con entrada
 \end{align*}
 Finalmente es fácil observar que 
 \[ \alpha_1 = \alpha_2 = \alpha_3 = 0  \]
-\begin{center}e
+\begin{center}
 	$ \therefore \qquad \beta$ es linealmente independiente\\
 	$ \therefore \qquad \beta$ es base para $ \Po $
 \end{center}
 \noindent3. Muestre que la siguiente transformación es lineal.
-\begin{align*}
-     T \colon & \mathbb{P}_{2}(\mathbb{R})  \longrightarrow \mathbb{P}_{2}(\mathbb{R}) \\
-     & T(f(x)) \mapsto  xf^{'}(x) +x f(2) + f(3).
- \end{align*}
+ $$    T \colon  \mathbb{P}_{2}(\mathbb{R})  \longrightarrow \mathbb{P}_{2}(\mathbb{R}) $$
+	$$ T(f(x)) \mapsto  xf^{'}(x) +x f(2) + f(3)$$
 Como el dominio de $ T $ es $ \Po $, entonces sean $ p(x), q(x) \in \Po $, y $ \xi \in \R $ recordemos que los elementos de $ \Po $ tienen la forma
 \begin{align*}
 	p(x) & =\alpha_1 + \alpha_2x + \alpha_3x^2\\
@@ -296,75 +294,24 @@ Como el dominio de $ T $ es $ \Po $, entonces sean $ p(x), q(x) \in \Po $, y $ \
 \begin{align*}
 	\xi p(x) + q(x) &= \xi (\alpha_1 + \alpha_2x + \alpha_3x^2) + (\delta_1 + \delta_2x + \delta_3x^2) && \text{Por definición de $ p(x), q(x)$}\\
 	\xi p(x) + q(x) &=  (\xi \alpha_1 + \xi\alpha_2x + \xi\alpha_3x^2) + (\delta_1 + \delta_2x + \delta_3x^2) && \text{Distribuyendo $ \xi $}\\
-	\xi p(x) + q(x) &=  (\xi \alpha_1 + \delta_1) + (\xi\alpha_2 + \delta_2) x + (\xi\alpha_3 + \delta_3)x^2 && \text{Por definición  de la suma en $ \Po $}\\
-	T(\xi p(x) + q(x)) &= T( (\xi \alpha_1 + \delta_1) + (\xi\alpha_2 + \delta_2) x + (\xi\alpha_3 + \delta_3)x^2)) && \text{Aplicando en ambos lados T}\\
+	\xi p(x) + q(x) &=  (\xi \alpha_1 + \delta_1) + (\xi\alpha_2 + \delta_2) x + (\xi\alpha_3 + \delta_3)x^2 && \text{Por definición  de la suma en $ \Po $}
 \end{align*}
-\[ =(\xi \alpha_1 + \delta_1) + (\xi\alpha_2 + \delta_2) x + (\xi\alpha_3 + \delta_3)x^2)' +  ((\xi \alpha_1 + \delta_1) + (\xi\alpha_2 + \delta_2)(2) + (\xi\alpha_3 + \delta_3)(2)^2))+ ((\xi \alpha_1 + \delta_1) + (\xi\alpha_2 + \delta_2)(3) + (\xi\alpha_3 + \delta_3)(3)^2)) \]
 \begin{align*}
-	& =0 + (\xi\alpha_2 + \delta_2) + 2(\xi\alpha_3 + \delta_3)x +  (\xi \alpha_1 + \delta_1) + 2(\xi\alpha_2 + \delta_2) + 4(\xi\alpha_3 + \delta_3)+ (\xi \alpha_1 + \delta_1) + 3(\xi\alpha_2 + \delta_2) + 9(\xi\alpha_3 + \delta_3)\\
-	& =\xi\alpha_2 + \delta_2 + 2\xi\alpha_3x + 2\delta_3x +  \xi \alpha_1 + \delta_1 + 2\xi\alpha_2 + 2\delta_2 + 4\xi\alpha_3 + 4\delta_3 + \xi \alpha_1 + \delta_1 + 3\xi\alpha_2 + 3\delta_2 + 9\xi\alpha_3 + 9\delta_3\\
-	& =\xi\alpha_2 + 2\xi\alpha_3x + \xi\alpha_1 + 2\xi\alpha_2 + 4\xi\alpha_3 +\xi\alpha_1 + 3\xi\alpha_2 + 9\xi\alpha_3 + \delta_2 + 2\delta_3x + \delta_1 + 2\delta_2  + 4\delta_3  + \delta_1 + 3\delta_2 + 9\delta_3\\
-	& =\xi(\alpha_2 + 2\alpha_3x + \alpha_1 + 2\alpha_2 + 4\alpha_3 +\alpha_1 + 3\alpha_2 + 9\alpha_3) + \delta_2 + 2\delta_3x + \delta_1 + 2\delta_2  + 4\delta_3  + \delta_1 + 3\delta_2 + 9\delta_3\\
-	& =\xi( 2\alpha_1 + 6\alpha_2 + 13\alpha_3 + 2\alpha_3x) + \delta_2 + 2\delta_3x + \delta_1 + 2\delta_2  + 4\delta_3  + \delta_1 + 3\delta_2 + 9\delta_3\\
-	& =\xi( 2\alpha_1 + 6\alpha_2 +  \alpha_3(13 + 2x) ) + 2\delta_1 + 6\delta_2 + \delta_3(13 + 2x)\\
-	& =\xi T(p(x)) +T(q(x))\\
+	T(\xi p(x) + q(x)) &= \xi\alpha_2 + \delta_2 + 2x(\xi\alpha_3 + \delta_3) + x((\xi \alpha_1 + \delta_1) + 2(\xi\alpha_2 + \delta_2) + 4(\xi\alpha_3 + \delta_3)) + ((\xi \alpha_1 + \delta_1) + 3(\xi\alpha_2 + \delta_2) + 9(\xi\alpha_3 + \delta_3))\\
+	&= \xi\alpha_2 + \delta_2 + 2x(\xi\alpha_3 + \delta_3) + x(\xi \alpha_1 + \delta_1) + 2x(\xi\alpha_2 + \delta_2) + 4x(\xi\alpha_3 + \delta_3) + (\xi \alpha_1 + \delta_1) + 3(\xi\alpha_2 + \delta_2) + 9(\xi\alpha_3 + \delta_3)\\
+	& = (\xi \alpha_1 + \delta_1) + 3(\alpha_2 + \delta_2) + 9 (\xi \alpha_3 + \delta_3) + x(\xi\alpha_1 + \delta_1 + 3 \xi\alpha_2 + 3 \delta_2 + 4\xi\alpha_3 + 4\delta_3) + 2x^2(\xi\alpha_3 + \delta_3)\\
+	&= \xi \left( \alpha_1 + 3\alpha_2 + 9\alpha_3 + x(\alpha_1 + 3 \alpha_2 + 4 \alpha_3) + 2x^2\alpha_3 \right)+ \delta_1 + 3\delta_2 + 9\delta_3 + x (\delta_1 + 3\delta_2 + 4\delta_3) + 2x^2\delta_3\\
+	&= \xi T(p(x))+ T(q(x))\\
 \end{align*}
 \begin{center}
-	$ \therefore \qquad T $ es transformación lineal, pues hemos visto que saca escalares $ (\xi) $ y abre sumas $ p(x) + q(x) $
+	$ \therefore \qquad T $ es transformación lineal, pues hemos visto que abre sumas <<$ p(x) + q(x) $>> y saca escalares <<$ \xi $>>
 \end{center}
-
 \noindent4. Determine el núcleo y la imagen de $T$.
 
-\begin{definition}
-Sea $ T: V \rightarrow W $ una transformación lineal, la \textbf{imagen} de una trasformación $ T $ es $Im(T) = \left\lbrace T(\hat{x}) | \hat{x} \in V  \right\rbrace$
-\end{definition}
-\begin{definition}
-Sea $ T: V \rightarrow W $ una transformación lineal, el \textbf{núcleo} de una trasformación $ T $ es $Nu(T) = \left\lbrace \hat{x} \in V | T(\hat{x}) = \hat{0}_{W}  \right\rbrace$
-\end{definition}
-Veamos quién es el núcleo de la transformación, para lo que  sea$ p(x) \in \Po$ y $ \vec{0}_{\Po} $ entonces
-\begin{align*}
-	T(p(x)) &= \vec{0}_{\Po} && \text{Por definición de núcleo}\\
-	T(\alpha_1 + \alpha_2x + \alpha_3x^2) &= \vec{0}_{\Po} && \text{p(x) tiene esa forma}\\
-	(\alpha_1 + \alpha_2x + \alpha_3x^2)' + (\alpha_1 + \alpha_2(2) + \alpha_3(2)^2) + (\alpha_1 + \alpha_2(3) + \alpha_3(3)^2) &= \vec{0}_{\Po} && \text{Regla de correspondencia de T}\\
-	\alpha_2 + 2\alpha_3x + \alpha_1 + 2\alpha_2 + 4\alpha_3 + \alpha_1  +3\alpha_2 + 9\alpha_3 &= \vec{0}_{\Po} && \text{Desarrollando}\\
-	2\alpha_1  + 6\alpha_2 + 13\alpha_3 + 2\alpha_3x &= \vec{0}_{\Po} && \text{Agrupando términos semejantes}\\
-	2\alpha_1  + 6\alpha_2 + 13\alpha_3 + 2\alpha_3x &= 0 + 0x + 0 x^2 && \text{Por definición de neutro aditivo en $ \Po $}\\
-	\\
-	2\alpha_1  + 6\alpha_2 + 13\alpha_3 &= 0  && \text{Obtenemos las siguientes equaciones}\\
-	 2\alpha_3x &= 0x  && \text{Igualamos entradas}\\
-\end{align*}
-Luego como $ \alpha_3 = 0 $ si sustituimos en la primera equación, obtenemos que
-\begin{align*}
-		2\alpha_1  + 6\alpha_2 + 13\alpha_3 &= 0 && \text{De lo anterior}\\
-		2\alpha_1  + 6\alpha_2 + 13(0) &= 0 && \text{Por la segunda equación resultante}\\
-		2\alpha_1  + 6\alpha_2 &= 0 && \text{Propiedades de los números reales}\\
-		2\alpha_1  &= -6\alpha_2 && \text{Sumando el inverso aditivo de $ 6\alpha_1 $}\\
-		\alpha_1  &= -3\alpha_2 && \text{Multiplicando por  el inverso multiplicativo de 2}\\
-\end{align*}
-\begin{center}
-	$ \therefore $ el N\textbf{núcleo} de T es de la siguiente forma $ -3\alpha + \alpha x $, resulta importante obsevar que como $ \alpha_3 = 0 $ entonces no tendrá término cuadrático, sólo lineal y además estará dado en términos del término constante
-\end{center}
-
-Para ver quién es la imgaen de $ T $, tomemos un elemento en el dominio, apliquemos la trasnformación lineal y veamos qué forma tiene el resultante.
-
-Sean $ p(x), q(x) \in \Po $, entonces tienen la siguiente forma
-\[ p(x) = \alpha_1 + \alpha_2x + \alpha_3x^2 \]
-\[ p(x) = \beta_1 +  \beta_2x + \beta_3x^2 \]
-\begin{align*}
-	T(p(x)) &= q(x) && \text{Planteando la igualdad}\\
-	T(\alpha_1 + \alpha_2x + \alpha_3x^2) &= \beta_1 +  \beta_2x + \beta_3x^2 && \text{Por la forma de sus elementos}\\
-	2\alpha_1  + 6\alpha_2 + 13\alpha_3 + 2\alpha_3x&= \beta_1 +  \beta_2x + \beta_3x^2 && \text{Aplicando la regla de correspondencia }\\
-	\\
-	2\alpha_1  + 6\alpha_2 + 13\alpha_3 &= \beta_1 && \text{Igualemos entradas }\\
-	2\alpha_3x&= \beta_2x && \text{Por el término lineal }\\
-\end{align*}
-\begin{center}
-De lo anterior podemos concuir que la imagen de $ T $ son todos los elementos cuyo término constante sea un elemento en $ \R $, también que el término lineal puede tener cualquier real, pero no habrá término cuadrático.
-
-	$ \therefore \qquad Im(T) = \beta_1 + \beta_2x$ 
-\end{center}
 
 \noindent5. Encuentre la matriz asociada a $T$ con respecto a la base $\beta$, esto es $[T]_{\beta}$.
+
+
 
 \noindent6. ¿Cuál es el rango de $[T]_{\beta}$?
 
