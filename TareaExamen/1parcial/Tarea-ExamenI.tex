@@ -312,8 +312,22 @@ Como el dominio de $ T $ es $ \Po $, entonces sean $ p(x), q(x) \in \Po $, y $ \
 \begin{center}
 	$ \therefore \qquad T $ es transformación lineal, pues hemos visto que saca escalares $ (\xi) $ y abre sumas $ p(x) + q(x) $
 \end{center}
+
 \noindent4. Determine el núcleo y la imagen de $T$.
 
+\begin{definition}
+Sea $ T: V \rightarrow W $ una transformación lineal, la \textbf{imagen} de una trasformación $ T $ es $Im(T) = \left\lbrace T(\hat{x}) | \hat{x} \in V  \right\rbrace$
+\end{definition}
+\begin{definition}
+Sea $ T: V \rightarrow W $ una transformación lineal, el \textbf{núcleo} de una trasformación $ T $ es $Nu(T) = \left\lbrace \hat{x} \in V | T(\hat{x}) = \hat{0}_{W}  \right\rbrace$
+\end{definition}
+Veamos quién es el núcleo de la transformación, para lo que  sea$ p(x) \in \Po$ y $ \vec{0}_{\Po} $ entonces
+\begin{align*}
+	T(p(x)) &= \vec{0}_{\Po} && \text{Por definición de núcleo}\\
+	T(\alpha_1 + \alpha_2x + \alpha_3x^2) &= \vec{0}_{\Po} && \text{p(x) tiene esa forma}\\
+	(\alpha_1 + \alpha_2x + \alpha_3x^2)' + (\alpha_1 + \alpha_2(2) + \alpha_3(2)^2) + (\alpha_1 + \alpha_2(3) + \alpha_3(3)^2) &= \vec{0}_{\Po} && \text{Regla de correspondencia de T}\\
+	\alpha_2 + 2\alpha_3x + \alpha_1 + 2\alpha_2 + 4\alpha_3 + \alpha_1  +3\alpha_2 + 9\alpha_3 &= \vec{0}_{\Po} && \text{Desarrollando}\\
+\end{align*}
 \noindent5. Encuentre la matriz asociada a $T$ con respecto a la base $\beta$, esto es $[T]_{\beta}$.
 
 \noindent6. ¿Cuál es el rango de $[T]_{\beta}$?
