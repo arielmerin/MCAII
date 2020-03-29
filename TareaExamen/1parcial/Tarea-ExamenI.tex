@@ -327,7 +327,23 @@ Veamos quién es el núcleo de la transformación, para lo que  sea$ p(x) \in \P
 	T(\alpha_1 + \alpha_2x + \alpha_3x^2) &= \vec{0}_{\Po} && \text{p(x) tiene esa forma}\\
 	(\alpha_1 + \alpha_2x + \alpha_3x^2)' + (\alpha_1 + \alpha_2(2) + \alpha_3(2)^2) + (\alpha_1 + \alpha_2(3) + \alpha_3(3)^2) &= \vec{0}_{\Po} && \text{Regla de correspondencia de T}\\
 	\alpha_2 + 2\alpha_3x + \alpha_1 + 2\alpha_2 + 4\alpha_3 + \alpha_1  +3\alpha_2 + 9\alpha_3 &= \vec{0}_{\Po} && \text{Desarrollando}\\
+	2\alpha_1  + 6\alpha_2 + 13\alpha_3 + 2\alpha_3x &= \vec{0}_{\Po} && \text{Agrupando términos semejantes}\\
+	2\alpha_1  + 6\alpha_2 + 13\alpha_3 + 2\alpha_3x &= 0 + 0x + 0 x^2 && \text{Por definición de neutro aditivo en $ \Po $}\\
+	\\
+	2\alpha_1  + 6\alpha_2 + 13\alpha_3 &= 0  && \text{Obtenemos las siguientes equaciones}\\
+	 2\alpha_3x &= 0x  && \text{Igualamos entradas}\\
 \end{align*}
+Luego como $ \alpha_3 = 0 $ si sustituimos en la primera equación, obtenemos que
+\begin{align*}
+		2\alpha_1  + 6\alpha_2 + 13\alpha_3 &= 0 && \text{De lo anterior}\\
+		2\alpha_1  + 6\alpha_2 + 13(0) &= 0 && \text{Por la segunda equación resultante}\\
+		2\alpha_1  + 6\alpha_2 &= 0 && \text{Propiedades de los números reales}\\
+		2\alpha_1  &= -6\alpha_2 && \text{Sumando el inverso aditivo de $ 6\alpha_1 $}\\
+		\alpha_1  &= -3\alpha_2 && \text{Multiplicando por  el inverso multiplicativo de 2}\\
+\end{align*}
+\begin{center}
+	$ \therefore $ el N\textbf{núcleo} de T es de la siguiente forma $ -3\alpha + \alpha x $, resulta importante obsevar que como $ \alpha_3 = 0 $ entonces no tendrá término cuadrático, sólo lineal y además estará dado en términos del término constante
+\end{center}
 \noindent5. Encuentre la matriz asociada a $T$ con respecto a la base $\beta$, esto es $[T]_{\beta}$.
 
 \noindent6. ¿Cuál es el rango de $[T]_{\beta}$?
