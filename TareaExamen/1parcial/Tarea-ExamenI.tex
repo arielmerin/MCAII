@@ -344,6 +344,26 @@ Luego como $ \alpha_3 = 0 $ si sustituimos en la primera equación, obtenemos qu
 \begin{center}
 	$ \therefore $ el N\textbf{núcleo} de T es de la siguiente forma $ -3\alpha + \alpha x $, resulta importante obsevar que como $ \alpha_3 = 0 $ entonces no tendrá término cuadrático, sólo lineal y además estará dado en términos del término constante
 \end{center}
+
+Para ver quién es la imgaen de $ T $, tomemos un elemento en el dominio, apliquemos la trasnformación lineal y veamos qué forma tiene el resultante.
+
+Sean $ p(x), q(x) \in \Po $, entonces tienen la siguiente forma
+\[ p(x) = \alpha_1 + \alpha_2x + \alpha_3x^2 \]
+\[ p(x) = \beta_1 +  \beta_2x + \beta_3x^2 \]
+\begin{align*}
+	T(p(x)) &= q(x) && \text{Planteando la igualdad}\\
+	T(\alpha_1 + \alpha_2x + \alpha_3x^2) &= \beta_1 +  \beta_2x + \beta_3x^2 && \text{Por la forma de sus elementos}\\
+	2\alpha_1  + 6\alpha_2 + 13\alpha_3 + 2\alpha_3x&= \beta_1 +  \beta_2x + \beta_3x^2 && \text{Aplicando la regla de correspondencia }\\
+	\\
+	2\alpha_1  + 6\alpha_2 + 13\alpha_3 &= \beta_1 && \text{Igualemos entradas }\\
+	2\alpha_3x&= \beta_2x && \text{Por el término lineal }\\
+\end{align*}
+\begin{center}
+De lo anterior podemos concuir que la imagen de $ T $ son todos los elementos cuyo término constante sea un elemento en $ \R $, también que el término lineal puede tener cualquier real, pero no habrá término cuadrático.
+
+	$ \therefore \qquad Im(T) = \beta_1 + \beta_2x$ 
+\end{center}
+
 \noindent5. Encuentre la matriz asociada a $T$ con respecto a la base $\beta$, esto es $[T]_{\beta}$.
 
 \noindent6. ¿Cuál es el rango de $[T]_{\beta}$?
