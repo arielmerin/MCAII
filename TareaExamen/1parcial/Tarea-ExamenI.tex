@@ -98,7 +98,7 @@ Kevin Ariel Merino Peña\footnote{317031326}\\ [0.2cm]
 		$ (\vec{x} + \vec{y}) + \vec{z} = \vec{x} + (\vec{y} + \vec{z}) $
 		\item Existe $ \vec{0} \in \V \tq \vec{0} + \vec{x} = \vec{x}, \qquad \forall \vec{x} \in \V$
 		\item Para todo $ \vec{x} \in \V $ existe $ \vec{y} \in \V $ tal que $ \vec{x} + \vec{y} = 0 $
-		\item Para todo $ \vec{x} \in \V $ se cumple que $ 1\vec{x} = \vec{x} $ donde $ 1 $ es el neutro multiplicativo de $ \F(\R) $
+		\item Para todo $ \vec{x} \in \V $ se cumple que $ \vec{1} \vec{x} = \vec{x} $ donde $ \vec{1} $ es el neutro multiplicativo de $ \F(\R) $
 		\item Para todo $ \alpha, \beta \in \F $ y $ \vec{x} \in \V $ se cumple $ (\alpha\beta)\vec{x} = \alpha(\beta \vec{x}) $
 		\item Para todo $ \alpha, \beta  \in \F$ y $ \vec{x} \in \V $ entonces $ (\alpha + \beta)\vec{x} = \alpha\vec{x} + \beta\vec{x} $
 		\item Sea $ \alpha \in \F $ y $ \vec{x}, \vec{y} \in \V $, entonces $ \alpha(\vec{x} + \vec{y}) = \alpha\vec{x} + \alpha\vec{y} $
@@ -128,12 +128,77 @@ como los elementos de $ \Po $ son de la forma $ c + ax + bx^2$, entonces digamos
 	(\vec{x} + \vec{y}) + \vec{z} &= a_1 + (b_1 + c_1)  + a_2x + (b_2x + c_2x) + a_3x^2 + (b_3x^2 + c_3x^2) && \text{Aplicando distrubutividad}\\ 
 	(\vec{x} + \vec{y}) + \vec{z} &= \vec{x} + (\vec{y} + \vec{z}) && \text{Definiendo la suma en $ \Po $}\\ 
 \end{align*}
+\begin{center}
+	$ \therefore \qquad $ la suma es asociativa en $ \Po $
+\end{center}
 
 Por demostrar: $ \vec{0} + \vec{x} = \vec{x} $. Proponemos $ \vec{0} = 0 + 0x + 0x^2 $. \\
 Sea $ \vec{x} \in \V $, entonces $ \vec{x} $ es de la forma \[ \vec{x} = a_1 + a_2x + a_3x^2  \]
 \begin{align*}
-	\vec{0} + \vec{x} &=  && \text{ Por definición de $ \vec{x}, \vec{0} $}
+	\vec{0} + \vec{x} &=  (0 + 0x + 0x^2) + (a_1 + a_2x + a_3x^2 )  && \text{ Por definición de $ \vec{x}, \vec{0} $}\\
+	\vec{0} + \vec{x} &=  (0 + a_1) + (0 + a_2)x + (0 + a_3)x^2 && \text{ Por definición de  + en $ \Po $}\\
+	\vec{0} + \vec{x} &=  a_1 +  a_2x + a_3x^2 && \text{ Porque los elementos en $ \R $ tienen neutro aditivo}\\
+	\vec{0} + \vec{x} &= \vec{x} && \text{ Por definición de $ \vec{x} $}
 \end{align*}
+\begin{center}
+	$ \therefore   \qquad 0 + 0x + 0x^2 $ es el neutro adivito en $ \Po $
+\end{center}
+
+Sea $ \vec{x} \in \V $, por demostrar, existe $ \vec{y} \in V  \tq \vec{x} +  \vec{y} = \vec{0}$, sabemos que  los elementos de $ \V $ tienen la siguiente forma\[  \vec{x} = a_1 + a_2x + a_3x^3 \] proponemos \[ \vec{y} = -a_1 - a_2x - a_3x^2 \]
+\begin{align*}
+	\vec{x} +  \vec{y} &= (a_1 + a_2x + a_3x^2) + (-a_1 - a_2x - a_3x^2 )&& \text{Por definición de los vectores}\\
+	\vec{x} +  \vec{y} &= (a_1 - a_1) + (a_2 - a_2)x + (a_3 - a_3)x^2&& \text{Por definición de la suma en $ \Po $}\\
+	\vec{x} +  \vec{y} &= (0) + (0)x + (0)x^2&& \text{Los elementos del campo tienen inverso aditivo}\\
+	\vec{x} +  \vec{y} &= \vec{0}&& \text{Por definición del neutro aditivo}
+\end{align*}
+\begin{center}
+	$ \therefore \qquad -a_1 - a_2x - a_3x^2  $ es el inverso aditivo de $ \vec{x} $
+\end{center}
+
+Sea $ \vec{x}  \in \V $, por demostrar $ \vec{1} \* \vec{x} = \vec{x}$\\ Proponemos $ \vec{1} = 1 $
+\begin{align*}
+	1\* \vec{x} &= 1(a_1 + a_2x + a_3x^2) && \text{Por definición de los elementos de $ \Po $}\\
+	1\* \vec{x} &= (1 \* a_1) + (1 \* a_2)x + (1 \* a_3)x^2 && \text{Por  definición del producto en $ \Po $}\\
+	1\* \vec{x} &= a_1 + a_2x + a_3x^2 && \text{Puesto que los elementos del campo tienen neutro multiplicativo}\\
+	1\* \vec{x} &= \vec{x}&& \text{Por la definición de $ \vec{x} $}\\
+\end{align*}
+\begin{center}
+	$ \therefore \vec{1} $ es el neutro multiplicativo en $ \Po $
+\end{center}
+
+Sean $ \alpha, \beta \in \F( \F = \R) $ y $ \vec{x} \in \V $, por demostrar que $ (\alpha\beta)\vec{x} = \alpha(\beta\vec{x}) $
+\begin{align*}
+	(\alpha\beta)\vec{x} &= (\alpha\beta)(a_1 + a_2x + a_3x^2) && \text{Por definición de los elementos en $ \Po $}\\
+	(\alpha\beta)\vec{x} &= ((\alpha\beta)a_1) + ((\alpha\beta)a_2)x + ((\alpha\beta)a_3)x^2 && \text{Por definición del producto en $ \Po $}\\
+	(\alpha\beta)\vec{x} &= \alpha(\beta a_1) + \alpha(\beta a_2)x + \alpha (\beta a_3)x^2 && \text{Porque los elementos del campo asocian}\\
+	(\alpha\beta)\vec{x} &= \alpha(\beta\vec{x}) && \text{Aplicando la definición del producto }\\
+\end{align*}
+\begin{center}
+	$ \therefore \qquad $ en $ \Po $ se cumple que $ (\alpha\beta)\vec{x} = \alpha(\beta\vec{x}) $
+\end{center}
+
+Sean $ \alpha, \beta \in \F( \F = \R) $ y $ \vec{x} \in \V $, por demostrar que $ (\alpha + \beta)\vec{x} = \alpha\vec{x} + \beta\vec{x} $
+\begin{align*}
+	(\alpha + \beta)\vec{x} &= (\alpha + \beta)(a_1 + a_2x + a_3x^2) && \text{Definición de elementos en $ \Po $}\\
+	(\alpha + \beta)\vec{x} &= \alpha a_1 + \beta a_1 + \alpha a_2x + \beta a_2x + \alpha a_3x^2 + \beta a_3x^2 && \text{Pues los elementos del campo tienen distributividad}\\
+	(\alpha + \beta)\vec{x} &= \alpha a_1 + \alpha a_2x + \alpha a_3x^2 + \beta a_1  + \beta a_2x  + \beta a_3x^2 && \text{Reordenando}\\
+	(\alpha + \beta)\vec{x} &= \alpha(a_1 + a_2x + a_3x^2) + \beta(a_1 + a_2x + a_3x^2)&& \text{Por definición del producto}\\
+	(\alpha + \beta)\vec{x} &= \alpha\vec{x} + \beta\vec{x}&& \text{Por definición de los elementos en $ \Po $}\\
+\end{align*}
+\begin{center}
+	$ \therefore \qquad  $ en $ \Po $ se cumple distributividad cuando un elemento se multiplica por la suma de dos escalares
+\end{center}
+
+Sea $ \alpha \in \V $, $ \vec{x}, \vec{y} \in \V $, por demostrar que $ \alpha(\vec{x} + \vec{y}) = \alpha\vec{x} + \alpha\vec{y}$
+\begin{align*}
+	\alpha(\vec{x} + \vec{y}) &= \alpha( (a_1 + a_2x + a_3x^2) + (b_1 + b_2x + b_3x^2) ) && \text{Por definición de los elementos en $ \Po $}\\
+	\alpha(\vec{x} + \vec{y}) &= \alpha((a_1 + b_1) + (a_2 + b_2)x + (a_3 + b_3)x^2)&& \text{Por definición de la suma en $ \Po $}\\
+	\alpha(\vec{x} + \vec{y}) &= \alpha(a_1 + b_1) + \alpha(a_2 + b_2)x + \alpha(a_3 + b_3)x^2&& \text{Por definición del producto en $ \Po $}\\
+	\alpha(\vec{x} + \vec{y}) &= (\alpha a_1 + \alpha b_1) + (\alpha a_2 + \alpha b_2)x + (\alpha a_3 +\alpha b_3)x^2&& \text{Por defin}\\
+	\alpha(\vec{x} + \vec{y}) &= \alpha(a_1 + a_2x + a_3x^2) + \alpha(b_1 + b_2x + b_3x^2)&& \text{Pues los elementos del campo cumplen distributividad}\\
+\end{align*}
+
+
 
 
 \noindent2. Muestre que el conjunto  $\beta =  \{ 1, x , x^2 \}$ es base de $ \mathbb{P}_{2}(\mathbb{R})$
@@ -143,7 +208,6 @@ Sea $ \vec{x} \in \V $, entonces $ \vec{x} $ es de la forma \[ \vec{x} = a_1 + a
 \begin{align*}
      T \colon & \mathbb{P}_{2}(\mathbb{R})  \longrightarrow \mathbb{P}_{2}(\mathbb{R}) \\
      & T(f(x)) \mapsto  xf^{'}(x) +x f(2) + f(3). \\
-    %& T(f(x)) \mapsto  xf^{'}(x) +\dfrac{1}{2} f^{''}(x). \\
  \end{align*}
 
 \noindent4. Determine el núcleo y la imagen de $T$.
