@@ -48,6 +48,12 @@ includefoot]{geometry}
 
 \renewcommand{\*}{\cdot}
 
+\newcommand{\Iden}{\begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 1 
+\end{pmatrix}}
+
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
 	\hskip -\arraycolsep
@@ -209,10 +215,74 @@ Sea $ \alpha \in \V $, $ \vec{x}, \vec{y} \in \V $, por demostrar que $ \alpha(\
 	Sea $ \mathcal{S} $ un subconjunto de un espacio vectorial $ \mathcal{V} $ decimos que $ \mathcal{S} $ genera a $ \mathcal{V} $ si $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ al generado de s se le denota como $ span(\mathcal{S}), <\mathcal{S}>, gen(\mathcal{S})$ 
 \end{definition}
 
-	\begin{definition}
+\begin{definition}
 	Una \textbf{base} $ \beta $ de $ \V $ espacio vectorial es un subconjunto de $ \V \tq \beta$  genera a $ \V $ y $ \beta $ es linealmente independiente
 \end{definition}
 
+
+Diremos que el conjunto $ \beta $ genera a $ \Po$ si ocurre que 
+\[ \alpha_1 (p_1(x)) + \alpha_2(p_2(x)) + \alpha_3(p_3(x)) = \beta_1 (1 + 0 x + 0x^2) + \beta_2(0 + 1x + 0x^2) + \beta_3( 0 + 0x + 1x^2) \]
+donde $ p_1, p_2, p_2 \in \beta $ por lo que, sean $ \alpha_1, \alpha_2, \alpha_3 \in \R $
+%NO hubo de otra mas que ponerlo de esta manera para que cupiera bien
+\[ \alpha_1(1 + 0x +0x^2) + \alpha_2(0 +x + 0x^2) + \alpha_3(0 + 0x +x^2) = \beta_1(1 + 0x +0x^2) + \beta_2(0 +x + 0x^2) + \beta_3(0 + 0x +x^2) \]
+\[ (\alpha_1 + 0\alpha_1x +0\alpha_1x^2) + (0\alpha_2 +x\alpha_2 + 0\alpha_2x^2) + (0\alpha_3 + 0\alpha_3x +\alpha_3x^2) = (\beta_1 + 0\beta_1x +0\beta_1x^2) + (0\beta_2 +\beta_2x + 0\beta_2x^2) + (0\beta_3 + 0\beta_3x +\beta_3x^2) \]
+\[ (\alpha_1 + 0\alpha_2 + 0\alpha_3) + (0\alpha_1 + \alpha_2 + 0\alpha_3)x + (0\alpha_1 + 0\alpha_2 + \alpha_3)x^2 = (\beta_1 + 0\beta_2 + 0\beta_3) + (0\beta_1 + \beta_2 + 0\beta_3)x + (0\beta_1 + 0\beta_2 + \beta_3)x^2 \]
+
+
+\begin{align*}
+	\begin{pmatrix}
+	\alpha_1 & 0\alpha_2 & 0\alpha_3 \\
+	0\alpha_1 & \alpha_2 & 0\alpha_3 \\
+	0\alpha_1 & 0\alpha_2 & \alpha_3 
+	\end{pmatrix} 
+	& = 
+	\begin{pmatrix}
+	\beta_1 & 0\beta_2 & 0\beta_3\\
+	0\beta_1 & \beta_2 & 0\beta_3\\
+	0\beta_1 & 0\beta_2 & \beta_3
+	\end{pmatrix} && \text{Agrupando cada uno de los elementos en una matrix}\\
+	\Iden & = \Iden && \text{Manteniendo sólo coeficientes}
+\end{align*}
+De esta manera ha quedado claro que dichos coeficientes $ \beta $ existen, es más, podemos afirmar que son: $$ \alpha_1 = \beta_1, \quad \alpha_2 = \beta_2, \quad \alpha_3 = \beta_3 $$
+\begin{center}
+ $ \therefore \qquad <\beta> = \Po$ 
+\end{center}
+Ahora veamos si $ \beta $ es linealmente independiente para lo que debe ocurrir
+\begin{definition}
+	Sea $ \mathds{S} $ un subconjunto de $ \V $ un espacio vectorial, decimos que $ \mathds{S} $ es linealmente independiente si la única solución para $ \alpha_1, \alpha_2 \dots \alpha_n \in \R $ \[ \alpha_1\vec{s}_1 + \alpha_2\vec{s}_2 + \dots + \alpha_n\vec{s}_n = 0 \] es que todos los coeficientes $ \alpha_i,  i \in \{ 1, 2, \dots, n \} $ sean todos 0
+\end{definition}
+
+Sean $ \alpha_1, \alpha_2, \alpha_3 \in \R $ 
+\begin{align*}
+	\alpha_1(1 + 0x + 0x^2) + \alpha_2(0 + x + 0x^2) + \alpha_3(0 + 0x + x^2) &= \vec{0} && \text{$ \beta $ como combinación lineal}\\
+	\alpha_1(1 + 0x + 0x^2) + \alpha_2(0 + x + 0x^2) + \alpha_3(0 + 0x + x^2) &= 0 + 0x + 0x^2 && \text{Por definición de $ \vec{0} \in \Po $}\\
+	(1\alpha_1 + 0\alpha_1x + 0\alpha_1x^2) + (0\alpha_2 + \alpha_2x + 0\alpha_2x^2) + (0\alpha_3 + 0\alpha_3x + \alpha_3x^2) &= 0 + 0x + 0x^2  && \text{Distribuyendo}\\
+	(\alpha_1 + 0\alpha_2 + 0\alpha_3) + (0\alpha_1 + \alpha_2 + 0\alpha_3)x + (0\alpha_1 + 0\alpha_2 + \alpha_3)x^2 &= 0 + 0x + 0x^2 && \text{Agrupando}\\
+\end{align*}
+Finalmente igualemos entrada con entrada
+\begin{align*}
+	\begin{pmatrix}
+	\alpha_1 & 0\alpha_2 & 0\alpha_3\\
+	0\alpha_1 & \alpha_2 & 0\alpha_3\\
+	0\alpha_1 & 0\alpha_2 & \alpha_3 
+	\end{pmatrix} 
+	& = \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Igualemos entrada por entrada}\\
+	\Iden & = \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Mateniendo sólo coeficientes}
+\end{align*}
+Finalmente es fácil observar que 
+\[ \alpha_1 = \alpha_2 = \alpha_3 = 0  \]
+\begin{center}e
+	$ \therefore \qquad \beta$ es linealmente independiente\\
+	$ \therefore \qquad \beta$ es base para $ \Po $
+\end{center}
 \noindent3. Muestre que la siguiente transformación es lineal.
 
 \begin{align*}
