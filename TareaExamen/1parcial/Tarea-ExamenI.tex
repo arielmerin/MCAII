@@ -328,7 +328,7 @@ Para ello, tomemos un elemento en el dominio de $ T $. Sea $ p(x) \in \Po \tq p(
 	\eta_1  &= - 3\eta_2 && \text{Sistituyendo}\\
 \end{align*}
 \begin{center}
-	La solución puede escribirse como $ (-3 + 1x + 0x^2 ) \eta_2 $ por lo que el \textbf{núcleo} de la transformación $ \{(-3 + 1x + 0x^2)\} $. Cabe mencionar que la nulidad de $ T $ es 1, pues esa es la dimensión del núcleo y además, $ T $ no es una transformación uno a uno pues el núcleo $ \neq \vec{0}_{\Po} $
+	La solución puede escribirse como $ (-3 + 1x + 0x^2 ) \eta_2 $ por lo que el \textbf{núcleo} de la transformación $ \{(-3(\eta_2) + x(\eta_2) + 0x^2)\} $. Cabe mencionar que la nulidad de $ T $ es 1, pues esa es la dimensión del núcleo y además, $ T $ no es una transformación uno a uno pues el núcleo $ \neq \vec{0}_{\Po} $
 \end{center}
 
 Para ver cuál es la imagen de la transformación lineal tomemos un elemento arbitrario en el dominio y otro en su imagen. Sean $ p(x), q(x) \in \Po $, recordemos que los elementos de $ \Po $ tienen la forma
@@ -361,19 +361,48 @@ Es decir, todo $ \Po $
 \end{center}
 
 \noindent5. Encuentre la matriz asociada a $T$ con respecto a la base $\beta$, esto es $[T]_{\beta}$.
+Tomememos las bases ordenadas $ \beta\{ 1,x,x^2 \} $ y $ \gamma = \{ 1, x, x^2 \} $ entonces. Apliquemosla trasformación $ T $ a cada uno de los elementos de $ \beta $
+\begin{align*}
+	 T(p(x)) &= \eta_1 + 3\eta_2 + 9\eta_3 + x(\eta_1 + 3 \eta_2 + 4 \eta_3) + 2 x^2\eta_3 && \text{Por el ejercicio anterior}\\
+	 T(1) &= 1 + 3(0) + 9(0) + x(1 + 3 (0) + 4 (0)) + 2 x^2(0) && \text{Porque }\eta_1 = 1, \eta_2 = 0, \eta_3 = 0 \\
+	 T(1) &= 1 + x && \text{Operando }\\
+	 \\
+	 T(x) &= (0) + 3(1) + 9(0) + x((0) + 3 (1) + 4 (0)) + 2 x^2(0) && \text{Porque }\eta_1 = 0, \eta_2 = 1, \eta_3 = 0 \\
+	 T(x) &= 3 + 3x && \text{Operando }\\
+	 \\
+	 T(x^2) &= (0) + 3(0) + 9(1) + x((0) + 3 (0) + 4 (1)) + 2 x^2(1) && \text{Operando }\\
+	 T(x^2) &= 9+ 4x + 2x^2 && \text{Desarrollando }\\
+\end{align*}
+\begin{align*}
+	T(1) &= 1\* 1 + 1\*x + 0\*x^2 && \text{Igualemos el primer elemento de $ \beta $}\\
+	T(x) &=1\* 1 + 1\*x + 0\*x^2 && \text{Igualemos el segundo elemento de $ \beta $}\\
+	T(x^2) &= 9\* 1 + 4\*x + 2\*x^2 && \text{Igualemos el tercer elemento de $ \beta $}\\
+\end{align*}
+De lo anterior, es claro poder concluir que 
+\[ [T]_{\beta} = \begin{pmatrix}
+	1 & 3 & 9 \\
+	1 & 3 & 4 \\
+	0 & 0 & 2 
+\end{pmatrix} \]
 
 
 
-\noindent6. ¿Cuál es el rango de $[T]_{\beta}$?
+\noindent6. ¿Cuál es el rango de $[T]_{\beta}$?\\
+El rango de una matriz es el número de columnas linealmente independientes, en este paso es muy claro que sólo tiene 2 columnas linealmente independientes, por lo que su rango es $ n = 2 $\\
 
-\noindent7. La matriz $[T]_{\beta}$ es invertible, si sí muéstrelo, si no argumente porque.
+
+\noindent7. La matriz $[T]_{\beta}$ es invertible, si sí muéstrelo, si no argumente porque.\\
+Como vimos en clase, una matriz es invertible si y sólo si tiene rango completo, en ese caso no fue así, por lo que $ [T]_{\beta} $ no es invertible\\
+
 
 \noindent8. ¿Cuales son los valores propios asociados a $[T]_{\beta}$?
 
 \noindent9. Determine los vectores propios asociados a cada valor propio. 
 
 \noindent10. Muestre que el conjunto de los vectores propios es una base ordenada.
-
+\begin{definition}
+	Sea $ \V $ un espacio vectorial dimensionalmente finito. Una base ordenada para $ \V $ es una base para $ \V $ establecida con un orden específico; es decir, una base ordenada para $ \V $ en una secuencia finita de elementos de $ \V $ linealmente independientes que generan a $ \V $
+\end{definition}
 \noindent11. Determine $Q \in M_{3\times 3}(\mathbb{R})$, tal que $Q^{-1}[T]_{\beta} Q = D$, donde $D$ es una matriz diagonal cuyos elementos de la diagonal son valores propios.
 
 \noindent12. Muestre que $\beta^{'} =\{ -3+x , -3-13x + 4x^2, 1+x \}$, es una base para $ \mathbb{P}_{2}(\mathbb{R})$ y además determine $[T]_{\beta^{'}}$ .
