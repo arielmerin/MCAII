@@ -53,6 +53,11 @@ includefoot]{geometry}
 		0 & 1 & 0\\
 		0 & 0 & 1 
 \end{pmatrix}}
+\newcommand{\T}{\begin{pmatrix}
+		1 & 3 & 9 \\
+		1 & 3 & 4 \\
+		0 & 0 & 2 
+\end{pmatrix} }
 
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
@@ -212,7 +217,7 @@ Sea $ \alpha \in \V $, $ \vec{x}, \vec{y} \in \V $, por demostrar que $ \alpha(\
 
 \noindent2. Muestre que el conjunto  $\beta =  \{ 1, x , x^2 \}$ es base de $ \mathbb{P}_{2}(\mathbb{R})$
 \begin{definition}
-	Sea $ \mathcal{S} $ un subconjunto de un espacio vectorial $ \mathcal{V} $ decimos que $ \mathcal{S} $ genera a $ \mathcal{V} $ si $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ al generado de s se le denota como $ span(\mathcal{S}), <\mathcal{S}>, gen(\mathcal{S})$ 
+	Sea $ \mathcal{S} $ un subconjunto de un espacio vectorial $ \mathcal{V} $ decimos que $ \mathcal{S} $ genera a $ \mathcal{V} $ si $ \forall \hat{x} \in \mathcal{V} $ es una combinación lineal de elementos de $ \mathcal{S} $ a la generad de s se le denota como $ span(\mathcal{S}), <\mathcal{S}>, gen(\mathcal{S})$ 
 \end{definition}
 
 \begin{definition}
@@ -379,11 +384,7 @@ Tomememos las bases ordenadas $ \beta\{ 1,x,x^2 \} $ y $ \gamma = \{ 1, x, x^2 \
 	T(x^2) &= 9\* 1 + 4\*x + 2\*x^2 && \text{Igualemos el tercer elemento de $ \beta $}\\
 \end{align*}
 De lo anterior, es claro poder concluir que 
-\[ [T]_{\beta} = \begin{pmatrix}
-	1 & 3 & 9 \\
-	1 & 3 & 4 \\
-	0 & 0 & 2 
-\end{pmatrix} \]
+\[ [T]_{\beta} = \T \]
 
 
 
@@ -396,16 +397,454 @@ Como vimos en clase, una matriz es invertible si y sólo si tiene rango completo
 
 
 \noindent8. ¿Cuales son los valores propios asociados a $[T]_{\beta}$?
+\begin{definition}
+	Sea $ T $ un operador lineal sobre $V$, dónde $V$ es de dimensión finita y $\vec{x}\in V$ tal que $\vec{x}$ no es 0. 
+	Sean $A\in M_{n*n}(\mathbb{R})$, entonces $\lambda$ es un valor propio de A si y sólo si $det(A-\lambda Id_{n})=0$
+\end{definition}
 
+Por lo que comencemos calculando el $ det([T]_{\beta} - \lambda Id_n) $
+\begin{align*}
+	det\left([T]_\beta - \lambda Id_3 \right) &= 0 && \text{Por definición de valores propios}\\
+	det\left([T]_\beta - \lambda\Iden \right) &= 0 && \text{Por definición de la identidad}\\
+	det\left(\T - \lambda\Iden \right) &= 0 && \text{Por lo obtenido en $ [T]_\beta $}\\
+	det\left(\T - \begin{pmatrix}
+	\lambda & 0 & 0\\
+	0 & \lambda & 0\\
+	0 & 0 & \lambda
+	\end{pmatrix} \right) &= 0 && \text{Multiplicación por un escalar}\\
+	det \begin{pmatrix}
+	1- \lambda & 3 & 9\\
+	1 & 3 -\lambda & 4\\
+	0 & 0 & 2- \lambda 
+	\end{pmatrix} &= 0 && \text{Por suma de matrices}\\
+\end{align*}
+
+\begin{definition}
+	Sea $ A \in M_{2x2}(\R) \tq A = \begin{pmatrix}
+	a& b\\
+	c& d
+	\end{pmatrix}$ Entonces el determinante de A está definido como $  det(A) = ad -bc $
+\end{definition}
+	\begin{definition}
+	Sea $ A \in M_{nxn}(\F) $  si $ n < 1 $ entonces $ A = (A_{11}) $ entonces $ det(A) = A_{11} $ para $ n\geq 2 $ definimos el determinante de manera recursiva como
+	\[ det(A) = \sum_{j = 1}^{n (dimen.)} (-1)^{1 + j} A_{1j}det(\hat{A}_{1j}) \]
+\end{definition}
+
+Por lo que el  $ 	det \begin{pmatrix}
+1- \lambda & 3 & 9\\
+1 & 3 -\lambda & 4\\
+0 & 0 & 2- \lambda 
+\end{pmatrix} $ se calcula como sigue
+
+\begin{align*}
+(1- \lambda)det(\hat{A}_{11}) - 3det\hat{A}_{12} + 9det\hat{A}_{13} &= 0 && \text{Por lo definido anteriormente}^{(**)}\\
+\\
+det(\hat{A}_{11}) & = (a_{22})(a_{33}) - (a_{32})(a_{23})  && \text{Por definición del determinante en 2x2}\\
+det\begin{pmatrix}
+3 - \lambda & 4\\
+0 & 2 - \lambda
+\end{pmatrix} & = (3 - \lambda) ( 2- \lambda) - 4(0) && \text{Calculando el determinante del menor}\\
+det(\hat{A}_{11})& = (3 - \lambda) ( 2-\lambda) && \text{Operando}\\
+\\
+det(\hat{A}_{12}) & = (a_{12})(a_{33}) - (a_{32})(a_{13})  && \text{Por definición de determinante en 2x2}\\
+det\begin{pmatrix}
+1 & 4 \\
+0 & 2-\lambda \\
+\end{pmatrix}  &= (2- \lambda)- 0 && \text{Calculando el determinante del menor}\\
+det(\hat{A}_{12}) & = 2-\lambda  && \text{Operando}\\
+\\
+det(\hat{A}_{13}) & = (a_{12})(a_{23}) - (a_{22})(a_{13})  && \text{Por definición de determinante en 2x2}\\
+det\begin{pmatrix}
+1 & 3 - \lambda\\
+0 & 0\\
+\end{pmatrix} & = (a_{12})(a_{23}) - (a_{22})(a_{13})  && \text{Calculando el determinante del menor}\\
+det(\hat{A}_{13}) & = 0 && \text{Operando}
+\end{align*}
+Luego, por $ (**) $ tenemos que $$ det([T]_{\beta} - \lambda Id_n) = (1-\lambda)(3-\lambda)(2-\lambda) - 3(2-\lambda) = 0 $$  
+De lo anterior obtenemos la siguiente equación con 3 incógnitas
+\begin{align*}
+	(1-\lambda)(3-\lambda)(2-\lambda) - 3(2-\lambda) &= 0 && \text{Por la definición de determinante}\\
+	(3-\lambda-3\lambda+\lambda^2)(2-\lambda) - 3(2-\lambda) &= 0 && \text{Operando los primeros miembros}\\
+	6-2\lambda-6\lambda+2\lambda^2-3\lambda+\lambda^2+3\lambda^2-\lambda^3 -6+3\lambda &= 0 && \text{Desarrolando }\\
+	-\lambda^3 + 6 \lambda^2 - 8\lambda&= 0 && \text{Agrupando términos semejantes }\\
+	-\lambda  ( \lambda^2 - 6 \lambda + 8)&= 0 && \text{Factorizando } \lambda\\
+	-\lambda  ( \lambda-2)(\lambda-4)&= 0 && \text{Factorizando el trinomio }\\
+\end{align*}
+\begin{center}
+	$ \therefore  $ las soluciones a la ecuación son 
+	\begin{align*}
+		\lambda_1 &= 4\\
+		\lambda_2 &= 2\\
+		\lambda_3 &= 0
+	\end{align*} esos mismos son los valores propios asociados a $ [T]_\beta = \T $
+\end{center}
 \noindent9. Determine los vectores propios asociados a cada valor propio. 
+\begin{definition}
+	Decimos que $\vec{x}$ es vector propio de T si $T(\vec{x})= \lambda\vec{x}$ donde $\lambda\in \mathbb{R}$.
+\end{definition}
 
+Para eso tomemos $ \lambda_1 = 4 $ y sustituyamos en $ \begin{pmatrix}
+1- \lambda & 3 & 9\\
+1 & 3 -\lambda & 4\\
+0 & 0 & 2- \lambda 
+\end{pmatrix} $
+
+\begin{align*}
+	\begin{pmatrix}
+	1- \lambda & 3 & 9\\
+	1 & 3 -\lambda & 4\\
+	0 & 0 & 2- \lambda 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Por la definición de vector propio}\\ 
+	%%%%%%
+	\begin{pmatrix}
+	1- (4) & 3 & 9\\
+	1 & 3 -(4) & 4\\
+	0 & 0 & 2- (4) 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Porque tomamos $ \lambda_1 = 4 $}\\
+	%%%%%%
+	\begin{pmatrix}
+	-3 & 3 & 9\\
+	1 & -1 & 4\\
+	0 & 0 & - 2 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Operando los signos}\\
+\end{align*}
+De lo anterior obtenemos el siguiente sistema de ecuaciones
+\begin{align}
+	-3x_1 + 3x_2 + 9x_3 &= 0\\
+	x_1 -x_2 +4x_3 &= 0\\
+	-2x_3 &= 0
+\end{align}
+Por lo que es fácil deducir que $ x_3 = 0 $ y si lo sustituimos en 2, tenemos que $ x_2 = x_3 $
+por lo que \[ \vec{v}_1 = \begin{pmatrix}
+1\\
+1\\
+0
+\end{pmatrix} \]
+%%%%%%%% nuevo vector %%%%%%%%
+Para eso tomemos $ \lambda_2 = 2 $ y sustituyamos en $ \begin{pmatrix}
+1- \lambda & 3 & 9\\
+1 & 3 -\lambda & 4\\
+0 & 0 & 2- \lambda 
+\end{pmatrix} $
+
+\begin{align*}
+	\begin{pmatrix}
+	1- \lambda & 3 & 9\\
+	1 & 3 -\lambda & 4\\
+	0 & 0 & 2- \lambda 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Por la definición de vector propio}\\ 
+	%%%%%%
+	\begin{pmatrix}
+	1- (2) & 3 & 9\\
+	1 & 3 -(2) & 4\\
+	0 & 0 & 2- (2) 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Porque tomamos $ \lambda_2 = 2 $}\\
+	%%%%%%
+	\begin{pmatrix}
+	-1 & 3 & 9\\
+	1 & 1 & 4\\
+	0 & 0 &  0 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Operando los signos}\\
+\end{align*}
+De lo anterior obtenemos el siguiente sistema de ecuaciones
+\begin{align}
+	-1x_1 + 3x_2 + 9x_3 &= 0\\
+	x_1 +x_2 +4x_3 &= 0
+\end{align}
+Por lo que es fácil deducir que $ x_1 =- \dfrac{3}{4}x_3 $, al sumar ambas equaciones y si lo sustituimos en 5, tenemos que $ x_2 = \dfrac{-13}{4}x_3 $, para el vector tomemos $ x_3 = 4 $
+por lo que \[ \vec{v}_2 = \begin{pmatrix}
+-3\\
+-13\\
+4
+\end{pmatrix} \]
+%%%%%%%% nuevo vector %%%%%%%%
+Para eso tomemos $ \lambda_3 = 0 $ y sustituyamos en $ \begin{pmatrix}
+1- \lambda & 3 & 9\\
+1 & 3 -\lambda & 4\\
+0 & 0 & 2- \lambda 
+\end{pmatrix} $
+
+\begin{align*}
+	\begin{pmatrix}
+	1- \lambda & 3 & 9\\
+	1 & 3 -\lambda & 4\\
+	0 & 0 & 2- \lambda 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Por la definición de vector propio}\\ 
+	%%%%%%
+	\begin{pmatrix}
+	1- (0) & 3 & 9\\
+	1 & 3 -(0) & 4\\
+	0 & 0 & 2- (0) 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Porque tomamos $ \lambda_3 = 0 $}\\
+	%%%%%%
+	\begin{pmatrix}
+	1 & 3 & 9\\
+	1 & 3 & 4\\
+	0 & 0 & 2 
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_3\\
+	x_3
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix} && \text{Operando los signos}\\
+\end{align*}
+De lo anterior obtenemos el siguiente sistema de ecuaciones
+\begin{align}
+	x_1 + 3x_2 + 9x_3 &= 0\\
+	x_1 + 3x_2 +4x_3 &= 0\\
+	2x_3 &= 0
+\end{align}
+Por lo que es fácil deducir que $ x_3 = 0 $, al sustituirlo en 7, tenemos que $ x_1 = -3x_2$ tomemos $ x_2 = 1 $
+por lo que \[ \vec{v}_3 = \begin{pmatrix}
+-3\\
+1\\
+0
+\end{pmatrix} \]
+Así, podemos obtener \[ Q = \begin{pmatrix}
+1 & -3 & -3\\
+1 & -13 & 1\\
+0 & 4 & 0\\
+\end{pmatrix}\]
+
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent10. Muestre que el conjunto de los vectores propios es una base ordenada.
+
 \begin{definition}
 	Sea $ \V $ un espacio vectorial dimensionalmente finito. Una base ordenada para $ \V $ es una base para $ \V $ establecida con un orden específico; es decir, una base ordenada para $ \V $ en una secuencia finita de elementos de $ \V $ linealmente independientes que generan a $ \V $
 \end{definition}
+Nombremos $ \gamma = \left\lbrace \begin{pmatrix}
+1\\
+1\\
+0
+\end{pmatrix}, \begin{pmatrix}
+-3\\
+-13\\
+4
+\end{pmatrix}, \begin{pmatrix}
+-3\\
+1\\
+0
+\end{pmatrix} \right\rbrace $,  que también se puede expresar como $ \gamma = \{ 1 +x, -3 -13x +4x^2, -3 + x \} $
+Veamos quién es la generada de $ \gamma $. Sean $ \alpha_1, \alpha_2, \alpha_3 \in \R $ y $ \beta_1, \beta_2, \beta_3 \in \R $ entonces planteemos, y reorganicemos con los términos semejantes
+\begin{align*}
+	\alpha_1(1+x + 0x^2) + \alpha_2(-3-13x+4x^2) + \alpha_3(-3 +x + 0x^2) & = \beta_1(1 + 0x + 0x^2) + \beta_2( 0 + x + 0x^2) + \beta_3(0 + 0x + x^2)\\
+	(\alpha_1 - 3\alpha_2 - 3\alpha_3) + (\alpha_1 - 13 \alpha_2 + \alpha_3)x  + (0\alpha_1 + 4\alpha_2 + 0\alpha_3)x^2& = (\beta_1 + 0 \beta_2 + 0\beta_3) + (0\beta_1 + \beta_2 + 0\beta_3)x + (0\beta_1 + 0 \beta_2 + \beta_3)x^2
+\end{align*}
+\begin{align*}
+	\alpha_1 - 3\alpha_2 - 3\alpha_3  & = \beta_1 + 0 \beta_2 + 0\beta_3\\ 
+	\alpha_1 - 13 \alpha_2 + \alpha_3 & = 0\beta_1 + \beta_2 + 0\beta_3\\ 
+	0\alpha_1 + 4\alpha_2 + 0\alpha_3 & = 0\beta_1 + 0 \beta_2 + \beta_3
+\end{align*}
+Ahora sólo mantengamos los coeficientes y resolvamos por el método\textit{ Gauss-Jordan}
+\begin{align*}
+	\begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	1 & -13 & 1 & 0 & 1 & 0\\
+	0 & 4 & 0 & 0 & 0 & 1
+	\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & -10 & 1 & -1 & 1 & 0\\
+	0 & 4 & 0 & 0 & 0 & 1
+	\end{pmatrix}&& \text{ 1a Fila $ \* $ -1 + 2a Fila en 2aFila }\\
+\end{align*}
+\begin{align*}
+	\begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & -10 & 1 & -1 & 1 & 0\\
+	0 & 4 & 0 & 0 & 0 & 1
+	\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & -\frac{2}{5} & \frac{1}{10} & -\frac{1}{10} & 0\\
+	0 & 4 & 0 & 0 & 0 & 1
+	\end{pmatrix}&& \text{ 2a Fila $ \* -\frac{1}{10}$ }\\
+\begin{pmatrix}[ccc|ccc]
+1 & -3 & -3 & 1 & 0 & 0\\
+0 & 1 & -\frac{2}{5} & \frac{1}{10} & -\frac{1}{10} & 0\\
+0 & 4 & 0 & 0 & 0 & 1
+\end{pmatrix}& = \begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & -\frac{2}{5} & \frac{1}{10} & -\frac{1}{10} & 0\\
+	0 & 0 & \frac{8}{5} & -\frac{2}{5} & \frac{2}{5} & 1
+	\end{pmatrix} && \text{ 2a Fila $ \* -4$ + 3a Fila en 3a Fila }\\
+	\begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & -\frac{2}{5} & \frac{1}{10} & -\frac{1}{10} & 0\\
+	0 & 0 & \frac{8}{5} & -\frac{2}{5} & \frac{2}{5} & 1
+	\end{pmatrix}  &= \begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & -\frac{2}{5} & \frac{1}{10} & -\frac{1}{10} & 0\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} && \text{ 3a Fila $ \* \frac{5}{8}$}\\
+	\begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & -\frac{2}{5} & \frac{1}{10} & -\frac{1}{10} & 0\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} && \text{ 3a Fila $ \* \frac{2}{5}$ + 2a Fila en 2a Fila}\\
+	\begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} && \text{ 3a Fila $ \* \frac{2}{5}$ + 2a Fila en 2a Fila}\\
+	\begin{pmatrix}[ccc|ccc]
+	1 & -3 & -3 & 1 & 0 & 0\\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+	1 & -3 & 0 & \frac{1}{4} &\frac{3}{4} & \frac{15}{8} \\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} && \text{ 3a Fila $ \* 3 + $  3a Fila en 3a Fila}\\
+	\begin{pmatrix}[ccc|ccc]
+	1 & -3 & 0 & \frac{1}{4} &\frac{3}{4} & \frac{15}{8} \\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} & = \begin{pmatrix}[ccc|ccc]
+	1 & 0 & 0 & \frac{1}{4} &\frac{3}{4} & \frac{21}{8} \\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
+	0 & 0 & 1 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix}&& \text{ 2a Fila $ \* 3 + $  1a Fila en 1a Fila}\\
+\end{align*}
+De esta manera hemos obtenido los coeficientes $ \alpha_1, \alpha_2, \alpha_3 $, veamos la sutileza al calcularlos pues encontramos $ Q^{-1} $
+\begin{center}
+	$ \therefore \qquad <\gamma> = \Po $
+\end{center}
+Por lo anterior, ya hemos encontrado $ Q^{-1} $ y esto sólo ocurre si la matriz es de rango completo, así que podemos afirmar que el rango de $ Q $ es 3, luego resulta sencillo observar que es linealmente independiente, desde su construcción.\\
+
+
+Por otra parte, si comparamos $ \gamma $ con $ \beta' $ del ejercicio 12, veremos que ambas son bases pero no son las mismas bases ordenadas pues en $ \gamma $ se describe un orden distinto. 
+\begin{center}
+	$ \therefore \qquad \gamma$  es una base ordenada
+\end{center}
+
+%%%%%%%%%%%%
 \noindent11. Determine $Q \in M_{3\times 3}(\mathbb{R})$, tal que $Q^{-1}[T]_{\beta} Q = D$, donde $D$ es una matriz diagonal cuyos elementos de la diagonal son valores propios.
 
-\noindent12. Muestre que $\beta^{'} =\{ -3+x , -3-13x + 4x^2, 1+x \}$, es una base para $ \mathbb{P}_{2}(\mathbb{R})$ y además determine $[T]_{\beta^{'}}$ .
+
+Por el inciso anterior, podemos rescatar que $$ Q^{-1} = \begin{pmatrix}[ccr]
+\frac{1}{4} &\frac{3}{4} & \frac{21}{8} \\
+0 & 0 & \frac{1}{4}\\
+-\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+\end{pmatrix} $$
+Y por el ejercicio 9 tenemos que \[  Q = \begin{pmatrix}
+1 & -3 & -3\\
+1 & -13 & 1\\
+0 & 4 & 0\\
+\end{pmatrix}  \] y del ejercicio 5 concluimos que \[ [T]_\beta = \T \] Por lo que sólo resta calcular
+\begin{align*}
+	\left( \begin{pmatrix}[ccr]
+	\frac{1}{4} &\frac{3}{4} & \frac{21}{8} \\
+	0 & 0 & \frac{1}{4}\\
+	-\frac{1}{4} & \frac{1}{4} & \frac{5}{8}
+	\end{pmatrix} \* \T \right) \* \begin{pmatrix}
+	1 & -3 & -3\\
+	1 & -13 & 1\\
+	0 & 4 & 0\\
+	\end{pmatrix} &= \begin{pmatrix}
+	1 & 3 & \frac{21}{2}\\
+	0 & 0 & \frac{1}{2}\\
+	0 & 0 & 0\\
+	\end{pmatrix} \* \begin{pmatrix}
+	1 & -3 & -3\\
+	1 & -13 & 1\\
+	0 & 4 & 0\\
+	\end{pmatrix} \\
+	\begin{pmatrix}
+	1 & 3 & \frac{21}{2}\\
+	0 & 0 & \frac{1}{2}\\
+	0 & 0 & 0\\
+	\end{pmatrix} \* \begin{pmatrix}
+	1 & -3 & -3\\
+	1 & -13 & 1\\
+	0 & 4 & 0\\
+	\end{pmatrix} & = \begin{pmatrix}
+	4 & 0 & 0\\
+	0 & 2 & 0\\
+	0 & 0 & 0\\
+	\end{pmatrix}
+\end{align*}
+
+\begin{center}
+Finalmente veamos que $ \lambda_1 = 4, \lambda_2 = 3, \lambda_3 = 0 $ y efectivamente, son los elementos de la diagonal
+\end{center}
+
+%%%%%%%%%%%%5
+\noindent12. Muestre que $\beta^{'} =\{ -3+x , -3-13x + 4x^2, 1+x \}$, es una base para $ \mathbb{P}_{2}(\mathbb{R})$ y además determine $[T]_{\beta^{'}}$ \\
+Primero veamos quién es la generada de $ \beta' $
 
 
 \end{document}
