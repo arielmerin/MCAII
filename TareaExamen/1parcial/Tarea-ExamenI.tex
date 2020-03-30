@@ -916,27 +916,27 @@ luego, resolvamos el sistema de equaciones anterior, adjuntando la identidad y r
 	0 & 0 & 1 & \frac{1}{4} & \frac{3}{4} & \frac{21}{8}
 	\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
 	1 & 1 & -\frac{1}{3} & -\frac{1}{3} & 0 & 0\\
-	0 & 1 & 0 & 0 & \frac{1}{4} & 0\\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
 	0 & 0 & 1 & \frac{1}{4} & \frac{3}{4} & \frac{21}{8}
 	\end{pmatrix} && \text{3a fila $ \* \frac{2}{21} $ + 2a fila en 2a fila}\\
 	%%%%%%%%%%%%%%% 7a operación %%%%%%%%%%%%
 	\begin{pmatrix}[ccc|ccc]
 	1 & 1 & -\frac{1}{3} & -\frac{1}{3} & 0 & 0\\
-	0 & 1 & 0 & 0 & \frac{1}{4} & 0\\
+	0 & 1 & 0 & 0 & 0& \frac{1}{4}\\
 	0 & 0 & 1 & \frac{1}{4} & \frac{3}{4} & \frac{21}{8}
 	\end{pmatrix}  &= \begin{pmatrix}[ccc|ccc]
 	1 & 1 & 0 & -\frac{1}{4} & \frac{1}{4} & \frac{7}{8} \\
-	0 & 1 & 0 & 0 & \frac{1}{4} & 0\\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
 	0 & 0 & 1 & \frac{1}{4} & \frac{3}{4} & \frac{21}{8}
 	\end{pmatrix}  && \text{3a fila $ \* \frac{1}{3} + $ 1a fila en 1a fila } \\
 	%%%%%%%%%%%%% 8a operación %%%%%%
 	\begin{pmatrix}[ccc|ccc]
 	1 & 1 & 0 & -\frac{1}{4} & \frac{1}{4} & \frac{7}{8} \\
-	0 & 1 & 0 & 0 & \frac{1}{4} & 0\\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
 	0 & 0 & 1 & \frac{1}{4} & \frac{3}{4} & \frac{21}{8}
 	\end{pmatrix} &= \begin{pmatrix}[ccc|ccc]
 	1 & 0 & 0 & -\frac{1}{4} & \frac{1}{4} & \frac{5}{8} \\
-	0 & 1 & 0 & 0 & \frac{1}{4} & 0\\
+	0 & 1 & 0 & 0 & 0 & \frac{1}{4}\\
 	0 & 0 & 1 & \frac{1}{4} & \frac{3}{4} & \frac{21}{8}
 	\end{pmatrix} && \text{2a fila $ \* -1 + $ 1a fila en 1a fila}
 \end{align*}
@@ -1032,6 +1032,47 @@ entonces obtenemos el siguiente sistema
 	$ \therefore \qquad \beta' $ es linealmente independiete\\
 	$ \therefore \qquad \beta' $ es base para $ \Po $
 \end{center}
+Para hallar la matriz asociada a $ T $ de $ \beta'  $ en $ \beta' $, apliquemos la transformación linela a cada uno de los elementos de la base
+\begin{align*}
+	T(-3 +x) &= -3 +3 + x(-3+3)+0 && \text{Primer elemento de la base} \\
+	T(-3 +x) &= 0 && \text{Primer elemento de la base} \\
+	\\
+	T(-3 -13x +4x^2) &= -3 +3(-13) + 9(4) + x(-3 + 3(-13) + 4(4)) + 2x^2(4) && \text{Segundo elemento de la base}\\
+	T(-3 -13x +4x^2) &= -6 -26x +8x^2 && \text{Segundo elemento de la base}\\
+	\\
+	T(1 +x) &= 1 + 3 +x(1 + 3) && \text{Tercer elemento de la base}\\
+	T(1 +x) &= 4 + 4x&& \text{Tercer elemento de la base}\\
+\end{align*}
 
+cada resultado como combinación lineal de la base $ \beta' $
 
+\begin{align*}
+	0 &=  \alpha_1 = 0, \alpha_2= 0, \alpha_3 = 0\\
+	0 &=  \begin{pmatrix}
+	0\\
+	0\\
+	0
+	\end{pmatrix}\\
+\end{align*}
+\begin{align*}
+	-6 -26x +8x^2 &= \alpha_1 = 0, \alpha_2 = 2, \alpha_3 = 0 \\
+	-6 -26x +8x^2 &= \begin{pmatrix}
+	0\\
+	2\\
+	0
+	\end{pmatrix}\\
+	\\
+	4 + 4x &= \alpha_1 = 0, \alpha_2 = 0, \alpha_3 = 4\\
+	4 + 4x &= \begin{pmatrix}
+	0\\
+	0\\
+	4
+	\end{pmatrix}\\
+\end{align*}
+por lo tanto 
+\[ [T]_{\beta'} = \begin{pmatrix}
+0 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 4
+\end{pmatrix} \]
 \end{document}
