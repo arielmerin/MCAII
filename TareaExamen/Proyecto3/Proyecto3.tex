@@ -1,164 +1,129 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%	Licencia:		Este documento se distribuye bajo licencia (CC BY 4.0) Usted puede encontrar un resumen %%
-%%					de la licencia en http://creativecommons.org/licenses/by/4.0/deed.es					%%
-%%																											%%
-%%	-----------------------------------------------------------------------------------------------------	%%
-%%																											%%
-%%	Plantilla:		exi-examen																				%%
-%%	Descripción:	exi-examen.tex es una plantilla para realizar exámenes escritos en formato LaTeX		%%
-%%	Autor:			Ing. Alfonso Ramos Michel																%%
-%%	Fecha:			9 de diciembre de 2013																	%%
-%%	Revisión:		UNO-A																					%%
-%%	Paquetes:		inputenc																				%%
-%%					babel																					%%
-%%					graphicx																				%%
-%%					amsmath																					%%
-%%					geometry 																				%%
-%%					fancyhdr																				%%
-%%	Comandos:		\ExiEscuela		Para definir la institución educativa donde se realiza el examen.		%%
-%%					\ExiCarrera		Para definir la carrera que se realiza.									%%
-%%					\ExiMateria		Para definir la materia que se cursa.									%%
-%%					\ExiParcial		Para definir el parcial del cual se realiza el examen.					%%
-%%					\informacion	Muesta un recuadro donde poder dar instrucciones al alumno.				%%
-%%					\datos			Muestra una línea para el nombre del alumno y la fecha de realización.	%%
-%%					\pregunta		Permite introducir (dentro del entorno enummerate) una pregunta o el 	%%
-%%									planteamiento de un problema.											%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-\documentclass[letterpaper,11pt]{article}
-
+\documentclass[letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish,mexico]{babel}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath}
 \usepackage{graphicx}
-\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{dsfont}
+\usepackage[margin=1.5cm,
+vmargin={1.5cm,1.3cm},
+includefoot]{geometry}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tocloft}
+\usepackage{upgreek}
 \usepackage{amsthm}
-\usepackage{amsfonts}
-%\usepackege{amssymb}
-\usepackage[hmargin=1in, vmargin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{paralist}
 \usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{tikz}
+\tcbuselibrary{skins,breakable}
 \pagestyle{fancy}
-\usepackage{tasks}
-\lhead{\ExiCarrera}
-\chead{\ExiMateria}
-\rhead{\ExiParcial}
-\cfoot{\ExiEscuela}
+
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \providecommand{\abs}[1]{\lvert#1\rvert}
-\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\norm}[1]{\lVert#1\rVert}														  
+\newcommand{\V}{\mathds{V}}
 
-%=================================================================================
-%	Definición de comandos
-%=================================================================================
-\newcommand{\informacion}[1]{
-\begin{center}
-\fbox{\fbox{\parbox{\textwidth}{{\footnotesize#1}}}}
-\end{center}
-\vspace{5mm}}
-\newcommand{\datos}{\makebox[0.7\textwidth]{Nombre:~\hrulefill} Fecha:~\hrulefill}
-\newcommand{\pregunta}[2]{\item{#2}~{(#1 puntos)}\\ \vspace{5mm}						       
-			{\bf Solución}}														  
-%	Los siguientes comandos hay que definirlos desde aquí.								    %
-\newcommand{\ExiCarrera}{Matemáticas para las Ciencias II.}											  %%%
-\newcommand{\ExiMateria}{\textbf{Proyecto III}}														%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\ExiParcial}{Entrega: Viernes 20 de Marzo}														  %%%
-\newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}	                		    %
+\newcommand{\W}{\mathds{W}}
 
-%=================================================================================
-%	Aquí comienza lo bueno, a definir el examen!!!!
-%=================================================================================
+\newcommand{\F}{\mathds{F}}
+
+\newcommand{\tq}{ \quad \cdot  \backepsilon \cdot \quad }
+
+\newcommand{\ld}{\lim\limits_{x \to 0^{+}}}
+
+\newcommand{\li}{\lim\limits_{x \to 0^{-}}}
+
+\newcommand{\la}{\lim\limits_{x \to a}}
+
+\newcommand{\R}{\mathds{R}}
+
+\newcommand{\Po}{\mathds{P}_2(\mathds{R})}
+
+\renewcommand{\*}{\cdot}
+
+\newcommand{\Iden}{\begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 1 
+\end{pmatrix}}
+\newcommand{\T}{\begin{pmatrix}
+		1 & 3 & 9 \\
+		1 & 3 & 4 \\
+		0 & 0 & 2 
+\end{pmatrix} }
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+
+\newtheorem{theorem}{Teorema}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}
+
 \begin{document}
+	
+	\setlength{\unitlength}{1cm}
+	\thispagestyle{empty}
+	\begin{picture}(19,3)
+	\put(-0.5,1.2){\includegraphics[scale=.20]{unam1.png}}
+	\put(16,1){\includegraphics[scale=.29]{fciencias1.png}}
+	\end{picture}
+	
+	\begin{center}
+		\vspace{-114pt}
+		\textbf{\large Matemáticas para las Ciencias II}\\
+		\textbf{ Semestre 2020-2}\\
+		Prof. Pedro Porras Flores\\
+		Ayud. Irving Hernández Rosas \\
+		\textbf{Proyecto III}\\[0.2cm]
+		Kevin Ariel Merino Peña\footnote{317031326}\\ [0.2cm]
+	\end{center}
+	\vspace{-10pt}
+	\rule{19cm}{0.3mm}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%            CARÁTULA            %%%%%%%%%%%%%%%%%%%%%%%%%
-\setlength{\unitlength}{1cm}
-\thispagestyle{empty}
-\begin{picture}(18,4)
-\put(-0.5,1.2){\includegraphics[scale=.25]{unam1.png}}
-\put(13.5,1){\includegraphics[scale=.35]{fciencias1.png}}
-\end{picture}
-
-\begin{center}
-\vspace{-134pt}
-\textbf{\large Matemáticas para las Ciencias II}\\[0.2cm]
-\textbf{ Semestre 2020-2}\\[0.2cm]
-Prof. Pedro Porras Flores\\[0.2cm]
-Ayud. Irving Hérnandez Rosas \\ [0.2cm]
-%Ayud. Carlos Rodolfo Barrera Anzaldot \\ [0.2cm]
-\textbf{Proyecto III}
-\end{center}
-\vspace{-10pt}
-\rule{17cm}{0.3mm}
-\begin{flushright}
-\vspace{-3pt}
-\end{flushright}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%
-%\informacion{\large Profesor: Pedro Porras  Flores \\
-%porras@ciencias.unam.mx  \\
-
-%Ayudante: María Guadalupe Gómez Farfán\\ 
- %lupis\_2309@hotmail.com\\
- 
-% Ayudante: Carlos Rodolfo Barrera Anzaldo\\ 
- %crba@ciencias.unam.mx\\}
-%%%%
-\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom. 
+\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom. \\[0.5cm]
+1.  Muestre que los siguientes conjuntos del plano son abiertos: 
 
 
-\begin{enumerate}
+$$\text{a) } A = \{ (x,y) \in \mathbb{R} \vert - 1 < x < 1, - 1 < y < 1 \}$$
 
-% -----------------------------------------------------
-% Problema uno
-% -----------------------------------------------------
+$$\text{b) }B = \{ (x,y) \in \mathbb{R} \vert \,  0 < y  \}$$
 
-\item  Muestre que los siguientes conjuntos del plano son abiertos: 
-
-\begin{tasks}(1)
-\task $A = \{ (x,y) \in \mathbb{R} \vert - 1 < x < 1, - 1 < y < 1 \}$.
-\task $B = \{ (x,y) \in \mathbb{R} \vert \,  0 < y  \}$.
-\task $A = \{ (x,y) \in \mathbb{R} \vert \, 2 < x^2  + y^2 <  4 \}$.
-\end{tasks}
+$$\text{c) }A = \{ (x,y) \in \mathbb{R} \vert \, 2 < x^2  + y^2 <  4 \}$$\\[0.5cm]
+2.  Calcule los siguientes. límites si existen: 
 
 
-\item  Calcule los siguientes. límites si existen: 
+$$\text{a) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\cos(xy) - 1}{x^2y^2}$$
 
-\begin{tasks}(3)
-\task $\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\cos(xy) - 1}{x^2y^2}$.
-\task $\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\sin(xy) }{xy}$.
-\task $\displaystyle\lim_{x, \to 1} (x^2 , e^x) $.
-\end{tasks}
+$$\text{b) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\sin(xy) }{xy}$$
 
-\item  Usando la formulación $\epsilon$-$\delta$ muestre: 
+$$\text{c) }\displaystyle\lim_{x \to 1} (x^2 , e^x) $$\\[0.5cm]
+3.  Usando la formulación $\epsilon$-$\delta$ muestre: \\
 
-\begin{tasks}(2)
-\task $\displaystyle\lim_{(x,y,z) \to (0,0,0)} \dfrac{xyz}{x^2 + y^2 + z^2} = 0$.
-\task $\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{xy }{\sqrt{x^2 + y^2}} = 0$.
-\task $\displaystyle\lim_{x, \to 2} (3x , x^2) = (6,4) $.
-\end{tasks}
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[width=9cm]{silla}
-%\caption{Parábola con foco sobre el eje $x$.}
-%\label{F1}
-%\end{figure}
-\item  Sea $f: \mathbb{R}^2  \longrightarrow \mathbb{R}$ tal que $f(x,y) = \left\{
+ $$ \text{a) } \displaystyle\lim_{(x,y,z) \to (0,0,0)} \dfrac{xyz}{x^2 + y^2 + z^2} = 0$$\\
+
+$$\text{b) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{xy }{\sqrt{x^2 + y^2}} = 0$$\\
+
+$$\text{c) }\displaystyle\lim_{x \to 2} (3x , x^2) = (6,4) $$\\[0.5cm]
+4.  Sea $f: \mathbb{R}^2  \longrightarrow \mathbb{R}$ tal que $f(x,y) = \left\{
      \begin{array}{cl}
        \dfrac{x^2y}{\vert x \vert^3 + y^2} & : \text{ si } (x,y) \neq (0,0)\\
        0 & : \text{ si } (x,y) = (0,0)\\
      \end{array}
-   \right.$. Muestre que $f$ continua es $(0,0)$.
+   \right.$. \\Muestre que $f$ es continua en $(0,0)$
 
 
-
-\end{enumerate}
 
 
 
