@@ -94,15 +94,30 @@ includefoot]{geometry}
 
 \noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom. \\[0.5cm]
 1.  Muestre que los siguientes conjuntos del plano son abiertos: 
+\begin{definition}
+	Sea $ \vec{x}_0  \in \R^n$  y sea $ r \in \R^+ $, la \textbf{bola} de radio r y centro en $ \vec{x}_0 $ es definida por el conjunto de todos los puntos $ \vec{x} $ tal que $ \norm{\vec{x} - \vec{x}_0} < r $.\\ Este conjunto es denotado como $ Br(\vec{x}_0) $ es el conjunto de los puntos $ \vec{x} \in \R^n $ cuya distancia de $ \vec{x}_0 $ es menor que $ r $
+\end{definition}
 
+\begin{definition}
+	Sea $ U \subset \R^n $. Decimos que $ U $ es \textbf{conjunto abierto} si para cada $ \vec{x}_0 $, existe algún $ r>0 $ tal que $ Br(\vec{x}_0) $ está totalmente contenida en $ U $, $ Br(\vec{x}_0) \subset U $
 
-$$\text{a) } A = \{ (x,y) \in \mathbb{R} \vert - 1 < x < 1, - 1 < y < 1 \}$$
+\end{definition}
 
-$$\text{b) }B = \{ (x,y) \in \mathbb{R} \vert \,  0 < y  \}$$
+$$\text{a) } A = \{ (x,y) \in \mathbb{R}^2 \vert - 1 < x < 1, - 1 < y < 1 \}$$
 
-$$\text{c) }A = \{ (x,y) \in \mathbb{R} \vert \, 2 < x^2  + y^2 <  4 \}$$\\[0.5cm]
+$$\text{b) }B = \{ (x,y) \in \mathbb{R}^2 \vert \,  0 < y  \}$$
+
+$$\text{c) }A = \{ (x,y) \in \mathbb{R}^2 \vert \, 2 < x^2  + y^2 <  4 \}$$\\[0.5cm]
 2.  Calcule los siguientes. límites si existen: 
-
+\begin{definition}
+	Sea $ f: A \subset \R^n \to \R^m $ y $ \vec{x}_0 \in A $, un punto de acumulación de $ A $. Entonces se dice qe el límite de $  f(\vec{x}) $, cuando $ \vec{x} $ tiende a $ \vec{x}_0 $, es $ \vec{\textit{l}} \in \R^m $ y se denota
+	\[ \lim\limits_{\vec{x} \to \vec{x}_0} = \vec{\textit{l}} \qquad \text{ o } f(\vec{x}) \to \vec{\textit{l}} \]
+	Si $ \forall \epsilon > 0, \quad \exists  \delta > 0 $ tal que $ \vec{x} \to \vec{x}_0 $
+\end{definition}
+\begin{definition}
+	Si $ f(\vec{x}) = (f_1(\vec{x}), \dots, f_m(\vec{x})) $ donde $ f_i:A \to \R  $, $ i \in \{ 1, \dots, m \} $  son las componentes de la función de $ f $, entonces 
+	\[ \lim\limits_{\vec{x} \to \vec{x}_0 } f(\vec{x}) = (l_1, l_2, \dots, l_m) \] si y sólo si\[ \lim\limits_{\vec{x} \to \vec{x}_0} f_i(\vec{x}) = l_i \] para cada $ i \in \{ 1, 2, \dots, m \} $
+\end{definition}
 
 $$\text{a) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\cos(xy) - 1}{x^2y^2}$$
 
@@ -121,7 +136,7 @@ $$\text{c) }\displaystyle\lim_{x \to 2} (3x , x^2) = (6,4) $$\\[0.5cm]
        \dfrac{x^2y}{\vert x \vert^3 + y^2} & : \text{ si } (x,y) \neq (0,0)\\
        0 & : \text{ si } (x,y) = (0,0)\\
      \end{array}
-   \right.$. \\Muestre que $f$ es continua en $(0,0)$
+   \right.$ \\Muestre que $f$ es continua en $(0,0)$
 
 
 
