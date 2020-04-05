@@ -159,6 +159,7 @@ includefoot]{geometry}
 \begin{corolario}
 	Sean $ \u, \v \in \R^3 $, muestre que $ \norm{\u - \v} \geq \abs{\norm{\u} - \norm{\v}} $
 \end{corolario}
+\section{Bola abierta}
 \begin{definition}[Bola abierta]
 	Sea $ \vec{x_0} $ y sea $ r \in \R^+ $, la bola de radio $ r $ y centro en $ \vec{x_0} $ es definida por el conjunto de todos los punros $ \vec{x} $ tal que $ \norm{\vec{x} - \vec{x_0}} < r $.\\
 	Este conjunto es denotado como $ Br(\vec{x_0}) $, es el conjunto de todos los puntos $ \vec{x} \in \R^n $ cuya distancia de $ \vec{x_0} $ es menor que $ r $
@@ -196,4 +197,45 @@ Ahora sólo mostraremos que $ Br(\vec{x}) \subset Br(\vec{x_0}) $. Para esto deb
 	\end{align*}
 	Finalmente por $ (\ref{eq:radio}) $ \[ \norm{\vec{y} - \vec{x_0}}< r \]
 \end{proof}
+\section*{Ejemplo}
+Mostrar $ A = \{ (x,y) \in \R^2 | x > 0 \} $ es un conjunto abierto
+\begin{proof}
+	Sean $(x,y) \in A $ y $ r > 0 $, por mostrar que $ Br(x,y)  \subset A$. Observamos que la bola más grande que podemos dar con centro en $ (x,y) $ es la que tenga un radio $ r = x $, pues como $ (x,y) \in A $, entonces $ x >0 $.\\
+	
+	Ahora queremos mostrar que si tomamos $ (x_1,y_1) \in Br(x,y) $ entonces $ (x_1,y_1) \in A $.\\
+	
+	Si $ (x_1,y_1) \in Br(x,y) $, entonces
+	\begin{align*}
+	\abs{x_1 - x} &= \sqrt{(x_1 - x)^2} && \text{Por definición de valor absoluto}\\
+	\abs{x_1 - x} &= \sqrt{(x_1 - x)^2} \leq \sqrt{(x_1 - x)^2 + (y_1 - y)^2} < r = x && \text{Por construcción}\\
+	\abs{x_1 - x} & < x && \text{Transitividad de la desigualdad}\\
+	-x &< x_1 - x < x && \text{Propiedad del valor absoluto}\\
+	0 &< x_1  < 2x && \text{Sumando en todos lados }x\\
+	0 &< x_1  && \text{Tomando sólo esa parte de la desigualdad}\\
+	\end{align*}
+	\[ 0 < x_1 \implies (x_1,y_1) \in A \implies Br(x,y) \subset A \]
+	\begin{center}
+		$ \therefore $ A es abierto
+	\end{center} 
+\end{proof}
+	El concepto de bola en $ \R^n $ permite extender el concepto de vecidad qe teníamos en $ \R $, la cual fue fundamental para definir conceptos como límite y continiudad
+	\section{Frontera}
+	A continuación introducimos el concepto de frontera.
+	\begin{definition}[Punto frontera]
+		Sea $ A \subset \R^n$. Un punto $ \vec{x} \in \R^n $, es llamado punto frontera de $ A $ si para cada vecindad de $ \vec{x} $, ésta contiene al menos un punto de $ A $ y punto que no está en $ A $, la frontera de $ A $ son todos sus puntos frontera.
+	\end{definition}
+\section*{Ejemplo}
+Sea $ A = (a,b)  \in \R$, entonces los puntos frontera de A son $ a  $ y $ b $.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Aquí ponemos una linea recta con intervalos abiertos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Mostremos que $ a $ es un punto frontera, para esto observemos que la bola más grande que podemos dar es aquella cuyo radio sea $ \abs{b -a} $.Sea 
+\[ Br(a) = \{ \abs{x -a} < r | r < \abs{b-a} \} \] y como $ a<b $, entonces $ 0 < b -a $ por lo que $ \abs{b-a} = b-a >0 $
+\[ Br(a)  = \{ -r < x-a < r | r < b-a \} \]
+Por otra parte, observemos lo siguiente
+\[ r < b-a \implies -r > -(b-a) \implies -r > a-b \]
+Así obtenemos que
+\[  -r > a-b \implies Br(a) = \{ a-b < x-a < b-a | a<b \} \]
+\[ Br(a) = \{ a-b < x-a < b-a | a<b \} \implies Br(a) = \{ 2a-b < x < b \} \]Observemos lo siguiente, como $ a< b  \implies a-b < 0 \implies a +a -b < a  \implies 2a - b < a$. Por lotanto, hay $ x $ tal que $ 2a-b < x < a $, es decir, $ x $ es un punto que no está en $ A $ y por otro lado como $ x<b $ también hay al menos un punto que sí lo está, por lo tanto $ a $ es punto frontera. Análogo  para $ b $.
 \end{document}
