@@ -28,6 +28,7 @@ includefoot]{geometry}
 
 \providecommand{\abs}[1]{\lvert#1\rvert}
 \providecommand{\norm}[1]{\lVert#1\rVert}														  
+\providecommand{\pint}[1]{<#1>}														  
 \newcommand{\V}{\mathds{V}}
 
 \newcommand{\W}{\mathds{W}}
@@ -43,6 +44,10 @@ includefoot]{geometry}
 \newcommand{\la}{\lim\limits_{x \to a}}
 
 \newcommand{\R}{\mathds{R}}
+
+\renewcommand{\u}{\vec{u}}
+
+\renewcommand{\v}{\vec{v}}
 
 \newcommand{\Po}{\mathds{P}_2(\mathds{R})}
 
@@ -90,5 +95,19 @@ includefoot]{geometry}
 	\vspace{-10pt}
 	\rule{19cm}{0.3mm}
 	
-	Hello world!
+\section[Clase 23 de marzo]{Conjuntos abiertos}
+\begin{theorem}
+	Sean $ \vec{u} $ y $ \vec{v} $ dos vectores en $ \R^3 $ y sea $ \theta  \in \R$, donde $ 0 \leq \theta < \pi $ el ángulo entre ellos, entonces
+	\[ <\vec{u}, \vec{v}> = \norm{\vec{u}}\norm{\vec{v}}\cos \theta \]
+\end{theorem}
+\begin{proof}
+	Consideremos el triángulo formado por los vectores $ \vec{u}, \vec{v} $ y $ \vec{u}\vec{v} $ de la ley de cosenos tenemos 
+	\[ \norm{\vec{u}- \vec{v}}^2 = \norm{\vec{u}}^2 + \norm{\vec{v}}^2 - 2 \norm{\vec{u}}\norm{\vec{v}}\cos\theta \]
+	Por otro lado calculemos $ \norm{\vec{u} - \vec{v}}^2 $ esto es
+	\begin{align*}
+		\norm{\vec{u}- \vec{v}}^2 &= \pint{\u - \v, \u - \v} \\
+		\norm{\vec{u}- \vec{v}}^2 &= \pint{\u, \u - \v} + \pint{-\v, \u - \v} \\
+		\norm{\vec{u}- \vec{v}}^2 &= \pint{\u, \u - \v} + \pint{-\v, \u - \v} \\
+	\end{align*}
+\end{proof}
 \end{document}
