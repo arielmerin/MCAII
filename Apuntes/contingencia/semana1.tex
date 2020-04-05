@@ -149,7 +149,7 @@ includefoot]{geometry}
 		\norm{\u}^2 + \norm{\v}^2 + 2\pint{\u, \v} &\leq \norm{\u}^2 + \norm{\v}^2 + 2\norm{\u}\norm{\v}  && \text{Sumando en ambos lados } \norm{\u}^2 + \norm{\v}^2 \label{eq:desigualdad} \tag{2}\\
 	\end{align*}
 	Para concluir, observemos que $$ \norm{\u + \v} = \norm{\u}^2 + \norm{\v}^2 + 2 \pint{\u, \v} \label{eq:definicionInterno} \label{3} $$
-	Luego, de $ (\ref{eq:desigualdad}), (\ref{eq:definicionInterno}) $ tenemos: 
+	Luego, de $ (\ref{eq:desigualdad}), (1) $ tenemos: 
 	$ \norm{\u + \v} \leq \norm{\u}^2 + \norm{\v}^2 + 2 \norm{\u} \norm{\v} $, ahora tenemos 
 	\begin{align*}
 	\norm{\u+ \v}^2 & \leq (\norm{\u} + \norm{v})^2 && \text{factorizando el trinomio cuadrado pefecto}\\
@@ -160,6 +160,40 @@ includefoot]{geometry}
 	Sean $ \u, \v \in \R^3 $, muestre que $ \norm{\u - \v} \geq \abs{\norm{\u} - \norm{\v}} $
 \end{corolario}
 \begin{definition}[Bola abierta]
-	Sea $ \vec{x_0} $
+	Sea $ \vec{x_0} $ y sea $ r \in \R^+ $, la bola de radio $ r $ y centro en $ \vec{x_0} $ es definida por el conjunto de todos los punros $ \vec{x} $ tal que $ \norm{\vec{x} - \vec{x_0}} < r $.\\
+	Este conjunto es denotado como $ Br(\vec{x_0}) $, es el conjunto de todos los puntos $ \vec{x} \in \R^n $ cuya distancia de $ \vec{x_0} $ es menor que $ r $
+	\[ Br(\vec{x_0}) = \{  \norm{\vec{x} - \vec{x_0}} < r \quad | \quad \vec{x}, \vec{x_0} \in \R^n \quad r > 0 \} \]
 \end{definition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%		EJEMPLOS DE BOLAS AABIERTAS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{definition}[Conjunto abierto]
+	Sea $ U \subset \R^n $. Decimos que $ U $ es un conjunto abierto si para cada $ \vec{x_0} \in U $, existe algún $ r > 0 $ tal que $ Br(\vec{x_0}) $ está totalmente contenida en $ U $, $ Br(\vec{x_0}) \subseteq U $
+\end{definition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%		EJEMPLOS QUE PORRAS PUSO EN EL PLANO Y UN SUBVONJUNTO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{theorem}
+	Para cada $ \vec{x_0} \in \R^n $ y $ r >0 $, $ Br(\vec{x_0})  $ es un conjunto abierto
+\end{theorem}
+\begin{proof}
+	Para mostrar que $ Br(\vec{x_0}) $ es abierto, debemos mostrar que para cualquier punto $ \vec{x} \in Br(\vec{x_0})  $ podemos dar una bola con centro en $ \vec{x} $ y algún radio, además que dicha bola esté totalmente contenida en $ Br(\vec{x_0}) $, a continuación mostraremos un bosquejo que ayuda a la prueba\\
+
+Observemos que el radio para la bola con centro en $ \vec{x} $, debe ser \[ s = r - \norm{\vec{x} - \vec{x_0}} \label{eq:radio} \tag{1} \]
+Ahora sólo mostraremos que $ Br(\vec{x}) \subset Br(\vec{x_0}) $. Para esto debemos mostrar que para cualquier $ \vec{y} \in Br(\vec{x}) $, entonces $ \vec{y} \in Br(\vec{x_0}) $. Esto es \[ \norm{ \vec{y} - \vec{x} } < s \implies \norm{\vec{y} - \vec{x_0}} < s \] Hagamos una observación, como $ \vec{y} \in Br(\vec{x}) $ entonces \[ \norm{ \vec{y} - \vec{x} } < s \label{eq:bola} \tag{2} \] esto anterior, por la definición de bola.\\
+	
+	En resumen, debemos de mostrar que $ \norm{\vec{y} - \vec{x_0} } < r $, para ello consideremos:
+	\begin{align*}
+	\norm{\vec{y} - \vec{x_0}} &= \norm{\vec{y} + \vec{0} - \vec{x_0}} & \text{Sumando el neutro aditivo}\\
+	\norm{\vec{y} - \vec{x_0}} &= \norm{\vec{y} + \vec{x} - \vec{x} - \vec{x_0}} & \text{Por definición del neutro aditivo}\\
+	\norm{\vec{y} - \vec{x_0}} &= \norm{(\vec{y} - \vec{x}) + (\vec{x} - \vec{x_0})} & \text{Por definición del neutro aditivo}\\
+	\norm{\vec{y} - \vec{x_0}} &= \norm{(\vec{y} - \vec{x}) + (\vec{x} - \vec{x_0})} \leq \norm{\vec{y} - \vec{x}} + \norm{ \vec{x} - \vec{x_0} } & \text{Por la desigualdad del triángulo}\\
+	\norm{\vec{y} - \vec{x_0}} &= \norm{(\vec{y} - \vec{x}) + (\vec{x} - \vec{x_0})} \leq \norm{\vec{y} - \vec{x}} + \norm{ \vec{x} - \vec{x_0} } < s + \norm{\vec{x} + \vec{x_0}} & \text{Por la observación \ref{eq:bola} } \norm{ \vec{y} - \vec{x} } < s 
+	\end{align*}
+	Finalmente por $ (\ref{eq:radio}) $ \[ \norm{\vec{y} - \vec{x_0}}< r \]
+\end{proof}
 \end{document}
