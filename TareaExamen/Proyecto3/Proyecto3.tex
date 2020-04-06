@@ -26,8 +26,8 @@ includefoot]{geometry}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
-\providecommand{\abs}[1]{\lvert#1\rvert}
-\providecommand{\norm}[1]{\lVert#1\rVert}														  
+\providecommand{\abs}[1]{\left|#1\right|}
+\providecommand{\norm}[1]{\left|\left|#1\right|\right|}														  
 \newcommand{\V}{\mathds{V}}
 
 \newcommand{\W}{\mathds{W}}
@@ -116,7 +116,7 @@ $$\text{c) }A = \{ (x,y) \in \mathbb{R}^2 \vert \, 2 < x^2  + y^2 <  4 \}$$\\[0.
 \end{definition}
 
 
-$\text{a) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\cos(xy) - 1}{x^2y^2}$\\
+\noindent$\text{a) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\cos(xy) - 1}{x^2y^2}$\\
 Resultará conveniente recordar de nuestro curso de Matemáticas para las ciencias aplicadas I que $$ \lim\limits_{\alpha \to 0} \dfrac{cos(\alpha) - 1}{\alpha^2} = -\dfrac{1}{2} $$.  
 Entonces tomemos el siguiente cambio de variable $ \alpha = xy $
 y por el recordatorio anterior, tenemos que 
@@ -158,8 +158,40 @@ $$\text{c) }\displaystyle\lim_{x \to 2} (3x , x^2) = (6,4) $$\\[0.5cm]
 Para averiguar quién es el límite, tomémonos traectorias distintas. \\
 Deifinimos $ y = g(x) = 0 $
 \begin{align*}
-	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{(x,y) \to (0,0)}
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{(x,y) \to (0,0)} f(x,g(x))\\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{(x,y) \to (0,0)} f(x,0)\\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{x \to 0} \dfrac{x^2y}{\vert x \vert^3 + y^2} \\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{x \to 0} \dfrac{x^2(0)}{\vert x \vert^3 + (0)^2} \\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= 0
 \end{align*}
+Por otra parte, definamos $ y = g(x) = x$ por lo que
+\begin{align*}
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{(x,y) \to (0,0)} f(x,g(x))\\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{(x,y) \to (0,0)} f(x,x)\\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{x \to 0} \dfrac{x^3}{\vert x \vert^3 + x^2} \\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{x \to 0} \dfrac{x^3}{x^2  \left( \dfrac{\abs{x}^3}{x^2} + 1 \right) } \\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{x \to 0} \dfrac{x}{\dfrac{\abs{x}^3}{x^2} + 1 } \\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &=  \dfrac{\lim\limits_{x \to 0} x}{\lim\limits_{x \to 0} \left( \dfrac{\abs{x}^3}{x^2} + 1 \right) } \\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &=  \dfrac{\lim\limits_{x \to 0} x}{\lim\limits_{x \to 0}  \dfrac{3\abs{x}^2 \abs{x}'}{2x} + 1  }  && \text{Aplicando ley de L'Hôpital}\\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &=  \dfrac{\lim\limits_{x \to 0} x}{ \dfrac{3}{2} \lim\limits_{x \to 0}  \dfrac{\abs{x}^2}{x}\* \lim\limits_{x \to 0} \abs{x}'  + 1  }  && \text{Por la regla del producto}\\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &=  \dfrac{\lim\limits_{x \to 0} x}{ \dfrac{3}{2} \* 0\{-1,1\}  + 1  }  && \text{Por definición de la derivada del valor absoluto }\\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &=  \dfrac{\lim\limits_{x \to 0} x}{1}  && \text{}\\
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &=  0 && \text{}\\
+\end{align*}
+Sea $ \epsilon > 0 $, consideremos $ \norm{f(x,y) - l} $, donde $ f(x,y) = \dfrac{x^2y}{\vert x \vert^3 + y^2} $ y $ l = 0 $, entonces
+\begin{align*}
+	\norm{\dfrac{x^2y}{\vert x \vert^3 + y^2} - 0} &= \abs{\dfrac{x^2y}{\vert x \vert^3 + y^2}} \leq \abs{\dfrac{x^2y}{x^2}}
+\end{align*}
+luego, veamos que $ \abs{\dfrac{x^2y}{x^2}} = \abs{y} = \sqrt{y^2} $ y como $ 0 \leq y^2 \leq y^2 + x^2 $ tenemos que
+\begin{align*}
+	\abs{\dfrac{x^2y}{\abs{x}^3 + y^2}} &\leq \abs{y} = \sqrt{y^2}\\
+	\abs{\dfrac{x^2y}{\abs{x}^3 + y^2}} &\leq \sqrt{y^2}\\
+	\abs{\dfrac{x^2y}{\abs{x}^3 + y^2}} &\leq \sqrt{y^2} \leq \sqrt{x^2 + y^2}\\
+	\abs{\dfrac{x^2y}{\abs{x}^3 + y^2}} &\leq \sqrt{y^2} \leq \sqrt{x^2 + y^2} && \text{Puesto que }\sqrt{x^2 + y^2} = \norm{(x,y)} \\
+	\abs{\dfrac{x^2y}{\abs{x}^3 + y^2}} &\leq \sqrt{y^2} \leq \norm{(x,y)} < \epsilon && \text{Por hipótesis} \\
+	\abs{\dfrac{x^2y}{\abs{x}^3 + y^2}} &\leq \norm{(x,y)} < \epsilon \\
+\end{align*}
+Por lo tanto, basta tomar $ \delta = \epsilon $
 
 
 
