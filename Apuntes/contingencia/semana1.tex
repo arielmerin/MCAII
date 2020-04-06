@@ -238,4 +238,42 @@ Por otra parte, observemos lo siguiente
 Así obtenemos que
 \[  -r > a-b \implies Br(a) = \{ a-b < x-a < b-a | a<b \} \]
 \[ Br(a) = \{ a-b < x-a < b-a | a<b \} \implies Br(a) = \{ 2a-b < x < b \} \]Observemos lo siguiente, como $ a< b  \implies a-b < 0 \implies a +a -b < a  \implies 2a - b < a$. Por lotanto, hay $ x $ tal que $ 2a-b < x < a $, es decir, $ x $ es un punto que no está en $ A $ y por otro lado como $ x<b $ también hay al menos un punto que sí lo está, por lo tanto $ a $ es punto frontera. Análogo  para $ b $.
+
+Las pruebas para las siguientes fronteras las hicimos en clase\\
+
+
+b) Sea $ A  = Dr(x_0,y_0)$, un disco en el plano (Bola en $ \R^2 $)\\
+
+
+c) Sea $ A = \{ (x,y) \in \R^2 | x > 0\} $. Encontrar la frontera de $ A $ consiste de todos los puntos del eje $ y $
+\section{Límites}
+Recordemos la definición de límite de funciones de $ \R $ en $ \R $.\\
+
+Sea $ f: I\subset  \R \to \R $, $ L $ es el límite de $ f $ en $ a $ si para cada $ \epsilon > 0, \quad \exists \delta > 0 $, tal que $ \forall x \in Dom(f) $, si $ 0 < \abs{x - a} < \delta $, entonces $ \abs{f(x) - L} < \epsilon $ lo que denotamos como
+\[ \lim\limits_{x \to a}f(x) = L \]
+\begin{definition}[Límite de funciones de $ \R^n $ en $ \R^m $]
+	Sean $ f: A \subset \R^n \to  \R^m $ y $ \vec{x_0} \in A $ un punto de acumulación de $ A $. Entonces se dice que el límite de $ f(\vec{x}) $, cuando $ \vec{x} $ tiende a $ \vec{x_0} $, es $ \vec{l} \in \R^m $ y se denota:
+	\[ \lim\limits_{\vec{x} \to \vec{x_0}}f(\vec{x}) = \vec{l} \quad \text{ o } f(\vec{x}) \to \vec{l}, \text{ si } \forall \epsilon > 0, \exists \delta > 0 \text{ tal que } \vec{x} \to \vec{x_0} \]
+	$ 0 < \norm{\vec{x} - \vec{x_0}} < \delta $ y $ \vec{x} \in A $, entonces $ \norm{f(\vec{x}) - \vec{l}} < \epsilon $. Esto es equivalente a: Si $ \forall \epsilon > 0, \quad \exists \delta > 0  $ tal que \[ f([B_\delta(\vec{x_0})\cap A]\backslash\{ \vec{x_0} \}) \subseteq B_\epsilon(\vec{l}) \]
+\end{definition}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/limite}
+	\caption{Límite en términos de vecidades}
+\end{figure}
+\section{Propiedades de límites}
+\begin{theorem}[ Unicidad de límites]
+	Si $ \lim\limits_{\vec{x} \to \vec{x_0}}f(\vec{x}) = \vec{l_1} $ y $ \lim\limits_{\vec{x} \to \vec{x_0}}f(\vec{x}) = \vec{l_2} $, entonces $ \vec{l_1} = \vec{l_2} $
+\end{theorem}
+\begin{proof}
+	Para mostrar el teorema, veremos que $ \norm{\vec{l_1} - \vec{l_2}} = 0 $, observemos $$ 0 \leq \norm{\vec{l_1} - \vec{l_2}} = \norm{\vec{l_1} - \vec{l_2} + 0} = \norm{\vec{l_1} - \vec{l_2} + f(\vec{x}) - f (\vec{x})}  $$ Agrupando $ 0 \leq \norm{\vec{l_1} - \vec{l_2}} = \norm{(\vec{l_1} - f(\vec{x})) + (f(\vec{x}) - \vec{l_2})} $\\
+	
+	\noindent Usando la desigualdad del triángulo,entonces
+	\[ 0 \leq \norm{\vec{l_1} - \vec{l_2}  }  \leq \norm{ \vec{l_1} - f(\vec{x}) } + \norm{f(\vec{x}) - \vec{l_2}}  \] 
+	Pero por hipótesis $ \lim\limits_{\vec{x} \to \vec{x_0}}f(\vec{x}) = \vec{l_1} $ y $ \lim\limits_{\vec{x} \to \vec{x_0}}f(\vec{x}) = \vec{l_2} $\\
+
+	\noindent Entonces $ \norm{ \vec{l_1} - f(\vec{x}) } \to 0 $ y $ \norm{f(\vec{x}) - \vec{l_1}} \to 0  $, entonces
+	\[ 0 \leq \norm{\vec{l_1} - \vec{l_2}} \leq 0  \] por lo tanto $ \vec{l_1} - \vec{l_2}  = 0 \implies \vec{l_1} = \vec{l_2} $
+\end{proof}
+\section*{Ejemplos}
 \end{document}
