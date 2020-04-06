@@ -114,16 +114,34 @@ $$\text{c) }A = \{ (x,y) \in \mathbb{R}^2 \vert \, 2 < x^2  + y^2 <  4 \}$$\\[0.
 	\[ \lim\limits_{\vec{x} \to \vec{x}_0} = \vec{\textit{l}} \qquad \text{ o } f(\vec{x}) \to \vec{\textit{l}} \]
 	Si $ \forall \epsilon > 0, \quad \exists  \delta > 0 $ tal que $ \vec{x} \to \vec{x}_0 $
 \end{definition}
+
+
+$\text{a) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\cos(xy) - 1}{x^2y^2}$\\
+Resultará conveniente recordar de nuestro curso de Matemáticas para las ciencias aplicadas I que $$ \lim\limits_{\alpha \to 0} \dfrac{cos(\alpha) - 1}{\alpha^2} = -\dfrac{1}{2} $$.  
+Entonces tomemos el siguiente cambio de variable $ \alpha = xy $
+y por el recordatorio anterior, tenemos que 
+ 
+$$\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\cos(xy) - 1}{x^2y^2} = -\dfrac{1}{2}$$
+
+\noindent$\text{b) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\sin(xy) }{xy}$\\
+Para este segundo ejercicio, tomemos un cambio de variable $ y =\sqrt{r}  $ y $ x = \sqrt{r} $ entonces $ xy = r $ por lo que
+$$\text{b) }\displaystyle\lim_{(r\to 0} \dfrac{\sin(r) }{r}$$
+Y de nuestro curso de Matemáticas para las ciencias aplicadas I tenemos que $ \lim\limits_{\alpha \to 0} \dfrac{sin(\alpha)}{\alpha} = 1 $, por lo tanto
+$$\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\sin(xy) }{xy} = 1$$
+
+$$\text{c) }\displaystyle\lim_{x \to 1} (x^2 , e^x) $$\\[0.5cm]
+Tenemos un teorema enunciado en clase sobre las propiedades de los límites, una de ellas dice:
 \begin{definition}
 	Si $ f(\vec{x}) = (f_1(\vec{x}), \dots, f_m(\vec{x})) $ donde $ f_i:A \to \R  $, $ i \in \{ 1, \dots, m \} $  son las componentes de la función de $ f $, entonces 
 	\[ \lim\limits_{\vec{x} \to \vec{x}_0 } f(\vec{x}) = (l_1, l_2, \dots, l_m) \] si y sólo si\[ \lim\limits_{\vec{x} \to \vec{x}_0} f_i(\vec{x}) = l_i \] para cada $ i \in \{ 1, 2, \dots, m \} $
 \end{definition}
+entonces si
+\begin{align*}
+	\lim_{x \to 1} (x^2 , e^x) &=\left( \lim_{x \to 1} x^2, \lim_{x \to 1} e^x \right)\\
+	\lim_{x \to 1} (x^2 , e^x) &=\left( (1)^2,  e^{1} \right)\\
+	\lim_{x \to 1} (x^2 , e^x) &=\left( 1,  e \right)\\
+\end{align*}
 
-$$\text{a) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\cos(xy) - 1}{x^2y^2}$$
-
-$$\text{b) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{\sin(xy) }{xy}$$
-
-$$\text{c) }\displaystyle\lim_{x \to 1} (x^2 , e^x) $$\\[0.5cm]
 3.  Usando la formulación $\epsilon$-$\delta$ muestre: \\
 
  $$ \text{a) } \displaystyle\lim_{(x,y,z) \to (0,0,0)} \dfrac{xyz}{x^2 + y^2 + z^2} = 0$$\\
@@ -137,7 +155,11 @@ $$\text{c) }\displaystyle\lim_{x \to 2} (3x , x^2) = (6,4) $$\\[0.5cm]
        0 & : \text{ si } (x,y) = (0,0)\\
      \end{array}
    \right.$ \\Muestre que $f$ es continua en $(0,0)$
-
+Para averiguar quién es el límite, tomémonos traectorias distintas. \\
+Deifinimos $ y = g(x) = 0 $
+\begin{align*}
+	\lim\limits_{(x,y)\to (0,0)} f(x,y) &= \lim\limits_{(x,y) \to (0,0)}
+\end{align*}
 
 
 
