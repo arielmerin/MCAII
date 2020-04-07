@@ -104,10 +104,42 @@ includefoot]{geometry}
 \end{definition}
 
 $\text{a) } A = \{ (x,y) \in \mathbb{R}^2 \vert - 1 < x < 1, - 1 < y < 1 \}$
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{1a}
+	\caption{En el plano sólo la intersección es el conjunto A}
+\end{figure}
 
 $\text{b) }B = \{ (x,y) \in \mathbb{R}^2 \vert \,  0 < y  \}$
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=0.3\textwidth]{1b}
+	\caption{En el plano, los cuadrantes 1 y 2, son el conjunto B}
+\end{figure}
+Sean $ (x,y) \in B $ y $r >0 $, por demostrar $ Br(x,y) \subset B $.\\
+La bola de radio más grande que podemos dar es $ r = y $ y como $ (x,y) \in B $, entonces $ y>0 $.\\
+Ahora queremos mostrar que
+\[ (x_1,y_1)\in Br(x,y) \implies (x_1,y_1)\in B \]  
+Sea $ (x_1, y_1)\in Br(x,y) $, entonces
+\begin{align*}
+	\abs{y_1 - y} &= \sqrt{(y_1 -y)^2} \leq \sqrt{(x_1 - x)^2 + (y_1 - y)^2} \leq r\\
+	\abs{y_1 - y} &= \sqrt{(y_1 -y)^2} \leq \sqrt{(x_1 - x)^2 + (y_1 - y)^2} \leq y\\
+	\abs{y_1 - y} &\leq y\\
+	-y<y_1 - y &< y\\
+	0<y_1  &< 2y\\
+\end{align*}
+Por lo tanto $  0< y_1 \implies (x_1, y_1) \in B$, así que $ Br(x,y) \subset B $, $ \therefore  $ B es abierto\\
 
-$\text{c) }A = \{ (x,y) \in \mathbb{R}^2 \vert \, 2 < x^2  + y^2 < 4\}$\\[0.5cm]
+
+
+\noindent$\text{c) }A = \{ (x,y) \in \mathbb{R}^2 \vert \, 2 < x^2  + y^2 < 4\}$
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{1c}
+	\caption{En el plano sólo la parte azul es el conjunto A}
+\end{figure}
+
+
 2.  Calcule los siguientes. límites si existen: 
 \begin{definition}
 	Sea $ f: A \subset \R^n \to \R^m $ y $ \vec{x}_0 \in A $, un punto de acumulación de $ A $. Entonces se dice qe el límite de $  f(\vec{x}) $, cuando $ \vec{x} $ tiende a $ \vec{x}_0 $, es $ \vec{\textit{l}} \in \R^m $ y se denota
@@ -144,11 +176,37 @@ entonces si
 
 \noindent3.  Usando la formulación $\epsilon$-$\delta$ muestre: \\
 
- $$ \text{a) } \displaystyle\lim_{(x,y,z) \to (0,0,0)} \dfrac{xyz}{x^2 + y^2 + z^2} = 0$$\\
+\noindent$ \text{a) } \displaystyle\lim_{(x,y,z) \to (0,0,0)} \dfrac{xyz}{x^2 + y^2 + z^2} = 0$\\
 
-$$\text{b) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{xy }{\sqrt{x^2 + y^2}} = 0$$\\
+Sea $ \epsilon > 0 $, notemos que 
+\begin{align*}
+	\norm{\dfrac{xyz}{x^2 + y^2 + z^2} - 0} &= \abs{\dfrac{xyz}{x^2 + y^2 + z^2} } \leq \abs{ \dfrac{xyz}{xy}  }  = \abs{z}\\
+	\norm{\dfrac{xyz}{x^2 + y^2 + z^2} - 0} & \leq \sqrt{(z)^2}\\
+	\norm{\dfrac{xyz}{x^2 + y^2 + z^2} - 0} & \leq \sqrt{(z)^2}\leq \sqrt{x^2 + y^2 + z^2} \\
+\end{align*}
+También observemos que $ 0 \leq x^2 \leq x^2 + y^2 + z^2$, entonces $ 0 \leq \dfrac{1}{x^2 + y^2 + z^2} \leq \dfrac{1}{z^2} $.\\
+Así, también veamos qe $ \sqrt{x^2 + y^2 + z^2}  = \norm{(x,y,z)} $ entonces
+\[ \norm{\dfrac{xyz}{x^2 + y^2 + z^2} - 0} \leq \sqrt{x^2 + y^2 + z^2} \]
+\[ \norm{\dfrac{xyz}{x^2 + y^2 + z^2} - 0} \leq \norm{(x,y,z)} \]
+Por lo que basta con tomar $ \delta = \epsilon $
 
-$$\text{c) }\displaystyle\lim_{x \to 2} (3x , x^2) = (6,4) $$\\[0.5cm]
+$\text{b) }\displaystyle\lim_{(x,y) \to (0,0)} \dfrac{xy }{\sqrt{x^2 + y^2}} = 0$\\
+Sea $ \epsilon > 0 $, consideremos 
+\begin{align*}
+	\norm{\dfrac{xy}{\sqrt{x^2 + y^2}} - 0} &= \abs{\dfrac{xy}{\sqrt{x^2 + y^2}}}\\
+	&= \dfrac{\abs{xy}}{\sqrt{x^2 + y^2}}\\
+\end{align*}
+
+Por otro lado, veamos que $ 0 \leq \abs{xy} \leq x^2 + y^2 $, entonces $ 0 < \dfrac{\abs{xy}}{\sqrt{x^2 + y^2}} \leq \dfrac{x^2 + y^2}{\sqrt{x^2 + y^2}} $
+\begin{align*}
+	0 < \dfrac{\abs{xy}}{\sqrt{x^2 + y^2}} &\leq \dfrac{x^2 + y^2}{\sqrt{x^2 + y^2}}\\
+	0 < \dfrac{\abs{xy}}{\sqrt{x^2 + y^2}} &\leq \sqrt{x^2 + y^2}\\
+	0 < \dfrac{\abs{xy}}{\sqrt{x^2 + y^2}} &\leq \norm{(x,y)} < \epsilon\\
+\end{align*}
+Entonces sólo basta tomar $ \delta = \epsilon $\\
+
+
+\noindent$\text{c) }\displaystyle\lim_{x \to 2} (3x , x^2) = (6,4) $\\[0.5cm]
 Por lo mencionado anteriormente,  $ \lim_{x \to 2} (3x , x^2) = (6,4) $ puede expresarse como 
 \[  (\lim_{x \to 2} 3x , \lim_{x \to 2}x^2) = (6,4)\]
 por lo tanto, para el primer caso.\\
@@ -218,10 +276,5 @@ luego, veamos que $ \abs{\dfrac{x^2y}{x^2}} = \abs{y} = \sqrt{y^2} $ y como $ 0 
 	\abs{\dfrac{x^2y}{\abs{x}^3 + y^2}} &\leq \sqrt{y^2} \leq \norm{(x,y)} < \epsilon && \text{Por hipótesis} \\
 	\abs{\dfrac{x^2y}{\abs{x}^3 + y^2}} &\leq \norm{(x,y)} < \epsilon \\
 \end{align*}
-Por lo tanto, basta tomar $ \delta = \epsilon $
-
-
-
-
-
+Por lo tanto, basta tomar $ \delta = \epsilon $ :)
 \end{document}
