@@ -20,6 +20,8 @@ includefoot]{geometry}
 \usepackage{tcolorbox}
 \usepackage{color}
 \usepackage{tikz}
+\usepackage{wasysym}
+\usepackage{textgreek, marvosym}
 \tcbuselibrary{skins,breakable}
 \pagestyle{fancy}
 
@@ -109,10 +111,86 @@ $\text{a) } A = \{ (x,y) \in \mathbb{R}^2 \vert - 1 < x < 1, - 1 < y < 1 \}$
 	\includegraphics[width=0.3\textwidth]{1a}
 	\caption{En el plano sólo la intersección es el conjunto A}
 \end{figure}
+Sea $ \vec{u} \in A $, entonces dicho vector tiene la siguiente forma $\vec{u} = (x_0, y_0)  $, además por ser elemento de $ A $ sus coordendas cumplen lo siguiente
+\begin{align*}
+	-1 &< x_0 < 1 \label{eq:desigualdadX} \tag{ \saturn } \\
+	-1 &< y_0 < 1 \label{eq:desigualdadY} \tag{ \jupiter}
+\end{align*}
+Tomemos en cuenta los siguientes valores que serán de ayuda para calcular el radio de la Bola abierta
+ \begin{align*}
+ 	r_x &= min\{ 1-x_0, 1+x_0 \} \label{eq:radioX} \tag{ \textdelta}\\
+ 	r_y &= min\{ 1-y_0, 1+y_0 \} \label{eq:radioY} \tag{\textxi}
+ \end{align*}
+Lyego, de $ \ref{eq:desigualdadX} $ tenemos que
+\begin{align*}
+	x_0 < 1 &\implies 0 < 1 - x_0 && \text{Tomando la segunda parte de la desigualdad} \\
+	-1 < x_0 &\implies 0 < 1 - x_0 &&\text{Tomando la primera parte de la desigualdad}
+\end{align*}
+y por $ \ref{eq:desigualdadY} $ se obtiene
+\begin{align*}
+	y_0 < 1 &\implies 0 < 1 - y_0 && \text{Tomando la segunda parte de la desigualdad} \\
+	-1 < y_0 &\implies 0 < 1 - y_0 &&\text{Tomando la primera parte de la desigualdad}
+\end{align*}
+Por lo tanto, decidimos tomar el radio de la bola como $ r = min\{ r_x, r_y\} $ así aseguraremos que siempre se encuentre dentro del conjunto $ A $-\\
 
-Tomemos $ r = min\{min \{  1- x, x + 1\}, min\{ 1-y, y+1 \} \}$, pues de esta manera aseguraremos que cualquier bola tendrá un radio en los límites del conjuto A. Ahora, sea $ (x_1, y_1) \in A $ entonces 
 
-$\text{b) }B = \{ (x,y) \in \mathbb{R}^2 \vert \,  0 < y  \}$
+Ahora mostremos que $ B_r(\vec{u})  $ está contenida en $ A $, para ello sea $ \vec{x} \in B_r(\vec{u}) $ entonces dicho vector tendrá coordenadas digamos $ \vec{x} = (x, y) $
+\begin{align*}
+	\norm{\vec{x} - \vec{u} } &< r &&\text{Por la definición del radio dichos puntos distan menos que r} \\
+	\sqrt{(x - x_0)^2 + (y - y_0)^2} &< r &&\text{Empleando la definición de norma}\\
+	(x - x_0)^2 + (y - y_0)^2 &< r^2 &&\text{Pues la raíz es continua}
+\end{align*}
+De la implicación anterior podemos concluir 
+\begin{align*}
+	(x - x_0)^2 &< r^2 && \text{Por lo anterior y propiedad de la desigualdad en sumas}\\
+	\sqrt{(x - x_0)^2} &< \sqrt{r^2} && \text{Pues la raíz es continua}\\
+	\abs{x - x_0} &< r && \text{Definición de valor absoluto}\\
+	\abs{x - x_0} &< r \leq r_x && \text{Construcción de }r_x\\
+	\abs{x - x_0} &< r_x && \text{Transitividad de la desigualdad }\\
+	-r_x < x - x_0 &< r_x && \text{Teorema de la desigualdad } \label{eq:distanX}\tag{\Denarius}
+\end{align*}
+y también observemos que
+\begin{align*}
+	r_x &\leq 1 - x_0  &1 + x_0 > r_x &&&\text{Por la elección del radio}\\
+	r_x &\leq 1 - x_0  &-1 - x_0 \leq -r_x &&&\text{Multiplicando ambos lados de la segunda desigualdad por }-1
+\end{align*}
+Si juntamos la observación anterior y (\ref{eq:distanX})
+\begin{align*}
+	-1 - x_0 \leq -r_x &< x - x_0 < r_x < 1 - x_0 &&\text{Empleando ambas desigualdades}\\
+	-1 - x_0 &< x - x_0 < 1 - x_0 &&\text{Tomando sólo los valores adecuados}\\
+	-1 &< x < 1 &&\text{Sumamos en ambos lados  } x_0\\
+\end{align*}
+Haciendo lo mismo para $ y $
+\begin{align*}
+	(y - y_0)^2 &< r^2 && \text{Por lo anterior y propiedad de la desigualdad en sumas}\\
+	\sqrt{(y - y_0)^2} &< \sqrt{r^2} && \text{Pues la raíz es continua}\\
+	\abs{y - y_0} &< r && \text{Definición de valor absoluto}\\
+	\abs{y - y_0} &< r \leq r_y && \text{Construcción de }r_y\\
+	\abs{y - y_0} &< r_y && \text{Transitividad de la desigualdad }\\
+	-r_y < y - y_0 &< r_y && \text{Teorema de la desigualdad } \label{eq:distanY}\tag{\Florin}
+\end{align*}
+y también observemos que
+\begin{align*}
+	r_y &\leq 1 - y_0  &1 + y_0 > r_y &&&\text{Por la elección del radio}\\
+	r_y &\leq 1 - y_0  &-1 - y_0 \leq -r_y &&&\text{Multiplicando ambos lados de la segunda desigualdad por }-1
+\end{align*}
+Si juntamos la observación anterior y (\ref{eq:distanY})
+\begin{align*}
+	-1 - y_0 \leq -r_y &< y - y_0 < r_y < 1 - y_0 &&\text{Empleando ambas desigualdades}\\
+	-1 - y_0 &< y - y_0 < 1 - y_0 &&\text{Tomando sólo los valores adecuados}\\
+	-1 &< y < 1 &&\text{Sumamos en ambos lados  } y_0
+\end{align*}
+\begin{center}
+De esta manera, en cualquier caso tenemos que $ \vec{x} \in A $  $\therefore B_r(\vec{u})\subset A $\\
+$ \therefore A $ es abierto.	
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+%
+%	Segundo Ejercicio, ya hecho ni te apures Ariel
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+\noindent$\text{b) }B = \{ (x,y) \in \mathbb{R}^2 \vert \,  0 < y  \}$
 \begin{figure}[h]
 	\centering
 	\includegraphics[height=0.3\textwidth]{1b}
@@ -129,12 +207,17 @@ Sea $ (x_1, y_1)\in Br(x,y) $, entonces
 	\abs{y_1 - y} &= \sqrt{(y_1 -y)^2} \leq \sqrt{(x_1 - x)^2 + (y_1 - y)^2} \leq y\\
 	\abs{y_1 - y} &\leq y\\
 	-y<y_1 - y &< y\\
-	0<y_1  &< 2y\\
+	0<y_1  &< 2y
 \end{align*}
-Por lo tanto $  0< y_1 \implies (x_1, y_1) \in B$, así que $ Br(x,y) \subset B $, $ \therefore  $ B es abierto\\
+\begin{center}
+Por lo tanto $  0< y_1 \implies (x_1, y_1) \in B$, así que $ Br(x,y) \subset B $, \\$ \therefore  $ B es abierto.
+\end{center}
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%		TERCER EJERCICIO OREMOS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent$\text{c) }A = \{ (x,y) \in \mathbb{R}^2 \vert \, 2 < x^2  + y^2 < 4\}$
 \begin{figure}[h]
 	\centering
