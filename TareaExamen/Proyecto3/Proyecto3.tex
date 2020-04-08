@@ -218,15 +218,50 @@ Por lo tanto $  0< y_1 \implies (x_1, y_1) \in B$, así que $ Br(x,y) \subset B 
 %		TERCER EJERCICIO OREMOS
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\noindent$\text{c) }A = \{ (x,y) \in \mathbb{R}^2 \vert \, 2 < x^2  + y^2 < 4\}$
+\noindent$\text{c) }C = \{ (x,y) \in \mathbb{R}^2 \vert \, 2 < x^2  + y^2 < 4\}$
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.3\textwidth]{1c}
-	\caption{En el plano sólo la parte azul es el conjunto A}
+	\caption{En el plano sólo la parte azul es el conjunto C}
 \end{figure}
 
+Sea $ \vec{p_0} = (x_0, y_0) \in C  $, que $ \vec{p_0} $ esté en el conjunto $ C $ eso es 
+\begin{align*}
+	2 &< \norm{\vec{p_0}}^2 < 4 &&\text{ Porque está en el conjunto C}\\
+	\sqrt{2} &< \norm{\vec{p_0}} < 2 &&\text{ Sacando la raíz en todos lados de la desigualdad}\\
+\end{align*} 
+Entonces tomemos el radio de la bola como 
+\[ 0 < r < min \{ \norm{\vec{p_0}} - \sqrt{2}, 2- \norm{\vec{p_0}} \} \]
+y tomemos $ \vec{q} \in B_r(\vec{p_0}) $ ahora mostremos que $ B_r(\vec{p_0}) \subset C $ para ello, basta ver que $ \vec{q} \in C $, esto es $ \sqrt{2} < \norm{\vec{q}} < 2 $.\\
+Observemos que 
+\begin{align*}
+	\norm{\vec{q}} - \norm{\vec{p_0}} &< \norm{\vec{q} - \vec{p_0}} &&\text{Por definición, debe distar menos que ello}\\
+\end{align*}
+Como $ \vec{q}\in B_r(\vec{p_0}) $, entonces
+\begin{align*}
+	\norm{\vec{q} - \vec{p_0}} &< r && \text{Por definición del radio}\\
+	\norm{\vec{q}} - \norm{\vec{p_0}} \leq \norm{\vec{q} - \vec{p_0}} &< r && \text{Por la desigualdad del triángulo}\\
+	\norm{\vec{q}} - \norm{\vec{p_0}} \leq \norm{\vec{q} - \vec{p_0}} &< r < 2 - \norm{\vec{p_0}} && \text{Por la conición anterior}\\
+	\norm{\vec{q}} - \norm{\vec{p_0}} &<  2 - \norm{\vec{p_0}} && \text{Tomando una parte de la inequidad}\\
+	\norm{\vec{q}}  &< 2&& \text{Sumando en todos lados } \norm{\vec{p_0}} \\
+	\norm{\vec{q}} &< 2&& \text{Así el punto cumple la condición de estar en } C\\
+\end{align*}
+En otro caso, si pasa que $ r < \norm{\vec{p_0}} - \sqrt{2} $, entonces tendríamos
+\begin{align*}
+	\norm{\vec{q} - \vec{p_0}} &< r && \text{Por definición del radio}\\
+	\norm{\vec{q}} - \norm{\vec{p_0}} \leq \norm{\vec{q} - \vec{p_0}} &< r && \text{Por la desigualdad del triángulo}\\
+	\norm{\vec{q}} - \norm{\vec{p_0}} \leq \norm{\vec{q} - \vec{p_0}} &< r < \norm{\vec{p_0}} - \sqrt{2} && \text{Por la conición anterior}\\
+	\norm{\vec{q}} - \norm{\vec{p_0}} &<  \norm{\vec{p_0}} - \sqrt{2} && \text{Tomando una parte de la inequidad}\\
+	\norm{\vec{q}}  &< \sqrt{2}&& \text{Sumando en todos lados } 		\norm{\vec{p_0}} \\
+	\norm{\vec{q}} &< \sqrt{2}&& \text{Así el punto cumple la condición de estar en } C\\
+\end{align*}
+\begin{center}
+	Así, hemos visto que en cualquier caso $ \vec{q} \in C $ por lo tanto $ B_r(\vec{p_0})  \subset C$\\
+	$ \therefore C $ es un conjunto abierto
+\end{center}
 
-2.  Calcule los siguientes. límites si existen: 
+
+\noindent2.  Calcule los siguientes. límites si existen: 
 \begin{definition}
 	Sea $ f: A \subset \R^n \to \R^m $ y $ \vec{x}_0 \in A $, un punto de acumulación de $ A $. Entonces se dice qe el límite de $  f(\vec{x}) $, cuando $ \vec{x} $ tiende a $ \vec{x}_0 $, es $ \vec{\textit{l}} \in \R^m $ y se denota
 	\[ \lim\limits_{\vec{x} \to \vec{x}_0} = \vec{\textit{l}} \qquad \text{ o } \qquad f(\vec{x}) \to \vec{\textit{l}} \]
