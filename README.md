@@ -2,7 +2,7 @@
 Materia impartida en la [Facultad de Ciencias](http://www.fciencias.unam.mx/)  de la [Universidad Nacional Autónoma de México](https://www.unam.mx/), para las carreras
 * Ciencias de la computación
 * Ciencias de la tierra
-En el repositorio se alojan apuntes en latex, exámenes y tares del mismo modo
+En el repositorio se alojan apuntes en latex, exámenes y tares del mismo modo, en colaboración con @ArmandoAAC11 - Armando Aquino.
 
 Grupo | Semestre
 ------|----------
@@ -35,8 +35,9 @@ Horario         | Día              | Tipo de clase       | Aula
 * *Ayudante*	Irving Hérnandez Rosas
 
 ## Enlaces
-[Programa oficial](http://www.fciencias.unam.mx/asignaturas/1226.pdf)
-[Marsden- Cálculo vectorial _libro_ ]( https://drive.google.com/open?id=0B5WVa9RwPrEXOVFpRXpfQ2pTRDA&authuser=1)
+-[Programa oficial](http://www.fciencias.unam.mx/asignaturas/1226.pdf)
+
+-[Marsden- Cálculo vectorial _libro_ ]( https://drive.google.com/open?id=0B5WVa9RwPrEXOVFpRXpfQ2pTRDA&authuser=1)
 
 ## Contacto 
 Ariel Merino [e-mail :email: ](mailto:arielmerino@ciencias.unam.mx)
