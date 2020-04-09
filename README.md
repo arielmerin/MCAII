@@ -2,6 +2,8 @@
 Materia impartida en la [Facultad de Ciencias](http://www.fciencias.unam.mx/)  de la [Universidad Nacional Autónoma de México](https://www.unam.mx/), para las carreras
 * Ciencias de la computación
 * Ciencias de la tierra
+
+
 En el repositorio se alojan apuntes en latex, exámenes y tares del mismo modo, en colaboración con @ArmandoAAC11 - Armando Aquino.
 
 Grupo | Semestre
