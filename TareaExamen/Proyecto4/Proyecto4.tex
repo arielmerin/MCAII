@@ -6,7 +6,7 @@
 \usepackage{lipsum}
 \usepackage{dsfont}
 \usepackage[margin=1.5cm,
-vmargin={1.5cm,1.3cm},
+vmargin={1.5cm,0.7cm},
 includefoot]{geometry}
 \usepackage{setspace}
 \usepackage{subcaption}
@@ -32,6 +32,7 @@ includefoot]{geometry}
 
 \providecommand{\abs}[1]{\left|#1\right|}
 \providecommand{\norm}[1]{\left|\left|#1\right|\right|}														  
+\providecommand{\pint}[1]{\langle#1\rangle}														  
 \newcommand{\V}{\mathds{V}}
 
 \newcommand{\W}{\mathds{W}}
@@ -45,6 +46,8 @@ includefoot]{geometry}
 \newcommand{\li}{\lim\limits_{x \to 0^{-}}}
 
 \newcommand{\la}{\lim\limits_{x \to a}}
+
+\renewcommand{\l}{\ell}
 
 \newcommand{\R}{\mathds{R}}
 
@@ -173,7 +176,7 @@ includefoot]{geometry}
 	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
 	\dfrac{\d}{\d x} (x + e^z + y) & \dfrac{\d}{\d y} (x + e^z + y) & \dfrac{\d}{\d z} (x + e^z + y) \\
 	\dfrac{\d}{\d x} (xy^2) & \dfrac{\d}{\d y}( xy^2) & \dfrac{\d}{\d z} (xy^2) \\
-	\end{pmatrix} && \text{Por definición de la matriz de derivadas parciales}\\
+	\end{pmatrix} && \text{Definición de matriz de derivadas parciales}\\
 	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
 	\dfrac{\d}{\d x} x + \dfrac{\d}{\d x} e^z + \dfrac{\d}{\d x} y & \dfrac{\d}{\d y} x + \dfrac{\d}{\d y} e^z +\dfrac{\d}{\d y} y & \dfrac{\d}{\d z} x + \dfrac{\d}{\d z} e^z + \dfrac{\d}{\d z}y \\
 	y^2\dfrac{\d}{\d x} x & x\dfrac{\d}{\d y}y^2 & \dfrac{\d}{\d z} (xy^2) \\
@@ -233,20 +236,124 @@ includefoot]{geometry}
 
 \noindent c) $\vec{\gamma}(t) = (t\sin(t), t\cos(t), t)$, donde $ -4\pi \leq t \leq 4\pi$\\
 
-
+\newpage
 \noindent 5. El vector de posición para una partícula que se mueve sobre una hélice es: $$\vec{\gamma}(t) = (\sin(t), \cos(t), t^2)$$
-
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{img/Proyecto4.png}
+	\caption{Curva trazada por $ \vec{\gamma} $}
+\end{figure}
+\begin{definition}[Vector velocidad]
+	Si $ \vec{\gamma} $ es una trayectoria  es diferenciable, decimos que $ \vec{\gamma} $ es una trayectoria diferenciable. El vector velocidad de $ \vec{\gamma} $ en el tiempo $ t $ es definido por: \[ \vec{\gamma'} = \lim\limits_{h \to 0} \dfrac{\vec{\gamma}(t + h) - \vec{\gamma}(t)}{h} \]
+	Normalmente se dibuja el vector $ \vec{\gamma'}(t) $ con la cola en el punto $ \vec{\gamma}(t) $. Si $\vec{\gamma}(t) = (x(t),y(t)) $, en $ \R^2 $, entonces:
+	\[ \vec{\gamma'}(t) = (x'(t), y'(t)) = x'(t)\hat{i} + y'(t)\hat{j} \] y si \[ \vec{\gamma'}(t) = (x'(t), y'(t), z'(t) = x'(t)\hat{i} + y'(t)\hat{j} + z'(t)\hat{k} \]
+\end{definition}
+\begin{definition}[Rapidez]
+	La rapidez de la trayectoria $ \vec{\gamma}(t) $ es $ s = \norm{\vec{\gamma'}(t)} $, es decir la longitud del vector velocidad
+\end{definition}
+\begin{definition}[Vector tangente]
+	La velocidad $ \vec{\gamma'}(t) $ es una recta tangente a la trayectoria $ \vec{\gamma}(t) $ en el tiempo $ t $ si $ C $ es una curva trazada por $ \vec{\gamma}(t) $  si $ \vec{\gamma'}(t) \neq 0 \qquad \forall t \in $ Dominio de $ \vec{\gamma} $, entonces $ \vec{\gamma'}(t) $ es un vector tangente a la curva $ C $ en el punto $ \vec{\gamma'}(t) $
+\end{definition}
 
 \noindent a) Encuentre la rapidez de la partícula en el tiempo  $t_0 = 4\pi$\\
+Para ello, primero hallemos el vector velocidad 
+\begin{align*}
+	\vec{\gamma'}(t_0) &= (\sin'(t) , \cos'(t), (t^2)') && \text{Por definición de velocidad}\\
+	\vec{\gamma'}(t_0) &= (\cos(t), - \sin(t), 2t) && \text{Aplicando la derivada}\\
+	\vec{\gamma'}(4\pi) &= (\cos(4\pi), - \sin(4\pi), 2\*4\pi) && \text{Sustituyendo el valor de }t_0\\
+	\vec{\gamma'}(4\pi) &= (\cos( 0 + 2\*2\*\pi), - \sin(4\pi), 8\pi) && \text{Multiplicando escalares}
+	\end{align*}
+\begin{align*}
+	\vec{\gamma'}(4\pi) &= (\cos(0), - \sin(4\pi), 8\pi) && \text{De cálculo I tenemos que } \cos(\alpha + 2\pi k) = \cos(\alpha)\\
+	\vec{\gamma'}(4\pi) &= (\cos(0), - \sin( 0 + 2\*2\*\pi), 8\pi) && \text{Reacomodando el valor de } \sin\\
+	\vec{\gamma'}(4\pi) &= (1, -\sin(0), 8\pi) && \text{De cálculo I tenemos que } \sin(\alpha + 2\pi k) = \sin(\alpha)\\
+	\vec{\gamma'}(4\pi) &= (1,0, 8\pi) && \text{Finalmente obtenemos }\\
+	\norm{\vec{\gamma'}(4\pi)} &= \sqrt{1^2 + 0^2 + (8\pi)^2} && \text{Por definición de norma }\\
+	\norm{\vec{\gamma'}(4\pi)} &= \sqrt{1+ 8^2\pi^2} && \text{Propiedades de los exponentes }\\
+	\norm{\vec{\gamma'}(4\pi)} &= \sqrt{1+ 64\pi^2} && \text{Elevando al cuadrado } 8\\
+	3 &< \pi && \text{Por definición de }\pi \\
+	24 &< 8\pi && \text{Por propiedades de }< \\
+	24 &< \sqrt{8^2\pi^2} && \text{Pues  }8^2\pi^2 > 0 \\
+	24 &< \sqrt{8^2\pi^2} < \sqrt{1 +8^2\pi^2} && \text{Ya que al menos distan una unidad  }\\
+	24 &< \sqrt{1 +8^2\pi^2} && \text{Transitividad de la desigualdad }\\
+	1 +8^2\pi^2 &< 676 && \text{Por curso de cálculo I} \\
+	\sqrt{1 +8^2\pi^2} &< \sqrt{676} && \text{La raíz cuadrada es continua} \\
+	\sqrt{1 +8^2\pi^2} &< 26 && \text{Por el valor de dicha raíz} \\
+	24 &< \sqrt{1 +8^2\pi^2} < 26 && \text{Por transitividad } \\
+	\norm{\vec{\gamma'}(4\pi)} &\approx 25.1526 && \text{Aproximando el resultado }
+\end{align*}
 
-\noindent b) ¿Es $\vec{\gamma}$ es ortogonal a  $\vec{\gamma'}$\\
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}[b]{0.5\linewidth}
+		\includegraphics[width=0.9\textwidth]{img/trigo.png}
+		\caption{Recordemos las gráicas de $ \sin(x),  \cos(x)$}
+	\end{subfigure}
+\begin{subfigure}[b]{0.85\linewidth}
+	\includegraphics[width=0.9\textwidth]{img/Proyecto4_1.png}
+	\caption{Localización del punto A que es $ \vec{\gamma}(4\pi) $}
+\end{subfigure}
+\end{figure}
+\noindent b) ¿Es $\vec{\gamma}$ es ortogonal a  $\vec{\gamma'}$?
+\begin{definition}[Vector ortogonal]
+	Sean $\vec{x}, \vec{y} \in \V  $ decimos que $ \vec{x} $ es ortogonal a $ \vec{y} $ si y sólo si $ \pint{\vec{x},\vec{y}} = 0 $
+\end{definition}
+\[\begin{array}{rlc}
+\vec{\gamma}(t) &= (\sin(t), \cos(t), t^2)  &\text{Recordatorio}\\
+\vec{\gamma'}(t) &= (\cos(t) - \sin(t), 2t) &\text{Recordatorio}
+\end{array}
+ \]
+ \begin{align*}
+ 	\pint{\vec{\gamma}, \vec{\gamma'}} & = \pint{(\sin(t), \cos(t), t^2), (\cos(t) - \sin(t), 2t)} && \text{Por recordatorio anterior}\\
+ 	\pint{\vec{\gamma}, \vec{\gamma'}} & = \sin(t)\* \cos(t) + \cos(t)\*(-\sin(t)) + 2t\*t^2 && \text{Por definición de producto escalar}\\
+ 	\pint{\vec{\gamma}, \vec{\gamma'}} & = \sin(t)\cos(t) -\sin(t)\cos(t) + 2t^3 && \text{Multiplicando términos semejantes}\\
+ 	\pint{\vec{\gamma}, \vec{\gamma'}} & = 2t^3 && \text{Existencia del inverso aditivo en }\R \\
+ \end{align*}
+ \begin{center}
+ Notemos que $ 2t^3 \neq 0 $\\
+ $ \therefore \quad \vec{\gamma'}$ no es ortogonal a $ \vec{\gamma} $
+ \end{center}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\textwidth]{img/Proyecto4_2.png}
+	\caption{Claramente ambos vectores no son ortogonales}
+\end{figure}
+\noindent c) Encuentre la recta tangente a $\vec{\gamma}(t_0)$,  $t_0 = 4\pi$
+\begin{definition}[Recta tangente]
+	Si $ \vec{\gamma}(t) $ es una trayectoria en $ \R^3 $ (\textit{i.e. } $ \vec{\gamma} : \R \to \R^3 $) con $ \vec{\gamma}(t) \neq 0 \qquad \forall t \in \R$, entonces la ecuación de la recta tangente en $ t_0 $ es 
+	\[  \l(t) = \vec{\gamma'}(t_0)(t-t_0) + \vec{\gamma}(t_0)  \]
+\end{definition}
+Por lo tanto 
+\begin{align*}
+	\l(t) &= (1,0,8\pi)(t - 4\pi) + (0,1,16\pi^2) && \text{Por el inciso a)}\\
+	\l(t) &= (t - 4\pi,0,8\pi t - 32\pi^2) + (0,1,16\pi^2) && \text{Por distributividad}\\
+	\l(t) &= (t - 4\pi,1,8\pi t - 32\pi^2 + 16\pi^2) && \text{Sumando de manera directa}\\
+	\l(t) &= (t - 4\pi,1,8\pi( t -  2\pi)) && \text{Factorizando}
+\end{align*}
 
-\noindent c) Encuentre la recta tangente a $\vec{\gamma}$ $t_0 = 4\pi$\\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{img/Proyecto4_3.png}
+	\caption{\small Ajustando los ejes un poco podemos apreciar que efectivamente se trata de la recta tangente }
+\end{figure}
 
+
+\newpage
 \noindent d) ¿Dónde se intersecará esta línea con el plano $xy$?\\
 
 
-
+Tomemos en cuenta $ \l(t) = (x(t), y(t), 0) $ entonces lo único que tenemos que resolver es 
+\begin{align*}
+	8\pi(t -2\pi) &= 0 && \text{Planteando la ecuación}\\
+	t -2\pi &= 0 && \text{Multiplicando por el inverso multiplicativo de } 8\pi \\
+	t &= 2\pi && \text{Añadiendo en ambos miembros } 2\pi \\
+\end{align*}
+es decir, hay que evaluar $ \l(t_0) $ en $ t_o = 2\pi $, esto es $ B = (-2\pi,1,0) $
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/Proyecto4_4.png}
+	\caption{Se puede observar que efectivamente, la recta $ \l $ interseca al plano $ xy $ en B}
+\end{figure}
 
 
 \end{document}
