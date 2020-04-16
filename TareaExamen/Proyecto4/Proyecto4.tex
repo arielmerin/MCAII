@@ -97,7 +97,7 @@ includefoot]{geometry}
 	\vspace{-10pt}
 	\rule{19cm}{0.3mm}
 	
-\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom. 
+\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom.\\
 
 
 
@@ -108,7 +108,6 @@ includefoot]{geometry}
 
 \noindent1.  Calcule la matriz de la derivadas parciales de: 
 
-Para ello necesitaremos definir
 \begin{definition}
 	Ses $ U $ un conjunto abierto en $ \R^n $ y sea $ f:U\subset \R^n \to \R^m $. Se dice que $ f $ es diferenciable en $ \vec{x_0} \in U$  si todas las derivadas parciales existen y además si el siguiente límite existe: 
 	\[ \lim\limits_{\vec{x} \to \vec{x_0} } \dfrac{\norm{f(\vec{x}) - f(\vec{x_0}) - T(\vec{x} - \vec{x_0})} }{\norm{\vec{x} - \vec{x_0}}} =0 \]
@@ -124,33 +123,87 @@ Para ello necesitaremos definir
 	Es llamada matriz de las derivadas parciales o Matriz Jacobiana
 \end{definition}
 
-
-\noindent a) $f: \mathbb{R}^2  \longrightarrow \mathbb{R}^2$, tal que $f(x,y) = (e^x,\sin(xy))$\\
+\noindent a) $f: \mathbb{R}^2  \longrightarrow \mathbb{R}^2$, tal que $f(x,y) = (e^x,\sin(xy))$
 \begin{align*}
 	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
 	\dfrac{\d e^x}{\d x} & \dfrac{\d e^x}{\d y}\\
 	\dfrac{\d \sin(xy)}{\d x} & \dfrac{\d \sin(xy)}{\d y}\\
 	\end{pmatrix} && \text{Por definición de la matriz Jacobiana}\\
-	Df(\vec{x_0}) &= \begin{pmatrix}
+	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
+	e^x & \dfrac{\d e^x}{\d y}\\
+	\dfrac{\d \sin(xy)}{\d x} & \dfrac{\d \sin(xy)}{\d y}\\
+	\end{pmatrix} && \text{La derivada de $ e^x $ es la función misma (cálculo I)}\\
+	Df(\vec{x_0}) &= \begin{pmatrix}[2]
+	e^x & 0\\
+	\dfrac{\d \sin(xy)}{\d x} & \dfrac{\d \sin(xy)}{\d y}\\
+	\end{pmatrix} && \text{Puesto que $ x $ figura como constante}\\
+	Df(\vec{x_0}) &= \begin{pmatrix}[2]
+	e^x & 0\\
+	y\dfrac{\d \sin(xy)}{\d x} & x\dfrac{\d \sin(xy)}{\d y}\\
+	\end{pmatrix} && \text{Por regla de la cadena}\\
+	Df(\vec{x_0}) &= \begin{pmatrix}[1.5]
 	e^x & 0\\
 	y\cos(xy) &x\cos(xy)\\
 	\end{pmatrix} && \text{Efectuando las derivadas parciales}\\
 \end{align*}
 
 
-\noindent b) $f: \mathbb{R}^2  \longrightarrow \mathbb{R}^3$, tal que $f(x,y) = (xe^y + \cos(y), x, x + e^y)$\\
+\noindent b) $f: \mathbb{R}^2  \longrightarrow \mathbb{R}^3$, tal que $f(x,y) = (xe^y + \cos(y), x, x + e^y)$
 
 \begin{align*}
-	Df(\vec{x_0}) &= \begin{pmatrix}
-	
-	\end{pmatrix}
+	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
+	\dfrac{\d}{\d x} (xe^y + \cos(y)) & \dfrac{\d}{\d y} (xe^y + \cos(y))\\
+	\dfrac{\d}{\d x} x & \dfrac{\d}{\d y} x\\
+	\dfrac{\d}{\d x} (x + e^y) & \dfrac{\d}{\d y}( x + e^y)\\
+	\end{pmatrix} &&\text{Por definición de matriz de derivadas parciales}\\
+	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
+	  e^y\dfrac{\d}{\d x} x + \dfrac{\d}{\d x}\cos(y) & x\dfrac{\d}{\d y} e^y + \dfrac{\d}{\d y}\cos(y)\\
+	\dfrac{\d}{\d x} x & \dfrac{\d}{\d y} x\\
+	\dfrac{\d}{\d x} x + \dfrac{\d}{\d x}e^y & \dfrac{\d}{\d y} x + \dfrac{\d}{\d y}e^y\\
+	\end{pmatrix} &&\text{Empleamos que la derivada es lineal, abre sumas y saca escalares}\\
+	Df(\vec{x_0}) &= \begin{pmatrix}[1.5]
+	e^y & x e^y - \sin(y)\\
+	1 & 0\\
+	1 & e^y\\
+	\end{pmatrix} &&\text{Operando las derivadas}
 \end{align*}
 
-\noindent c) $f: \mathbb{R}^3  \longrightarrow \mathbb{R}^2$, tal que $f(x,y,z) = (x + e^z + y, xy^2)$\\
+\noindent c) $f: \mathbb{R}^3  \longrightarrow \mathbb{R}^2$, tal que $f(x,y,z) = (x + e^z + y, xy^2)$
+\begin{align*}
+	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
+	\dfrac{\d}{\d x} (x + e^z + y) & \dfrac{\d}{\d y} (x + e^z + y) & \dfrac{\d}{\d z} (x + e^z + y) \\
+	\dfrac{\d}{\d x} (xy^2) & \dfrac{\d}{\d y}( xy^2) & \dfrac{\d}{\d z} (xy^2) \\
+	\end{pmatrix} && \text{Por definición de la matriz de derivadas parciales}\\
+	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
+	\dfrac{\d}{\d x} x + \dfrac{\d}{\d x} e^z + \dfrac{\d}{\d x} y & \dfrac{\d}{\d y} x + \dfrac{\d}{\d y} e^z +\dfrac{\d}{\d y} y & \dfrac{\d}{\d z} x + \dfrac{\d}{\d z} e^z + \dfrac{\d}{\d z}y \\
+	y^2\dfrac{\d}{\d x} x & x\dfrac{\d}{\d y}y^2 & \dfrac{\d}{\d z} (xy^2) \\
+	\end{pmatrix} && \text{Usamos que la derivada es un operador lineal}\\
+	Df(\vec{x_0}) &= \begin{pmatrix}[1.5]
+	1& 1 & e^z \\
+	y^2 & 2xy & 0 
+	\end{pmatrix} && \text{Efectuando las derivadas parciales}
+\end{align*}
 
-\noindent d) $f: \mathbb{R}^3  \longrightarrow \mathbb{R}^3$, tal que $f(x,y,z) = (xye^{xy}, x\sin(y), 5xy^2)$\\
-
-
+\noindent d) $f: \mathbb{R}^3  \longrightarrow \mathbb{R}^3$, tal que $f(x,y,z) = (xye^{xy}, x\sin(y), 5xy^2)$
+\begin{align*}
+	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
+	\dfrac{\d }{\d x} xye^{xy}  & \dfrac{\d }{\d y} xye^{xy}  & \dfrac{\d }{\d z} xye^{xy} \\
+	\dfrac{\d }{\d x} x\sin(y) & \dfrac{\d }{\d y} x\sin(y) & \dfrac{\d }{\d z} x\sin(y) \\
+	\dfrac{\d }{\d x}  5xy^2 & \dfrac{\d }{\d y}  5xy^2 & \dfrac{\d }{\d z}  5xy^2 
+	\end{pmatrix} && \text{Definición de matriz de derivadas parciales}\\
+	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
+	y\dfrac{\d }{\d x} e^{xy}x  & x\dfrac{\d }{\d y} ye^{xy}  & \dfrac{\d }{\d z} xye^{xy} \\
+	\sin(y)\dfrac{\d }{\d x} x & x\dfrac{\d }{\d y} \sin(y) & \dfrac{\d }{\d z} x\sin(y) \\
+	5y^2\dfrac{\d }{\d x}  x & 5x\dfrac{\d }{\d y}  y^2 & \dfrac{\d }{\d z}  5xy^2 
+	\end{pmatrix} && \text{Empleando que la derivada es operador lineal}
+\end{align*}
+\begin{align*}
+	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
+	y(e^{yx} + xye^{xy})  & x(e^{xy} + xye^{xy})  & 0 \\
+	\sin(y) & x\cos(y) & 0 \\
+	5y^2 & 10xy & 0 
+	\end{pmatrix} && \text{Operando las dervidas parciales}
+\end{align*}
 
 \noindent 2.  Sea $f(x,y) = xe^{y^2} - ye^{x^2}$\\
 
@@ -181,12 +234,12 @@ Para ello necesitaremos definir
 \noindent c) $\vec{\gamma}(t) = (t\sin(t), t\cos(t), t)$, donde $ -4\pi \leq t \leq 4\pi$\\
 
 
-\noindent 5. El vector de posición para una partícula que se mueve sobre una hélice es $\vec{\gamma}(t) = (\sin(t), \cos(t), t^2)$:\\
+\noindent 5. El vector de posición para una partícula que se mueve sobre una hélice es: $$\vec{\gamma}(t) = (\sin(t), \cos(t), t^2)$$
 
 
 \noindent a) Encuentre la rapidez de la partícula en el tiempo  $t_0 = 4\pi$\\
 
-\noindent b) ¿Es $\vec{\gamma}$ es ortogonal a  $\vec{\gamma}'$\\
+\noindent b) ¿Es $\vec{\gamma}$ es ortogonal a  $\vec{\gamma'}$\\
 
 \noindent c) Encuentre la recta tangente a $\vec{\gamma}$ $t_0 = 4\pi$\\
 
