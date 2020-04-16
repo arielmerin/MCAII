@@ -252,11 +252,36 @@ Así, los puntos $ (x_0,y_0) $ que buscamos son de la forma
 \[ (x_0,y_0) = \dfrac{\alpha}{2}(e^4-4e,e-4e^4) \iff (x_0,y_0) = \alpha(e^4-4e,e-4e^4) \]
 Tomemos $ \alpha = 1 $ entonces tenemos el punto
 \[ (e^4-4e,e-4e^4, -15e^2(e^6-1) ) \]
+
 \noindent 3.  Calcule el gradiente de las siguientes funciones:\\
 
-
-\noindent a) $f(x,y,z) = x e^{-(x^2 +y^2 +z^2)}$\\
-
+\begin{definition}[Gradiente]
+	Sea $ f: \R^n \to \R $.
+	Definimos al gradiente de $ f $ como 
+	\[ \nabla f(\vec{x}) = \left( \dfrac{\d}{\d x_1}, \dfrac{\d}{\d x_2}, \dots, \dfrac{\d}{\d x_n}  \right) \]
+\end{definition}
+\noindent a) $f(x,y,z) = x e^{-(x^2 +y^2 +z^2)}$
+\begin{align*}
+	\dfrac{\d f}{\d x} &= \dfrac{\d}{\d x} (x e^{-(x^2 +y^2 +z^2)}) && \text{Planteando la derivada parcial con respecto a } x\\
+	\dfrac{\d f}{\d x} &= x\dfrac{\d}{\d x} e^{-(x^2 +y^2 +z^2)} + e^{-(x^2 +y^2 +z^2)} \dfrac{\d}{\d x} x && \text{Por la derivada de productos }\\
+	\dfrac{\d f}{\d x} &= x\dfrac{\d}{\d x} e^{-(x^2 +y^2 +z^2)} + e^{-(x^2 +y^2 +z^2)} && \text{Por neutro multiplicativo }\\
+	\dfrac{\d f}{\d x} &= xe^{-(x^2 +y^2 +z^2)}-2x + e^{-(x^2 +y^2 +z^2)} && \text{Por la regla de la cadena }\\
+	\dfrac{\d f}{\d x} &= -2x^2e^{-(x^2 +y^2 +z^2)} + e^{-(x^2 +y^2 +z^2)} && \text{Conmutantando }\\
+	\dfrac{\d f}{\d x} &= -e^{-(x^2 +y^2 +z^2)}(-2x^2 +1) && \text{Factorizando  }\\
+	\\
+	\dfrac{\d f}{\d y} &= \dfrac{\d}{\d y}(x e^{-(x^2 +y^2 +z^2)}) && \text{Planteando la derivada parcial}\\
+	\dfrac{\d f}{\d y} &= x\dfrac{\d}{\d y}e^{-(x^2 +y^2 +z^2)} && \text{Empleando que la derivada es lineal}\\
+	\dfrac{\d f}{\d y} &= xe^{-(x^2 +y^2 +z^2)}-2y && \text{Por la regla de la cadena}\\
+	\dfrac{\d f}{\d y} &= -2yxe^{-(x^2 +y^2 +z^2)} && \text{Conmutando el producto}\\
+	\\
+	\dfrac{\d f}{\d z} &= \dfrac{\d}{\d z} (x e^{-(x^2 +y^2 +z^2)}) && \text{Planteando la derivada parcial}\\
+	\dfrac{\d f}{\d z} &= x\dfrac{\d}{\d z} e^{-(x^2 +y^2 +z^2)} && \text{Porque la derivada es un operador lineal}\\
+	\dfrac{\d f}{\d y} &= xe^{-(x^2 +y^2 +z^2)}-2z && \text{Por la regla de la cadena}\\
+	\dfrac{\d f}{\d y} &= -2zxe^{-(x^2 +y^2 +z^2)} && \text{Conmutando el podcuto}\\
+\end{align*}
+\begin{center}
+	$ \therefore \nabla f(x,y,z) = e^{-(x^2 +y^2 +z^2)} ( -2x^2 +1, -2yx, -2zx ) $
+\end{center}
 \noindent b) $f(x,y,z) = \dfrac{xyz}{x^2 +y^2 +z^2}$\\
 
 \noindent c) $f(x,y,z) = z^2e^x\cos(y)$\\
