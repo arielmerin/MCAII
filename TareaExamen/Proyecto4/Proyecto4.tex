@@ -188,24 +188,24 @@ includefoot]{geometry}
 	\end{pmatrix} && \text{Efectuando las derivadas parciales}
 \end{align*}
 
-\noindent d) $f: \mathbb{R}^3  \longrightarrow \mathbb{R}^3$, tal que $f(x,y,z) = (xye^{xy}, x\sin(y), 5xy^2)$
+\noindent d) $f: \mathbb{R}^3  \longrightarrow \mathbb{R}^2$, tal que $f(x,y) = (xye^{xy}, x\sin(y), 5xy^2)$
 \begin{align*}
 	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
-	\dfrac{\d }{\d x} xye^{xy}  & \dfrac{\d }{\d y} xye^{xy}  & \dfrac{\d }{\d z} xye^{xy} \\
-	\dfrac{\d }{\d x} x\sin(y) & \dfrac{\d }{\d y} x\sin(y) & \dfrac{\d }{\d z} x\sin(y) \\
-	\dfrac{\d }{\d x}  5xy^2 & \dfrac{\d }{\d y}  5xy^2 & \dfrac{\d }{\d z}  5xy^2 
+	\dfrac{\d }{\d x} xye^{xy}  & \dfrac{\d }{\d y} xye^{xy} \\
+	\dfrac{\d }{\d x} x\sin(y) & \dfrac{\d }{\d y} x\sin(y) \\
+	\dfrac{\d }{\d x}  5xy^2 & \dfrac{\d }{\d y}  5xy^2
 	\end{pmatrix} && \text{Definición de matriz de derivadas parciales}\\
 	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
-	y\dfrac{\d }{\d x} e^{xy}x  & x\dfrac{\d }{\d y} ye^{xy}  & \dfrac{\d }{\d z} xye^{xy} \\
-	\sin(y)\dfrac{\d }{\d x} x & x\dfrac{\d }{\d y} \sin(y) & \dfrac{\d }{\d z} x\sin(y) \\
-	5y^2\dfrac{\d }{\d x}  x & 5x\dfrac{\d }{\d y}  y^2 & \dfrac{\d }{\d z}  5xy^2 
+	y\dfrac{\d }{\d x} e^{xy}x  & x\dfrac{\d }{\d y} ye^{xy}\\
+	\sin(y)\dfrac{\d }{\d x} x & x\dfrac{\d }{\d y} \sin(y) \\
+	5y^2\dfrac{\d }{\d x}  x & 5x\dfrac{\d }{\d y}  y^2 
 	\end{pmatrix} && \text{Empleando que la derivada es operador lineal}
 \end{align*}
 \begin{align*}
 	Df(\vec{x_0}) &= \begin{pmatrix}[2.5]
-	y(e^{yx} + xye^{xy})  & x(e^{xy} + xye^{xy})  & 0 \\
-	\sin(y) & x\cos(y) & 0 \\
-	5y^2 & 10xy & 0 
+	y(e^{yx} + xye^{xy})  & x(e^{xy} + xye^{xy}) \\
+	\sin(y) & x\cos(y)\\
+	5y^2 & 10xy
 	\end{pmatrix} && \text{Operando las dervidas parciales}
 \end{align*}
 
