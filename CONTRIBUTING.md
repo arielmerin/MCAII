@@ -3,9 +3,9 @@
 Cualquier persona es bienvenida a colaborar en este proyecto, si surge alguna duda específica pueden enviar un issue con la etiqueda ctb y lo revisaré tan pronto como me sea posible.
 
 
-Seguro encontrarán algún error por mi parte en el contenido, con todo gusto será corregido si hacen la observación 
+Seguro encontrarán algún error por mi parte en el contenido, con todo gusto será corregido si hacen la observación.
 
-# Constributing
+# Contributing
 
 Hi there everyone
 
