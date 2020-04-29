@@ -28,9 +28,9 @@ A lo largo del curso se cubrirán los siguientes temas:
     * Matriz de vectores propios
 
 
-* 'index.hmtl'
 ![file-1](assets/Derivada.png)
-* 'in.html'
+
+
 ![file-2](assets/PlanoTangente.png)
 
 ## Horarios
