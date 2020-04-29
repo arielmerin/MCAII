@@ -75,7 +75,7 @@ includefoot]{geometry}
 	\array{*\c@MaxMatrixCols c}}
 \makeatother
 
-\newtheorem{theorem}{Teorema}[section]
+\newtheorem{theorem}{Teorema}[]
 \theoremstyle{definition}
 \newtheorem{definition}{Definición}
 
@@ -106,12 +106,78 @@ includefoot]{geometry}
 
 \noindent1.  Verifique el primer caso de la regla de la cadena de la composición $ f\circ \vec{\gamma}$ para cada uno de los siguientes casos, esto es primero haga la composición y derive, y le luego use la regla de la cadena y vea que se llega al mismo resultado.\\
 \begin{theorem}[Regla de la cadena]
-	Sean $ U\subset \R^n $ y $ V \subset \R^m $
+	\relax
+	Sean $ U\subset \R^n $ y $ V \subset \R^m $ conjuntos abiertos, $ g: U \subset \R^n \to \R^m $ y $ f: V\subset \R^m \to \R^p $ dos funciones tales que $ g $ manda a $ U $ en $ V $ \textit{i.e. } $ f \circ g $. Supogamos que $ g $ es diferenciable en $ \vec{x_0} $ y $ D(f \circ g) (\vec{x_0}) = Df(g(\vec{x_0}))Dg(\vec{x_0}) $.\\
+	\begin{itemize}
+		\item \textbf{Primer caso de la regla de la cadena}\\
+		
+		Supongamos $ \vec{\gamma}: \R \to \R^3 $ es una trayectoria diferenciable y $ f: \R^3 \to \R $. Sea $ h(t) = f(\vec{\gamma})(t) = f(x(t), y(t), z(t)  $ donde 
+		$ \vec{\gamma}(t)= (x(t),y(t),z(t)) $. Entonces
+		\[  \dfrac{dh}{dt} = \dfrac{\d f}{\d x} \dfrac{dx}{dt} +  \dfrac{\d f}{\d y} \dfrac{dy}{dt} +  \dfrac{\d f}{\d z} \dfrac{dz}{dt} \]
+		esto es:
+		\[ \dfrac{dh}{dt} = \nabla f(\gamma(t)) \* \vec{\gamma'}(t) \] donde $ \vec{\gamma'}(t)= (x'(t),y'(t),z'(t))  $.
+		
+		\item  \textbf{Segundo caso de la regla de la cadena }\\
+		
+		Sean $ f:\R^3 \to \R $ y $ g:\R^3 \to \R^3 $. Escribimos 
+		\[ g(x,y,z) = (u(x,y,x), v(x,y,z), w(x,y,z) \quad \text{  y  }\quad h(x,y,z) = f(u(x,y,z), u(x,y,z), w(x,y,z))  \]
+		Entonces:
+	\[ \begin{pmatrix}
+	\dfrac{\d h}{\d x} & \dfrac{\d h}{\d y} & \dfrac{\d h}{\d x}
+	\end{pmatrix} = \begin{pmatrix}
+	\dfrac{\d f}{\d x} & \dfrac{\d f}{\d y} & \dfrac{\d f}{\d z}
+	\end{pmatrix} \begin{pmatrix}[2]
+	\dfrac{\d u}{\d x} & \dfrac{\d u}{\d x} & \dfrac{\d u}{\d x}\\
+	\dfrac{\d v}{\d x} & \dfrac{\d v}{\d x} & \dfrac{\d v}{\d x}\\
+	\dfrac{\d w}{\d x} & \dfrac{\d w}{\d x} & \dfrac{\d w}{\d x}\\
+	\end{pmatrix} \]
+	\end{itemize}
 \end{theorem}
 
 a) $f(x,y) = xy$, $\vec{\gamma}(t) =(e^t, \cos(t)) $.\\
+Tenemos que $  f \circ \gamma(t) = e^t\cos(t) $ y su derivada es 
+\begin{align*}
+	\dfrac{d}{dt} (f\circ \gamma) &= \dfrac{d}{dt}e^t\cos(t) &&\text{Planteando la derivada}\\
+	\dfrac{d}{dt} (f\circ \gamma) &= e^t\dfrac{d}{dt}\cos(t) + \cos(t)\dfrac{d}{dt}e^t &&\text{Por la regla del producto en derivadas}\\
+	\dfrac{d}{dt} (f\circ \gamma) &= e^t(- \sin(t)) + \cos(t)e^t &&\text{Por nuestro curso de Cálculo I}\\
+	\dfrac{d}{dt} (f\circ \gamma) &= e^t\cos(t) - e^t \sin(t) &&\text{Conmutando la suma de funciones}\\
+\end{align*}
+por otra parte, por el primer caso de la regla de la cadena, obtenemos
+\[ 	\dfrac{d}{dt}(f\circ g) = 	\dfrac{df}{dx}\dfrac{dx}{dt} + \dfrac{df}{dy}\dfrac{dy}{dt} \]
+entonces calculemos las siguientes derivadas
+\begin{align*}
+	\dfrac{df}{dx}(xy) &= y &&\text{Por la regla del producto}\\
+	\dfrac{df}{dy}(xy) &= x &&\text{Por la regla del producto}\\
+	\dfrac{dx}{dt}(e^t) &= e^t &&\text{Por propiedades de la exponencial}\\
+	\dfrac{dy}{dt}(\cos(t)) &= -\sin(t) &&\text{Por características de las trigonométricas}\\
+\end{align*}
+Así, se tiene que 
+\[ \dfrac{d}{dt}(f\circ g) = ye^t - x\sin(t) \] y como $ x = e^t $ y $ y = \cos(t) $
+\[ \therefore  \qquad \dfrac{d}{dt}(f\circ g) = \cos(t)e^t-e^t\sin(t) \]
+
 
 b) $f(x,y) = xy$, $\vec{\gamma}(t) =(3t^2, t^3) $.\\
+
+Tenemos que $  f \circ \gamma(t) = e^{(3t^2)(t^3)} = e^{3t^5}  $ y su derivada es 
+
+\begin{align*}
+	\dfrac{d}{dt} (f\circ \gamma) &= \dfrac{d}{dt} e^{3t^5} &&\text{Planteando la derivada}\\
+	\dfrac{d}{dt} (f\circ \gamma) &= e^{3t^5}\dfrac{d}{dt} 3t^5 &&\text{Por la regla de la derivada para la exponencial}\\
+	\dfrac{d}{dt} (f\circ \gamma) &= e^{3t^5}(15t^4) &&\text{Derivando un monomio}\\
+	\dfrac{d}{dt} (f\circ \gamma) &= 15t^4e^{3t^5} &&\text{Derivando un monomio}\\
+\end{align*}
+por otra parte, por el primer caso de la regla de la cadena, obtenemos
+\[ 	\dfrac{d}{dt}(f\circ g) = 	\dfrac{df}{dx}\dfrac{dx}{dt} + \dfrac{df}{dy}\dfrac{dy}{dt} \]
+entonces calculemos las siguientes derivadas
+\begin{align*}
+	\dfrac{df}{dx}(e^{xy}) &= ye^{xy} &&\text{Por la regla de la exponencial}\\
+	\dfrac{df}{dy}(e^{xy}) &= xe^{xy} &&\text{Por la regla de la exponencial}\\
+	\dfrac{dx}{dt}(3t^2) &= 6t &&\text{Por propiedades de la derivada en exponentes}\\
+	\dfrac{dy}{dt}(t^3) &= 3t^2 &&\text{Por propiedades de la derivada en exponentes}\\
+\end{align*}
+Así, se tiene que 
+\[ \dfrac{d}{dt}(f\circ g) = ye^{xy}(6t) - xe^{xy}(3t^2) \] y como $ x = 3t^2 $ y $ y = t^3 $
+\[ \therefore  \qquad \dfrac{d}{dt}(f\circ g) = 15t^4e^{3t^5} \]
 
 c) $f(x,y) = (x^2 + y^2)\ln{\sqrt{x^2 + y^2}}$, $\vec{\gamma}(t) =(e^t, e^{-t}) $.\\
 
