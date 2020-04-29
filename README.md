@@ -27,6 +27,12 @@ A lo largo del curso se cubrirán los siguientes temas:
     * Valores propios
     * Matriz de vectores propios
 
+
+![file-1](assets/Derivada.png)
+* 'La derivada sobre una superficie'
+![file-2](assets/PlanoTangente.png)
+* 'Poner un plano tangente sobre una superficie en R^3'
+
 ## Horarios
 Horario         | Día              | Tipo de clase       | Aula
 ----------------|------------------|---------------------|------
