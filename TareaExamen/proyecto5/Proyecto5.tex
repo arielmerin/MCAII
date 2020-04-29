@@ -146,8 +146,8 @@ por otra parte, por el primer caso de la regla de la cadena, obtenemos
 \[ 	\dfrac{d}{dt}(f\circ g) = 	\dfrac{df}{dx}\dfrac{dx}{dt} + \dfrac{df}{dy}\dfrac{dy}{dt} \]
 entonces calculemos las siguientes derivadas
 \begin{align*}
-	\dfrac{df}{dx}(xy) &= y &&\text{Por la regla del producto}\\
-	\dfrac{df}{dy}(xy) &= x &&\text{Por la regla del producto}\\
+	\dfrac{\d f}{\d x}(xy) &= y &&\text{Por la regla del producto}\\
+	\dfrac{\d f}{\d y}(xy) &= x &&\text{Por la regla del producto}\\
 	\dfrac{dx}{dt}(e^t) &= e^t &&\text{Por propiedades de la exponencial}\\
 	\dfrac{dy}{dt}(\cos(t)) &= -\sin(t) &&\text{Por características de las trigonométricas}\\
 \end{align*}
@@ -170,8 +170,8 @@ por otra parte, por el primer caso de la regla de la cadena, obtenemos
 \[ 	\dfrac{d}{dt}(f\circ g) = 	\dfrac{df}{dx}\dfrac{dx}{dt} + \dfrac{df}{dy}\dfrac{dy}{dt} \]
 entonces calculemos las siguientes derivadas
 \begin{align*}
-	\dfrac{df}{dx}(e^{xy}) &= ye^{xy} &&\text{Por la regla de la exponencial}\\
-	\dfrac{df}{dy}(e^{xy}) &= xe^{xy} &&\text{Por la regla de la exponencial}\\
+	\dfrac{\d f}{\d x}(e^{xy}) &= ye^{xy} &&\text{Por la regla de la exponencial}\\
+	\dfrac{\d f}{\d y}(e^{xy}) &= xe^{xy} &&\text{Por la regla de la exponencial}\\
 	\dfrac{dx}{dt}(3t^2) &= 6t &&\text{Por propiedades de la derivada en exponentes}\\
 	\dfrac{dy}{dt}(t^3) &= 3t^2 &&\text{Por propiedades de la derivada en exponentes}\\
 \end{align*}
@@ -181,7 +181,53 @@ Así, se tiene que
 
 c) $f(x,y) = (x^2 + y^2)\ln{\sqrt{x^2 + y^2}}$, $\vec{\gamma}(t) =(e^t, e^{-t}) $.\\
 
+Tenemos que $  f \circ \gamma(t) = (e^{2t} + e^{-2t})\ln \sqrt{e^{2t} + e^{-2t}}  $ y su derivada es 
+
+\begin{align*}
+\dfrac{d}{dt} (f\circ \gamma) &= \dfrac{d}{dt}((e^{2t} + e^{-2t})\ln \sqrt{e^{2t} + e^{-2t}})  &&\text{Planteando la derivada }\\
+\dfrac{d}{dt} (f\circ \gamma) &= \dfrac{d}{dt}((e^{2t} + e^{-2t}) \* \dfrac{1}{2} \ln (e^{2t} + e^{-2t}))  &&\text{Pues } \ln(a^c) = c\* \ln(a)\\
+\dfrac{d}{dt} (f\circ \gamma) &= \dfrac{1}{2} \ln (e^{2t} + e^{-2t})\*\dfrac{d}{dt}(e^{2t} + e^{-2t}) +  (e^{2t} + e^{-2t})\*\dfrac{d}{dt}\left(\dfrac{1}{2} \ln (e^{2t} + e^{-2t})\right)  && \text{Por regla del producto en derivadas}\\
+\dfrac{d}{dt} (f\circ \gamma) &= \dfrac{1}{2} \ln (e^{2t} + e^{-2t})\*2(e^{2t} - e^{-2t}) +  (e^{2t} + e^{-2t})\*\dfrac{d}{dt}\left(\dfrac{1}{2} \ln (e^{2t} + e^{-2t})\right)  && \text{Derivando la primera parte}\\
+\dfrac{d}{dt} (f\circ \gamma) &= \dfrac{1}{2} \ln (e^{2t} + e^{-2t})\*2(e^{2t} - e^{-2t}) +  \dfrac{e^{2t} + e^{-2t} (2e^{2t}-2e^{-2t})}{2\sqrt{e^{2t}+e^{-2t}}\sqrt{e^{2t}+e^{-2t}}} && \text{Derivando la segunda parte}\\
+\dfrac{d}{dt} (f\circ \gamma) &= (e^{2t} - e^{-2t})(2\ln\sqrt{e^{2t} + e^{-2t} } + 1) && \text{Factorizando } (e^{2t} - e^{-2t})\\
+\end{align*}
+por otra parte, por el primer caso de la regla de la cadena, obtenemos
+\[ 	\dfrac{d}{dt}(f\circ g) = 	\dfrac{df}{dx}\dfrac{dx}{dt} + \dfrac{df}{dy}\dfrac{dy}{dt} \]
+entonces calculemos las siguientes derivadas
+\begin{align*}
+\dfrac{\d f}{\d x}((x^2 + y^2)\ln{\sqrt{x^2 + y^2}} ) &= x(2\ln\sqrt{x^{2} + y^{2}} + 1)  &&\text{Haciendo la parcial con }x\\
+\dfrac{\d f}{\d y}((x^2 + y^2)\ln{\sqrt{x^2 + y^2}}) &= y(2\ln\sqrt{x^2 + y^2} + 1)  &&\text{El caso anterior es homólogo con }y\\
+\dfrac{dx}{dt}(e^t) &= e^t &&\text{Por propiedades de la exponencial}\\
+\dfrac{dy}{dt}(-e^t) &= -e^{-t} &&\text{Por propiedades de la exponencial }\\
+\end{align*}
+Así, se tiene que 
+\[ \dfrac{d}{dt}(f\circ g) = x(2\ln\sqrt{x^{2} + y^{2}} + 1)\*e^t + y(2\ln\sqrt{x^2 + y^2} + 1)\*(-e^{-t}) \] y como $ x = e^t  $ y $ y = e^{-t} $
+\[ \therefore  \qquad \dfrac{d}{dt}(f\circ g) = (e^{2t} - e^{-2t})(2\ln\sqrt{e^{2t} + e^{-2t} } + 1)  \]
+
 d) $f(x,y) = xe^{x^2 + y^2}$, $\vec{\gamma}(t) =(t, -t) $.\\
+
+Tenemos que $  f \circ \gamma(t) = te^{2t^2}   $ y su derivada es 
+
+\begin{align*}
+\dfrac{d}{dt} (f\circ \gamma) &= \dfrac{d}{dt} te^{2t^2} &&\text{Planteando la derivada }\\
+\dfrac{d}{dt} (f\circ \gamma) &= t\dfrac{d}{dt} e^{2t^2}+e^{2t^2}\*\dfrac{d}{dt} t &&\text{Por propiedades de la multiplicación }\\
+\dfrac{d}{dt} (f\circ \gamma) &= t\dfrac{d}{dt} e^{2t^2}+e^{2t^2}\*\dfrac{d}{dt} t &&\text{Por propiedades de la multiplicación }\\
+\dfrac{d}{dt} (f\circ \gamma) &= t2e^{2t^2}\dfrac{d}{dt}t^2 + e^{2t^2} &&\text{La derivada de la exponencial es ella misma por la derivada de su argumento}\\
+\dfrac{d}{dt} (f\circ \gamma) &= 4t^2e^{2t^2} + e^{2t^2} &&\text{Derivando un monomio}\\
+\dfrac{d}{dt} (f\circ \gamma) &= e^{2t^2}(4t^2 + 1) &&\text{Empleando factor común}
+\end{align*}
+por otra parte, por el primer caso de la regla de la cadena, obtenemos
+\[ 	\dfrac{d}{dt}(f\circ g) = 	\dfrac{df}{dx}\dfrac{dx}{dt} + \dfrac{df}{dy}\dfrac{dy}{dt} \]
+entonces calculemos las siguientes derivadas
+\begin{align*}
+\dfrac{\d f}{\d x}(xe^{x^2+y^2} ) &= e^{x^2+y^2}(1+2x^2)  &&\text{Aplicando la parcial a la función }\\
+\dfrac{\d f}{\d y}(xe^{x^2+y^2}) &= 2xye^{x^2+y^2} &&\text{Aplicando la parcial a la función }\\
+\dfrac{dx}{dt}(t) &= 1 &&\text{Derivando un termino lineal}\\
+\dfrac{dy}{dt}(-t) &= -1 &&\text{Derivando un término lineal }\\
+\end{align*}
+Así, se tiene que 
+\[ \dfrac{d}{dt}(f\circ g) = e^{x^2+y^2}(1+2x^2) -2xye^{x^2+y^2}  \] y como $ x = t  $ y $ y = -t $
+\[ \therefore  \qquad \dfrac{d}{dt}(f\circ g) = e^{2t^2}(1+4t^2)  \]
 
 
 
