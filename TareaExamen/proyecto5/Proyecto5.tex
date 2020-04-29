@@ -1,169 +1,151 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%	Licencia:		Este documento se distribuye bajo licencia (CC BY 4.0) Usted puede encontrar un resumen %%
-%%					de la licencia en http://creativecommons.org/licenses/by/4.0/deed.es					%%
-%%																											%%
-%%	-----------------------------------------------------------------------------------------------------	%%
-%%																											%%
-%%	Plantilla:		exi-examen																				%%
-%%	Descripción:	exi-examen.tex es una plantilla para realizar exámenes escritos en formato LaTeX		%%
-%%	Autor:			Ing. Alfonso Ramos Michel																%%
-%%	Fecha:			9 de diciembre de 2013																	%%
-%%	Revisión:		UNO-A																					%%
-%%	Paquetes:		inputenc																				%%
-%%					babel																					%%
-%%					graphicx																				%%
-%%					amsmath																					%%
-%%					geometry 																				%%
-%%					fancyhdr																				%%
-%%	Comandos:		\ExiEscuela		Para definir la institución educativa donde se realiza el examen.		%%
-%%					\ExiCarrera		Para definir la carrera que se realiza.									%%
-%%					\ExiMateria		Para definir la materia que se cursa.									%%
-%%					\ExiParcial		Para definir el parcial del cual se realiza el examen.					%%
-%%					\informacion	Muesta un recuadro donde poder dar instrucciones al alumno.				%%
-%%					\datos			Muestra una línea para el nombre del alumno y la fecha de realización.	%%
-%%					\pregunta		Permite introducir (dentro del entorno enummerate) una pregunta o el 	%%
-%%									planteamiento de un problema.											%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-\documentclass[letterpaper,11pt]{article}
-
+\documentclass[letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish,mexico]{babel}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath}
+\usepackage{stackengine}
 \usepackage{graphicx}
-\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{dsfont}
+\usepackage[margin=1.5cm,
+vmargin={1.5cm,0.7cm},
+includefoot]{geometry}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tocloft}
+\usepackage{upgreek}
 \usepackage{amsthm}
-\usepackage{amsfonts}
-%\usepackege{amssymb}
-\usepackage[hmargin=1in, vmargin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{paralist}
 \usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{wasysym}
+\usepackage{textgreek, marvosym}
+\tcbuselibrary{skins,breakable}
 \pagestyle{fancy}
-\usepackage{tasks}
-\lhead{\ExiCarrera}
-\chead{\ExiMateria}
-\rhead{\ExiParcial}
-\cfoot{\ExiEscuela}
+
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
-\providecommand{\abs}[1]{\lvert#1\rvert}
-\providecommand{\norm}[1]{\lVert#1\rVert}
+\renewcommand{\d}{\partial}
 
-%=================================================================================
-%	Definición de comandos
-%=================================================================================
-\newcommand{\informacion}[1]{
-\begin{center}
-\fbox{\fbox{\parbox{\textwidth}{{\footnotesize#1}}}}
-\end{center}
-\vspace{5mm}}
-\newcommand{\datos}{\makebox[0.7\textwidth]{Nombre:~\hrulefill} Fecha:~\hrulefill}
-\newcommand{\pregunta}[2]{\item{#2}~{(#1 puntos)}\\ \vspace{5mm}						       
-			{\bf Solución}}														  
-%	Los siguientes comandos hay que definirlos desde aquí.								    %
-\newcommand{\ExiCarrera}{Matemáticas para las Ciencias II.}											  %%%
-\newcommand{\ExiMateria}{\textbf{Proyecto V}}														%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\ExiParcial}{Entrega: Viernes 20 de Marzo}														  %%%
-\newcommand{\ExiEscuela}{\textbf{Facultad de Ciencias, UNAM}}	                		    %
+\providecommand{\abs}[1]{\left|#1\right|}
+\providecommand{\norm}[1]{\left|\left|#1\right|\right|}														  
+\providecommand{\pint}[1]{\langle#1\rangle}														  
+\newcommand{\V}{\mathds{V}}
 
-%=================================================================================
-%	Aquí comienza lo bueno, a definir el examen!!!!
-%=================================================================================
+\newcommand{\W}{\mathds{W}}
+
+\newcommand{\F}{\mathds{F}}
+
+\newcommand{\tq}{ \quad \cdot  \backepsilon \cdot \quad }
+
+\newcommand{\ld}{\lim\limits_{x \to 0^{+}}}
+
+\newcommand{\li}{\lim\limits_{x \to 0^{-}}}
+
+\newcommand{\la}{\lim\limits_{x \to a}}
+
+\renewcommand{\l}{\ell}
+
+\newcommand{\R}{\mathds{R}}
+
+\newcommand{\Po}{\mathds{P}_2(\mathds{R})}
+
+\renewcommand{\*}{\cdot}
+
+\newcommand{\Iden}{\begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 1 
+\end{pmatrix}}
+\newcommand{\T}{\begin{pmatrix}
+		1 & 3 & 9 \\
+		1 & 3 & 4 \\
+		0 & 0 & 2 
+\end{pmatrix} }
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+	\edef\arraystretch{#1}%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{*\c@MaxMatrixCols c}}
+\makeatother
+
+\newtheorem{theorem}{Teorema}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}
+
+
 \begin{document}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%            CARÁTULA            %%%%%%%%%%%%%%%%%%%%%%%%%
-\setlength{\unitlength}{1cm}
-\thispagestyle{empty}
-\begin{picture}(18,4)
-\put(-0.5,1.2){\includegraphics[scale=.25]{unam1.png}}
-\put(13.5,1){\includegraphics[scale=.35]{fciencias1.png}}
-\end{picture}
-
-\begin{center}
-\vspace{-134pt}
-\textbf{\large Matemáticas para las Ciencias II}\\[0.2cm]
-\textbf{ Semestre 2020-2}\\[0.2cm]
-Prof. Pedro Porras Flores\\[0.2cm]
-Ayud. Irving Hérnandez Rosas \\ [0.2cm]
-%Ayud. Carlos Rodolfo Barrera Anzaldot \\ [0.2cm]
-\textbf{Proyecto V}
-\end{center}
-\vspace{-10pt}
-\rule{17cm}{0.3mm}
-\begin{flushright}
-\vspace{-3pt}
-\end{flushright}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%
-%\informacion{\large Profesor: Pedro Porras  Flores \\
-%porras@ciencias.unam.mx  \\
-
-%Ayudante: María Guadalupe Gómez Farfán\\ 
- %lupis\_2309@hotmail.com\\
- 
-% Ayudante: Carlos Rodolfo Barrera Anzaldo\\ 
- %crba@ciencias.unam.mx\\}
-%%%%
-\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom. 
-
-
-\begin{enumerate}
+	
+	\setlength{\unitlength}{1cm}
+	\thispagestyle{empty}
+	\begin{picture}(19,3)
+	\put(-0.5,1.2){\includegraphics[scale=.20]{img/unam1.png}}
+	\put(16,1){\includegraphics[scale=.29]{img/fciencias1.png}}
+	\end{picture}
+	
+	\begin{center}
+		\vspace{-114pt}
+		\textbf{\large Matemáticas para las Ciencias II}\\
+		\textbf{ Semestre 2020-2}\\
+		Prof. Pedro Porras Flores\\
+		Ayud. Irving Hernández Rosas \\
+		\textbf{Proyecto V}\\[0.2cm]
+		Kevin Ariel Merino Peña\footnote{Número de cuenta 317031326}\\ [0.2cm]
+	\end{center}
+	\vspace{-10pt}
+	\rule{19cm}{0.3mm}
+	
+\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden que estos proyectos se entregan de manera individual en la plataforma de google classroom.\\
 
 % -----------------------------------------------------
 % Problema uno
 % -----------------------------------------------------
-\item  Verifique el primer caso de la regla de la cadena de la composición $ f\circ \vec{\gamma}$ para cada uno de los siguientes casos, esto es primero haga la composición y derive, y le luego use la regla de la cadena y vea que se llega al mismo resultado. 
-
-\begin{tasks}(1)
-\task $f(x,y) = xy$, $\vec{\gamma}(t) =(e^t, \cos(t)) $.
-\task $f(x,y) = xy$, $\vec{\gamma}(t) =(3t^2, t^3) $.
-\task $f(x,y) = (x^2 + y^2)\ln{\sqrt{x^2 + y^2}}$, $\vec{\gamma}(t) =(e^t, e^{-t}) $.
-\task $f(x,y) = xe^{x^2 + y^2}$, $\vec{\gamma}(t) =(t, -t) $.
-\end{tasks}
+\noindent1.  Verifique el primer caso de la regla de la cadena de la composición $ f\circ \vec{\gamma}$ para cada uno de los siguientes casos, esto es primero haga la composición y derive, y le luego use la regla de la cadena y vea que se llega al mismo resultado.\\
 
 
+a) $f(x,y) = xy$, $\vec{\gamma}(t) =(e^t, \cos(t)) $.\\
+
+b) $f(x,y) = xy$, $\vec{\gamma}(t) =(3t^2, t^3) $.\\
+
+c) $f(x,y) = (x^2 + y^2)\ln{\sqrt{x^2 + y^2}}$, $\vec{\gamma}(t) =(e^t, e^{-t}) $.\\
+
+d) $f(x,y) = xe^{x^2 + y^2}$, $\vec{\gamma}(t) =(t, -t) $.\\
 
 
-\item Sea $f(u, v, w) = (e^{u -w}, \cos{(u + v)} + \sin{(u + v + w)})$ y $g(x,y) = (e^{x}, \cos{(y - x)}, e^{-y} )$. Calcule $ f\circ g$ y $\mathbf{D}(f\circ g)(0,0)$.
-
-\item  Calcule la derivada direccional de las siguientes funciones en el punto y la dirección dada: 
-
-\begin{tasks}(1)
-\task $f(x,y) = x + 2xy -3y^2$, $(x_0, y_0) = (1,2)$ y $\vec{v} = \frac{3}{5}\hat{e}_1 + \frac{4}{5}\hat{e}_2 $.
-\task $f(x,y) = \ln{\sqrt{x^2 + y^2}}$, $(x_0, y_0) = (1,0)$ y $\vec{v} = \left( \frac{1}{\sqrt{5}} \right)(2\hat{e}_1 + \hat{e}_2 )$.
-\task $f(x,y) = e^x\cos{(\pi y)}$, $(x_0, y_0) = (0,-1)$ y $\vec{v} = - \left( \frac{1}{\sqrt{5}} \right)\hat{e}_1 +  \left( \frac{2}{\sqrt{5}} \right)\hat{e}_2 $.
-\task $f(x,y) = xy^2 + x^3y$, $(x_0, y_0) = (4,-2)$ y $\vec{v} =  \left( \frac{1}{\sqrt{10}} \right)\hat{e}_1 +  \left( \frac{3}{\sqrt{10}} \right)\hat{e}_2 $.
-\end{tasks}
-
-\item Encuentre un vector que sea normal a la curva $x^3 + xy + y^3 = 11$ en  $(1,2)$.
-
-\item  El Capitán Ralphis se encuentra en problemas cerca del lado soleado de Mercurio. La temperatura del casco del barco cuando está en la ubicación $(x, y, z)$ estará dada por $T(x,y,z) = e^{-x^2 - 2y^2 - 3z^2}$, donde $x,y,z$ se miden en metros. Actualmente está en $(1,1,1)$.
-
-\begin{tasks}(1)
-\task ¿En qué direcciones debería proceder para disminuir la temperatura más rápidamente?
-\task Si el barco viaja a $e^8$ metros por segundo, ¿qué tan rápido será la disminución de la temperatura si avanza en esa dirección?
-\task Desafortunadamente, el metal del casco se romperá si se enfría a una velocidad superior a $\sqrt{14}e^2$ grados por segundo. Describa el conjunto de posibles direcciones en las que puede proceder a bajar la temperatura a no más de esa tasa.
-\end{tasks}
 
 
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[width=9cm]{silla}
-%\caption{Parábola con foco sobre el eje $x$.}
-%\label{F1}
-%\end{figure}
-%\item  Sea $f: \mathbb{R}^2  \longrightarrow \mathbb{R}$ tal que $f(x,y) = \left\{
- %    \begin{array}{cl}
- %      \dfrac{x^2y}{\vert x \vert^3 + y^2} & : \text{ si } (x,y) \neq (0,0)\\
- %      0 & : \text{ si } (x,y) = (0,0)\\
- %    \end{array}
-\end{enumerate}
+
+\noindent2. Sea $f(u, v, w) = (e^{u -w}, \cos{(u + v)} + \sin{(u + v + w)})$ y $g(x,y) = (e^{x}, \cos{(y - x)}, e^{-y} )$. Calcule $ f\circ g$ y $\mathbf{D}(f\circ g)(0,0)$.\\
+
+\noindent3.  Calcule la derivada direccional de las siguientes funciones en el punto y la dirección dada: \\
+
+
+a) $f(x,y) = x + 2xy -3y^2$, $(x_0, y_0) = (1,2)$ y $\vec{v} = \frac{3}{5}\hat{e}_1 + \frac{4}{5}\hat{e}_2 $.\\
+
+b) $f(x,y) = \ln{\sqrt{x^2 + y^2}}$, $(x_0, y_0) = (1,0)$ y $\vec{v} = \left( \frac{1}{\sqrt{5}} \right)(2\hat{e}_1 + \hat{e}_2 )$.\\
+
+c) $f(x,y) = e^x\cos{(\pi y)}$, $(x_0, y_0) = (0,-1)$ y $\vec{v} = - \left( \frac{1}{\sqrt{5}} \right)\hat{e}_1 +  \left( \frac{2}{\sqrt{5}} \right)\hat{e}_2 $.\\
+
+d) $f(x,y) = xy^2 + x^3y$, $(x_0, y_0) = (4,-2)$ y $\vec{v} =  \left( \frac{1}{\sqrt{10}} \right)\hat{e}_1 +  \left( \frac{3}{\sqrt{10}} \right)\hat{e}_2 $.\\
+
+
+\noindent4. Encuentre un vector que sea normal a la curva $x^3 + xy + y^3 = 11$ en  $(1,2)$.\\
+
+\noindent5.  El Capitán Ralphis se encuentra en problemas cerca del lado soleado de Mercurio. La temperatura del casco del barco cuando está en la ubicación $(x, y, z)$ estará dada por $T(x,y,z) = e^{-x^2 - 2y^2 - 3z^2}$, donde $x,y,z$ se miden en metros. Actualmente está en $(1,1,1)$.\\
+
+a) ¿En qué direcciones debería proceder para disminuir la temperatura más rápidamente?\\
+
+b) Si el barco viaja a $e^8$ metros por segundo, ¿qué tan rápido será la disminución de la temperatura si avanza en esa dirección?\\
+
+c) Desafortunadamente, el metal del casco se romperá si se enfría a una velocidad superior a $\sqrt{14}e^2$ grados por segundo. Describa el conjunto de posibles direcciones en las que puede proceder a bajar la temperatura a no más de esa tasa.\\
+
+
 
 
 
