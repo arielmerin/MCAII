@@ -430,14 +430,13 @@ Así, la velocidad estará dada por
 \[ \abs{\nabla T(1,1,1) \* \vec{v}}= \norm{\nabla T (1,1,1)} \]
 
 Además el barco está viajando a una rapidez de $ e^8 \frac{m}{s} $ por lo que la velocidad deberá ser afectada por este factor, de esta manera
-
 \begin{align*}
 	r\*\norm{\nabla T(1,1,)} &= r\* e^{-6}\norm{2,4,6}\\
 	r\*\norm{\nabla T(1,1,)} &= r\* e^{-6}2\*\norm{1,2,3}\\
 	r\*\norm{\nabla T(1,1,)} &= r\* 2e^{-6}\sqrt{1^2 + 2^2 + 3^2}\\
 	r\*\norm{\nabla T(1,1,)} &= r\* 2e^{-6}\sqrt{1+4+9}\\
 	r\*\norm{\nabla T(1,1,)} &= r\* 2e^{-6}\sqrt{14}\\
-	e^8\*\norm{\nabla T(1,1,)} &= e^8\* 2e^{-6}\sqrt{14}\\
+	e^8\*\norm{\nabla T(1,1,)} &= e^8\* 2e^{-6}\sqrt{14}
 \end{align*}
 \begin{center}
 	$ \therefore $ la velocidad de de disminución será de $ 2e^2\sqrt{14} \frac{m}{s}$ en dirección $ - \nabla T(1,1,1) $ \\
@@ -448,7 +447,7 @@ c) Desafortunadamente, el metal del casco se romperá si se enfría a una veloci
 
 Tomemos a $ \vec{v} $ un vector unitario \textit{i.e.} $ \norm{\vec{v}} = 1 $, que satisfaga la siguiente inecuación
 \[ r\* \abs{\nabla T(1,1,1) \* \vec{v}} \leq \sqrt{14}e^2 \]
-donde $ r = e^8 $.\\
+donde $ r = e^8 $.
 
 Por una parte sabemos que el producto punto se puede expresar de la siguiente manera $ \norm{\vec{x} \* \vec{y}} = \norm{\vec{x}}\norm{\vec{y}}\cos\theta $ donde $ \theta $ es el ángulo que éstos dos forman. 
 
@@ -463,8 +462,19 @@ Del ejercicio anterior, obtuvimos que $ \norm{\nabla T(1,1,1)} =  2e^{-6}\sqrt{1
 
 Así, el ángulo $  \theta $ queda acotado de la siguiente forma
 \[ \abs{\cos \theta} \leq \dfrac{1}{2} \] y por nuestro curso de cáculo I, tenemos que eso es \[  -\dfrac{1}{2} \leq \cos \theta \leq \dfrac{1}{2} \]
+
+Hagamos unas cuantas observaciones a la gráfica del $ \cos(x) $
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\linewidth]{img/cosine.png}
+	\caption{$ \cos(x) $}
+\end{figure}
+Veamos que en los únicos lugares donde se interseca es en $ \theta = \dfrac{\pi}{3} $, y luego hasta $ \dfrac{2\pi}{3} $, pero dentro de este intervalo su valor absoluto es a lo más $ \dfrac{1}{2} $, lo mismo ocurre con $ \dfrac{4\pi}{3} $ y $ \dfrac{5\pi}{3}  $.\\
+
 Por lo tanto, el conjunto de vectores que solucionan este problema es 
-\[ \left\lbrace \vec{x} \quad | \quad \vec{x} \text{ es un vector unitario } \tq \theta \in \left[ \dfrac{\pi}{3}, \dfrac{2\pi}{3} \right] \cup \left[ \dfrac{4\pi}{3}, \dfrac{5\pi}{3} \right]  \right\rbrace \]
+\[ \left\lbrace \vec{x} \quad | \quad \vec{x} \text{ es un vector unitario } \quad \land \quad \theta \in \left[ \dfrac{\pi}{3}, \dfrac{2\pi}{3} \right] \cup \left[ \dfrac{4\pi}{3}, \dfrac{5\pi}{3} \right]  \right\rbrace \]
+
+donde $ \theta $ es el ángulo formado entre $ \nabla T(1,1,1) $ y el vector $ \vec{x} $
 
 
 
