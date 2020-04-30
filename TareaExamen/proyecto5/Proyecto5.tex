@@ -230,8 +230,101 @@ Así, se tiene que
 \[ \therefore  \qquad \dfrac{d}{dt}(f\circ g) = e^{2t^2}(1+4t^2)  \]
 
 
-
 \noindent2. Sea $f(u, v, w) = (e^{u -w}, \cos{(u + v)} + \sin{(u + v + w)})$ y $g(x,y) = (e^{x}, \cos{(y - x)}, e^{-y} )$. Calcule $ f\circ g$ y $\mathbf{D}(f\circ g)(0,0)$.\\
+
+La composición está dada por 
+\[ (f \circ g)(x,y) = f(g(x,y)) = f(e^x,cos(y-x),e^{-y}) \]
+si aplicamos la regla de correspondencia de f, esto es:
+\[ \left(  e^{e^x - e^{-y}},\cos(\cos(y-x) + e^x) + \sin(e^x + \cos(y-x+e^{-y}))  \right) \]
+Empleando la regla de la cadena para el segundo caso tenemos que 
+\[ D(f \circ g)(x,y) = D_f(g(x,y))D_g(x,y) \] ahora calculemos la derivada (matriz) de $ f $ como \[ D_f = \begin{pmatrix}[2.5]
+\dfrac{\d f_1}{\d u} & \dfrac{\d f_1}{\d v} & \dfrac{\d f_1}{\d w} \\
+\dfrac{\d f_2}{\d u} & \dfrac{\d f_2}{\d v} & \dfrac{\d f_2}{\d w} 
+\end{pmatrix} \]
+\begin{align*}
+	Df(u,v,w) &= \begin{pmatrix}[2.5]
+	\dfrac{\d f_1}{\d u} & \dfrac{\d f_1}{\d v} & \dfrac{\d f_1}{\d w} \\
+	\dfrac{\d f_2}{\d u} & \dfrac{\d f_2}{\d v} & \dfrac{\d f_2}{\d w} 
+	\end{pmatrix} \\
+	Df(u,v,w) &= \begin{pmatrix}[2.5]
+	\dfrac{\d }{\d u}e^{u -w} & \dfrac{\d }{\d v} e^{u -w}& \dfrac{\d }{\d w}e^{u -w} \\
+	\dfrac{\d}{\d u}(\cos(u + v) + \sin(u + v + w)) & \dfrac{\d}{\d v} (\cos(u + v) + \sin(u + v + w)) & \dfrac{\d }{\d w} (\cos(u + v) + \sin(u + v + w))
+	\end{pmatrix} \\
+	Df(u,v,w) &= \begin{pmatrix}[2.5]
+	e^{u -w} & 0& -e^{u -w} \\
+	-\sin(u + v) + \cos(u + v + w) & -\sin(u + v) + \cos(u + v + w) & \cos(u + v + w)
+	\end{pmatrix} \\
+\end{align*}
+Hagamos el mismo procedimiento para la función g
+\begin{align*}
+	Dg(x,y) &= \begin{pmatrix}[2.5]
+	\dfrac{\d g_1}{\d x} & \dfrac{\d g_1}{\d y} \\
+	\dfrac{\d g_2}{\d x} & \dfrac{\d g_2}{\d y} \\
+	\dfrac{\d g_3}{\d x} & \dfrac{\d g_3}{\d y} 
+	\end{pmatrix} &&\text{Planteando la jacobiana de la función }g \\
+	Dg(x,y) &= \begin{pmatrix}[2.5]
+	\dfrac{\d }{\d x} e^x & \dfrac{\d}{\d y} e^x \\
+	\dfrac{\d }{\d x}\cos{(y - x)}  & \dfrac{\d}{\d y} \cos{(y - x)}\\
+	\dfrac{\d }{\d x}e^{-y}  & \dfrac{\d}{\d y} e^{-y}
+	\end{pmatrix} &&\text{Reemplazando los valores de }g_1,g_2,g_3 \\
+	Dg(x,y) &= \begin{pmatrix}[1.5]
+	e^x & 0\\
+	\sin{(y - x)}  & -\sin{(y - x)}\\
+	0 & -e^{-y}
+	\end{pmatrix}&&\text{Aplicando las derivadas parciales } \\
+\end{align*}
+
+Ahora evaluemos $ Df(g(0,0)) =  $, para ello veamos que 
+\begin{align*}
+	g(0,0) &= (e^{0}, \cos{(0 - 0)}, e^{-0} ) && \text{Por la regla de correspondencia}\\
+	g(0,0) &= (1, 1, 1 ) && \text{Evaluando dichos valores }
+\end{align*}
+entonces evaluaremos $ Df(1,1,1) $, esto es:
+\begin{align*}
+	Df(1,1,1) &= \begin{pmatrix}[2.5]
+	e^{1 -1} & 0& -e^{1 -1} \\
+	-\sin(1 + 1) + \cos(1 + 1 + 1) & -\sin(1 + 1) + \cos(1 + 1 + 1) & \cos(1 + 1 + 1)
+	\end{pmatrix}\\
+	Df(1,1,1) &= \begin{pmatrix}[2.5]
+	1 & 0& 1 \\
+	-\sin(2) + \cos(3) & -\sin(2) + \cos(3) & \cos(3)
+	\end{pmatrix}\\
+\end{align*}
+
+también evaluemos $ Dg(0,0) $, \textit{i.e. }
+\begin{align*}
+	Dg(0,0)\begin{pmatrix}[2.5]
+	e^0 & 0\\
+	\sin{(0 - 0)}  & -\sin{(0 - 0)}\\
+	0 & -e^{-0}
+	\end{pmatrix}&&\text{Planteando la evaluación en la matriz de derivadas}\\
+	Dg(0,0)\begin{pmatrix}
+	1 & 0\\
+	0 & 0\\
+	0 & 1
+	\end{pmatrix}&&\text{Dando valor a las entradas}\\
+\end{align*}
+Finalmente por el segundo caso de la regla de la cadena, sólo tenemos que multiplicar las matrices anteriores
+
+\begin{align*}
+	 D(f \circ g)(0,0) &= D_f(g(0,0))D_g(0,0) && \text{Por la regla de la cadena}\\
+	 D(f \circ g)(0,0) &= \begin{pmatrix}[2.5]
+	 1 & 0& 1 \\
+	 -\sin(2) + \cos(3) & -\sin(2) + \cos(3) & \cos(3)
+	 \end{pmatrix}\*\begin{pmatrix}
+	 1 & 0\\
+	 0 & 0\\
+	 0 & 1
+	 \end{pmatrix} && \text{Sustituyendo los valores correspondientes}\\
+	 D(f \circ g)(0,0) &= \begin{pmatrix}[2.5]
+	 1 + 0 + 0 & 0 + 0 + 1 \\
+	 -\sin(2) + \cos(3) +0 +0 &  0 + 0 + -\cos(3)
+	 \end{pmatrix} && \text{Efectuando multiplicación de matrices }\\
+	 D(f \circ g)(0,0) &= \begin{pmatrix}[2.5]
+	 1 & 1 \\
+	 -\sin(2) + \cos(3)& -\cos(3)
+	 \end{pmatrix} && \text{Eliminando los  }0\\
+\end{align*}
 
 \noindent3.  Calcule la derivada direccional de las siguientes funciones en el punto y la dirección dada: \\
 
