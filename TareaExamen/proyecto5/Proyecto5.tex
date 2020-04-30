@@ -404,11 +404,67 @@ Finalmente evaluamos en el punto deseado por lo que $ \nabla f(1,2) = (5,13) $ e
 
 a) ¿En qué direcciones debería proceder para disminuir la temperatura más rápidamente?\\
 
+Nostros sabemos que la dirección de más rápido crecimiento está dada por el gradiente, entonces la dirección de más rápida disminución es $ - \nabla T $, por lo que basta con calcular el gradiente y evaluarl en el punto donde se encuentra
+
+\begin{align*}
+	\nabla T(x,y,z) &= \left( \dfrac{\d}{\d x} e^{-x^2 - 2y^2 - 3z^2}, \dfrac{\d}{\d y} e^{-x^2 - 2y^2 - 3z^2}, \dfrac{\d}{\d z} e^{-x^2 - 2y^2 - 3z^2} \right) \\
+	\nabla T(x,y,z) &= \left( e^{-x^2 - 2y^2 - 3z^2}\dfrac{\d}{\d x} (-x^2 - 2y^2 - 3z^2),e^{-x^2 - 2y^2 - 3z^2}\dfrac{\d}{\d y} (-x^2 - 2y^2 - 3z^2),e^{-x^2 - 2y^2 - 3z^2}\dfrac{\d}{\d z} (-x^2 - 2y^2 - 3z^2) \right) \\
+	\nabla T(x,y,z) &= e^{-x^2 - 2y^2 - 3z^2}\left( \dfrac{\d}{\d x} (-x^2 - 2y^2 - 3z^2),\dfrac{\d}{\d y} (-x^2 - 2y^2 - 3z^2),\dfrac{\d}{\d z} (-x^2 - 2y^2 - 3z^2) \right) \\
+	\nabla T(x,y,z) &= T(x,y,z)\left( \dfrac{\d}{\d x} (-x^2 - 2y^2 - 3z^2),\dfrac{\d}{\d y} (-x^2 - 2y^2 - 3z^2),\dfrac{\d}{\d z} (-x^2 - 2y^2 - 3z^2) \right) \\
+	\nabla T(x,y,z) &= T(x,y,z)\left( -2x,-4y,-6z \right) \\
+	\nabla T(x,y,z) &= -2T(x,y,z)\left( x,2y,3z \right) \\
+	-\nabla T(x,y,z) &= 2T(x,y,z)\left( x,2y,3z \right) \\
+\end{align*}
+Ahora evaluemos 
+\begin{align*}
+	-\nabla T(1,1,1) &= 2T(1,1,1)\left( 1,2,3 \right) \\
+	-\nabla T(1,1,1) &= 2e^{-6}\left( 1,2,3 \right) \\
+	-\nabla T(1,1,1) &= e^{-6}\left( 2,4,6 \right) \\
+\end{align*}
+
 b) Si el barco viaja a $e^8$ metros por segundo, ¿qué tan rápido será la disminución de la temperatura si avanza en esa dirección?\\
+
+Para ello hemos de calcular la derivada direccional del gradiente en la dirección en la que se encuentra viajando, nos pide que supongamos que va en  dirección de $ - \nabla T(1,1,1)  $, (recordemos que el gradiente es un vectorI) para emplear la \textit{derivada direccional } tenemos que $ \vec{v} $ el vector en cuestión debe ser unitario, por lo que hay que normalizarlo, de esta forma
+\[ \vec{v} = \dfrac{- \nabla T(1,1,1)}{\norm{\nabla T(1,1,1)}} \]
+Así, la velocidad estará dada por
+\[ \abs{\nabla T(1,1,1) \* \vec{v}}= \norm{\nabla T (1,1,1)} \]
+
+Además el barco está viajando a una rapidez de $ e^8 \frac{m}{s} $ por lo que la velocidad deberá ser afectada por este factor, de esta manera
+
+\begin{align*}
+	r\*\norm{\nabla T(1,1,)} &= r\* e^{-6}\norm{2,4,6}\\
+	r\*\norm{\nabla T(1,1,)} &= r\* e^{-6}2\*\norm{1,2,3}\\
+	r\*\norm{\nabla T(1,1,)} &= r\* 2e^{-6}\sqrt{1^2 + 2^2 + 3^2}\\
+	r\*\norm{\nabla T(1,1,)} &= r\* 2e^{-6}\sqrt{1+4+9}\\
+	r\*\norm{\nabla T(1,1,)} &= r\* 2e^{-6}\sqrt{14}\\
+	e^8\*\norm{\nabla T(1,1,)} &= e^8\* 2e^{-6}\sqrt{14}\\
+\end{align*}
+\begin{center}
+	$ \therefore $ la velocidad de de disminución será de $ 2e^2\sqrt{14} \frac{m}{s}$ en dirección $ - \nabla T(1,1,1) $ \\
+\end{center}
+
 
 c) Desafortunadamente, el metal del casco se romperá si se enfría a una velocidad superior a $\sqrt{14}e^2$ grados por segundo. Describa el conjunto de posibles direcciones en las que puede proceder a bajar la temperatura a no más de esa tasa.\\
 
+Tomemos a $ \vec{v} $ un vector unitario \textit{i.e.} $ \norm{\vec{v}} = 1 $, que satisfaga la siguiente inecuación
+\[ r\* \abs{\nabla T(1,1,1) \* \vec{v}} \leq \sqrt{14}e^2 \]
+donde $ r = e^8 $.\\
 
+Por una parte sabemos que el producto punto se puede expresar de la siguiente manera $ \norm{\vec{x} \* \vec{y}} = \norm{\vec{x}}\norm{\vec{y}}\cos\theta $ donde $ \theta $ es el ángulo que éstos dos forman. 
+
+Empleemos lo anterior para calcular $ \norm{\nabla T(1,1,1) \vec{v} } $
+
+\begin{align*}
+	 \norm{\nabla T(1,1,1) \vec{v} } &= \norm{\nabla T(1,1,1)} \norm{\vec{v}}\cos\theta
+	 \norm{\nabla T(1,1,1) \vec{v} } &= \norm{\nabla T(1,1,1)}\cos\theta
+\end{align*}
+
+Del ejercicio anterior, obtuvimos que $ \norm{\nabla T(1,1,1)} =  2e^{-6}\sqrt{14} $  por lo que obtenemos $ 2e^{2}\sqrt{14} \cos\theta \leq \sqrt{14}e^2$.\\
+
+Así, el ángulo $  \theta $ queda acotado de la siguiente forma
+\[ \abs{\cos \theta} \leq \dfrac{1}{2} \] y por nuestro curso de cáculo I, tenemos que eso es \[  -\dfrac{1}{2} \leq \cos \theta \leq \dfrac{1}{2} \]
+Por lo tanto, el conjunto de vectores que solucionan este problema es 
+\[ \left\lbrace \vec{x} \quad | \quad \vec{x} \text{ es un vector unitario } \tq \theta \in \left[ \dfrac{\pi}{3}, \dfrac{2\pi}{3} \right] \cup \left[ \dfrac{4\pi}{3}, \dfrac{5\pi}{3} \right]  \right\rbrace \]
 
 
 
