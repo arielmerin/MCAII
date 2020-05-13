@@ -122,4 +122,23 @@ includefoot]{geometry}
 	Siguiendo la cadena de desigualdades, tenemos:
 	\[ H(\vec{h}) \leq \norm{\vec{h}}^2M \]
 \end{proof}
+\begin{lema}
+	Sea $ f : U \subseteq \R^n \to \R $ de clase $ \mathcal{C}^{3} $ y $ \vec{x_0} \in U $ un punto crítico de $ f $ y el Hessiano $ Hf(\vec{x_0}) $ es definido negativo, entonces $ \vec{x_0} $ tiene un máximo relativo
+\end{lema}
+\begin{proof}
+	Por hipótesis $ f $ es de clase $ \mathcal{C}^3 $, entonces tiene expasión de Taylor por un teorema mostrado en clases anteriores, i.e.
+	\[ f(\vec{x_0} + \vec{h}) = f(\vec{x_0}) + Df(\vec{x_0}) + \dfrac{1}{2}\sum_{i,j = 1}^{n} \dfrac{\d^2 f}{\d x_i \d x_j} h_i h_j + R_2(\vec{x_0},\vec{h}) \]
+	Además sabemos que $ \vec{x_0} $ es un punto crítico, lo que significa $ Df(\vec{x_0}) = 0 $ y el segundo término de la expasión en Taylor es el Hessiano
+	\[ f(\vec{x_0} + \vec{h}) - f(\vec{x_0}) = Hf(\vec{x_0})\vec{h} + R_2(\vec{x_0}\vec{h})  \] siempre y cuando se satisfaga la condición del residuo, esto es:
+	si $ h \to 0 $, entonces $ \dfrac{R_2 (\vec{x_0},\vec{h})}{\norm{\vec{h}}^2} \to 0$
+	\[ \lim\limits_{h \to 0} \dfrac{R_2(\vec{x_0},\vec{h})}{\norm{\vec{h}^2}} = 0 \]
+	Esto anterior ocurre, por la defición de límite si:
+	\[ \forall M > 0 \exists \delta(M) > 0 \tq 0 < \norm{\vec{h}} <  \delta \implies \abs{\dfrac{R_2(\vec{x_0},\vec{h})}{\norm{\vec{h}}^2}} < M \]
+	De lo último podemos extraer lo siguiente
+	\[ \abs{\dfrac{R_2(\vec{x_0},\vec{h})}{\norm{\vec{h}}^2}} < M \implies R_2(\vec{x_0},\vec{h}) \leq M\norm{\vec{h}}^2 \implies -M \norm{\vec{h}}^2 \leq R_2(\vec{x_0},\vec{h}) \leq M\norm{\vec{h}}^2  \] además por hipótesis el hessiano de la función es definido negativo, entonces afirmamos que $$ \exists M > 0 \tq Hf(\vec{x_0}) \leq M\norm{\vec{h}}^2 $$, si sumamos estu último con la observación al valor absoluto hecha arriba, tendremos que 
+	\begin{align*}
+		Hf(\vec{x_0}) + R_2(\vec{x_0},h) &\leq 2M\norm{\vec{h}}^2 \\
+		f(x_0 + h) - f(x_0 + h)&\leq 2M\norm{\vec{h}}^2 \\
+	\end{align*}
+\end{proof}
 \end{document}
