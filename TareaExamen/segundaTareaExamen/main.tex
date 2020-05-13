@@ -111,6 +111,15 @@ includefoot]{geometry}
 		h_1 \\
 		\vdots\\
 		h_n
-		\end{pmatrix} $ es definida postiva, entonces existe $ M > 0$ tal que, $ \forall \vec{h} \in \R^n $ \[ H(\vec{h}) \geq M \norm{\vec{h}}^2 \]
+		\end{pmatrix} $ es definida positiva, entonces existe $ M > 0$ tal que, $ \forall \vec{h} \in \R^n $ \[ H(\vec{h}) \leq M \norm{\vec{h}}^2 \]
 	\end{lema}
+\begin{proof}
+	Definimos $ g(\vec{h}) = H(\vec{h}) $ y consideremos $ \norm{\vec{h}} = 1 $.Aquí observamos que $ g $ es continua, por lo que tenemos
+	\[ H(\vec{h}) = H\left( \dfrac{\vec{h}}{\norm{\vec{h}}} \norm{\vec{h}} \right) = \norm{\vec{h}}^2\left( \dfrac{\vec{h}}{\norm{\vec{h}}} \right) = \norm{\vec{h}}^2g\left(\dfrac{\vec{h}}{\norm{\vec{h}}}\right) \]
+	así, $ g $ alcanza su \textbf{máximo} en un intervalo abierto de $ \R^n $ i.e. $ \exists M \in \R \tq$ $$ g\left(\dfrac{\vec{h}}{\norm{\vec{h}}}\right) \leq M \implies \norm{\vec{h}}^2g\left(\dfrac{\vec{h}}{\norm{\vec{h}}}\right) \leq \norm{\vec{h}}^2M $$ 
+	Entonces habiendo hecho esta observación podemos concluir
+	\[ H(\vec{h}) = H\left( \dfrac{\vec{h}}{\norm{\vec{h}}} \norm{\vec{h}} \right) = \norm{\vec{h}}^2\left( \dfrac{\vec{h}}{\norm{\vec{h}}} \right) = \norm{\vec{h}}^2g\left(\dfrac{\vec{h}}{\norm{\vec{h}}}\right)\leq \norm{\vec{h}}^2M  \]
+	Siguiendo la cadena de desigualdades, tenemos:
+	\[ H(\vec{h}) \leq \norm{\vec{h}}^2M \]
+\end{proof}
 \end{document}
