@@ -1,0 +1,116 @@
+\documentclass[letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath}
+\usepackage{stackengine}
+\usepackage{graphicx}
+\usepackage{ mathrsfs }
+\usepackage{lipsum}
+\usepackage{dsfont}
+\usepackage[margin=1.5cm,
+vmargin={1.5cm,0.7cm},
+includefoot]{geometry}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{tocloft}
+\usepackage{upgreek}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{wasysym}
+\usepackage{textgreek, marvosym}
+\tcbuselibrary{skins,breakable}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\renewcommand{\d}{\partial}
+
+\providecommand{\abs}[1]{\left|#1\right|}
+\providecommand{\norm}[1]{\left|\left|#1\right|\right|}														  
+\providecommand{\pint}[1]{\langle#1\rangle}														  
+\newcommand{\V}{\mathds{V}}
+
+\newcommand{\W}{\mathds{W}}
+
+\newcommand{\F}{\mathds{F}}
+
+\newcommand{\tq}{ \quad \cdot  \backepsilon \cdot \quad }
+
+\newcommand{\ld}{\lim\limits_{x \to 0^{+}}}
+
+\newcommand{\li}{\lim\limits_{x \to 0^{-}}}
+
+\newcommand{\la}{\lim\limits_{x \to a}}
+
+\renewcommand{\l}{\ell}
+
+\newcommand{\R}{\mathds{R}}
+
+\newcommand{\Po}{\mathds{P}_2(\mathds{R})}
+
+\renewcommand{\*}{\cdot}
+
+\newcommand{\Iden}{\begin{pmatrix}
+		1 & 0 & 0\\
+		0 & 1 & 0\\
+		0 & 0 & 1 
+\end{pmatrix}}
+\newcommand{\T}{\begin{pmatrix}
+		1 & 3 & 9 \\
+		1 & 3 & 4 \\
+		0 & 0 & 2 
+\end{pmatrix} }
+
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+	\edef\arraystretch{#1}%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{*\c@MaxMatrixCols c}}
+\makeatother
+
+\newtheorem{theorem}{Teorema}[]
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}
+\newtheorem{lema}{Lema}
+
+
+\begin{document}
+		\setlength{\unitlength}{1cm}
+	\thispagestyle{empty}
+	\begin{picture}(19,3)
+	\put(-0.5,1.2){\includegraphics[scale=.20]{img/unam1.png}}
+	\put(16,1){\includegraphics[scale=.29]{img/fciencias1.png}}
+	\end{picture}
+	
+	\begin{center}
+		\vspace{-114pt}
+		\textbf{\large Matemáticas para las Ciencias II}\\
+		\textbf{ Semestre 2020-2}\\
+		Prof. Pedro Porras Flores\\
+		Ayud. Irving Hernández Rosas \\
+		\textbf{Tarea Examen}\\[0.2cm]
+		Kevin Ariel Merino Peña\footnote{Número de cuenta 317031326}\\ [0.2cm]
+	\end{center}
+	\vspace{-10pt}
+	\rule{19cm}{0.3mm}
+	
+	\begin{lema}
+		Sea B $ \in M_{nxm}(\R) \tq B = [b_{ij}]$ y B es la maatriz asociada a la función cuadrática $ H: \R^n \to \R $ tal que $ H(h_1 \dots h_n) = (h_1 \dots h_n) \begin{pmatrix}
+		b_{11} & \cdots & b_{1n}\\ 
+		\vdots & \ddots & \vdots \\
+		b_{n1} & \cdots & b_{nn}
+		\end{pmatrix} \begin{pmatrix}
+		h_1 \\
+		\vdots\\
+		h_n
+		\end{pmatrix} $ es definida postiva, entonces existe $ M > 0$ tal que, $ \forall \vec{h} \in \R^n $ \[ H(\vec{h}) \geq M \norm{\vec{h}}^2 \]
+	\end{lema}
+\end{document}
