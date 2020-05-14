@@ -93,15 +93,69 @@ includefoot]{geometry}
 	\rule{19cm}{0.3mm}
 	
 \noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden la tarea-examen se entregan de manera individual.\\
-
 \noindent1. El volumen específico $ V $, la presión $ P $  la temperatura $ T $ de un gas van der Waals están relacionados por
 \[ P = \dfrac{RT}{V - \beta} - \dfrac{\alpha}{V^2} \] donde $ \alpha, \beta $ y $ R $ son constantes.\\
 
 a) Encuentre $ \dfrac{\d T}{\d P}, \dfrac{\d P}{\d V} $ y $ \dfrac{\d V}{\d T} $.\\
 
+Consideremos lo siguiente en función de la temperatura y el volumen como 
+\[ P(T,V) = \dfrac{RT}{V - \beta} - \dfrac{\alpha}{V^2} \label{eq:uno}\tag{1} \]
+observemos que la ecuación anterior tiene al menos una solución tal que $ P(T,V) = 0 $ pues como $ \alpha  $ es una constante podemos elegirla cero  y $ R $ o $ T $ iguales a cero, (alguna otra podría ser que entre ambos sumandos se hagan inversos aditivos.Como cada variable puede ser considerada independiente entonces, podemos proceder a despejar $ T $ com variable independiente
+\begin{align*}
+	P &= \dfrac{RT}{V - \beta} - \dfrac{\alpha}{V^2} &&\text{Por la primera ecuación en el ejercicio}\\
+	P - \dfrac{RT}{V - \beta}&=  - \dfrac{\alpha}{V^2} &&\text{sumando en ambos miembros el inverso aditivo de } \dfrac{RT}{V - \beta}\\
+	- \dfrac{RT}{V - \beta}&= -P - \dfrac{\alpha}{V^2} &&\text{sumando en ambos miembros el inverso aditivo de } P\\
+	\dfrac{RT}{V - \beta}&= P + \dfrac{\alpha}{V^2} &&\text{Multiplicando ambos miembros por} -1\\
+	RT&= \left(P + \dfrac{\alpha}{V^2}\right) (V - \beta) &&\text{Multiplicando ambos miembros por el inverso multiplicativo de } V - \beta\\
+	T&= \left(P + \dfrac{\alpha}{V^2}\right) (V - \beta) \dfrac{1}{R} &&\text{Multiplicando ambos miembros por } \dfrac{1}{R}\\
+	T&= \left(P + \dfrac{\alpha}{V^2}\right) \dfrac{V - \beta}{R} &&\text{Reescribiendo la ecuación}\\
+	T (V,P)&= \left(P + \dfrac{\alpha}{V^2}\right) \dfrac{V - \beta}{R} &&\text{Poniéndola en función de las variables}
+\end{align*}
+\[ T(V,P) = \left( P + \dfrac{\alpha}{V^2} \right) \dfrac{V - \beta}{R} \label{eq:dos}\tag{2} \]
+
+Por otro lado, es importante hacer una tercera observación
+\begin{align*}
+	P &= \dfrac{RT}{V - \beta} - \dfrac{\alpha}{V^2} &&\text{Por la primera ecuación en el ejercicio}\\
+	P &=  \dfrac{RTV^2-\alpha(V- \beta)}{V^2(V - \beta)} &&\text{Empleando la regla de suma de fracciones}\\
+	V^2(V - \beta)P &=  RTV^2-\alpha(V- \beta) &&\text{Multiplicando ambos miembros por }V^2(V - \beta)\\
+	(V^3 - V^2\beta)P &=  RTV^2-\alpha(V- \beta) &&\text{Desarrolando el primer miembros por distributividad}\\
+\end{align*}
+\[ (V - \beta)V^2 P = RTV^2 - \alpha(V - \beta) \label{eq:tres}\tag{3}  \]
+
+Empleando las dos observaciones anteriores podemos ver que
+\begin{align*}
+	\dfrac{\d T}{\d P} &= \dfrac{V - \beta}{R} &&\text{Por la segunda observación, donde despejamos }T \label{eq:cuatro}\tag{4} \\
+	\dfrac{\d P}{\d V} &= \dfrac{-RT}{(V - \beta)^2}  - \dfrac{2\alpha}{V^3}&&\text{Por la función original} \label{eq:cinco}\tag{5} \\\
+\end{align*}
+Para obtener la derivada del volumen con respecto a la temperatura, tomemos a $ P $ como una constante y derivemos con respecto a $ T $ obtenemos:
+\begin{align*}
+\dfrac{\d V}{\d T} V^2 P - 2 (V - \beta)V\dfrac{\d V}{\d T}P &= RV^2 + 2RTV\dfrac{\d V}{\d T} - \alpha\dfrac{\d V}{\d T}&& \text{Despejando  en (\ref{eq:dos}) para } \dfrac{\d V}{\d T}\\
+\dfrac{\d V}{\d T} &= \dfrac{R}{(V - \beta)\left(\dfrac{RT}{(V - \beta)^2} - \dfrac{2\alpha}{V^3}\right) } \label{eq:seis}\tag{6} \ && \text{Finalmente obtenemos} \\
+\end{align*}
 Identifique qué variables son constantes e interprete físicamente cada derivada parcial.\\
 
+En $ (\ref{eq:cuatro}) $ tenemos que si $ R > 0 $, entonces $ \dfrac{\d T}{\d P} $ también será postivia, esto significa que la temperatura $ T $ está creciendo con respecto a la presión $ P $ cuando el volúmen $ V $ es $ V > \beta $ y ésta disminuirá en otro caso. Cuando $ R<0 $ lo contrario ocurre.\\
+
+Luego, por $ (\ref{eq:cinco}) $ podemos vemis que $ \dfrac{\d P}{\d V} > 0$ si $ \dfrac{RT}{(V - \beta)^2} > \dfrac{2\alpha}{V^3} $, lo que significa que la presión $ P $ crecerá con respecto al volumen $ V $. Además, entre más crezca $ V $ el volúmen, la presión se volverá cada vez más grande, vemos que si $ \dfrac{\d P}{\d V}  $ tiende a 0 es porque la presión se vuelve muy cercana a una constante (cuando incrementamos el volumen $ V $).
+
 b) Verifique $ \left( \dfrac{\d T}{\d P}\right) \left( \dfrac{\d P}{\d V}\right)\left( \dfrac{\d V}{\d T}\right) = -1 $\\
+
+Primero veamos que tenemos una manera distinta de escribir a $ (\ref{eq:cinco}) $  como:
+\[ \dfrac{\d P}{\d V} = \dfrac{-RTV^3 + 2\alpha(V - \beta)^2}{V^3(V-\beta)^2} \]
+ahora tomemos $ (\ref{eq:cuatro}),(\ref{eq:cinco}) $ y la ultimoa ecuación reescrita para hacer el siguiente producto
+
+\begin{align*}
+	\dfrac{\d T}{\d P}\dfrac{\d P}{\d V}\dfrac{\d V}{\d T} &= \left( \dfrac{(V - \beta)}{R}\right)\* \left(\dfrac{-RTV^3 + 2\alpha(V - \beta)^2}{V^3(V-\beta)^2}\right)\* \left(\dfrac{R}{(V - \beta)\left(\dfrac{RT}{(V - \beta)^2} - \dfrac{2\alpha}{V^3}\right) }\right)\\
+	\dfrac{\d T}{\d P}\dfrac{\d P}{\d V}\dfrac{\d V}{\d T}&= \left(V - \beta \right)\* \left(\dfrac{-RTV^3 + 2\alpha(V - \beta)^2}{V^3(V-\beta)^2}\right)\* \left(\dfrac{1}{(V - \beta)\left(\dfrac{RT}{(V - \beta)^2} - \dfrac{2\alpha}{V^3}\right) }\right)\\
+	\dfrac{\d T}{\d P}\dfrac{\d P}{\d V}\dfrac{\d V}{\d T} &= \left(\dfrac{-RTV^3 + 2\alpha(V - \beta)^2}{V^3(V-\beta)^2} \right)\* \left(\dfrac{V - \beta }{(V - \beta)\left(\dfrac{RT}{(V - \beta)^2} - \dfrac{2\alpha}{V^3}\right) }\right)\\
+	\dfrac{\d T}{\d P}\dfrac{\d P}{\d V}\dfrac{\d V}{\d T} &= \left(\dfrac{-RTV^3 + 2\alpha(V - \beta)^2}{V^3(V-\beta)^2} \right)\* \left(\dfrac{1}{\left(\dfrac{RT}{(V - \beta)^2} - \dfrac{2\alpha}{V^3}\right) }\right)\\ %%sera??
+\end{align*}
+\begin{align*}
+	\dfrac{\d T}{\d P}\dfrac{\d P}{\d V}\dfrac{\d V}{\d T} &=  \dfrac{-RTV^3 + 2\alpha(V - \beta)^2 }{ V^3(V-\beta)^2 \left( \dfrac{RT}{(V - \beta)^2} - \dfrac{ 2\alpha }{ V^3 } \right) }\\
+	\dfrac{\d T}{\d P}\dfrac{\d P}{\d V}\dfrac{\d V}{\d T} &=  \dfrac{-RTV^3 + 2\alpha(V - \beta)^2 }{ \dfrac{V^3(V - \beta)^2 RT }{(V - \beta)^2} - \dfrac{2V^3 \alpha(V - \beta)^2 }{V^3}}\\
+	\dfrac{\d T}{\d P}\dfrac{\d P}{\d V}\dfrac{\d V}{\d T} &=  \dfrac{-RTV^3 + 2\alpha(V - \beta)^2 }{ V^3RT - 2\alpha(V - \beta)^2 }\\
+	\dfrac{\d T}{\d P}\dfrac{\d P}{\d V}\dfrac{\d V}{\d T} &= -1\\
+\end{align*}
 
 \noindent2. Considere una función de temperatura $ T(x,y) = x\sin(y) $ Trazar algunas curvas de nivel. Calcula $ \nabla T $ y explique su significado.\\
 
