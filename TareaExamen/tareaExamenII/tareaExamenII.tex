@@ -188,6 +188,25 @@ En todos los casos el gradiente nos ofrece la dirección de más rápido crecimi
 
 \noindent3. Encuentre el plano tangente a la superficie $ z = x^2 + y^2 $ en el punto $ (1,-2,5) $. Explica el significado geométrico para esta superficie del gradiente de $ f(x,y)= x^2 + y^2 $\\
 
+Observemos que el punto de interés es $ (x_0, y_0) = (1,-2) $, recordemos por clases anteriores, que el plano tangente a una función en el punto $ (x_0, y_0, f(x_0,y_0)) $ está dado por
+\[ z = f(x_0, y_0) + \left[ \dfrac{\d f}{\d x}(x_0,y_0) \right] (x - x_0) + \left[ \dfrac{\d f}{\d y}(x_0, y_0)\right](y - y_0) \]
+Ahora calculemos el gradiente
+\begin{align*}
+	\nabla f(x,y) &= \left( \dfrac{\d f}{\d x},\dfrac{\d f}{\d y} \right) && \text{Por definición de gradiente}\\
+	\nabla f(x,y) &= \left( \dfrac{\d }{\d x} (x^2 + y^2),\dfrac{\d}{\d y} (x^2 + y^2) \right) && \text{Sustituyendo la función }\\
+	\nabla f(x,y) &= \left( 2x, 2y \right) && \text{Evaluando las derivadas}\\
+\end{align*}
+luego calculemos el gradiente en el punto $(x_0, y_0) = (1,-2) $, esto es $ \nabla f(1,-2) = (2,-4) $, así podemos regresas a la ecuación del principio y sustituir
+\[ z = 5+ 2(x - 1) - 4(y+2) \]
+simplificando obtenemos la siguiente ecuación de un plano
+\[ z = 2x -4y -5 \]
+Además, sabemos que el gradiente nos ofrece la pendiente del plano tangente (con respecto a $ xy $) que está dado por $$ \norm{\nabla f(1,-2)} $$esto último es 
+\begin{align*}
+	\norm{\nabla f(1,-2)} &= \sqrt{2^2 + 4^2}\\
+	\norm{\nabla f(1,-2)} &= 2\sqrt{5}
+\end{align*}
+
+
 \noindent4. Un bicho se encuentra en un entorno tóxico. El nivel de toxicidad está dado por $ T(x,y) = 2x^2 - 4y^2 $. Si el bicho está en $ (-1,2) $. ¿En qué dirección debería moverse para reducir la toxicidad más rápido.\\
 
 \noindent5. El desplazamiento en el tiempo $ t $ y la posición horizontal en la recta $ x $ de una cierta cuerda de violín, está dada por $$ u(x,t) = \sin(x - 6t) + \sin(x+6t) $$ Calcule la velocidad de la cuerda en $ x = 1 $ cuando $ t = \dfrac{1}{3} $.\\
