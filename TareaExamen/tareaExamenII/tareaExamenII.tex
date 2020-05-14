@@ -159,6 +159,33 @@ ahora tomemos $ (\ref{eq:cuatro}),(\ref{eq:cinco}) $ y la ultimoa ecuación rees
 
 \noindent2. Considere una función de temperatura $ T(x,y) = x\sin(y) $ Trazar algunas curvas de nivel. Calcula $ \nabla T $ y explique su significado.\\
 
+Para trazar algunas curvas ade nivel, igualemos la función a alguna constante $ k $
+
+\begin{align*}
+	T(x,y) &= x\sin(y) &&\text{Ecuación dada}\\
+	T(x,y) &= k &&\text{Para encontrar alguna curva de nivel}\\
+	x\sin(y) &= k &&\text{Sustitiuyendo }T(x,y)\\
+	\\
+	x\sin(y) &= -1 &&\text{Evaluando en  }k < 0\\
+	y &= \arcsin\left(-\dfrac{1}{x}\right) &&\text{Por cálculo I }\\
+	\\
+	x\sin(y) &= 2 &&\text{Evaluando en  }k > 0\\
+	y &= \arcsin\left(\dfrac{2}{x}\right)&&\text{Por cálculo I }\\	
+\end{align*}
+
+
+Ahora calculemos el gradiente como $ \nabla T = \left(\dfrac{\d T}{\d x}, \dfrac{\d T}{\d y}\right) $, lo calculamos directamente:
+\[ \nabla T(x,y) = (\sin(x), x\cos(y)) \]
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=0.3\textwidth]{img/ej2}
+	\caption{En el plano, los cuadrantes 1 y 2, son el conjunto B}
+\end{figure}
+
+En todos los casos el gradiente nos ofrece la dirección de más rápido crecimiento en una función, en este caso habla sobre la dirección en que más rápido incrementa la temperatura.
+
 \noindent3. Encuentre el plano tangente a la superficie $ z = x^2 + y^2 $ en el punto $ (1,-2,5) $. Explica el significado geométrico para esta superficie del gradiente de $ f(x,y)= x^2 + y^2 $\\
 
 \noindent4. Un bicho se encuentra en un entorno tóxico. El nivel de toxicidad está dado por $ T(x,y) = 2x^2 - 4y^2 $. Si el bicho está en $ (-1,2) $. ¿En qué dirección debería moverse para reducir la toxicidad más rápido.\\
