@@ -125,13 +125,33 @@ Por otro lado, es importante hacer una tercera observación
 Empleando las dos observaciones anteriores podemos ver que
 \begin{align*}
 	\dfrac{\d T}{\d P} &= \dfrac{V - \beta}{R} &&\text{Por la segunda observación, donde despejamos }T \label{eq:cuatro}\tag{4} \\
-	\dfrac{\d P}{\d V} &= \dfrac{-RT}{(V - \beta)^2}  - \dfrac{2\alpha}{V^3}&&\text{Por la función original} \label{eq:cinco}\tag{5} \\\
+	\dfrac{\d P}{\d V} &= \dfrac{-RT}{(V - \beta)^2}  + \dfrac{2\alpha}{V^3}&&\text{Por la función original} \label{eq:cinco}\tag{5} \\\
 \end{align*}
 Para obtener la derivada del volumen con respecto a la temperatura, tomemos a $ P $ como una constante y derivemos con respecto a $ T $ obtenemos:
 \begin{align*}
-\dfrac{\d V}{\d T} V^2 P - 2 (V - \beta)V\dfrac{\d V}{\d T}P &= RV^2 + 2RTV\dfrac{\d V}{\d T} - \alpha\dfrac{\d V}{\d T}&& \text{Despejando  en (\ref{eq:dos}) para } \dfrac{\d V}{\d T}\\
-\dfrac{\d V}{\d T} &= \dfrac{R}{(V - \beta)\left(\dfrac{RT}{(V - \beta)^2} - \dfrac{2\alpha}{V^3}\right) } \label{eq:seis}\tag{6} \ && \text{Finalmente obtenemos} \\
+(V - \beta)V^2 P &= RTV^2 - \alpha(V - \beta) &&\text{Por la ecuación (\ref{eq:tres})}\\
+(V - \beta)V^2 P + \alpha(V - \beta) &= RTV^2 &&\text{Sumando en ambos miembros }\alpha(V - \beta)\\
+(V - \beta)V^2 P + \alpha\dfrac{(V - \beta)}{V^2} &= RT &&\text{Multiplicando ambos miembros por }\dfrac{1}{V^2}\\
+(V - \beta)V^2 P + \alpha\dfrac{(V - \beta)}{V^2} - RT &= 0 &&\text{Igualando a } 0
 \end{align*}
+\begin{align*}
+	F(V,T) &= (V - \beta)V^2 P + \alpha\dfrac{(V - \beta)}{V^2} - RT &&\text{Definamos una nueva función auxiliar como sigue}\\
+	\dfrac{\d }{\d V}F(V,T) &= (V - \beta)V^2 P + \alpha\dfrac{(V - \beta)}{V^2} - RT &&\text{Calculemos la derivada parcial con respecto a }V\\
+	\dfrac{\d }{\d V}F(V,T) &= P + \alpha\left(\dfrac{\d}{\d V}\left(\dfrac{1}{V^2}\right) - \dfrac{\d}{\d V}\left(\dfrac{\beta}{V^2}\right) \right) &&\text{Calculemos la derivada parcial con respecto a }V\\
+	\dfrac{\d }{\d V}F(V,T) &= P + \alpha\left(\dfrac{-V + 2\beta}{ V^3 } \right) &&\text{Calculemos la derivada parcial con respecto a }V\\
+	\\
+	\dfrac{\d }{\d T}F(V,T) &= (V - \beta)V^2 P + \alpha\dfrac{(V - \beta)}{V^2} - RT &&\text{Calculemos la derivada parcial con respecto a T}\\
+	\dfrac{\d }{\d T}F(V,T) &= -R &&\text{Pues el únco término con T} era -RT\\
+\end{align*}
+Luego, recordemos por un teorema visto en Mate I que 
+$ \dfrac{\d V}{\d T} = - \dfrac{F_T(V,T)}{F_V(V,T)} $, entonces tenemos que 
+\begin{align*}
+	\dfrac{\d V}{\d T} &= - \dfrac{-R}{ P + \alpha\left( \dfrac{-V + 2\beta}{V^3} \right) } &&\text{Por el teorema de Cálculo I}\\
+	\dfrac{\d V}{\d T} &=  \dfrac{R}{ \dfrac{RT}{V - \beta} - \dfrac{\alpha}{V^2}  + \alpha\left( \dfrac{-V + 2\beta}{V^3} \right) } &&\text{Por cómo definimos }P\\
+	\dfrac{\d V}{\d T} &=  \dfrac{R}{ (V - \beta) \left(\dfrac{RT}{(V - \beta)^2} - \dfrac{2\alpha}{V^3}\right)} &&\text{Simplificando }\\
+\end{align*}
+
+
 Identifique qué variables son constantes e interprete físicamente cada derivada parcial.\\
 
 En $ (\ref{eq:cuatro}) $ tenemos que si $ R > 0 $, entonces $ \dfrac{\d T}{\d P} $ también será postivia, esto significa que la temperatura $ T $ está creciendo con respecto a la presión $ P $ cuando el volúmen $ V $ es $ V > \beta $ y ésta disminuirá en otro caso. Cuando $ R<0 $ lo contrario ocurre.\\
@@ -140,7 +160,7 @@ Luego, por $ (\ref{eq:cinco}) $ podemos vemis que $ \dfrac{\d P}{\d V} > 0$ si $
 
 b) Verifique $ \left( \dfrac{\d T}{\d P}\right) \left( \dfrac{\d P}{\d V}\right)\left( \dfrac{\d V}{\d T}\right) = -1 $\\
 
-Primero veamos que tenemos una manera distinta de escribir a $ (\ref{eq:cinco}) $  como:
+Primero veamos que tenemos una manera distinta de escribir a $ (\ref{eq:cinco}) $ (haciendo la suma de fracciones)  como:
 \[ \dfrac{\d P}{\d V} = \dfrac{-RTV^3 + 2\alpha(V - \beta)^2}{V^3(V-\beta)^2} \]
 ahora tomemos $ (\ref{eq:cuatro}),(\ref{eq:cinco}) $ y la ultimoa ecuación reescrita para hacer el siguiente producto
 
