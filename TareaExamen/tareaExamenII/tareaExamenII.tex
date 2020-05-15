@@ -209,12 +209,57 @@ Además, sabemos que el gradiente nos ofrece la pendiente del plano tangente (co
 
 \noindent4. Un bicho se encuentra en un entorno tóxico. El nivel de toxicidad está dado por $ T(x,y) = 2x^2 - 4y^2 $. Si el bicho está en $ (-1,2) $. ¿En qué dirección debería moverse para reducir la toxicidad más rápido.\\
 
+Sabemos que la dirección de más rápido decrecimiento está dada por $ - \nabla T $ por los ejercicios hechos en el \textit{proyecto V} y teoremas probados en clase, entonces calculemos el gradiente de $ T $
+\begin{align*}
+	\nabla T (x,y) &= \left( \dfrac{\d T}{\d x}(x,y),\dfrac{\d T}{\d y}(x,y)  \right) &&\text{Por definición de gradiente}\\
+	\nabla T (x,y) &= \left( 4x,-8y  \right) &&\text{Calculando las parciales}\\
+	\\
+	-\nabla T (-1,2) &= (4,16) &&\text{Sustituyendo el punto donde se encuentra el bicho}\\
+\end{align*}
+\begin{center}
+	$ \therefore $ el bicho deberá moverse en dirección $ (4,16)$
+\end{center}
+
 \noindent5. El desplazamiento en el tiempo $ t $ y la posición horizontal en la recta $ x $ de una cierta cuerda de violín, está dada por $$ u(x,t) = \sin(x - 6t) + \sin(x+6t) $$ Calcule la velocidad de la cuerda en $ x = 1 $ cuando $ t = \dfrac{1}{3} $.\\
+Estamos considerando el desplazamiento de la cuerda en $ x = 1 $, esto es una función 
+\[ f(t) = u(1,t) = \sin(1-6t) + \sin(1 + 6t) \]
+Entonces la velocidad (que es la derivada con respecto a la posición) está dada por $ f'(\frac{1}{3}) $, entonces calculemos la derivada de dicha función
+
+\begin{align*}
+	f(t) &= \sin(1-6t) + \sin(1 + 6t) && \text{Por la construcción de dicha función respecto al tiempo}\\
+	f'(t) &= \dfrac{df}{dt}(\sin(1-6t)) + \dfrac{df}{dt}(\sin(1 + 6t)) && \text{Definición de la derivada}\\
+	f'(t) &= -6\cos(1-6t) + \cos(1 + 6t) && \text{Calculando las derivadas}\\
+	f'\left(\frac{1}{3}\right) &= -6\cos(1-6\left(\frac{1}{3}\right)) + \cos(1 + 6\left(\frac{1}{3}\right)) && \text{Evaluando en el tiempo dado}\\
+	f'\left(\frac{1}{3}\right) &= 6(\cos(3)- \cos(1)) && \text{Simplificando (factorizando y usando la paridad del coseno)}\\
+\end{align*}
+\begin{center}
+	Observemos que para cualqien $ x $ dado, el desplazamiento será estrictamente veritcal (se trata de una cuerda) puesto que sólo se mueve hacia arriba o abajo, así concluimos que el vector velocidad está dado por $ \vec{v} = (0,6(\cos(3) - \cos(1)) $
+\end{center}
 
 \noindent6. La altura $ h $ del volcán hawaiano Mauna Loa se describe (aproximadamente) por la función $$ H(x,y) = 2.59 - 0.00024y^2 - 0.00065x^2 $$donde $ h $ es la altura sobre el nivel del mar en millas y $ x $ e $ y $ se miden de \textbf{este} a \textbf{oeste} y de \textbf{norte} a \textbf{sur}, también en millas desde la cima de la montaña. En $ (x,y) = (-2,-4) $:\\
 
 a) ¿Qué tan rápido amenta la altura en la dirección $ (1,1) $(es decir, hacia el noreste)? Exprese su respuesta en millas de altura por milla de distancia horizontal recorrida.\\
 
+Para ello calculemos la derivada direccional, así que necesitaremos obtener el gradiente de la función y evaluarlo en el punto $ (-2,-4) $ para después hacer el producto punto en la direccion noreste (es decir, por el vector $ (1,1) $)
+
+\begin{align*}
+	\nabla h &= \left(\dfrac{\d h}{\d x}, \dfrac{\d h}{\d y}\right) &&\text{Por definición de gradiente}\\
+	\nabla h &= \left(\dfrac{\d }{\d x}(2.59 - 0.00024y^2 - 0.00065x^2), \dfrac{\d}{\d y}(2.59 - 0.00024y^2 - 0.00065x^2)\right) &&\text{Cambiando por la definición de }h\\
+	\nabla h &= \left(-0.0013x, -0.00048y\right) &&\text{Efectuando las parciales}\\
+	\\
+	\nabla h(-2,-4) &= \left(-0.0013(-2), -0.00048(-4)\right) &&\text{Evaluando en el punto en cuestión}\\
+	\nabla h(-2,-4) &= (0.0026, 0.00192) &&\text{Simplificando}\\
+	\\
+	D(h) \vec{v} &= (\nabla h)\* \vec{v} &&\text{Por def de derivada direccional}\\
+	 &= (0.0026, 0.00192)\* (1,1) &&\text{Sustituyendo el vector en cuestión}\\
+	 &=0.00452&&\text{Operando el producto punto}\\
+\end{align*}
+\begin{center}
+	$ \therefore $ la altura se encuentra creciendo a una tasa de $ 0.00452 $ millas por millas de distancia horizontal recorrida.
+\end{center}
+
 b) ¿En qué dirección es el camino ascendente más empinado?
+
+El camino ascendente más empinado estará dado en la dirección del gradiente, por los cálculos anteriores (esto es) $$\nabla h(-2,-4)= (0.0026,0.00192) $$.
 
 \end{document}
