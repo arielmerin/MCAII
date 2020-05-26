@@ -96,11 +96,21 @@ includefoot]{geometry}
 	
 	\noindent Realice los siguientes ejercicios, escribiendo el procedimiento claramente. Y recuerden la tarea-examen se entregan de manera individual.\\
 	
-\noindent1.Sea $f: \mathbb{R}^2 \longrightarrow \mathbb{R}$ una función diferenciable. Muestre que $u = f(y - \kappa x)$ es una solución de la ecuación diferencial parcial $$\dfrac{\partial u}{\partial x} + \kappa\dfrac{\partial u}{\partial y} = 0$$
+\noindent1.Sea $f: \mathbb{R} \longrightarrow \mathbb{R}$ una función diferenciable. Muestre que $u = f(y - \kappa x)$ es una solución de la ecuación diferencial parcial $$\dfrac{\partial u}{\partial x} + \kappa\dfrac{\partial u}{\partial y} = 0$$
 Hagamos una observación sobre $ u $, pues debemos costruir a dicha función con el mismo dominio que f, \textit{i.e. }
-\[ u(x,y) = f(y-\kappa x)  \], ahora empleemos la composición de funciones para designar una función auxiliar en $ f $ como sigue $ t(x,y) = y-\kappa x $;
-\[ u(x,y) = f(t(x,y)) \]
-
+\[ u(x,y) = f(y-\kappa x)  \]ahora empleemos la composición de funciones para designar una función auxiliar $ g: \R^2 \to \R $  como sigue $ g(x,y) = y-\kappa x $;
+\[ u(x,y) = (f \circ g)(x,y) = f(g(x,y)) \]
+luego, tomemos la derivada de $ u $ como 
+\[ Du(x,y) = Df(g(x,y)) \]Veamos que, como $ g $ es una función escalar, entonces su derivada es $ \nabla g $ y por la \textbf{regla de la cadena }en funciones compuestas, tenemos que \[ D_u (x,y) = D_f(g(x,y))\nabla g \label{eq:primeraDerivada}\tag{\venus} \]donde $ \nabla g(x,y) = \left( \dfrac{\d g}{\d x}, \dfrac{\d g}{\d y} \right)= \left( -\kappa, 1 \right) $, luego de $ \ref{eq:primeraDerivada} $ tenemos que 
+\begin{align*}
+	D_u (x,y) &= f'(g(x,y)) \* \left( -\kappa, 1 \right)  && \text{Reemplazando lo que sabemos del gradiente}\\
+	D_u (x,y) &= -f'(g(x,y))\kappa, f'(g(x,y)) && \text{Reemplazando lo que sabemos del gradiente}\\
+	\dfrac{\d u}{\d x} &= -f'(g(x,y))\kappa  && \text{Derivando con respecto a }x\\
+	\dfrac{\d u}{\d y} &= f'(g(x,y)) && \text{Derivando con respecto a }y\\
+	\kappa\dfrac{\d u}{\d y} &= f'(g(x,y))\kappa  && \text{Multiplicando ambos miembros por el mismo real }\\
+\end{align*}
+\[ \dfrac{\partial u}{\partial x} + \kappa\dfrac{\partial u}{\partial y} = -f'(g(x,y))\kappa + f'(g(x,y))\kappa = 0  \]siguiendo la cadena de igualdades, tenemos que 
+\[ \dfrac{\partial u}{\partial x} + \kappa\dfrac{\partial u}{\partial y} = 0 \quad \qedsymbol \]
 
 \noindent2.Muestre que si  $u(x,y)$ y $v(x,y)$ tienen segundas parciales mixtas continuas y satisfacen las ecuaciones de 
 \begin{subequations}
