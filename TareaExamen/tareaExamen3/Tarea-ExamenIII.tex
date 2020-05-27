@@ -123,11 +123,49 @@ Cauchy-Riemann:
 \end{subequations}
 
 Entonces ambas son armónicas.
-
 \begin{remark}
 Una función $u = u(x,y)$ con segundas derivadas parciales continuas que satisface la ecuación de Laplace  $$ \dfrac{\partial^2 u}{\partial x^2} + \dfrac{\partial^2 u}{\partial y^2}= 0,$$ se dice que es una función armónica.
 \end{remark}
+\noindent Veamos qué ocurre para $ u $ cuando obtenemos sus segundas derivadas
+\begin{align*}
+	\dfrac{\d^2u}{\d x^2} &= \dfrac{\d}{\d x}\left( \dfrac{\d u}{\d x} \right) &&\text{Por definición de segunda derivada}\\
+	\dfrac{\d^2u}{\d x^2} &= \dfrac{\d}{\d x}\left( \dfrac{\d v}{\d x} \right) &&\text{Ya que cumplen las ecuaciones de Cauchy-Riemann}\\
+	\dfrac{\d^2u}{\d x^2} &= \dfrac{\d^2 v}{\d x\d y}  &&\text{Volviendo a escribir la ecuación}\\
+\end{align*}
+por otra parte
+\begin{align*}
+	\dfrac{\d^2u}{\d y^2} &= \dfrac{\d}{\d y}\left( \dfrac{\d u}{\d y} \right) &&\text{Por definición de segunda derivada}\\
+	\dfrac{\d^2u}{\d y^2} &= \dfrac{\d}{\d y}\left( - \dfrac{\d v}{\d x} \right) &&\text{Ya que cumplen las ecuaciones de Cauchy-Riemann}\\
+	\dfrac{\d^2u}{\d y^2} &= - \dfrac{\d^2 v}{\d y\d x}&&\text{Reescribiendo}\\
+	\dfrac{\d^2u}{\d y^2} &= - \dfrac{\d^2 v}{\d x\d y}&&\text{Ya que por hipótesis $ u $ es de clase }\mathcal{C}^2\\
+\end{align*}
+de las últimas dos observaciones podemos concluir que
+\begin{align*}
+	\dfrac{\d^2u}{\d x^2} +\dfrac{\d^2u}{\d y^2} &= \dfrac{\d^2 v}{\d x\d y} +\left( - \dfrac{\d^2 v}{\d x\d y} \right)&&\text{Sumando ambos miembros }\\
+	\dfrac{\d^2u}{\d x^2} +\dfrac{\d^2u}{\d y^2} &= 0  &&\text{Así sabemos que $ u $ es armónica}\\
+\end{align*}
+luego, hagamos algunas observaciones para $ v $
 
+\begin{align*}
+\dfrac{\d^2v}{\d x^2} &= \dfrac{\d}{\d x}\left( \dfrac{\d v}{\d x} \right) &&\text{Por definición de segunda derivada}\\
+\dfrac{\d^2v}{\d x^2} &= \dfrac{\d}{\d x}\left( - \dfrac{\d u}{\d y} \right) &&\text{Ya que cumplen las ecuaciones de Cauchy-Riemann}\\
+\dfrac{\d^2v}{\d x^2} &= - \dfrac{\d^2 u}{\d x\d y}  &&\text{Volviendo a escribir la ecuación}\\
+\end{align*}
+por otra parte
+\begin{align*}
+\dfrac{\d^2v}{\d y^2} &= \dfrac{\d}{\d y}\left( \dfrac{\d v}{\d y} \right) &&\text{Por definición de segunda derivada}\\
+\dfrac{\d^2v}{\d y^2} &= \dfrac{\d}{\d y}\left(\dfrac{\d u}{\d x} \right) &&\text{Ya que cumplen las ecuaciones de Cauchy-Riemann}\\
+\dfrac{\d^2v}{\d y^2} &= \dfrac{\d^2 u}{\d y\d x}&&\text{Reescribiendo}\\
+\dfrac{\d^2v}{\d y^2} &=\dfrac{\d^2 u}{\d x\d y}&&\text{Ya que por hipótesis $ v $ es de clase }\mathcal{C}^2\\
+\end{align*}
+de las últimas dos observaciones podemos concluir que
+\begin{align*}
+\dfrac{\d^2v}{\d y^2} +\dfrac{\d^2v}{\d x^2} &= \dfrac{\d^2 u}{\d x\d y} +\left( - \dfrac{\d^2 u}{\d x\d y} \right)&&\text{Sumando ambos miembros }\\
+\dfrac{\d^2v}{\d y^2} +\dfrac{\d^2v}{\d x^2} &= 0  &&\text{Así sabemos que $ v $ es armónica}\\
+\end{align*}
+\begin{center}
+	$ \therefore $ ambas ecuaciones son armónicas si satisfacen las ecuaciones de  \textit{Cauchy-Riemann} y son de clase $ \mathcal{C}^2 $(que sus segundas derivadas mixtas sean iguales)
+\end{center}
 \noindent3. Encontrar la expansión a segundo orden de Taylor para $f(x,y) = y^2e^{-x^2}$ en $(1,1)$\\
 
 primero hallemos las derivadas de $ f $
