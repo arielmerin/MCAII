@@ -130,6 +130,17 @@ Una función $u = u(x,y)$ con segundas derivadas parciales continuas que satisfa
 
 \noindent3. Encontrar la expansión a segundo orden de Taylor para $f(x,y) = y^2e^{-x^2}$ en $(1,1)$\\
 
+primero hallemos las derivadas de $ f $
+\begin{align*}
+	\dfrac{\d}{\d x} (y^2 e^{-x^2}) &= -2xy^2e^{-x^2} &&\text{Derivando con respecto a }x\\
+	\dfrac{\d}{\d y} (y^2 e^{-x^2}) &= 2ye^{-x^2} &&\text{Derivando con respecto a }y\\
+	\dfrac{\d}{\d x} (-2xy^2e^{-x^2}) &= (4x^2 - 2)y^2e^{-x^2} &&\text{Derivando con respecto a }xx\\
+	\dfrac{\d}{\d x} (-2xy^2e^{-x^2}) &= -4xye^{-x^2} &&\text{Derivando con respecto a }xy\\
+	\dfrac{\d}{\d y} (2y^2e^{-x^2}) &= 2ye^{-x^2} &&\text{Derivando con respecto a }yy\\
+\end{align*}
+Luego, usando el teorema (visto en clase) sobre la expansión a segundo orden de Taylor para $ x_0 =(1,1) $ está dada por
+
+
 \noindent4. Sea $f: \mathbb{R}^2 \longrightarrow \mathbb{R}$ tal que  $f(x,y) = x^2 - y^2 - xy + 5$. Encuentre los puntos críticos de $f$ y determine si son: mínimos locales, máximos locales o puntos silla.\\
 
 \noindent5. Encuentre los valores máximos y mínimos absolutos de $f(x,y) = x^2 + 3xy + y^2 + 5$ sobre el disco unitario $\mathcal{D} = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \}$\\
