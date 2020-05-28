@@ -170,16 +170,45 @@ de las últimas dos observaciones podemos concluir que
 
 primero hallemos las derivadas de $ f $
 \begin{align*}
-	\dfrac{\d}{\d x} (y^2 e^{-x^2}) &= -2xy^2e^{-x^2} &&\text{Derivando con respecto a }x\\
-	\dfrac{\d}{\d y} (y^2 e^{-x^2}) &= 2ye^{-x^2} &&\text{Derivando con respecto a }y\\
-	\dfrac{\d}{\d x} (-2xy^2e^{-x^2}) &= (4x^2 - 2)y^2e^{-x^2} &&\text{Derivando con respecto a }xx\\
-	\dfrac{\d}{\d x} (-2xy^2e^{-x^2}) &= -4xye^{-x^2} &&\text{Derivando con respecto a }xy\\
-	\dfrac{\d}{\d y} (2y^2e^{-x^2}) &= 2ye^{-x^2} &&\text{Derivando con respecto a }yy\\
+	\dfrac{\d}{\d x} \left(y^2 e^{-x^2}\right) &= -2xy^2e^{-x^2} &&\text{Derivando con respecto a }x\\
+	\dfrac{\d}{\d y} \left(y^2 e^{-x^2}\right) &= 2ye^{-x^2} &&\text{Derivando con respecto a }y\\
+	\dfrac{\d}{\d x} \left(-2xy^2e^{-x^2}\right) &= \left(4x^2 - 2\right)y^2e^{-x^2} &&\text{Derivando con respecto a }xx\\
+	\dfrac{\d}{\d y} \left(2y^2e^{-x^2}\right) &= 2e^{-x^2} &&\text{Derivando con respecto a }yy\\
+	\dfrac{\d}{\d y} \left(-2xy^2e^{-x^2}\right) &= -4xye^{-x^2} &&\text{Derivando con respecto a }xy, yx\\
 \end{align*}
 Luego, usando el teorema (visto en clase) sobre la expansión a segundo orden de Taylor para $ x_0 =(1,1) $ está dada por
-
+\begin{align*}
+	f(h_1,h_2) &= f(1,1) + h_1f_x(1,1)+ h_2f_y(1,1) + \dfrac{1}{2}\left( h_1^{2}f_{xx}(1,1) + h_1h_2f_{xy}(1,1) + h_1h_2f_{yx}(1,1) + h_2^2f_{yy}(1,1) \right)\\
+	f(x,y) &= f(1,1) + xf_x(1,1)+ yf_y(1,1) + \dfrac{1}{2}\left( h_1^2f_{xx}(1,1) + h_1h_2f_{xy}(1,1) + h_1h_2f_{yx}(1,1) + h_2^2f_{yy}(1,1) \right)\\
+	f(x,y) &= f(1,1) + x\dfrac{\d f}{\d x}\Bigr|_{(1,1)}+ y\dfrac{\d f}{\d y}\Bigr|_{(1,1)} + \dfrac{1}{2}\left( h_1^2\dfrac{\d^2 f}{\d x^2}\Bigr|_{(1,1)} + h_1h_2\dfrac{\d^2 f}{\d x \d y}\Bigr|_{(1,1)} + h_1h_2\dfrac{\d^2 f}{\d y \d x}\Bigr|_{(1,1)}+ h_2^2\dfrac{\d^2 f}{\d y^2 }\Bigr|_{(1,1)}\right)\\
+	f(x,y) &= 1^2e^{-1^2} + x\left( -2xy^2e^{-x^2} \right)\Bigr|_{(1,1)}+ y\dfrac{\d f}{\d y}\Bigr|_{(1,1)} + \dfrac{1}{2}\left( h_1^2\dfrac{\d^2 f}{\d x^2}\Bigr|_{(1,1)} + h_1h_2\dfrac{\d^2 f}{\d x \d y}\Bigr|_{(1,1)} + h_1h_2\dfrac{\d^2 f}{\d y \d x}\Bigr|_{(1,1)}+ h_2^2\dfrac{\d^2 f}{\d y^2 }\Bigr|_{(1,1)}\right)\\
+	f(x,y) &= \dfrac{1}{e} -\dfrac{2h_1}{e} + \dfrac{2h_2}{e} + \dfrac{1}{2}\left( h_1^2\dfrac{\d^2 f}{\d x^2}\Bigr|_{(1,1)} + h_1h_2\dfrac{\d^2 f}{\d x \d y}\Bigr|_{(1,1)} + h_1h_2\dfrac{\d^2 f}{\d y \d x}\Bigr|_{(1,1)}+ h_2^2\dfrac{\d^2 f}{\d y^2 }\Bigr|_{(1,1)}\right)\\
+	f(x,y) &= \dfrac{1}{e} -\dfrac{2h_1}{e} + \dfrac{2h_2}{e} + \dfrac{1}{2}\left( h_1^2(2e^{-1}) + h_1h_2(-4e^{-1}) + h_1h_2(-4e^{-1}) + h_2^2(2e^{-1})  \right)\\
+	f(x,y) &= \dfrac{1}{e} -\dfrac{2h_1}{e} + \dfrac{2h_2}{e} + \dfrac{h_1^2  -4h_1h_2 + h_2^2}{e}\\
+	f(x,y) &=  \dfrac{x^2-4xy+y^2+4y-1}{e}\\
+\end{align*}
 
 \noindent4. Sea $f: \mathbb{R}^2 \longrightarrow \mathbb{R}$ tal que  $f(x,y) = x^2 - y^2 - xy + 5$. Encuentre los puntos críticos de $f$ y determine si son: mínimos locales, máximos locales o puntos silla.\\
+Para ello derivemos la función y localicemos los puntos críticos.
+
+\begin{align*}
+	\dfrac{\d f}{\d x} &= \dfrac{\d }{\d x}\left( x^2 - y^2 - xy + 5 \right) &&\text{Derivando con respecto a }x\\
+	\dfrac{\d f}{\d x} &= 2x-y &&\text{Aplicando la derivada}\\
+	\dfrac{\d f}{\d x} &= -2y-x &&\text{Aplicando la derivada con respecto a $ y $ de }f\\
+	\\
+	0 &= 2x-y &&\text{Igualemos a }0\\
+	0 &= -2y - x &&\text{ }\\
+\end{align*}
+De la primera ecuación, obtenemos que $ y = 2x $, sustituyendo en la segunda ecuación obtenemos que $ 0 = -5x $, de esta manera sabemos que el único punto crítico que tiene $ f $ es $ (x,y) = (0,0) $. Ahora calculemos las segundas derivadas parciales para conocer el determinante del Hessiano
+\begin{align*}
+	\dfrac{\d^2 f}{\d x^2} &= 2\\
+	\dfrac{\d^2 f}{\d y^2} &= -2\\
+	\dfrac{\d^2 f}{\d y \d x} &= -1\\
+	\dfrac{\d^2 f}{\d x \d y} &= -1\\
+	D\Bigr|_{(0,0)} &= 2 \* (-2) - 1 = -5 < 0\\
+\end{align*}
+Entonces, usando el teorema visto en clase sobre el determinante del hessiano, ahora sabemos que $ (0,0) $ es un punto silla, es más es el único punto crítico de $ f $.\\
+
 
 \noindent5. Encuentre los valores máximos y mínimos absolutos de $f(x,y) = x^2 + 3xy + y^2 + 5$ sobre el disco unitario $\mathcal{D} = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \}$\\
 
