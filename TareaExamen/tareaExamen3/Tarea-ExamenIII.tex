@@ -212,6 +212,40 @@ Entonces, usando el teorema visto en clase sobre el determinante del hessiano, a
 
 \noindent5. Encuentre los valores máximos y mínimos absolutos de $f(x,y) = x^2 + 3xy + y^2 + 5$ sobre el disco unitario $\mathcal{D} = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \leq 1 \}$\\
 
+\noindent Primero calculemos la derivada de $ f $ e igualemos a 0 para encontrar los puntos críticos en el interior del disco.
+\begin{align*}
+	f_x &= 2x+3y &&\text{Derivando con respecto a }x\\
+	f_y &= 2y+3x &&\text{Derivando con respecto a }y\\
+	\\
+	0 &= 2x+3y &&\text{Igualando a 0 }\\
+	0 &= 2y+3x &&\text{Igualando a }0\\
+	\\
+	4\lambda^2 -8\lambda -5 &= 5 && \text{Ecuación para } \lambda\\
+\end{align*}
+De lo anterior concluimos que el único punto crítico es $ \vec{x_0} = (0,0) $, además notemos que $ (0,0) \in D $, ahora nombremos la función $ g(x,y) = x^2 + y^2 =1 $, emplearemos multiplicadores de lagrange para resolver
+\begin{align*}
+	\nabla g &= (2x, 2y) && \text{Calculando el gradiente de }g\\
+	\nabla f &= (2x + 3y, 3x + 3y) && \text{Calculando el gradiente de }g\\
+	\\
+	2x + 3y &= 2x\lambda &&\text{Igualando la primera entrada}\\
+	3x + 2y &= 2y\lambda &&\text{Igualando la segunda entrada}\\
+	x^2 + y^2 &= 1 &&\text{La restricción dada}\\
+\end{align*}
+Notemos, de la primera ecuación que $ x \neq 0 $ porque eso implicaría que $ y = 0 $ lo cual no podría pasar por la restricción dada, entonces despejando $ \lambda $ obtenemos que 
+\[ \lambda = \dfrac{2x + 3y}{2x} \]
+reemplazando en cualquier ecuación obtendremos que $ x^2 = y^2 \implies x = \pm y $, ahora ocupemos esto en la restricción para obtener que 
+$ x = \pm \dfrac{\sqrt{2}}{2} $, así tenemos que los puntos críticos son 
+\[  \left( \dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2} \right), \left( -\dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2} \right), \left( \dfrac{\sqrt{2}}{2}, -\dfrac{\sqrt{2}}{2} \right), \left( -\dfrac{\sqrt{2}}{2}, -\dfrac{\sqrt{2}}{2} \right) \]
+\begin{align*}
+	f \left( \dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2} \right) &= 7+ \dfrac{1}{2}\\
+	f \left( \dfrac{\sqrt{2}}{2},- \dfrac{\sqrt{2}}{2} \right) &= 4 + \dfrac{1}{2}\\
+	f \left( \dfrac{-\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2} \right) &= 4 + \dfrac{1}{2}\\
+	f \left( \dfrac{-\sqrt{2}}{2},- \dfrac{\sqrt{2}}{2} \right) &= 7 + \dfrac{1}{2}\\
+\end{align*}
+por lo tanto, el máximo absoluto es $ 7 + \frac{1}{2} $, en $ \left( -\dfrac{\sqrt{2}}{2},- \dfrac{\sqrt{2}}{2} \right) $ y $ \left( \dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2} \right) $.\\
+El mínimo absoluto es $ 4 + \frac{1}{2} $, en $ \left( \dfrac{\sqrt{2}}{2},- \dfrac{\sqrt{2}}{2} \right) $ y en $ \left( -\dfrac{\sqrt{2}}{2}, \dfrac{\sqrt{2}}{2} \right) $\\
+
+
 \noindent6. Suponga que un pentágono está compuesto por un rectángulo coronado por un triángulo isósceles (ver Figura \ref{fig:1}). Si la longitud del perímetro es fija, encuentre el área máxima posible.
 
 \begin{figure}[h]
