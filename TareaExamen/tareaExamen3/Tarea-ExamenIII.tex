@@ -255,7 +255,75 @@ El mínimo absoluto es $ 4 + \frac{1}{2} $, en $ \left( \dfrac{\sqrt{2}}{2},- \d
     \label{fig:1}
 \end{figure}
 
+Sea $ z $ la longitud de una de los lados del triángulo isóceles sobre el rectángulo en la figura. Sea $ p $ el perímetro del pentágono\[ p = 2x + y + 2z \]
+Observemos que 
+\begin{align*}
+	z \cos(\theta) &= \dfrac{1}{2} y &&\text{Tomando el angulo del la mitad del triangulo iscóceles como referencia}\\
+	z  &= \dfrac{y}{2\cos(\theta)} &&\text{Multiplicando ambos lados por } \dfrac{1}{\cos(\theta)} \label{eq:seta} \tag*{\jupiter}\\
+	2z  &= \dfrac{y}{\cos(\theta)} &&\text{Multiplicando ambos lados por } 2 \label{eq:dosSeta}\tag*{\mars}\\
+\end{align*}
 
+Sea $ a $ el área del pentágono dada por  la suma del rectángulo formado por los lados $ x $, $ y $ y el triángulo superior, entonces 
+\begin{align*}
+	a &= x\* y + \dfrac{1}{2} yz \sin(\theta) && \text{obteniendo la altura del triangulo con identidades trigonométricas}\\
+	a &= xy + \dfrac{y^2\sin(\theta)}{4\cos(\theta)} && \text{Sustituyendo el resultado de }\ref{eq:seta}\\
+\end{align*}
+
+Observemos que de esta última ecuación, se nos proporcionan algunas restricciones puesto que el área siempre debe ser positivo y al menos mayor que cero para este ejercicio, por lo que $ 0 < x $, $ 0 < y $ y $ 0 < \theta < \dfrac{\pi}{2} $. Luego, volvamos al perímetro y sustituyamos el valor de $ z $
+
+\begin{align*}
+	p &= 2x + y\dfrac{y}{\cos(\theta)} &&\text{Sustituyendo 2z de }\ref{eq:dosSeta}\\
+	x &= \dfrac{1}{2}\left( p -y - \dfrac{y}{\cos(\theta)} \right) &&\text{Despejando a }x\\
+\end{align*}
+Ahora pongamos al área en función de $ y $ y del ángulo
+
+\begin{align*}
+	a(y,\theta) &= xy + \dfrac{y^2\sin(\theta)}{4\cos(\theta)} &&\text{De lo construido anteriormente}\\
+	a(y,\theta) &= \dfrac{1}{2}py - \dfrac{1}{2}y^2 - \dfrac{y^2}{2\cos(\theta)} + \dfrac{y^2\sin(\theta)}{4\cos(\theta)} &&\text{Sustituyendo el valor de }x\\
+\end{align*}
+
+Ahora, al calcular $ \dfrac{\d a}{\d \theta} = 0 $ y $ \dfrac{\d a}{\d y} = 0 $ podemos observar que 
+\begin{align*}
+	\dfrac{\d a}{\d y} &= \dfrac{p}{2} - y - \dfrac{y}{\cos(\theta)} + \dfrac{y \sin(\theta) }{2 \cos (\theta) }  \\
+	0&= \dfrac{p}{2} - y - \dfrac{y}{\cos(\theta)} + \dfrac{y \sin(\theta) }{2 \cos (\theta) }  \\
+	\dfrac{p}{2}&=  y \left( 1 + \dfrac{1}{\cos(\theta)} - \dfrac{\sin(\theta)}{2 \cos(\theta)} \right)\\
+	\dfrac{p}{2}&=  y \left( \dfrac{2 + 2 \cos(\theta) - \sin(\theta)}{2\cos(\theta)} \right)\\
+	y &=  \dfrac{p\cos(\theta)}{2 + 2\cos(\theta) - \sin(\theta
+		)}\\
+\end{align*}
+Por otra parte, buscando los puntos críticos con el ángulo conseguimos lo siquiente:
+\begin{align*}
+	\dfrac{\d a}{\d \theta} &= - \dfrac{y^2}{2}\left( \dfrac{\sin(\theta)}{\cos^2(\theta)}\right) + \dfrac{y^2}{4}\left(  \dfrac{1}{\cos^2(\theta)} \right) \\
+	0 &= - \dfrac{y^2}{2}\left( \dfrac{\sin(\theta)}{\cos^2(\theta)}\right) + \dfrac{y^2}{4}\left(  \dfrac{1}{\cos^2(\theta)} \right) \\
+	\dfrac{y^2}{2\cos^2(\theta)}\sin(\theta) &= \dfrac{y^2}{2\cos^2 (\theta)}\* \dfrac{1}{2}\\
+	\sin(\theta) &=\dfrac{1}{2}\\
+	\theta &=\dfrac{\pi}{6}\\
+\end{align*}
+Una vez hallado el ángulo, podemos evaluar el coseno en ese punto y sustituirlo en la $ y $, la última ecuación que hayamos para encontrar quién es $ x $
+\begin{align*}
+	\cos(\dfrac{\pi}{6}) &= \dfrac{\sqrt{3}}{2}\\
+	y &=  \dfrac{p\cos(\theta)}{2 + 2\cos(\theta) - \sin(\theta )}\\
+	y &=  \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}}\\
+\end{align*}
+luego, de una ecuación para $ x $
+\begin{align*}
+	x &= \dfrac{1}{2} \left( p - y - \dfrac{y}{\cos(\theta)} \right)\\
+	x &= \dfrac{1}{2} \left( p - \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}} - \dfrac{2p}{3 + 2\sqrt{3}} \right)\\
+	x &= \dfrac{p}{2} \left( \dfrac{3 +2\sqrt{3} - \sqrt{3} -2}{3 +2\sqrt{2}} \right)\\
+	x &= \dfrac{p(1 + \sqrt{3})}{2(3 + 2\sqrt{3})}\\
+\end{align*}
+Como ya tenemos quienes son $ x,y $, sustituyamos en la ecuación del área
+\begin{align*}
+	a\left( \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}},\dfrac{\pi}{6}\right) &= xy + \dfrac{y^2\sin(\theta)}{4\cos(\theta)} \\
+	a\left( \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}},\dfrac{\pi}{6}\right) &= \dfrac{p(1 + \sqrt{3})}{2(3 + 2\sqrt{3})}\* \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}} + \dfrac{1}{4}\left(\dfrac{p\sqrt{3}}{3 + 2\sqrt{3}}\right)^2\* \dfrac{\sqrt{3}}{3}\\
+	a\left( \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}},\dfrac{\pi}{6}\right) &= \dfrac{p^2 (3 + \sqrt{3})}{2(9 + 12\sqrt{3}+ 12)} + \dfrac{\sqrt{3}}{12}\left( \dfrac{3 p^2}{9 + 12\sqrt{3} + 12} \right)\\
+	a\left( \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}},\dfrac{\pi}{6}\right) &= p^2\dfrac{ 18 + 6\sqrt{3} +3 \sqrt{3} }{12(21 + 12\sqrt{3})} \\
+	a\left( \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}},\dfrac{\pi}{6}\right) &= p^2\dfrac{ 9 (2 +\sqrt{3})}{12 \* 3 (7 + 4\sqrt{3})} \\
+	a\left( \dfrac{p\sqrt{3}}{3 + 2\sqrt{3}},\dfrac{\pi}{6}\right) &= \dfrac{p^2}{4}\*\dfrac{2 + \sqrt{3} }{7 + 4\sqrt{3}} \\
+\end{align*}
+\begin{center}
+	Por lo tanto, el área máxima con un perímetro fijo del pentágono presentado está dado por \[\dfrac{p^2}{4}\*\dfrac{2 + \sqrt{3} }{7 + 4\sqrt{3}}   \]
+\end{center}
 \noindent7. Analice el comportamiento de las funciones en los puntos indicados. En la parte $b$ el análisis depende de la constante $C$.\\
 
 
