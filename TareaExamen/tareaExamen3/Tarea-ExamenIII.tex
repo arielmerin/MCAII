@@ -326,14 +326,58 @@ Como ya tenemos quienes son $ x,y $, sustituyamos en la ecuación del área
 \end{center}
 \noindent7. Analice el comportamiento de las funciones en los puntos indicados. En la parte $b$ el análisis depende de la constante $C$.\\
 
-
 a) $z = x^2 - y^2 + 3xy $ en $(0,0)$.\\
-b)  $z = x^2 - y^2 + Cxy $ en $(0,0)$.
 
+Para ello calculemos el gradiente de dicha función
+\begin{align*}
+	\nabla f &= \left( \dfrac{\d }{\d x} (x^2 - y^2 + 3xy),\dfrac{\d }{\d x}   (x^2 - y^2 + 3xy) \right) \\
+	\nabla f &= \left( 2x + 3y, -2y + 3x\right) \\
+	(0,0) &= \left( 2x + 3y, -2y + 3x\right) \\
+	0 &=  2x + 3y \\
+	0 &= -2y + 3x \\
+\end{align*}
+Así podemos concluir que $ (0,0) $ es un punto crítico para nuestra función. Luego calculemos las segundas derivadas parciales para determinal el comportamiento del detnerminante del Hessiano
 
+\begin{align*}
+	\dfrac{\d^2 }{\d x^2} f &=  2\\ 
+	\dfrac{\d^2 }{\d y^2} f &=  -2\\ 
+	\dfrac{\d^2 }{\d xy} f &= 3 = \dfrac{\d^2 }{\d yx} \\
+	\\
+	D\Bigr|_{(0,0)} &= 2 \* (-2) - 9 = -13 < 0
+\end{align*}
+\begin{center}
+	Así podemos conluir que $ (0,0) $ es un punto silla de $ f $\\
+\end{center}
 
+b)  $z = x^2 - y^2 + Cxy $ en $(0,0)$.\\
+Para ello tomemos como base el ejercicio anterior y observemos qué ocurre en el determinante del Hessiano, pues 
+
+\[ 	D\Bigr|_{(0,0)} = 2 \* (-2) - C^2 = D < 0 \]
+como hay un un signo negativo para el cuadrado de $ C $, siempre se tendrá que no importando el valor de dicha constante siempre será negativo, por lo que siempre será un punto silla :)\\
 
 \noindent8. a) Encuentre la distancia mínima del origen en $\mathbb{R}^2$  a la superficie $z = \sqrt{x^2 - 1}$.\\
+
+Describamos los puntos de la superficie de la siguiente forma 
+\[ (x,y, \sqrt{x^2 -1}) \]
+Tenemos algunas restricciones para que dicha raíz pueda existir en los reales 
+\begin{align*}
+	x^2 -1 &\geq 0 \\
+	x &\geq 1 \\
+	x &\leq -1 \\
+\end{align*}
+Luego, definamos una función distancia como sigue:
+\[  d = \sqrt{x^2 + y^2 + \left(\sqrt{x^2 - 1}\right)^2} \]
+\begin{align*}
+	d &= \sqrt{x^2 + y^2 + \left(\sqrt{x^2 - 1}\right)^2}\\
+	d &= \sqrt{x^2 + y^2 + + x^2 - 1}\\
+	d &= \sqrt{2x^2 + y^2 - 1}\\
+\end{align*}
+Para hacer más sencillas las cuentas, trabajaremos con el cuadrado de $ d $, en clase hicimos lo mismo pues vimos que es válido pues $ d^2 $ tendrá el mismo punto mínimo que $ d $.
+Sea $ f := 2x^2 + y^2 -1 $ nuestra función a minimizar. Es fácil observar que para $ y $ no tenemos ninguna restricción dada, por lo que puede ser arbitrario, entonces observemos qué pasa cuando $ y = 0 $, tendríamos que $ f = 2x^2 -1 $ y por una observación que hicimos al principio del ejericicio sabemos que $ x^2 \geq 1 $, así, el minimo valor que tedría nuestra función f sería $ 1 $
+pues $ f(\pm1,0) = 2(\pm1)^2-1 = 1 $
+\begin{center}
+	$ \therefore $ el valor mínimo que tendrá la distancia del origen a la superficie es 1\\
+\end{center}
 
 b) Haga lo mismo para la superficie $z = 6xy + 7$\\
 
