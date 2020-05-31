@@ -767,4 +767,30 @@ Observemos que si asumimos a $ b_0 = 0 $ entonces en $ (5) $ tendríamos que $ \
 	(\vec{a} \* \vec{a}) \l_1 + (\vec{a} \* \vec{b}) \l_2 &= 0 \label{eq:penUltima}\tag{4}\\
 	\frac{\l_2}{2}\left( \vec{b}\* \vec{b} - \dfrac{(\vec{a} \* \vec{b})^2}{\vec{a} \* \vec{a}} \right) &= -b_0 \label{eq:Ultima}\tag{5}
 \end{align*}
+Si sustituimos en $ (4) $ tendremos que
+\begin{align*}
+	\vec{a} \* \vec{a} \l_1 &= -(\vec{a} \* \vec{b})\l_2 \\
+	\vec{a} \* \vec{a} \l_1 &= 2b_0 \left( \dfrac{(\vec{a} \* \vec{b})(\vec{a} \* \vec{a}) }{(\vec{a} \* \vec{a})(\vec{b} \* \vec{b}) - (\vec{a} \* \vec{b})^2} \right)\\
+	\l_1 &= 2b_0 \left( \dfrac{(\vec{a} \* \vec{b}) }{(\vec{a} \* \vec{a})(\vec{b} \* \vec{b}) - (\vec{a} \* \vec{b})^2} \right)\\
+\end{align*}
+Tomemos $ \vec{x} = (x_1, x_2, x_3) $ y de $ (1),(2),(3) $ tenemos que
+\begin{align*}
+	2\vec{x} &= \l_1 \vec{a} + \l_2 \vec{b}\\
+	\vec{x} &= \dfrac{\l_1}{2} \vec{a} + \dfrac{\l_2}{2} \vec{b}\\
+	\vec{x} &= b_0\left( \dfrac{\vec{a} \* \vec{b}}{(\vec{a} \* \vec{a})(\vec{b} \* \vec{b}) - (\vec{a} \* \vec{b})^2} \right)\vec{a} + b_0\left( \dfrac{\vec{a} \* \vec{a}}{(\vec{a} \* \vec{a})(\vec{b} \* \vec{b}) - (\vec{a} \* \vec{b})^2} \right) \vec{b}\\
+	\vec{x} &= \dfrac{b_0}{(\vec{a} \* \vec{a})(\vec{b} \* \vec{b}) - (\vec{a} \* \vec{b})^2} \left( (\vec{a} \* \vec{b})\vec{a} - (\vec{a} \* \vec{a})\vec{b} \right)\\
+\end{align*}
+Hagamos una observación en
+\begin{align*}
+	\vec{a} \* \vec{b} &= \abs{\vec{a}}\abs{\vec{b}}\cos(\theta) & \vec{a} \* \vec{a} &= \abs{\vec{a}}^2 & \vec{b} \* \vec{b} &= \abs{\vec{b}}^2\\
+	(\vec{a} \* \vec{a})( \vec{b} \* \vec{b}) - (\vec{a} - \vec{b})^2 &= \abs{\vec{a}}^2 \abs{\vec{b}}^2 - \abs{\vec{a}}^2 \abs{\vec{b}}^2\cos^2(\theta)\\
+	(\vec{a} \* \vec{a})( \vec{b} \* \vec{b}) - (\vec{a} - \vec{b})^2 &= \abs{\vec{a}}^2 \abs{\vec{b}}^2 (1 - \cos^2(\theta))\\ 
+	(\vec{a} \* \vec{a})( \vec{b} \* \vec{b}) - (\vec{a} - \vec{b})^2 &= \abs{\vec{a}}^2 \abs{\vec{b}}^2 \sin^2(\theta)\\ 
+	(\vec{a} \* \vec{a})( \vec{b} \* \vec{b}) - (\vec{a} - \vec{b})^2 &= \abs{\vec{a} \times \vec{b}}^2\\ 
+\end{align*}
+Así tenemos que 
+\begin{align*}
+	\vec{x} &= \dfrac{b_0}{\abs{\vec{a} \times \vec{b}}^2}\left( (\vec{a}\* \vec{b})\vec{a} - (\vec{a} \* \vec{a})\vec{b} \right)
+\end{align*}
+Entonces $ \vec{x} $ está en la intersección de los dos planos y es el más cercano al origen.
 \end{document}
