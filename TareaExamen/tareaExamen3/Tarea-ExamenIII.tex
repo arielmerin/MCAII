@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \documentclass[letterpaper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish, mexico]{babel}
@@ -39,6 +40,7 @@ includefoot]{geometry}
 
 \newcommand{\W}{\mathds{W}}
 
+
 \newtheorem*{remark}{Recuerde}
 
 \newcommand{\F}{\mathds{F}}
@@ -51,7 +53,7 @@ includefoot]{geometry}
 
 \newcommand{\la}{\lim\limits_{x \to a}}
 
-\renewcommand{\l}{\ell}
+\renewcommand{\l}{\lambda}
 
 \newcommand{\R}{\mathds{R}}
 
@@ -389,8 +391,61 @@ Veamos que todos los puntos sobre dicha superficie tendrán la siguiente forma $
 \end{align*}
 Veamos que en el caso hipotético de que $ x^2 + y^2 = 0 $ el valor más bajo que $ f(x,y) $ tendría es $ 49 $, por lo tanto, la distancia mínima es $ 7 $, pero derivemos para encontrar los demás puntos críticos.
 \begin{align*}
-	content
+	\dfrac{\d f}{\d x} &= 36x^2y^2  + x^2 + y^2 + 48xy + 49\\
+	\dfrac{\d f}{\d x} &= 72xy^2+2x+84y\\
+	\\
+	\dfrac{\d f}{\d y} &= 36x^2y^2  + x^2 + y^2 + 48xy + 49\\
+	\dfrac{\d f}{\d y} &= 72x^2 y + 2y + 84x\\
 \end{align*}
+ahora igualemos amboas ecuaciones a 0 y obtengamos
+\begin{align*}
+	72x^2 y + 2y + 84x &= 0\\
+	 72xy^2+2x+84y &= 0 \\
+	72x^2 y + 2y + 84x - (72xy^2+2x+84y) &= 0\\
+	72xy ( x - y ) + 82x - 82y &= 0\\
+	( x - y ) (72xy + 82) &= 0\\
+\end{align*}
+Como el producto de dos reales es cero y si y sólo si algunos de los dos es cero, entonces
+\[ x = y \lor 72xy = -82 \]
+Sustituyamos la priera ecuación en $ \dfrac{\d f}{\d x} $
+\begin{align*}
+	\dfrac{\d f}{\d x} &= 72xx^2 + 2x + 84x\\
+	\dfrac{\d f}{\d x} &= x(72x^2 + 84)\\
+	0 &= x(72x^2 + 84)\\
+\end{align*}
+debido a que $72x^2 + 84   $ siempre será positivo en la última ecuación, entonces $ x = 0 = y $ y si sustituimos en la ecuación que se nos proporcinó al principio del problema, obtendremos que 
+\[ z = 6 \* 0 \* 0 + 7 \implies z = 7 \]entonces el punto crítico que hallamos es $ (0,0,7) $ lo que nos regala $ d = \sqrt{0^2 + 0^2+ 7^2 } = 7 $.\\
+
+Ahora veamos qué ocurre con $ xy = -\dfrac{41}{36} $ y sustituyamos en la ecuación del problema $ z = 6 (-\dfrac{41}{36}) + 7 \implies \dfrac{-41}{6} + \dfrac{42}{6} = \dfrac{1}{6} $ de $ xy = -\dfrac{41}{36} $ despejemos a x para usar $ x = -\dfrac{41}{36y} $
+\begin{align*}
+	\dfrac{\d f}{\d x} &= 72xy^2 + 2x + 84y\\
+	\dfrac{\d f}{\d x} &= 72\left(\dfrac{-41}{36y}\right)y^2 + 2\left( -\dfrac{41}{36y} \right) + 84y\\
+	\dfrac{\d f}{\d x} &= -82y - \dfrac{82}{36y}+ 84y\\
+	0 &= 2y -\dfrac{82}{36y}\\
+	2y &= \dfrac{41}{18y}\\
+	36y^2 &= 41\\
+	y &= \sqrt{\dfrac{41}{36}}\\
+	y &= \dfrac{\sqrt{41}}{6}\\
+\end{align*}
+Sistituyamos en $ x = -\dfrac{41}{36y} $
+\begin{align*}
+	x &= -\dfrac{41}{36y}\\
+	x &= -\dfrac{41}{36 \* \frac{\sqrt{41}}{6}} \\
+	x &= -\dfrac{\sqrt{41}}{6}\\
+\end{align*}
+Con ambos valores sólo basta calcular $ z $ en la ec. del ejecicio
+\[ z = 6 \* \dfrac{\sqrt{41}}{6} \* (- \dfrac{\sqrt{41}}{6}) + 7 = \dfrac{41}{6} + \dfrac{42}{6} = \dfrac{1}{6}  \]
+Ahora susituyamos en la ecuación de la distancia
+
+\begin{align*}
+	d &= \sqrt{x^2 +y^2 + z^2}\\
+	d &= \sqrt{(-\dfrac{\sqrt{41}}{6})^2 +(\dfrac{\sqrt{41}}{6})^2 + (\dfrac{1}{6})^2}\\
+	d &= \sqrt{\dfrac{41}{36} + \dfrac{41}{36} + \dfrac{1}{6} }\\
+	d &= \dfrac{83}{6}\\
+\end{align*}
+Entre nuestos dos puntos hallados $ \dfrac{83}{6} $ es el mínimo :)\\
+
+
 
 \noindent9. Encuentre los puntos y valores críticos de las siguientes funciones sujetas a las restricciones:\\
 
@@ -404,10 +459,312 @@ c) $f(x,y) = \dfrac{x^2 - y^2}{x^2 + y^2}$, restringido a $x + y =1$.\\
 d) $f(x,y) = \cos^2{x} +\cos^2{y}$, restringido a $x + y =\frac{\pi}{4}$.
 
 
-\noindent10. Encuentre el máximo de la función $f(x,y) = xy$ sobre la curva $(x +1)^2 + y^2 =1$
+\noindent10. Encuentre el máximo de la función $f(x,y) = xy$ sobre la curva $(x +1)^2 + y^2 =1$, definamo suna función $ g: U \subset \R^2 \to \R $ como $ g(x,y) = (x +1)^2 + y^2 = 1$
 
-\noindent11. Encuentre la distancia más cercana del punto $(a_1, a_2, a_3) \in \mathbb{R}^3$ al plano cuya ecuación está dada por: $b_1x_1 + b_2x_2 + b_3x_3 + b_0 = 0$, donde $(b_1, b_2, b_3) \neq 0 $
+\[ \nabla g = (x-1, 2y) \]
+\begin{align*}
+	\dfrac{\d f}{\d x} &= y = \lambda \dfrac{\d g}{\d x}\\
+	y &= \lambda(x - 1) \\
+	\dfrac{\d f}{\d y} &= x = \lambda \dfrac{\d g}{\d y}\\
+	x &=  \lambda 2y\\
+	\\
+	g(x,y) &= 1\\
+	(x +1)^2 + y^2 &= 1
+\end{align*}
+luego, despejemos $ x,y $, de
+\begin{align*}
+	x &= 2y \lambda  & y &= \dfrac{x}{2\lambda} & \lambda &= \dfrac{x}{2y}  \\
+\end{align*}
+\begin{align*}
+	y &= (2x + 2)\lambda\\
+	y &= (2x + 2)(\frac{x}{2y})\\
+	2y^2 &= 2x^2 + 2x\\
+	0 &= 2x^2 + 2x - 2y^2\\
+	0 &= x^2 + x - y^2 \label{eq:unoDiez}\tag{10a} \\
+\end{align*}
+de la restricción podemos ver que 
+\begin{align*}
+	(x +1)^2 + y^2 &= 1\\
+	x^2 + 2x+ 1+ y^2 &= 1\\
+	x^2 + 2x+ y^2 &= 0 \label{eq:dosDiez}\tag{10b} \\
+\end{align*}
+Si resolvemos $ \ref{eq:unoDiez} $ y $ \ref{eq:dosDiez} $ 
+\begin{align*}
+	x^2 + x - y^2 &= 0\\
+	x^2 + 2x+ y^2 &= 0\\
+	2x^2 + 3x &= 0\\
+	x(2x + 3) &= 0\\
+	\\
+	x_1 &= 0\\
+	x_2 &= \dfrac{-3}{2}\\
+\end{align*}
+Si sustituimos en $ x = 2\lambda y $ obtendremos que si $ x = 0 $ entonces $ y = 0 $, y si $ x = -\dfrac{3}{2} $ entonces $ y = \pm \dfrac{\sqrt{3}}{2} $ ( de $x^2 + y^2 +2x = 0  $)
+
+Entonces tenemos lo siguientes puntos
+
+\[ (0,0), \left(-\dfrac{3}{2}, - \dfrac{\sqrt{3}}{2}\right), \left(-\dfrac{3}{2},  \dfrac{\sqrt{3}}{2}\right) \]
+Evaluemos en todos ellos
+\begin{align*}
+	f(0,0) &= xy = 0\\ 
+	f\left(-\dfrac{3}{2}, - \dfrac{\sqrt{3}}{2}\right) &= xy = \dfrac{3\sqrt{3}}{4}\\ 
+	f\left(-\dfrac{3}{2},  \dfrac{\sqrt{3}}{2}\right) &= xy = -\dfrac{3\sqrt{3}}{4}\\ 
+\end{align*}
+Podemos concluir que el máximo valor es $ \dfrac{3\sqrt{3}}{4} $ \\
+
+\noindent11. Encuentre la distancia más cercana del punto $(a_1, a_2, a_3) \in \mathbb{R}^3$ al plano cuya ecuación está dada por: $b_1x_1 + b_2x_2 + b_3x_3 + b_0 = 0$, donde $(b_1, b_2, b_3) \neq 0 $\\
+
+Sea $ D(x_1,x_2,x_3) = (x_1 - a_1)^2 + (x_2 - a_2)^2 + (x_3 - a_3)^2 $ sujeto a la restricción $ g(x_1, y_1, z_1) = b_1x_1 + b_2x_2 + b_3 x_3 + b_0 = 0$ con $ (b_1, b_2, b_3) \neq 0  $. Calculemos el gradiente de $ D $ y $ g $
+\begin{align*}
+	\nabla D(x_1, x_2, x_2) &= (2x_1 - 2a_1, 2x_2 - 2a_2, 2x_3 - 2a_3)\\
+	\nabla g(x_1, x_2, x_2) &= (b_1, b_2, b_3) \neq (0,0,0)\\
+\end{align*}
+Ahora podemos obtener las siguientes ecuaciones
+\begin{align*}
+	\lambda b_1 &= 2x_1 - 2a_1 \\
+	\lambda b_2 &= 2x_2 - 2a_2 \\
+	\lambda b_3 &= 2x_3 - 2a_3 \\
+	0 &= b_1x_1 + b_2x_2 + b_3x_3 + b_0 \\
+\end{align*}
+Para ello emplearemos el método de \textit{Gauss-Jordan}
+\begin{align*}
+	\begin{pmatrix}
+	2 & 0 & 0 & -b_1 \\
+	0 & 2 & 0 & -b_2 \\
+	0 & 0 & 2 & -b_3 \\
+	b_1 & b_2 & b_3 & 0 \\
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_2\\
+	x_3\\
+	\lambda\\
+	\end{pmatrix} &= \begin{pmatrix}
+	2a_1\\
+	2a_2\\
+	2a_3\\
+	-b_0\\
+	\end{pmatrix}\\
+	\begin{pmatrix}
+	2 & 0 & 0 & -b_1 \\
+	0 & 2 & 0 & -b_2 \\
+	0 & 0 & 2 & -b_3 \\
+	0 & b_2 & b_3 & \frac{b_1^2}{2} \\
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_2\\
+	x_3\\
+	\lambda\\
+	\end{pmatrix} &= \begin{pmatrix}
+	2a_1\\
+	2a_2\\
+	2a_3\\
+	-b_0 - b_1a_1\\
+	\end{pmatrix}\\ %%%
+	\begin{pmatrix}
+	2 & 0 & 0 & -b_1 \\
+	0 & 2 & 0 & -b_2 \\
+	0 & 0 & 2 & -b_3 \\
+	0 & 0 & b_3 & \frac{b_1^2}{2} + \frac{b_2^2}{2} \\
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_2\\
+	x_3\\
+	\lambda\\
+	\end{pmatrix} &= \begin{pmatrix}
+	2a_1\\
+	2a_2\\
+	2a_3\\
+	-b_0 - b_1a_1 - b_2a_2\\
+	\end{pmatrix}\\ %%
+	\begin{pmatrix}
+	2 & 0 & 0 & -b_1 \\
+	0 & 2 & 0 & -b_2 \\
+	0 & 0 & 2 & -b_3 \\
+	0 & 0 & 0 & \frac{b_1^2}{2} + \frac{b_2^2}{2} + \frac{b_3^2}{2} \\
+	\end{pmatrix} \* \begin{pmatrix}
+	x_1\\
+	x_2\\
+	x_3\\
+	\lambda\\
+	\end{pmatrix} &= \begin{pmatrix}
+	2a_1\\
+	2a_2\\
+	2a_3\\
+	-b_0 - b_1a_1 - b_2a_2 - b_3a_3\\
+	\end{pmatrix}\\ %%
+\end{align*}
+si despejamos lambda de la última fila $ \therefore \lambda = \dfrac{-2(b_0 + b_1 a_1 + b_2 a_2 + b_3 a_3)}{b_1^2 + b_2^2 + b_3^2} $
+\begin{align*}
+	2x_3 - b_3 \lambda &= 2a_3\\
+	x_3 &= \dfrac{2a_3 + b_3 \lambda}{2} \\
+	\\
+	2x_2 - b_2 \lambda &= 2a_2\\
+	x_2 &= \dfrac{2a_2 + b_2 \lambda}{2} \\
+	\\
+	2x_1 - b_1 \lambda &= 2a_1\\
+	x_1 &= \dfrac{2a_1 + b_1 \lambda}{2} \\
+\end{align*}
+Ahora, veamos el hessiano de la función
+\begin{align*}
+	\dfrac{\d^2 D}{\d x_1^2} &= 2\\
+	\dfrac{\d^2 D}{\d x_2^2} &= 2\\
+	\dfrac{\d^2 D}{\d x_3^2} &= 2\\
+	\dfrac{\d^2 D}{\d x_1x_2} &= 0\\
+	\dfrac{\d^2 D}{\d x_2x_3} &= 0\\
+	\dfrac{\d^2 D}{\d x_1x_3} &= 0\\
+\end{align*}
+entonces el arreglo quedaría 
+\begin{align*}
+	HD(x_1,x_2,x_3) &= \begin{bmatrix}
+	2 & 0 & 0\\
+	0 & 2 & 0\\
+	0 & 0 & 2\\
+	\end{bmatrix}
+\end{align*}
+Así que $ H_1 = \abs{2} > 0 $, $ H_2 = \begin{vmatrix}
+	2 & 0\\
+	0 & 2\\
+\end{vmatrix}  = 4 > 0$ y finalmente $ H_3 = \begin{vmatrix}
+	2 & 0 & 0\\
+	0 & 2 & 0\\
+	0 & 0 & 2\\
+\end{vmatrix} = 8 > 0$, eso nos permite concluir que el punto crítico en cuestíon es un mínimo local, ahora evaluemos
+
+\begin{align*}
+	D\left( \dfrac{2a_1 + b_1\lambda}{2}, \dfrac{2a_2 + b_2 \lambda}{2}, \dfrac{2a_3 + b_3 \lambda}{2} \right) &= \left( \dfrac{2a_1 + b_1\lambda}{2} - a_1 \right)^2 + \left( \dfrac{2a_2 + b_2 \lambda}{2} - a_2 \right)^2 + \left( \dfrac{2a_3 + b_3 \lambda}{2} - a_3 \right)^2\\
+	D\left( \dfrac{2a_1 + b_1\lambda}{2}, \dfrac{2a_2 + b_2 \lambda}{2}, \dfrac{2a_3 + b_3 \lambda}{2} \right) &= \left( \dfrac{b_1\lambda}{2}  \right)^2 + \left( \dfrac{b_2 \lambda}{2} \right)^2 + \left( \dfrac{b_3 \lambda}{2}\right)^2\\
+	D\left( \dfrac{2a_1 + b_1\lambda}{2}, \dfrac{2a_2 + b_2 \lambda}{2}, \dfrac{2a_3 + b_3 \lambda}{2} \right) &= \dfrac{\lambda^2}{4}\left( b_1^2 + b_2^2 + b_3^2 \right)\\
+\end{align*}
+luego, podemos emplear que $ \lambda = \dfrac{-2(b_0 + a_1b_1 +a_2 b_2 + a_2 b_3)}{b_1^2 + b_2^2 + b_3^2} $
+
+\[ 	D\left( \dfrac{2a_1 + b_1\lambda}{2}, \dfrac{2a_2 + b_2 \lambda}{2}, \dfrac{2a_3 + b_3 \lambda}{2} \right) = \dfrac{(b_0 + a_1 b_1 + a_2 b_2 + a_3 b_3)^2}{b_1^2 + b_2^2 + b_3^2} \]
+\begin{center}
+	Como habiamos tomado a D como la función distnacia pero al cuadrado ahora podemos ver que la \textbf{mínima} distnacia está dada por
+	\[ \sqrt{	D\left( \dfrac{2a_1 + b_1\lambda}{2}, \dfrac{2a_2 + b_2 \lambda}{2}, \dfrac{2a_3 + b_3 \lambda}{2} \right)} = \dfrac{|b_0 + a_1 b_1 + a_2 b_2 + a_3 b_3|}{\sqrt{b_1^2 + b_2^2 + b_3^2}}  \]
+\end{center}
+
 
 \noindent12. Encuentre el punto sobre la linea de intersección de los planos  $a_1x_1 + a_2x_2 + a_3x_3 = 0$ y $b_1x_1 + b_2x_2 + b_3x_3 + b_0 = 0$ que es más cercano al origen.
 
+Sean $ \vec{a}  = (a_1, a_2, b_2)$ y $ \vec{b} = (b_1, b_2, b_3) $ los vectores de la distancia, tomemos una función $ D $ como el cuadrado de la distancia (para no trabajar con raices) 
+\begin{align*}
+	D(x_1, x_2, x_3) &= (x_1 -0)^2 + (x_2 -0)^2 + (x_3 -0)^2\\
+	D(x_1, x_2, x_3) &= x_1^2 + x_2^2 + x_3^2\\
+\end{align*}
+Sujetas a las siguientes restricciones 
+\begin{align*}
+	g_1(x_1, x_2, x_3) &= a_1 x_2 + a_2 x_2 + a_3 x_3 = 0\\
+	g_2(x_1, x_2, x_3) &= b_1 x_2 + b_2 x_2 + b_3 x_3  + b_0 = 0\\
+\end{align*}
+Primero supongamos que $ \nabla g_1 \neq 0 $ y $ \nabla g_2 \neq 0 $ entonces
+\begin{align*}
+	\nabla D &= (2x_1, 2x_2, 2x_3)\\
+	\nabla g_1 &= (a_1, a_2, a_3)\\
+	\nabla g_2 &= (b_1, b_2, b_3)\\
+\end{align*}
+Así se nos permite plantear el siguiente sistema de ecuaciones
+\setcounter{equation}{0}
+\begin{align} 
+	2x_1 &= \l_1 a_1 + \l_2 b_1\\
+	2x_2 &= \l_1 a_2 + \l_2 b_2\\
+	2x_3 &= \l_1 a_3 + \l_2 b_3\\
+	a_1 x_1 + a_2 x_2 + a_3 x_3 &= 0\\
+	b_1 x_1 + b_2 x_2 + b_3 x_3 &= -b_0
+\end{align}
+resolvamos por el método de \textit{Gauss-Jordan}
+\begin{align*}
+	\begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	a_1 & a_2 & a_3 & 0 & 0\\
+	b_1 & b_2 & b_3 & 0 & 0\\
+	\end{pmatrix}\begin{pmatrix}
+	x_1\\
+	x_2\\
+	x_3\\
+	\l_1\\
+	\l_2\\
+	\end{pmatrix} &= \begin{pmatrix}
+	0\\
+	0\\
+	0\\
+	0\\
+	-b_0\\
+	\end{pmatrix}\\%%
+	\begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	a_1 & a_2 & a_3 & 0 & 0\\
+	b_1 & b_2 & b_3 & 0 & 0\\
+	\end{pmatrix} &= 	\begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	0 & a_2 & a_3 & \frac{a_1^2}{2} & \frac{a_1b_1}{2}\\
+	0 & b_2 & b_3 & \frac{a_1b_1}{2} & \frac{b_1^2}{2}\\
+	\end{pmatrix}\\ %%
+	\begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	0 & a_2 & a_3 & \frac{a_1^2}{2} & \frac{a_1b_1}{2}\\
+	0 & b_2 & b_3 & \frac{a_1b_1}{2} & \frac{b_1^2}{2}\\
+	\end{pmatrix} &= \begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	0 & 0 & a_3 & \frac{(a_1^2 + a_2^2)}{2} & \frac{(a_1b_1 + a_2b_2)}{2}\\
+	0 & 0 & b_3 & \frac{(a_1b_1 + a_2b_2)}{2} & \frac{(b_1^2 + b_2^2)}{2}\\
+	\end{pmatrix}
+\end{align*}
+\begin{align*}
+	\begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	0 & 0 & a_3 & \frac{(a_1^2 + a_2^2)}{2} & \frac{(a_1b_1 + a_2b_2)}{2}\\
+	0 & 0 & b_3 & \frac{(a_1b_1 + a_2b_2)}{2} & \frac{(b_1^2 + b_2^2)}{2}\\
+	\end{pmatrix} &= \begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	0 & 0 & 0 & \frac{(a_1^2 + a_2^2 + a_3^2)}{2} & \frac{(a_1b_1 + a_2b_2 + a_3 b_3)}{2}\\
+	0 & 0 & 0 & \frac{(a_1b_1 + a_2b_2 + a_3 b_3)}{2} & \frac{(b_1^2 + b_2^2 + b_3^2)}{2}\\
+	\end{pmatrix}\\ %%
+	\begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	0 & 0 & 0 & \frac{(a_1^2 + a_2^2 + a_3^2)}{2} & \frac{(a_1b_1 + a_2b_2 + a_3 b_3)}{2}\\
+	0 & 0 & 0 & \frac{(a_1b_1 + a_2b_2 + a_3 b_3)}{2} & \frac{(b_1^2 + b_2^2 + b_3^2)}{2}\\
+	\end{pmatrix} &= \begin{pmatrix}
+	2 & 0 & 0 & -a_1 & -b_1\\
+	0 & 2 & 0 & -a_2 & -b_2\\
+	0 & 0 & 2 & -a_3 & -b_3\\
+	0 & 0 & 0 & \frac{(a_1^2 + a_2^2 + a_3^2)}{2} & \frac{(a_1b_1 + a_2b_2 + a_3 b_3)}{2}\\
+	0 & 0 & 0 & 0 & \frac{(b_1^2 + b_2^2 + b_3^2)}{2} - \dfrac{(a_1b_2 + a_2 b_2 + a_3 b_3)^2}{2(a_1^2 + a_2^2 + a_3^2)}\\
+	\end{pmatrix} \begin{pmatrix}
+	x_1\\
+	x_2\\
+	x_3\\
+	\l_1\\
+	\l_2\\
+	\end{pmatrix}
+\end{align*}
+entonces tenemos que 
+\setcounter{equation}{0}
+\begin{align}
+	2x_1 - \l_1 a_1 - \l_2 b_1 &= 0\\
+	2x_2 - \l_1 a_2 - \l_2 b_2 &= 0\\
+	2x_3 - \l_1 a_3 - \l_2 b_3 &= 0\\
+	\left( \dfrac{a_1^2 + a_2^2 + a_3^2}{2} \right)\l_1 + \dfrac{(a_1 b_1 + a_2 b_2 + a_3 b_3)}{2}\l_2 &= 0\\
+	\dfrac{(b_1^2 + b_2^2 + b_3^2 )}{2} \l_2 - \dfrac{(a_1 b_2 + a_2 b_2 + a_3 b_3)^2}{2(a_1^2 + a_2^2 + a_3^2)}\l_2 &= -b_0 
+\end{align}
+Observemos que si asumimos a $ b_0 = 0 $ entonces en $ (5) $ tendríamos que $ \l_2 = 0 $, también por $ (4) $, $ \lambda_1 = 0 $ y así sabríamos que por $ (1),(2),(3) $ $ x_1 = x_2 = x_3 = 0 $ lo que significaría que $ (0,0,0) $ es la interseccion de los planos y además es la distancia más cercana al origen. Entonces asumamos que $ b_0 \neq 0 $ entonces $ \l_2 \neq 0 $, reescribamos $ (4) $ y $ (5) $ para hacerlos más claros
+
+\begin{align*}
+	(\vec{a} \* \vec{a}) \l_1 + (\vec{a} \* \vec{b}) \l_2 &= 0 \label{eq:penUltima}\tag{4}\\
+	\frac{\l_2}{2}\left( \vec{b}\* \vec{b} - \dfrac{(\vec{a} \* \vec{b})^2}{\vec{a} \* \vec{a}} \right) &= -b_0 \label{eq:Ultima}\tag{5}
+\end{align*}
 \end{document}
