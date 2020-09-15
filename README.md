@@ -36,16 +36,15 @@ A lo largo del curso se cubrirán los siguientes temas:
 ## Horarios
 Horario         | Día              | Tipo de clase       | Aula
 ----------------|------------------|---------------------|------
-10:00 - 12:00   | Lunes, Miércoles, Viernes | Profesor | P112
+10:00 - 12:00   | Lunes, Miércoles, Viernes | Profesor | Meet
 
 ## Profesores
 * *Profesor* Pedro Porras Flores
 * *Ayudante*	Irving Hérnandez Rosas
 
 ## Enlaces
--[Programa oficial](http://www.fciencias.unam.mx/asignaturas/1226.pdf)
+-[Programa oficial](http://www.fciencias.unam.mx/asignaturas/1318.pdf)
 
--[Marsden- Cálculo vectorial _libro_ ]( https://drive.google.com/open?id=0B5WVa9RwPrEXOVFpRXpfQ2pTRDA&authuser=1)
 
 ## Contacto 
 Ariel Merino [e-mail :email: ](mailto:arielmerino@ciencias.unam.mx)
